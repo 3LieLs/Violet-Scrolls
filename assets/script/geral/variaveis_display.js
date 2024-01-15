@@ -37,7 +37,7 @@ var jogador = {
 
 /*-NÍVEL DE JOGADOR-*/
 var jogadorNivel = {
-    nivel: 1, experiencia: 0, experienciaPorcentagem: 0, proximoNivel: 20,
+    nivel: 1, experiencia: 0, experienciaPorcentagem: 100, proximoNivel: 10,
 }
 /*-----*/
 

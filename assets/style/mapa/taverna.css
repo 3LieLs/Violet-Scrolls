@@ -49,12 +49,15 @@
     padding: 3% 0% 5% 0%;
     width: 85%;
     height: 1vh;
-    background-color: gray;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEWAgICQdD0xAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     border: solid 3px black;
     border-top: none;
     text-align: center;
     font-size: 10pt;
     font-weight: bold;
+    transition: 1s linear 0s;
 }
 
 #subirNivel {

@@ -12,9 +12,11 @@ main {
 
 /*-INICIO-*/
 #mensagemInicio {
+    margin: auto;
+    width: 95%;
     padding-top: 10%;
     text-align: center;
-    font-size: 35pt;
+    font-size: 30pt;
     font-weight: bold;
 }
 

@@ -54,10 +54,12 @@ function upVida() {
     jogador.vida = jogador.vida + 5
     jogadorNivel.nivel = jogadorNivel.nivel + 1
     jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel
+    jogadorNivel.proximoNivel = parseInt(jogadorNivel.proximoNivel) + parseInt(jogadorNivel.proximoNivel)
 
     menuVidaVal.innerHTML = `Vida: ${jogador.vida}` 
     nivelAtualVal.innerHTML = `Nível: ${jogadorNivel.nivel}`
     experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`
+    
     upStatus.style.display = 'none' 
 }
 
@@ -65,10 +67,12 @@ function upEnergia() {
     jogador.energia = jogador.energia + 5
     jogadorNivel.nivel = jogadorNivel.nivel + 1
     jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel
+    jogadorNivel.proximoNivel = parseInt(jogadorNivel.proximoNivel) + parseInt(jogadorNivel.proximoNivel)
 
     menuEnergiaVal.innerHTML = `Energia: ${jogador.energia}` 
     nivelAtualVal.innerHTML = `Nível: ${jogadorNivel.nivel}`
     experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`
+
     upStatus.style.display = 'none'
 }
 
@@ -76,10 +80,26 @@ function upMana() {
     jogador.mana = jogador.mana + 5
     jogadorNivel.nivel = jogadorNivel.nivel + 1
     jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel
+    jogadorNivel.proximoNivel = parseInt(jogadorNivel.proximoNivel) + parseInt(jogadorNivel.proximoNivel)
     
     menuManaVal.innerHTML = `Mana: ${jogador.mana}` 
     nivelAtualVal.innerHTML = `Nível: ${jogadorNivel.nivel}`
     experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`
+
     upStatus.style.display = 'none' 
+}
+
+function barraExperiencia() {
+    jogador.porcentagem = 100 - ((jogadorNivel.experiencia / jogadorNivel.proximoNivel) * 100)
+    jogador.porcentagem = 100 - jogador.porcentagem
+    jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+
+    jogador.experienciaPorcentagem = parseInt(jogador.experienciaPorcentagem) + parseInt(jogador.porcentagem)
+
+    if (jogador.experienciaPorcentagem > 100) {
+        jogador.experienciaPorcentagem = 100
+    }
+
+    experienciaAtualVal.style.backgroundSize = `${jogador.experienciaPorcentagem}%, 100%`
 }
 /*-----*/
