@@ -1,0 +1,22 @@
+/*-----*/
+#acao {
+    display: flex;
+    position: absolute;
+    left: 15%;
+    bottom: 5%;
+    width: 80%;
+    margin: 0% 0% 0% 0%;
+}
+
+#ataqueBasico, #ataqueEspecial, #defesa, #descansar, #focar{
+    position: relative;
+    width: 20%;
+    margin-right: 1%;
+    padding: 1% 1% 1% 1%;
+    background-color: gray;
+    border: solid 3px black;
+    border-radius: 5%;
+    font-size: 15pt;
+    font-weight: bold;
+}
+/*-----*/
