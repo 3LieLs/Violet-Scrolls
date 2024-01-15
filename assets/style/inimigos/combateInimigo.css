@@ -78,4 +78,30 @@
     font-size: 20pt;
     transition: 0.5s linear 0s;
 }
+
+#mensagemInimigoDerrotado{
+    margin-top: 15%;
+    text-align: center;
+    font-size: 50pt;
+}
+
+#experienciaGanha{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    margin: auto;
+    padding: 1% 0% 5% 0%;
+    width: 75%;
+    height: 1vh;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEWAgICQdD0xAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border: solid 3px black;
+    border-radius: 5%;
+    text-align: center;
+    font-size: 30pt;
+    font-weight: bold;
+    transition: 0.5s linear 0s;
+}
 /*-----*/

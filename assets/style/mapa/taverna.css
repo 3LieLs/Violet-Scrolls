@@ -1,0 +1,253 @@
+/*-MENU-*/
+#botaoMenu {
+    position: absolute;
+    top: 4%;
+    left: 4%;
+    width: 8%;
+    background-color: gray;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#mainMenu {
+    position: absolute;
+    top: 10%;
+    left: 3%;
+    width: 87%;
+    height: 85%;
+    z-index: 9999;
+    background-color: rgb(167, 44, 0);
+    border: solid 5px black;
+    border-radius: 5%;
+}
+
+#nivel {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 20%;
+    height: 20vh;
+    text-align: center;
+    font-weight: bold;
+}
+
+#nivelAtual {
+    margin: 0% 0% 0% 0%;
+    padding: 3% 0% 5% 0%;
+    width: 100%;
+    height: 3vh;
+    background-color: gray;
+    border: solid 3px black;
+    text-align: center;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+#experienciaAtual {
+    margin: auto;
+    margin-bottom: 5%;
+    padding: 3% 0% 5% 0%;
+    width: 85%;
+    height: 1vh;
+    background-color: gray;
+    border: solid 3px black;
+    border-top: none;
+    text-align: center;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+#subirNivel {
+    margin: 0% 0% 5% 0%;
+    padding: 2%;
+    background-color: black;
+    color: orangered;
+    border-radius: 10%;
+    text-align: center;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+#subirVida,
+#subirEnergia,
+#subirMana {
+    margin: 0% 0% 5% 0%;
+    padding: 2%;
+    width: 25%;
+    color: black;
+    border-radius: 10%;
+    text-align: center;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+#subirVida {
+    background-color: red;
+}
+
+#subirEnergia {
+    background-color: green;
+}
+
+#subirMana {
+    background-color: blue;
+}
+
+#menuStats {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: -5%;
+    top: 10%;
+    width: 100%;
+}
+
+#menuEquip {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: -1.5%;
+    bottom: 10%;
+    width: 100%;
+}
+
+#menuNomeClasseGenero {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    top: 30%;
+    left: 31%;
+    width: 60%;
+}
+
+#menuNome,
+#menuGenero,
+#menuClasse {
+    width: 100%;
+    margin: 0% 0% 3% 3%;
+    padding: 0% 0% 0% 0%;
+    background-color: green;
+    border: solid 3px black;
+    border-radius: 10%;
+    text-align: center;
+    font-size: 15pt;
+}
+
+#menuNome {
+    margin-left: 10%;
+}
+
+#menuVidaEnergiaMana {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    top: 30%;
+    left: 31%;
+    width: 60%;
+}
+
+#menuVida,
+#menuEnergia,
+#menuMana {
+    width: 100%;
+    margin: 0% 0% 0% 10%;
+    padding: 0% 0% 0% 0%;
+    background-color: green;
+    border: solid 3px black;
+    border-radius: 10%;
+    text-align: center;
+    font-size: 15pt;
+}
+
+#menuEquipAtaque,
+#menuEquipDefesa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 30%;
+    left: 31%;
+    width: 30%;
+}
+
+#menuArma,
+#menuArmadura {
+    width: 80%;
+    height: 8vh;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    background-color: green;
+    border: solid 3px black;
+    border-radius: 10%;
+    text-align: center;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+#menuDano,
+#menuDefesa,
+#menuEnergiaRecuperacao,
+#menuManaRecuperacao,
+#menuEnergiaCusto,
+#menuManaCusto {
+    width: 70%;
+    margin: 3% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    background-color: green;
+    border: solid 3px black;
+    border-radius: 10%;
+    text-align: center;
+    font-size: 15pt;
+}
+
+/*-----*/
+
+/*-FASE GOBLIN-*/
+#botaoGoblin {
+    position: absolute;
+    bottom: 5%;
+    left: 20%;
+    transform: translate(-50%);
+    width: 25%;
+    height: 8vh;
+    background-color: gray;
+    border: solid 3px black;
+    border-radius: 20%;
+    font-size: 25pt;
+    font-weight: bold;
+}
+
+/*-----*/
+
+/*-FASE GOLEM-*/
+#botaoGolem {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 25%;
+    height: 8vh;
+    background-color: gray;
+    border: solid 3px black;
+    border-radius: 20%;
+    font-size: 25pt;
+    font-weight: bold;
+}
+
+/*-----*/
+
+/*-FASE DRAGÃO-*/
+#botaoDragao {
+    position: absolute;
+    bottom: 5%;
+    left: 80%;
+    transform: translate(-50%);
+    width: 25%;
+    height: 8vh;
+    background-color: gray;
+    border: solid 3px black;
+    border-radius: 20%;
+    font-size: 25pt;
+    font-weight: bold;
+}
+
+/*-----*/

@@ -5,22 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Elder Scrolls</title>
-    <link rel="stylesheet" href="assets/style/geral/inicio.css">
-    <link rel="stylesheet" href="assets/style/geral/taverna.css">
+   
+    <link rel="stylesheet" href="assets/style/inicio/inicio.css">
+    <link rel="stylesheet" href="assets/style/inicio/personalizacao.css">
+    <link rel="stylesheet" href="assets/style/inicio/escolhaClasse.css">
+    <link rel="stylesheet" href="assets/style/inicio/escolhaArma.css">
+    <link rel="stylesheet" href="assets/style/inicio/escolhaArmadura.css">
 
-    <link rel="stylesheet" href="assets/style/inimigos/combateInimigo.css">
-    <link rel="stylesheet" href="assets/style/inimigos/inimigo.css">
+    <link rel="stylesheet" href="assets/style/mapa/taverna.css">
 
-    <link rel="stylesheet" href="assets/style/jogador/arma.css">
-    <link rel="stylesheet" href="assets/style/jogador/armadura.css">
-    <link rel="stylesheet" href="assets/style/jogador/classe.css">
-    <link rel="stylesheet" href="assets/style/jogador/combateJogador.css">
-    <link rel="stylesheet" href="assets/style/jogador/personalizacao.css">
     <link rel="stylesheet" href="assets/style/jogador/jogador.css">
+    <link rel="stylesheet" href="assets/style/jogador/combateJogador.css">
+
+    <link rel="stylesheet" href="assets/style/inimigos/inimigo.css">
+    <link rel="stylesheet" href="assets/style/inimigos/combateInimigo.css">
+
 </head>
 
 <style>
- 
+    @font-face {
+        font-family: 'BreatheFire';
+        src: url('assets/content/font/BreatheFire-65pg.ttf') format('truetype');
+    }
+
+    * {
+        font-family: 'BreatheFire';
+    }
+
+    body {
+        background-color: rgb(80, 80, 80);
+    }
+</style>
+
+<body>
+    <audio id="musica" autoplay>
+        <source src="" type="audio/mpeg">
+    </audio>
+
+    <main>
+        <!----------------------INICIO---------------------->
+        <div id="inicio">
+            <p id="mensagemInicio">Bem vindo, jovem aventureiro</p>
+            <input id="botaoInicio" type="button" value="Iniciar">
+            <p id="mestre"></p>
+        </div>
         <!---------------------------------------------------------------------->
 
         <!----------------------SELEÇÃO DE GÊNERO---------------------->
@@ -230,22 +258,37 @@
             </div>
         </div>
         <!---------------------------------------------------------------------->
+
+        <!----------------------INIMIGO DERROTADO---------------------->
+        <div id="mainInimigoDerrotado">
+            <div id="mensagemInimigoDerrotado"></div>
+            <p id="experienciaGanha"></p>
+        </div>
+        <!---------------------------------------------------------------------->
+
     </main>
 
-    <script src="assets/script/geral/inicio.js"></script>
-    <script src="assets/script/geral/musica.js"></script>
-    <script src="assets/script/geral/taverna.js"></script>
+
+
     <script src="assets/script/geral/variaveis_display.js"></script>
+    <script src="assets/script/geral/musica.js"></script>
 
-    <script src="assets/script/inimigos/combateInimigo.js"></script>
-    <script src="assets/script/inimigos/inimigo.js"></script>
+    <script src="assets/script/inicio/inicio.js"></script>
+    <script src="assets/script/inicio/personalizacao.js"></script>
+    <script src="assets/script/inicio/classe.js"></script>
+    <script src="assets/script/inicio/escolhaArma.js"></script>
+    <script src="assets/script/inicio/escolhaArmadura.js"></script>
 
-    <script src="assets/script/jogador/arma.js"></script>
-    <script src="assets/script/jogador/armadura.js"></script>
-    <script src="assets/script/jogador/classe.js"></script>
-    <script src="assets/script/jogador/combateJogador.js"></script>
-    <script src="assets/script/jogador/personalizacao.js"></script>
+    <script src="assets/script/mapa/taverna.js"></script>
+
     <script src="assets/script/jogador/jogador.js"></script>
+    <script src="assets/script/jogador/combateJogador.js"></script>
+
+    <script src="assets/script/inimigos/inimigoGeral.js"></script>
+    <script src="assets/script/inimigos/goblin.js"></script>
+    <script src="assets/script/inimigos/golem.js"></script>
+    <script src="assets/script/inimigos/dragao.js"></script>
+
 </body>
 
 </html>

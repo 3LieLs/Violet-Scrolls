@@ -1,0 +1,7 @@
+Corrigir o bug da energia
+
+Colocar sons nos botões, golpes, e sons dos inimigos atacando e levando golpes
+
+substituir safezone por taverna
+
+reformular os scripts e css

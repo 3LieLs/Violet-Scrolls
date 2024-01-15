@@ -1,7 +1,7 @@
 /*-MÚSICA-*/
 var musicaVal = window.document.querySelector('audio#musica')
 
-musicaVal.src = 'assets/content/audio/MúsicaPacífica/SafeZone.mp4'
+musicaVal.src = 'assets/content/audio/MúsicaPacífica/taverna.mp4'
 
 function definirMusica() {
     if(fase == 'goblin'){
@@ -14,7 +14,8 @@ function definirMusica() {
         musicaVal.src = 'assets/content/audio/MúsicaCombate/CombateBoss1.mp3'
     }
     if(fase == 'safezone'){
-        musicaVal.src = 'assets/content/audio/MúsicaPacífica/SafeZone.mp4'
+        mainSafeZone.style.display = 'contents'
+        musicaVal.src = 'assets/content/audio/MúsicaPacífica/taverna.mp4'
     }
 }
 /*-----*/

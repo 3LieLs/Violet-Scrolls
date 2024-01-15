@@ -11,6 +11,7 @@ mainHud.style.display = 'none'
 mainFaseGoblin.style.display = 'none'
 mainFaseGolem.style.display = 'none'
 mainFaseDragao.style.display = 'none'
+mainInimigoDerrotado.style.display = 'none'
 
 mainSafeZone.style.display = 'none'
 mainBotaoMenu.style.display = 'none'
@@ -36,7 +37,7 @@ var jogador = {
 
 /*-NÍVEL DE JOGADOR-*/
 var jogadorNivel = {
-    nivel: 1, experiencia: 0, proximoNivel: 20,
+    nivel: 1, experiencia: 0, experienciaPorcentagem: 0, proximoNivel: 20,
 }
 /*-----*/
 
