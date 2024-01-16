@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <style>
+        #miniGame {
+            position: absolute;
+            top: 50%;
+            left: 35%;
+            width: 3%;
+            height: 6%;
+            background-color: purple;
+            border: solid 3px black;
+            border-radius: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <p></p>
+    <input id="miniGame" type="button">
+</body>
+
+<script>
+    var miniGameAtaqueBasicoVal = window.document.querySelector('input#miniGame')
+
+    miniGameAtaqueBasicoVal.addEventListener('click', miniGameAtaqueBasico)
+
+    function miniGameAtaqueBasico() {
+        let cima = Math.floor(Math.random() * 20) + 50;
+
+        miniGameAtaqueBasicoVal.style.top = `${cima}%`
+    }
+</script>
+
+</html>

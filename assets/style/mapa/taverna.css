@@ -51,7 +51,7 @@
     height: 1vh;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEWAgICQdD0xAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 0% 100%;
     border: solid 3px black;
     border-top: none;
     text-align: center;

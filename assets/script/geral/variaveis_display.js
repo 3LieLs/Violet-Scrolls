@@ -8,9 +8,10 @@ arma.style.display = 'none'
 armadura.style.display = 'none'
 
 mainHud.style.display = 'none'
-mainFaseGoblin.style.display = 'none'
-mainFaseGolem.style.display = 'none'
-mainFaseDragao.style.display = 'none'
+miniGameDisplay.style.display = 'none'
+
+inimigoFisicoFase.style.display = 'none'
+inimigoMagicoFase.style.display = 'none'
 mainInimigoDerrotado.style.display = 'none'
 
 mainSafeZone.style.display = 'none'
@@ -25,10 +26,16 @@ var fase = '', vezUsuario = true, mainHudDisplay = false
 var menuAbertoFechado = false, safeZone = false
 /*-----*/
 
+/*-GERAL-*/
+var geral = {
+    critico: 0,
+}
+/*-----*/
+
 /*-STATUS JOGADOR-*/
 var jogador = {
     nome: '', genero: '', classe: '',
-    peso: 15,
+    peso: 15, click: 0,
     vida: 0, mana: 0, energia: 0,
     vidaCombate: 0, manaCombate: 0, energiaCombate: 0,
     porcentagem: 0, vidaPorcentagem: 100, manaPorcentagem: 100, energiaPorcentagem: 100,
@@ -37,7 +44,7 @@ var jogador = {
 
 /*-NÍVEL DE JOGADOR-*/
 var jogadorNivel = {
-    nivel: 1, experiencia: 0, experienciaPorcentagem: 100, proximoNivel: 10,
+    nivel: 1, experiencia: 0, experienciaPorcentagem: 0, proximoNivel: 20,
 }
 /*-----*/
 
@@ -73,8 +80,12 @@ var armaduraNivel = {
 /*-INIMIGO-*/
 var inimigo = {
     nome: '', classe: '',
+
     vida: 0, mana: 0, energia: 0,
     vidaCombate: 0, manaCombate: 0, energiaCombate: 0,
+    energiaCusto: 0, energiaRecuperacao: 0, manaCusto: 0, manaRecuperacao: 0,
     porcentagem: 0, vidaPorcentagem: 100, manaPorcentagem: 100, energiaPorcentagem: 100,
+
+    dano: 0, danoCombate: 0,
 }
 /*-----*/

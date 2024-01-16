@@ -1,3 +1,7 @@
+function acaoIntervalo() {
+    vezUsuario = true
+}
+
 var legendaView = window.document.querySelector('p#mensagemLegenda')
 
 /*-JOGADOR HUD-*/
@@ -21,11 +25,13 @@ function usuarioCombateView() {
 function jogadorDerrotado() {
     if (jogador.vidaCombate <= 0) {
         fase = 'safezone'
+        
         mainHudDisplay = false
         mainHud.style.display = 'none'
-        mainFaseGoblin.style.display = 'none'
-        mainFaseGolem.style.display = 'none'
-        mainFaseDragao.style.display = 'none'
+
+        inimigoFisicoFase.style.display = 'none'
+        inimigoMagicoFase.style.display = 'none' 
+
         mainSafeZone.style.display = 'contents'
         definirMusica()
     }
@@ -56,6 +62,9 @@ function upVida() {
     jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel
     jogadorNivel.proximoNivel = parseInt(jogadorNivel.proximoNivel) + parseInt(jogadorNivel.proximoNivel)
 
+    barraExperiencia()
+    jogadorNivel.experienciaPorcentagem = 0
+
     menuVidaVal.innerHTML = `Vida: ${jogador.vida}` 
     nivelAtualVal.innerHTML = `Nível: ${jogadorNivel.nivel}`
     experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`
@@ -69,6 +78,9 @@ function upEnergia() {
     jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel
     jogadorNivel.proximoNivel = parseInt(jogadorNivel.proximoNivel) + parseInt(jogadorNivel.proximoNivel)
 
+    barraExperiencia()
+    jogadorNivel.experienciaPorcentagem = 0
+
     menuEnergiaVal.innerHTML = `Energia: ${jogador.energia}` 
     nivelAtualVal.innerHTML = `Nível: ${jogadorNivel.nivel}`
     experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`
@@ -81,6 +93,9 @@ function upMana() {
     jogadorNivel.nivel = jogadorNivel.nivel + 1
     jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel
     jogadorNivel.proximoNivel = parseInt(jogadorNivel.proximoNivel) + parseInt(jogadorNivel.proximoNivel)
+
+    barraExperiencia()
+    jogadorNivel.experienciaPorcentagem = 0
     
     menuManaVal.innerHTML = `Mana: ${jogador.mana}` 
     nivelAtualVal.innerHTML = `Nível: ${jogadorNivel.nivel}`
@@ -90,16 +105,15 @@ function upMana() {
 }
 
 function barraExperiencia() {
-    jogador.porcentagem = 100 - ((jogadorNivel.experiencia / jogadorNivel.proximoNivel) * 100)
-    jogador.porcentagem = 100 - jogador.porcentagem
-    jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+    jogador.porcentagem = ((jogadorNivel.experiencia / jogadorNivel.proximoNivel) * 100)
+        jogador.porcentagem = jogador.porcentagem.toPrecision(3)
 
-    jogador.experienciaPorcentagem = parseInt(jogador.experienciaPorcentagem) + parseInt(jogador.porcentagem)
+        jogadorNivel.experienciaPorcentagem = parseInt(jogador.porcentagem)
 
-    if (jogador.experienciaPorcentagem > 100) {
-        jogador.experienciaPorcentagem = 100
-    }
+        if (jogadorNivel.experienciaPorcentagem > 100) {
+            jogadorNivel.experienciaPorcentagem = 100
+        }
 
-    experienciaAtualVal.style.backgroundSize = `${jogador.experienciaPorcentagem}%, 100%`
+        experienciaAtualVal.style.backgroundSize = `${jogadorNivel.experienciaPorcentagem}% 100%`
 }
 /*-----*/

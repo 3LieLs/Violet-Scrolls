@@ -241,7 +241,7 @@ function Arma() {
         statsArmaLeve.innerHTML = `Dano: 4 / Energia custo: 3 / Mana Custo: 0`
 
         function botaoArmaLeveClick() {
-            armaJogador.dano = 4
+            armaJogador.dano = 40
             armaJogador.energiaCusto = 3
             armaJogador.manaCusto = 0
             armaJogador.nome = 'Besta leve'

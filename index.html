@@ -46,7 +46,8 @@
         <!----------------------INICIO---------------------->
         <div id="inicio">
             <p id="mensagemInicio">
-                Bem-vindo(a) ao mundo das maravilhas!<br> Que suas escolhas sejam corajosas e suas jornadas, inesquecíveis.<br>
+                Bem-vindo(a) ao mundo das maravilhas!<br> Que suas escolhas sejam corajosas e suas jornadas,
+                inesquecíveis.<br>
                 Que a sorte esteja sempre ao seu lado.</p>
             <input id="botaoInicio" type="button" value="Iniciar">
             <p id="mestre"></p>
@@ -147,10 +148,10 @@
         </div>
         <!---------------------------------------------------------------------->
 
-         <!----------------------HISTÓRIA---------------------->
-         <div id="mainHistoria">
+        <!----------------------HISTÓRIA---------------------->
+        <div id="mainHistoria">
             <p id="mensagemHistoria"></p>
-            </div>
+        </div>
         <!---------------------------------------------------------------------->
 
         <!----------------------MENU---------------------->
@@ -218,6 +219,7 @@
             </div>
 
             <div id="acao">
+
                 <input id="ataqueBasico" type="button" value="Ataque Básico">
 
                 <input id="ataqueEspecial" type="button" value="Ataque Especial">
@@ -228,6 +230,10 @@
 
                 <input id="focar" type="button" value="Focar">
             </div>
+        </div>
+
+        <div id="miniGameDisplay">
+            <input id="miniGame" type="button">
         </div>
         <!---------------------------------------------------------------------->
 
@@ -241,28 +247,21 @@
         <!---------------------------------------------------------------------->
 
         <!----------------------INIMIGOS---------------------->
-        <div id="mainFaseGoblin">
-            <div id="goblin">
-                <p id="goblinNome">GOBLIN</p>
-                <p id="goblinVida"></p>
-                <p id="goblinEnergia"></p>
-                <img src="assets/content/img/Goblin.gif" alt="Goblin">
+        <div id="inimigoFisicoFase">
+            <div id="inimigo">
+                <p id="inimigoNome">GOBLIN</p>
+                <p id="inimigoFisicoVida"></p>
+                <p id="inimigoFisicoEnergia"></p>
+                <img id="inimigoImagem" src="" alt="">
             </div>
         </div>
-        <div id="mainFaseGolem">
-            <div id="golem">
-                <p id="golemNome">GOLEM</p>
-                <p id="golemVida"></p>
-                <p id="golemEnergia"></p>
-                <img src="assets/content/img/Golem.gif" alt="Golem">
-            </div>
-        </div>
-        <div id="mainFaseDragao">
+        
+        <div id="inimigoMagicoFase">
             <div id="dragao">
-                <p id="dragaoNome">DRAGÃO</p>
-                <p id="dragaoVida"></p>
-                <p id="dragaoMana"></p>
-                <img src="assets/content/img/Dragão.gif" alt="Dragão">
+                <p id="inimigoNome"></p>
+                <p id="inimigoMagicoVida"></p>
+                <p id="inimigoMagicoMana"></p>
+                <img id="inimigoImagem" src="" alt="">
             </div>
         </div>
         <!---------------------------------------------------------------------->
@@ -290,7 +289,12 @@
     <script src="assets/script/mapa/taverna.js"></script>
 
     <script src="assets/script/jogador/jogador.js"></script>
-    <script src="assets/script/jogador/combateJogador.js"></script>
+    <script src="assets/script/jogador/combateGeral.js"></script>
+    <script src="assets/script/jogador/movimentos/ataqueBasico.js"></script>
+    <script src="assets/script/jogador/movimentos/ataqueEspecial.js"></script>
+    <script src="assets/script/jogador/movimentos/defesa.js"></script>
+    <script src="assets/script/jogador/movimentos/descanso.js"></script>
+    <script src="assets/script/jogador/movimentos/foco.js"></script>
 
     <script src="assets/script/inimigos/inimigoGeral.js"></script>
     <script src="assets/script/inimigos/goblin.js"></script>

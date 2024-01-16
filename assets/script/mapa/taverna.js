@@ -59,6 +59,8 @@ function menuDisplay() {
         nivelAtualVal.innerHTML = `Nível: ${jogadorNivel.nivel}`
         experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`
 
+        barraExperiencia()
+
         if (jogadorNivel.experiencia >= jogadorNivel.proximoNivel) {
             upStatus.style.display = 'contents'
         }
@@ -72,6 +74,8 @@ function menuDisplay() {
 /*-TAVERNA-*/
 var mensagemSafeZoneVal = window.document.querySelector('p#mensagemSafeZone')
 mensagemSafeZoneVal.innerHTML = ``
+
+var inimigoImagemVal = window.document.querySelector('img#inimigoImagem')
 /*-----*/
 
 /*-GOBLIN-*/
@@ -81,13 +85,22 @@ botaoGoblinVal.addEventListener('mouseover', botaoGoblinHover)
 botaoGoblinVal.addEventListener('mouseout', botaoGoblinOut)
 
 function botaoGoblinClick() {
-    fase = 'goblin'
     mainSafeZone.style.display = 'none'
+    
+    fase = 'goblin'
+    inimigoImagemVal.src = 'assets/content/img/Goblin.gif'
+    inimigoImagemVal.style.width = '50%'
+
+    inimigoFisicoFase.style.display = 'contents'
+    
     mainHud.style.display = 'contents'
-    mainFaseGoblin.style.display = 'contents'
+    
+    definirEstatisticaGoblin()
     definirEstatisticaGeral()
+
     usuarioCombateView()
     inimigoCombateView()
+
     definirMusica()
 }
 function botaoGoblinHover() {
@@ -107,13 +120,21 @@ botaoGolemVal.addEventListener('mouseover', botaoGolemHover)
 botaoGolemVal.addEventListener('mouseout', botaoGolemOut)
 
 function botaoGolemClick() {
-    fase = 'golem'
     mainSafeZone.style.display = 'none'
+    
+    fase = 'golem'
+    inimigoImagemVal.src = 'assets/content/img/Golem.gif'
+    inimigoImagemVal.style.width = '50%'
+    inimigoFisicoFase.style.display = 'contents'
+    
     mainHud.style.display = 'contents'
-    mainFaseGolem.style.display = 'contents'
+    
+    definirEstatisticaGolem()
     definirEstatisticaGeral()
+
     usuarioCombateView()
     inimigoCombateView()
+    
     definirMusica()
 }
 function botaoGolemHover() {
@@ -160,9 +181,11 @@ function definirEstatisticaGeral() {
     jogador.vidaCombate = jogador.vida, jogador.energiaCombate = jogador.energia, jogador.manaCombate = jogador.mana
     jogador.vidaPorcentagem = 100, jogador.energiaPorcentagem = 100, jogador.manaPorcentagem = 100,
 
+    armaJogador.danoCombate = armaJogador.dano
+
     inimigo.porcentagem = 0, inimigo.vidaPorcentagem = 100, inimigo.energiaPorcentagem = 100, inimigo.manaPorcentagem = 100,
 
-    goblin.vidaCombate = goblin.vida, goblin.energiaCombate = goblin.energia
+    inimigo.vidaCombate = inimigo.vida, inimigo.energiaCombate = inimigo.energia
 
     golem.vidaCombate = golem.vida, golem.energiaCombate = golem.energia
 

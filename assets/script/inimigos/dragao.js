@@ -1,7 +1,4 @@
 /*-DRAGÃO HUD-*/
-var dragaoVidaView = window.document.querySelector('p#dragaoVida')
-var dragaoManaView = window.document.querySelector('p#dragaoMana')
-
 var dragao = {
     nome: 'Dragão',
     vida: 100, mana: 60,

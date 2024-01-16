@@ -19,4 +19,17 @@
     font-size: 15pt;
     font-weight: bold;
 }
+
+#miniGame{
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    width: 3%;
+    height: 6%;
+    background-color: purple;
+    border: solid 3px black;
+    border-radius: 100%;
+    text-align: center;
+    z-index: 99999;
+}
 /*-----*/

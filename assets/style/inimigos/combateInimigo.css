@@ -1,7 +1,5 @@
 /*-GOBLIN, GOLEM, DRAGÃO-*/
-#goblin,
-#golem,
-#dragao {
+#inimigo {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,15 +12,12 @@
     padding: 0%;
 }
 
-#goblin > img,
-#golem > img,
-#dragao > img{
-   width: 50%;
+#inimigoFisicoFase>img,
+#inimigoMagicoFase>img {
+    width: 50%;
 }
 
-#goblinNome,
-#golemNome,
-#dragaoNome {
+#inimigoNome {
     width: 100%;
     margin: 0%;
     padding: 0%;
@@ -34,9 +29,8 @@
     font-weight: bold;
 }
 
-#goblinVida,
-#golemVida,
-#dragaoVida {
+#inimigoFisicoVida,
+#inimigoMagicoVida {
     width: 80%;
     margin: 0%;
     padding: 0%;
@@ -50,8 +44,7 @@
     transition: 0.5s linear 0s;
 }
 
-#goblinEnergia,
-#golemEnergia {
+#inimigoFisicoEnergia {
     width: 50%;
     margin: 0%;
     padding: 0%;
@@ -65,7 +58,7 @@
     transition: 0.5s linear 0s;
 }
 
-#dragaoMana {
+#inimigoMagicoMana {
     width: 50%;
     margin: 0%;
     padding: 0%;
@@ -79,13 +72,13 @@
     transition: 0.5s linear 0s;
 }
 
-#mensagemInimigoDerrotado{
+#mensagemInimigoDerrotado {
     margin-top: 15%;
     text-align: center;
     font-size: 50pt;
 }
 
-#experienciaGanha{
+#experienciaGanha {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -96,12 +89,13 @@
     height: 1vh;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEWAgICQdD0xAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 0% 100%;
     border: solid 3px black;
     border-radius: 5%;
     text-align: center;
     font-size: 30pt;
     font-weight: bold;
-    transition: 0.5s linear 0s;
+    transition: 1s linear 0s;
 }
+
 /*-----*/
