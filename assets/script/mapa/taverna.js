@@ -187,6 +187,8 @@ function botaoDragaoOut() {
 /*-DEFINIR ESTATISTICA-*/
 function definirEstatisticaGeral() {
     legendaView.innerHTML = ``
+    
+    mainJogadorDerrotado.style.display = 'none'
     mainInimigoDerrotado.style.display = 'none'
 
     jogador.vidaCombate = jogador.vida, jogador.energiaCombate = jogador.energia, jogador.manaCombate = jogador.mana

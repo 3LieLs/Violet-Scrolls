@@ -9,6 +9,7 @@ armadura.style.display = 'none'
 
 mainHud.style.display = 'none'
 miniGameDisplay.style.display = 'none'
+mainJogadorDerrotado.style.display = 'none'
 
 inimigoFisicoFase.style.display = 'none'
 inimigoMagicoFase.style.display = 'none'

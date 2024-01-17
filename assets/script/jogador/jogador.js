@@ -22,19 +22,31 @@ function usuarioCombateView() {
 /*-----*/
 
 /*-JOGADOR DERROTADO-*/
+var mensagemInimigoJogadorVal = window.document.querySelector('div#mensagemJogadorDerrotado')
+
 function jogadorDerrotado() {
     if (jogador.vidaCombate <= 0) {
         fase = 'safezone'
-        
+
         mainHudDisplay = false
         mainHud.style.display = 'none'
 
         inimigoFisicoFase.style.display = 'none'
         inimigoMagicoFase.style.display = 'none' 
 
-        mainSafeZone.style.display = 'contents'
+        definirEstatisticaGeral()
         definirMusica()
+
+        //derrota()
+        //setTimeout(definirEstatisticaGeral, 2000)
+        //setTimeout(definirMusica, 2000)
     }
+}
+
+function derrota() {
+    mainJogadorDerrotado.style.display = 'contents'
+    mensagemJogadorDerrotadoVal.innerHTML = `${jogador.nome} foi derrotado`
+    fase = 'safezone'
 }
 /*-----*/
 

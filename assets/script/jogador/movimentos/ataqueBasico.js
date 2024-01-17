@@ -95,7 +95,7 @@ function botaoAtaqueBasicoClick() {
             setTimeout(usuarioCombateView, 5000)
             setTimeout(inimigoCombateView, 5000)
             setTimeout(inimigoDerrotado, 5000)
-            setTimeout(jogadorDerrotado, 7000)
+            setTimeout(jogadorDerrotado, 6000)
 
         }
 
