@@ -1,7 +1,4 @@
 /*-ATAQUE BÁSICO-*/
-var miniGameVal = window.document.querySelector('input#miniGame')
-miniGameVal.addEventListener('click', miniGameAtaqueBasico)
-
 var botaoAtaqueBasico = window.document.querySelector('input#ataqueBasico')
 
 document.addEventListener(`keypress`, ataqueBasicoAtalho)
@@ -26,20 +23,20 @@ function ataqueBasicoDano() {
 
     jogador.click = 0
 
-        if (inimigo.vidaCombate - armaJogador.danoCombate < 0) {
-            inimigo.vidaCombate = 0
-            inimigo.vidaPorcentagem = 0.1
+    if (inimigo.vidaCombate - armaJogador.danoCombate < 0) {
+        inimigo.vidaCombate = 0
+        inimigo.vidaPorcentagem = 0.1
 
-        } else {
-            inimigo.vidaCombate = inimigo.vidaCombate - armaJogador.danoCombate
+    } else {
+        inimigo.vidaCombate = inimigo.vidaCombate - armaJogador.danoCombate
 
-            inimigo.porcentagem = 100 - ((armaJogador.danoCombate / inimigo.vida) * 100)
-            inimigo.porcentagem = 100 - inimigo.porcentagem
-            inimigo.porcentagem = inimigo.porcentagem.toPrecision(2)
+        inimigo.porcentagem = 100 - ((armaJogador.danoCombate / inimigo.vida) * 100)
+        inimigo.porcentagem = 100 - inimigo.porcentagem
+        inimigo.porcentagem = inimigo.porcentagem.toPrecision(2)
 
-            inimigo.vidaPorcentagem = inimigo.vidaPorcentagem - inimigo.porcentagem
+        inimigo.vidaPorcentagem = inimigo.vidaPorcentagem - inimigo.porcentagem
 
-        }
+    }
 
     if (armaJogador.classe == 'Físico') {
         legendaView.innerHTML = `${jogador.nome} utilizou Ataque Básico<br>Dano causado: ${armaJogador.danoCombate}<br>Energia gasta: ${armaJogador.energiaCusto}`
@@ -89,6 +86,7 @@ function botaoAtaqueBasicoClick() {
         if (jogador.manaCombate > 0 && jogador.manaCombate - armaJogador.manaCusto >= 0 && jogador.energiaCombate > 0 && jogador.energiaCombate - armaJogador.energiaCusto >= 0) {
             vezUsuario = false
 
+            jogador.minigame = 'ataqueBasico'
             miniGameDisplay.style.display = 'contents'
             setTimeout(ataqueBasicoDano, 3000)
             setTimeout(acaoIntervalo, 5000)
@@ -127,12 +125,13 @@ function botaoAtaqueBasicoOut() {
     ataqueBasico.style.background = 'gray'
 }
 
-function miniGameAtaqueBasico() {
+function minigameAtaqueBasico() {
     jogador.click = jogador.click + 1
 
     if (jogador.click == 3) {
         miniGameDisplay.style.display = 'none'
     }
+
     else {
         miniGameDisplay.style.display = 'contents'
 
@@ -175,8 +174,8 @@ function miniGameAtaqueBasico() {
             }
         }
 
-        miniGameVal.style.top = `${num1}%`
-        miniGameVal.style.left = `${num2}%`
+        minigameVal.style.top = `${num1}%`
+        minigameVal.style.left = `${num2}%`
     }
 }
 /*-----*/

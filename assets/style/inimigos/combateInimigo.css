@@ -1,5 +1,5 @@
 /*-GOBLIN, GOLEM, DRAGÃO-*/
-#inimigo {
+#inimigoFisico ,#inimigoMagico {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@
     width: 50%;
 }
 
-#inimigoNome {
+#inimigoFisicoNome ,#inimigoMagicoNome {
     width: 100%;
     margin: 0%;
     padding: 0%;

@@ -6,8 +6,20 @@ botaoDefesa.addEventListener('click', botaoDefesaClick)
 botaoDefesa.addEventListener('mouseover', botaoDefesaHover)
 botaoDefesa.addEventListener('mouseout', botaoDefesaOut)
 
-function defesaTempo() {
-    legendaView.innerHTML = `${jogador.nome} utilizou Defesa<br> Defesa aumentou para ${parseInt(armaduraJogador.defesa + (armaduraJogador.defesa / 2))}`
+function defesaUso() {
+    miniGameDisplay.style.display = 'none'
+
+    if (jogador.click >= 2) {
+       armaduraJogador.defesaCombate = parseInt(armaduraJogador.defesa * 2)
+    }
+
+    if (jogador.click <= 1) {
+        armaduraJogador.defesaCombate = parseInt(armaduraJogador.defesa + (armaduraJogador.defesa / 2))
+    }
+
+    legendaView.innerHTML = `${jogador.nome} utilizou Defesa<br> Defesa aumentou para ${armaduraJogador.defesaCombate}`
+
+    jogador.click = 0
 }
 
 function defesaAtalho(atalho) {
@@ -22,29 +34,19 @@ function defesaAtalho(atalho) {
 function botaoDefesaClick() {
     if (vezUsuario == true) {
         vezUsuario = false
-        setTimeout(defesaTempo, 500)
-        setTimeout(acaoIntervalo, 2500)
-        if (fase == 'goblin') {
-            setTimeout(ataqueGoblin, 2500)
-            setTimeout(usuarioCombateView, 2500)
-            setTimeout(inimigoCombateView, 2500)
-            setTimeout(inimigoDerrotado, 2500)
-            setTimeout(jogadorDerrotado, 3500)
-        }
-        if (fase == 'golem') {
-            setTimeout(ataqueGolem, 2500)
-            setTimeout(usuarioCombateView, 2500)
-            setTimeout(inimigoCombateView, 2500)
-            setTimeout(inimigoDerrotado, 2500)
-            setTimeout(jogadorDerrotado, 3500)
-        }
-        if (fase == 'dragao') {
-            setTimeout(ataqueDragao, 2500)
-            setTimeout(usuarioCombateView, 2500)
-            setTimeout(inimigoCombateView, 2500)
-            setTimeout(inimigoDerrotado, 2500)
-            setTimeout(jogadorDerrotado, 3500)
-        }
+
+        jogador.minigame == 'defesa'
+        minigameVal.style.top = `${50}%`
+        miniGameDisplay.style.display = 'contents'
+        setTimeout(defesaUso, 3000)
+        setTimeout(acaoIntervalo, 5000)
+
+        setTimeout(inimigoAtaque, 5000)
+        setTimeout(usuarioCombateView, 5000)
+        setTimeout(inimigoCombateView, 5000)
+        setTimeout(inimigoDerrotado, 5000)
+        setTimeout(jogadorDerrotado, 7000)
+
     } else {
         console.log(`Calma ${jogador.nome}, espera a sua vez.`)
     }
@@ -62,5 +64,28 @@ function botaoDefesaHover() {
 
 function botaoDefesaOut() {
     defesa.style.background = 'gray'
+}
+
+function minigameDefesa() {
+    let num1 = Math.floor(Math.random() * 2) + 1;
+
+    jogador.tamanho = jogador.tamanho + 0.5
+
+    minigameVal.style.scale = `${jogador.tamanho}`
+
+    if (jogador.tamanho == 9 && num1 == 1) {
+        jogador.click = jogador.click + 1
+        minigameVal.style.left = `${35}%`
+    }
+
+    if (jogador.tamanho == 9 && num1 == 2) {
+        jogador.click = jogador.click + 1
+        minigameVal.style.left = `${65}%`
+    }
+
+    if (jogador.click == 2) {
+        minigameVal.style.display = 'none'
+    }
+
 }
 /*-----*/

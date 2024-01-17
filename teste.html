@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste</title>
     <style>
-        #miniGame {
+        #minigameBotao {
             position: absolute;
             top: 50%;
             left: 35%;
@@ -16,24 +16,32 @@
             border: solid 3px black;
             border-radius: 100%;
             text-align: center;
+            transition: 1s all 0ms;
         }
     </style>
 </head>
 
 <body>
     <p></p>
-    <input id="miniGame" type="button">
+
+    <div id="dive">
+        <input id="minigameBotao" type="button">
+    </div>
 </body>
 
 <script>
-    var miniGameAtaqueBasicoVal = window.document.querySelector('input#miniGame')
-
-    miniGameAtaqueBasicoVal.addEventListener('click', miniGameAtaqueBasico)
+    var tamanho = 1
+    var minigameBotaoVal = window.document.querySelector('input#minigameBotao')
+    minigameBotaoVal.addEventListener('click', miniGameAtaqueBasico)
 
     function miniGameAtaqueBasico() {
-        let cima = Math.floor(Math.random() * 20) + 50;
+        tamanho = tamanho + 0.5
 
-        miniGameAtaqueBasicoVal.style.top = `${cima}%`
+        minigameBotaoVal.style.scale = `${tamanho}`
+
+        if (tamanho == 9) {
+            dive.style.display = 'none'
+        }
     }
 </script>
 

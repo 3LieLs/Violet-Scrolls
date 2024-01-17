@@ -75,7 +75,8 @@ function menuDisplay() {
 var mensagemSafeZoneVal = window.document.querySelector('p#mensagemSafeZone')
 mensagemSafeZoneVal.innerHTML = ``
 
-var inimigoImagemVal = window.document.querySelector('img#inimigoImagem')
+var inimigoFisicoImagemVal = window.document.querySelector('img#inimigoFisicoImagem')
+var inimigoMagicoImagemVal = window.document.querySelector('img#inimigoMagicoImagem')
 /*-----*/
 
 /*-GOBLIN-*/
@@ -88,8 +89,8 @@ function botaoGoblinClick() {
     mainSafeZone.style.display = 'none'
     
     fase = 'goblin'
-    inimigoImagemVal.src = 'assets/content/img/Goblin.gif'
-    inimigoImagemVal.style.width = '50%'
+    inimigoFisicoImagemVal.src = 'assets/content/img/Goblin.gif'
+    inimigoFisicoImagemVal.style.width = '50%'
 
     inimigoFisicoFase.style.display = 'contents'
     
@@ -123,8 +124,9 @@ function botaoGolemClick() {
     mainSafeZone.style.display = 'none'
     
     fase = 'golem'
-    inimigoImagemVal.src = 'assets/content/img/Golem.gif'
-    inimigoImagemVal.style.width = '50%'
+    inimigoFisicoImagemVal.src = 'assets/content/img/Golem.gif'
+    inimigoFisicoImagemVal.style.width = '50%'
+
     inimigoFisicoFase.style.display = 'contents'
     
     mainHud.style.display = 'contents'
@@ -154,13 +156,22 @@ botaoDragaoVal.addEventListener('mouseover', botaoDragaoHover)
 botaoDragaoVal.addEventListener('mouseout', botaoDragaoOut)
 
 function botaoDragaoClick() {
-    fase = 'dragao'
     mainSafeZone.style.display = 'none'
+    
+    fase = 'dragao'
+    inimigoMagicoImagemVal.src = 'assets/content/img/Dragão.gif'
+    inimigoMagicoImagemVal.style.width = '50%'
+
+    inimigoMagicoFase.style.display = 'contents'
+    
     mainHud.style.display = 'contents'
-    mainFaseDragao.style.display = 'contents'
+    
+    definirEstatisticaDragao()
     definirEstatisticaGeral()
+
     usuarioCombateView()
     inimigoCombateView()
+
     definirMusica()
 }
 function botaoDragaoHover() {

@@ -1,12 +1,12 @@
 /*-FOCAR-*/
-var botaoFocar = window.document.querySelector('input#focar')
+var botaoFoco = window.document.querySelector('input#foco')
 
-document.addEventListener(`keypress`, focarAtalho)
-botaoFocar.addEventListener('click', botaoFocarClick)
-botaoFocar.addEventListener('mouseover', botaoFocarHover)
-botaoFocar.addEventListener('mouseout', botaoFocarOut)
+document.addEventListener(`keypress`, focoAtalho)
+botaoFoco.addEventListener('click', botaoFocoClick)
+botaoFoco.addEventListener('mouseover', botaoFocoHover)
+botaoFoco.addEventListener('mouseout', botaoFocoOut)
 
-function focarTempo() {
+function focoUso() {
     if (jogador.manaCombate + armaduraJogador.manaRecuperacao > jogador.mana) {
         jogador.manaCombate = jogador.mana
         jogador.manaPorcentagem = 100
@@ -25,7 +25,7 @@ function focarTempo() {
     inimigoCombateView()
 }
 
-function focarAtalho(atalho) {
+function focoAtalho(atalho) {
     if (mainHudDisplay == true) {
         if (atalho.key == '5') {
             console.log("Foco usado");
@@ -34,48 +34,35 @@ function focarAtalho(atalho) {
     }
 }
 
-function botaoFocarClick() {
+function botaoFocoClick() {
     if (vezUsuario == true) {
         vezUsuario = false
-        setTimeout(focarTempo, 500)
-        setTimeout(acaoIntervalo, 2500)
-        if (fase == 'goblin') {
-            setTimeout(ataqueGoblin, 2500)
-            setTimeout(usuarioCombateView, 2500)
-            setTimeout(inimigoCombateView, 2500)
-            setTimeout(inimigoDerrotado, 2500)
-            setTimeout(jogadorDerrotado, 3500)
-        }
-        if (fase == 'golem') {
-            setTimeout(ataqueGolem, 2500)
-            setTimeout(usuarioCombateView, 2500)
-            setTimeout(inimigoCombateView, 2500)
-            setTimeout(inimigoDerrotado, 2500)
-            setTimeout(jogadorDerrotado, 3500)
-        }
-        if (fase == 'dragao') {
-            setTimeout(ataqueDragao, 2500)
-            setTimeout(usuarioCombateView, 2500)
-            setTimeout(inimigoCombateView, 2500)
-            setTimeout(inimigoDerrotado, 2500)
-            setTimeout(jogadorDerrotado, 3500)
-        }
+
+        setTimeout(focoUso, 3000)
+        setTimeout(acaoIntervalo, 5000)
+
+        setTimeout(inimigoAtaque, 5000)
+        setTimeout(usuarioCombateView, 5000)
+        setTimeout(inimigoCombateView, 5000)
+        setTimeout(inimigoDerrotado, 5000)
+        setTimeout(jogadorDerrotado, 7000)
+
     } else {
         console.log(`Calma ${jogador.nome}, espera a sua vez.`)
     }
 }
 
-function botaoFocarHover() {
+function botaoFocoHover() {
     if (vezUsuario == true) {
-        focar.style.cursor = 'pointer'
-        focar.style.background = 'purple'
-        focar.style.transition = '0.5s'
+        foco.style.cursor = 'pointer'
+        foco.style.background = 'purple'
+        foco.style.transition = '0.5s'
     } else {
-        focar.style.cursor = 'not-allowed'
+        foco.style.cursor = 'not-allowed'
     }
 }
 
-function botaoFocarOut() {
-    focar.style.background = 'gray'
+function botaoFocoOut() {
+    foco.style.background = 'gray'
 }
 /*-----*/

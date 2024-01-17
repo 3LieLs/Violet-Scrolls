@@ -1,12 +1,12 @@
 /*-DESCANSAR-*/
-var botaoDescansar = window.document.querySelector('input#descansar')
+var botaoDescanso = window.document.querySelector('input#descanso')
 
-document.addEventListener(`keypress`, descansarAtalho)
-botaoDescansar.addEventListener('click', botaoDescansarClick)
-botaoDescansar.addEventListener('mouseover', botaoDescansarHover)
-botaoDescansar.addEventListener('mouseout', botaoDescansarOut)
+document.addEventListener(`keypress`, descansoAtalho)
+botaoDescanso.addEventListener('click', botaoDescansoClick)
+botaoDescanso.addEventListener('mouseover', botaoDescansoHover)
+botaoDescanso.addEventListener('mouseout', botaoDescansoOut)
 
-function descansarTempo() {
+function descansoUso() {
     if (jogador.energiaCombate + armaduraJogador.energiaRecuperacao > jogador.energia) {
         jogador.energiaCombate = jogador.energia
         jogador.energiaPorcentagem = 100
@@ -25,7 +25,7 @@ function descansarTempo() {
     inimigoCombateView()
 }
 
-function descansarAtalho(atalho) {
+function descansoAtalho(atalho) {
     if (mainHudDisplay == true) {
         if (atalho.key == '4') {
             console.log("Descanso usado");
@@ -34,49 +34,35 @@ function descansarAtalho(atalho) {
     }
 }
 
-function botaoDescansarClick() {
+function botaoDescansoClick() {
     if (vezUsuario == true) {
         vezUsuario = false
 
-        setTimeout(descansarTempo, 500)
-        setTimeout(acaoIntervalo, 2500)
-        if (fase == 'goblin') {
-            setTimeout(ataqueGoblin, 2500)
-            setTimeout(usuarioCombateView, 2500)
-            setTimeout(inimigoCombateView, 2500)
-            setTimeout(inimigoDerrotado, 2500)
-            setTimeout(jogadorDerrotado, 3500)
-        }
-        if (fase == 'golem') {
-            setTimeout(ataqueGolem, 2500)
-            setTimeout(usuarioCombateView, 2500)
-            setTimeout(inimigoCombateView, 2500)
-            setTimeout(inimigoDerrotado, 2500)
-            setTimeout(jogadorDerrotado, 3500)
-        }
-        if (fase == 'dragao') {
-            setTimeout(ataqueDragao, 2500)
-            setTimeout(usuarioCombateView, 2500)
-            setTimeout(inimigoCombateView, 2500)
-            setTimeout(inimigoDerrotado, 2500)
-            setTimeout(jogadorDerrotado, 3500)
-        }
+        setTimeout(descansoUso, 3000)
+        setTimeout(acaoIntervalo, 5000)
+
+        setTimeout(inimigoAtaque, 5000)
+        setTimeout(usuarioCombateView, 5000)
+        setTimeout(inimigoCombateView, 5000)
+        setTimeout(inimigoDerrotado, 5000)
+        setTimeout(jogadorDerrotado, 7000)
+
     } else {
         console.log(`Calma ${jogador.nome}, espera a sua vez.`)
     }
 }
 
-function botaoDescansarHover() {
+function botaoDescansoHover() {
     if (vezUsuario == true) {
-        descansar.style.cursor = 'pointer'
-        descansar.style.background = 'purple'
-        descansar.style.transition = '0.5s'
+        descanso.style.cursor = 'pointer'
+        descanso.style.background = 'purple'
+        descanso.style.transition = '0.5s'
     } else {
-        descansar.style.cursor = 'not-allowed'
+        descanso.style.cursor = 'not-allowed'
     }
 }
 
-function botaoDescansarOut() {
-    descansar.style.background = 'gray'
+function botaoDescansoOut() {
+    descanso.style.background = 'gray'
 }
 /*-----*/

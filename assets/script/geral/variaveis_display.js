@@ -23,19 +23,14 @@ upStatus.style.display = 'none'
 
 /*-VARIÁVEIS-*/
 var fase = '', vezUsuario = true, mainHudDisplay = false
-var menuAbertoFechado = false, safeZone = false
-/*-----*/
-
-/*-GERAL-*/
-var geral = {
-    critico: 0,
-}
+var menuAbertoFechado = false
+var critico = 0
 /*-----*/
 
 /*-STATUS JOGADOR-*/
 var jogador = {
     nome: '', genero: '', classe: '',
-    peso: 15, click: 0,
+    peso: 15, click: 0, minigame: '', tamanho: 1,
     vida: 0, mana: 0, energia: 0,
     vidaCombate: 0, manaCombate: 0, energiaCombate: 0,
     porcentagem: 0, vidaPorcentagem: 100, manaPorcentagem: 100, energiaPorcentagem: 100,
@@ -66,7 +61,7 @@ var armaNivel = {
 /*-STATUS ARMADURA-*/
 var armaduraJogador = {
     nome: '', peso: 0,
-    defesa: 0,defesaCombateVal: 0,
+    defesa: 0, defesaCombate: 0,
     manaRecuperacao: 0, energiaRecuperacao: 0,
 }
 /*-----*/
