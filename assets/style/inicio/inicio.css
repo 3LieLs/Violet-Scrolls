@@ -1,13 +1,16 @@
 /*-GERAL-*/
 main {
-    position: relative;
-    margin: auto;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%);
     width: 90%;
-    height: 610px;
+    height: 90%;
     background-color: orangered;
     border: solid 5px black;
-    border-radius: 10%;
+    border-radius: 5%;
 }
+
 /*-----*/
 
 /*-INICIO-*/
@@ -45,6 +48,74 @@ main {
     100% {
         background-color: black;
     }
+}
+
+/*-----*/
+
+/*-ITENS INICIAIS-*/
+#mensagemBauInicial {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 80%;
+    padding: 0.5%;
+    background-color: black;
+    color: orangered;
+    text-align: center;
+    font-size: 25pt;
+}
+
+#abrirBauInicial {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 30%;
+    width: 15%;
+    height: 15%;
+    background-color: black;
+    color: orangered;
+    border-radius: 20%;
+    text-align: center;
+    font-size: 175%;
+    transition: 0.5s all 0s;
+}
+
+#abrirBauInicial:hover {
+    background-color: gray;
+    cursor: pointer;
+}
+
+#itensAdquiridos {
+    position: absolute;
+    left: 1%;
+    top: 53%;
+    width: 20%;
+    height: 40%;
+    padding: 1% 0% 0% 3%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+    font-size: 20pt;
+    transition: 2s all 0s;
+    opacity: 1;
+}
+
+#itensAdquiridos > li{
+    font-size: 15pt;
+}
+
+#itensIniciais>#continuarInicio {
+    position: absolute;
+    left: 89%;
+    top: 93%;
+    width: 10%;
+    height: 5%;
+    background-color: black;
+    color: orangered;
+    border-radius: 20%;
+    text-align: center;
+    font-size: 15pt;
+    transition: 0.5s all 0s;
 }
 
 /*-----*/

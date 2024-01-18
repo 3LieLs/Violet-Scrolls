@@ -1,0 +1,138 @@
+/*-ESCOLHA RAÇA-*/
+#voltarRaca {
+    position: absolute;
+    top: 3%;
+    left: 1%;
+    background-color: black;
+    color: orangered;
+    border: solid 3px black;
+    border-radius: 15%;
+    font-size: 15pt;
+}
+
+#voltarRaca:hover {
+    background-color: gray;
+    cursor: pointer;
+}
+
+#mensagemRaca {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translate(-50%);
+    padding-top: 2%;
+    text-align: center;
+    font-size: 35pt;
+    font-weight: bold;
+}
+
+/*-----*/
+
+/*-RAÇAS-*/
+#humanoBarra,
+#elfoBarra,
+#orcBarra,
+#draconatoBarra,
+#vampiroBarra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 15%;
+    margin: 0%;
+    width: 30%;
+}
+
+#humanoBarra {
+    left: 5%;
+}
+
+#elfoBarra {
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#orcBarra {
+    left: 65%;
+}
+
+#draconatoBarra {
+    top: 60%;
+    left: 15%;
+}
+
+#vampiroBarra {
+    top: 60%;
+    left: 55%;
+}
+
+#humano,
+#elfo,
+#orc,
+#draconato,
+#vampiro {
+    margin: 0%;
+    width: 50%;
+    height: 6vh;
+    background-color: black;
+    color: orangered;
+    font-size: 20pt;
+}
+
+#humano:hover {
+    background-color: wheat;
+    cursor: pointer;
+}
+
+#elfo:hover {
+    background-color: green;
+    cursor: pointer;
+}
+
+#orc:hover {
+    background-color: red;
+    cursor: pointer;
+}
+
+#draconato:hover {
+    background-color: blue;
+    cursor: pointer;
+}
+
+#vampiro:hover {
+    background-color: purple;
+    cursor: pointer;
+}
+
+#humanoCaracteristica,
+#elfoCaracteristica,
+#orcCaracteristica,
+#draconatoCaracteristica,
+#vampiroCaracteristica {
+    margin: 1% 0% 0% 0%;
+    padding: 5%;
+    width: 75%;
+    height: 20vh;
+    background-color: black;
+    color: orangered;
+    text-align: justify;
+    font-size: 15pt;
+    overflow: auto;
+}
+
+#humanoStats,
+#elfoStats,
+#orcStats,
+#draconatoStats,
+#vampiroStats {
+    margin: 1% 0% 0% 0%;
+    padding: 2% 0% 0% 0%;
+    width: 75%;
+    height: 4vh;
+    background-color: black;
+    color: orangered;
+    text-align: center;
+    font-size: 11pt;
+}
+
+/*-----*/

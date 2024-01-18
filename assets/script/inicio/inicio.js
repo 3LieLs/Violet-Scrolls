@@ -6,7 +6,7 @@ botaoInicioVal.addEventListener('mouseout', botaoInicioOut)
 
 function botaoInicioClick() {
     inicio.style.display = 'none'
-    selecao.style.display = 'contents'
+    escolhaGenero.style.display = 'contents'
 }
 function botaoInicioHover() {
     botaoInicioVal.style.cursor = 'pointer'

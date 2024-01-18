@@ -21,17 +21,7 @@ var experienciaAtualVal = window.document.querySelector('p#experienciaAtual')
 var nivelAtualVal = window.document.querySelector('p#nivelAtual')
 
 var menuBotaoVal = window.document.querySelector(`input#botaoMenu`)
-document.addEventListener(`keypress`, menuAtalho)
 menuBotaoVal.addEventListener('click', menuDisplay)
-
-function menuAtalho(atalho) {
-    if (safeZone == true) {
-        if (atalho.key == 'g') {
-            console.log("Menu aberto");
-            menuBotaoVal.click()
-        }
-    }
-}
 
 function menuDisplay() {
     if (menuAbertoFechado == false) {
@@ -40,21 +30,21 @@ function menuDisplay() {
 
         menuNomeVal.innerHTML = `Nome: ${jogador.nome}`
         menuGeneroVal.innerHTML = `Gênero: ${jogador.genero}`
-        menuClasseVal.innerHTML = `Classe: ${jogador.classe}`
+        menuClasseVal.innerHTML = `Raça: ${racaGeral.nome}`
 
-        menuVidaVal.innerHTML = `Vida: ${jogador.vida}`
-        menuEnergiaVal.innerHTML = `Energia: ${jogador.energia}`
-        menuManaVal.innerHTML = `Mana: ${jogador.mana}`
+        menuVidaVal.innerHTML = `Vida: ${racaGeral.vida}`
+        menuEnergiaVal.innerHTML = `Energia: ${racaGeral.energia}`
+        menuManaVal.innerHTML = `Mana: ${racaGeral.mana}`
 
-        menuArmaVal.innerHTML = `Arma:<br>${armaJogador.nome}`
-        menuDanoVal.innerHTML = `Dano: ${armaJogador.dano}`
-        menuEnergiaCustoVal.innerHTML = `E custo: ${armaJogador.energiaCusto}`
-        menuManaCustoVal.innerHTML = `M custo: ${armaJogador.manaCusto}`
+        menuArmaVal.innerHTML = `Arma:<br>${armaGeral.nome}`
+        menuDanoVal.innerHTML = `Dano: ${armaGeral.dano}`
+        menuEnergiaCustoVal.innerHTML = `E custo: ${armaGeral.energiaCusto}`
+        menuManaCustoVal.innerHTML = `M custo: ${armaGeral.manaCusto}`
 
-        menuArmaduraVal.innerHTML = `Armadura:<br>${armaduraJogador.nome}`
-        menuDefesaVal.innerHTML = `Defesa: ${armaduraJogador.defesa}`
-        menuEnergiaRecuperacaoVal.innerHTML = `E recuperação: ${armaduraJogador.energiaRecuperacao}`
-        menuManaRecuperacaoVal.innerHTML = `M recuperação: ${armaduraJogador.manaRecuperacao}`
+        menuArmaduraVal.innerHTML = `Armadura:<br>${armaduraGeral.nome}`
+        menuDefesaVal.innerHTML = `Defesa: ${armaduraGeral.defesa}`
+        menuEnergiaRecuperacaoVal.innerHTML = `E recuperação: ${armaduraGeral.energiaRecuperacao}`
+        menuManaRecuperacaoVal.innerHTML = `M recuperação: ${armaduraGeral.manaRecuperacao}`
 
         nivelAtualVal.innerHTML = `Nível: ${jogadorNivel.nivel}`
         experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`
@@ -72,8 +62,8 @@ function menuDisplay() {
 /*-----*/
 
 /*-TAVERNA-*/
-var mensagemSafeZoneVal = window.document.querySelector('p#mensagemSafeZone')
-mensagemSafeZoneVal.innerHTML = ``
+var mensagemSafeZoneVal = window.document.querySelector('p#mensagemTaverna')
+mensagemTaverna.innerHTML = ``
 
 var inimigoFisicoImagemVal = window.document.querySelector('img#inimigoFisicoImagem')
 var inimigoMagicoImagemVal = window.document.querySelector('img#inimigoMagicoImagem')
@@ -86,7 +76,7 @@ botaoGoblinVal.addEventListener('mouseover', botaoGoblinHover)
 botaoGoblinVal.addEventListener('mouseout', botaoGoblinOut)
 
 function botaoGoblinClick() {
-    mainSafeZone.style.display = 'none'
+    taverna.style.display = 'none'
     
     fase = 'goblin'
     inimigoFisicoImagemVal.src = 'assets/content/img/Goblin.gif'
@@ -121,7 +111,7 @@ botaoGolemVal.addEventListener('mouseover', botaoGolemHover)
 botaoGolemVal.addEventListener('mouseout', botaoGolemOut)
 
 function botaoGolemClick() {
-    mainSafeZone.style.display = 'none'
+    taverna.style.display = 'none'
     
     fase = 'golem'
     inimigoFisicoImagemVal.src = 'assets/content/img/Golem.gif'
@@ -156,7 +146,7 @@ botaoDragaoVal.addEventListener('mouseover', botaoDragaoHover)
 botaoDragaoVal.addEventListener('mouseout', botaoDragaoOut)
 
 function botaoDragaoClick() {
-    mainSafeZone.style.display = 'none'
+    taverna.style.display = 'none'
     
     fase = 'dragao'
     inimigoMagicoImagemVal.src = 'assets/content/img/Dragão.gif'

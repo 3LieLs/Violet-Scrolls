@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="assets/style/inicio/inicio.css">
     <link rel="stylesheet" href="assets/style/inicio/personalizacao.css">
-    <link rel="stylesheet" href="assets/style/inicio/escolhaClasse.css">
+    <link rel="stylesheet" href="assets/style/inicio/escolhaRaca.css">
     <link rel="stylesheet" href="assets/style/inicio/escolhaArma.css">
     <link rel="stylesheet" href="assets/style/inicio/escolhaArmadura.css">
 
@@ -30,6 +30,7 @@
 
     * {
         font-family: 'BreatheFire';
+        box-sizing: border-box;
     }
 
     body {
@@ -48,101 +49,103 @@
             <p id="mensagemInicio">
                 Bem-vindo(a) ao meu projeto</p>
             <input id="botaoInicio" type="button" value="Iniciar">
-            <p id="mestre"></p>
         </div>
         <!---------------------------------------------------------------------->
 
         <!----------------------SELEÇÃO DE GÊNERO---------------------->
-        <div id="selecao">
-            <p id="mensagemSelecao">Selecione o seu gênero</p>
-            <input id="botaoSelecao_M" type="button" value="Masculino">
-            <input id="botaoSelecao_F" type="button" value="Feminino">
+        <div id="escolhaGenero">
+            <p id="mensagemEscolhaGenero">Selecione o seu gênero</p>
+            <input id="botaoMasculino" type="button" value="Masculino">
+            <input id="botaoFeminino" type="button" value="Feminino">
         </div>
         <!---------------------------------------------------------------------->
 
         <!----------------------SELEÇÃO DE NOME---------------------->
-        <div id="usuario">
-            <p id="mensagemUsuario">Selecione o seu nome</p>
-            <input type="text" id="nomeUsuario" name="nomeUsuario" maxlength="10">
-            <input id="enviarUsuario" type="submit" value="Enviar" onclick="Classe()">
+        <div id="escolhaNome">
+            <p id="mensagemEscolhaNome">Selecione o seu nome</p>
+            <input id="nomeJogador" type="text" name="nomeJogador" maxlength="10">
+            <input id="enviarNomeJogador" type="submit" value="Enviar">
         </div>
         <!---------------------------------------------------------------------->
 
-        <!----------------------ESCOLHA DA CLASSE---------------------->
-        <div id="classe">
-            <input id="voltarClasse" type="button" value="Voltar">
-            <p id="mensagemClasse"></p>
-            <div id="mainClasse">
-                <div id="guerreiroBarra">
-                    <input id="guerreiro" type="button" value="Guerreiro" onclick="botaoClasseGuerreiroClick()">
-                    <p id="caracteristicaGuerreiro">O Guerreiro sabe usar todos os tipos de armas simples. Sendo de sua
-                        preferência o uso de armas corpo a corpo como martelos de guerra, espadas longas, de duas mãos
-                        ou espadas bastardas.</p>
-                    <p id="guerreiroStats">Status: Vida = 20 / Mana = 10 / Energia = 15</p>
+        <!----------------------ESCOLHA DA RAÇA---------------------->
+        <div id="escolhaRaca">
+            <input id="voltarRaca" type="button" value="Voltar">
+
+            <p id="mensagemRaca">Escolha a sua raça</p>
+
+            <div id="mainRaca">
+
+                <div id="humanoBarra">
+                    <input id="humano" type="button" value="Humano">
+                    <p id="humanoCaracteristica">Sendo a mais versátil dentre todas as raças, os humanos são marcados
+                        por sua ambição e sua busca pelo progresso. Eles estão sendo tentando aproveitar suas vidas ao
+                        máximo, sendo mais curtas do que a da maioria das raças e marcadas de emoções e desejos
+                        intermináveis.</p>
+                    <p id="humanoStats">Status: Vida = 20 / Mana = 20 / Energia = 20</p>
                 </div>
-                <div id="magoBarra">
-                    <input id="mago" type="button" value="Mago" onclick="botaoClasseMagoClick()">
-                    <p id="caracteristicaMago">Muitos mágicos não precisam de nenhum material; aqueles que o fazem podem
-                        exigir apenas materiais simples e facilmente obtidos. Varinhas e cajados há muito tempo são
-                        usados como requisitos para o mago.</p>
-                    <p id="magoStats">Status: Vida = 15 / Mana = 20 / Energia = 10</p>
+
+                <div id="elfoBarra">
+                    <input id="elfo" type="button" value="Elfo">
+                    <p id="elfoCaracteristica">Livres e selvagens, os elfos protegem suas florestas utilizando
+                        furtividade e disparando flechas mortíferas em meio às árvores. Eles constroem seus lares em
+                        plena harmonia com a natureza, com tanta perfeição que os viajantes muitas vezes não percebem
+                        que invadiram uma comunidade élfica até ser tarde demais.</p>
+                    <p id="elfoStats">Status: Vida = 15 / Mana = 25 / Energia = 20</p>
                 </div>
-                <div id="arqueiroBarra">
-                    <input id="arqueiro" type="button" value="Arqueiro">
-                    <p id="caracteristicaArqueiro">Arqueiros são os usuários de Arco e Flecha, um conjunto de arma de
-                        longo alcance. Esse conjunto também forma outros tipos de armas com os mesmos conceitos, como a
-                        Besta e a Balista</p>
-                    <p id="arqueiroStats">Status: Vida = 15 / Mana = 10 / Energia = 20</p>
+
+                <div id="orcBarra">
+                    <input id="orc" type="button" value="Orc">
+                    <p id="orcCaracteristica">Esses seres monstruosos são, quase sem exceção, saqueadores e assassinos,
+                        atacando comunidades civilizadas para roubar e matar. São onívoros e de hábitos noturnos,
+                        preferindo viver no subterrâneo</p>
+                    <p id="orcStats">Status: Vida = 25 / Mana = 15 / Energia = 20</p>
                 </div>
+
+                <div id="draconatoBarra">
+                    <input id="draconato" type="button" value="Draconato">
+                    <p id="draconatoCaracteristica">Sendo a mais versátil dentre todas as raças, os humanos são marcados
+                        por sua ambição e sua busca pelo progresso. Eles estão sendo tentando aproveitar suas vidas ao
+                        máximo, sendo mais curtas do que a da maioria das raças e marcadas de emoções e desejos
+                        intermináveis.</p>
+                    <p id="draconatoStats">Status: Vida = 20 / Mana = 20 / Energia = 20</p>
+                </div>
+
+                <div id="vampiroBarra">
+                    <input id="vampiro" type="button" value="Vampiro">
+                    <p id="vampiroCaracteristica">Sendo a mais versátil dentre todas as raças, os humanos são marcados
+                        por sua ambição e sua busca pelo progresso. Eles estão sendo tentando aproveitar suas vidas ao
+                        máximo, sendo mais curtas do que a da maioria das raças e marcadas de emoções e desejos
+                        intermináveis.</p>
+                    <p id="vampiroStats">Status: Vida = 20 / Mana = 20 / Energia = 20</p>
+                </div>
+
             </div>
         </div>
         <!---------------------------------------------------------------------->
 
-        <!----------------------ESCOLHA DA ARMA---------------------->
-        <div id="arma">
-            <input id="voltarArma" type="button" value="Voltar">
-            <p id="mensagemArma"></p>
-            <div id="mainArma">
-                <div id="armaLeveBarra">
-                    <input id="armaLeve" type="button" value="teste1">
-                    <p id="caracteristicaArmaLeve"></p>
-                    <p id="statsArmaLeve"></p>
-                </div>
-                <div id="armaMediaBarra">
-                    <input id="armaMedia" type="button" value="teste2">
-                    <p id="caracteristicaArmaMedia"></p>
-                    <p id="statsArmaMedia"></p>
-                </div>
-                <div id="armaPesadaBarra">
-                    <input id="armaPesada" type="button" value="teste3">
-                    <p id="caracteristicaArmaPesada"></p>
-                    <p id="statsArmaPesada"></p>
-                </div>
+        <!----------------------BAU INICIAL / ITENS INICIAIS---------------------->
+        <div id="mainBauInicial">
+
+            <p id="mensagemBauInicial">Após uma longa caminhada, você encontrou um pequeno bau em sua frente</p>
+
+            <div id="bauInicial">
+                <input id="abrirBauInicial" type="button" value="Abrir">
             </div>
         </div>
-        <!---------------------------------------------------------------------->
 
-        <!----------------------ESCOLHA DA ARMADURA---------------------->
-        <div id="armadura">
-            <input id="voltarArmadura" type="button" value="Voltar">
-            <p id="mensagemArmadura"></p>
-            <div id="mainArmadura">
-                <div id="armaduraLeveBarra">
-                    <input id="armaduraLeve" type="button" value="teste1">
-                    <p id="caracteristicaArmaduraLeve"></p>
-                    <p id="statsArmaduraLeve"></p>
-                </div>
-                <div id="armaduraMediaBarra">
-                    <input id="armaduraMedia" type="button" value="teste2">
-                    <p id="caracteristicaArmaduraMedia"></p>
-                    <p id="statsArmaduraMedia"></p>
-                </div>
-                <div id="armaduraPesadaBarra">
-                    <input id="armaduraPesada" type="button" value="teste3">
-                    <p id="caracteristicaArmaduraPesada"></p>
-                    <p id="statsArmaduraPesada"></p>
-                </div>
-            </div>
+        <div id="itensIniciais">
+            <ul id="itensAdquiridos">Itens Adquiridos
+                <li id="item1"></li>
+                <li id="item2"></li>
+                <li id="item3"></li>
+                <li id="item4"></li>
+                <li id="item5"></li>
+                <li id="item6"></li>
+                <li id="item7"></li>
+                <li id="item8"></li>
+            </ul>
+            <input id="continuarInicio" type="button" value="Continuar">
         </div>
         <!---------------------------------------------------------------------->
 
@@ -240,8 +243,8 @@
         <!---------------------------------------------------------------------->
 
         <!----------------------Taverna---------------------->
-        <div id="mainSafeZone">
-            <p id="mensagemSafeZone"></p>
+        <div id="taverna">
+            <p id="mensagemTaverna"></p>
             <input id="botaoGoblin" type="button" value="Goblin">
             <input id="botaoGolem" type="button" value="Golem">
             <input id="botaoDragao" type="button" value="Dragão">
@@ -278,17 +281,14 @@
     </main>
 
 
-
-    <script src="assets/script/geral/variaveis_display.js"></script>
+    <script src="assets/script/geral/display.js"></script>
+    <script src="assets/script/geral/variaveis.js"></script>
     <script src="assets/script/geral/musica.js"></script>
 
     <script src="assets/script/inicio/inicio.js"></script>
-    <script src="assets/script/inicio/personalizacao.js"></script>
-    <script src="assets/script/inicio/classe.js"></script>
-    <script src="assets/script/inicio/escolhaArma.js"></script>
-    <script src="assets/script/inicio/escolhaArmadura.js"></script>
-
-    <script src="assets/script/mapa/taverna.js"></script>
+    <script src="assets/script/inicio/escolhaNomeGenero.js"></script>
+    <script src="assets/script/inicio/escolhaRaca.js"></script>
+    <script src="assets/script/inicio/itensIniciais.js"></script>
 
     <script src="assets/script/jogador/jogador.js"></script>
     <script src="assets/script/jogador/combateGeral.js"></script>
@@ -302,6 +302,20 @@
     <script src="assets/script/inimigos/goblin.js"></script>
     <script src="assets/script/inimigos/golem.js"></script>
     <script src="assets/script/inimigos/dragao.js"></script>
+
+    <script src="assets/script/armas/armaGeral.js"></script>
+    <script src="assets/script/armas/curtoAlcance.js"></script>
+    <script src="assets/script/armas/longoAlcance.js"></script>
+    <script src="assets/script/armas/magias.js"></script>
+
+    <script src="assets/script/armaduras/armaduraGeral.js"></script>
+    <script src="assets/script/armaduras/leve.js"></script>
+    <script src="assets/script/armaduras/pesado.js"></script>
+    <script src="assets/script/armaduras/roupa.js"></script>
+
+    <script src="assets/script/Raça/raca.js"></script>
+
+    <script src="assets/script/mapa/taverna.js"></script>
 
 </body>
 
