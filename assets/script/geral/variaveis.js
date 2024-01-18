@@ -1,6 +1,7 @@
 /*-VARIÁVEIS-*/
-var fase = '', vezUsuario = true, mainHudDisplay = false
+var escolhaInimigo = 0 ,fase = '', vezUsuario = true, mainHudDisplay = false
 var menuAbertoFechado = false
+
 /*-----*/
 
 /*-STATUS JOGADOR-*/
@@ -21,14 +22,5 @@ var jogadorNivel = {
 /*-----*/
 
 /*-INIMIGO-*/
-var inimigo = {
-    nome: '', classe: '',
 
-    vida: 0, mana: 0, energia: 0,
-    vidaCombate: 0, manaCombate: 0, energiaCombate: 0,
-    energiaCusto: 0, energiaRecuperacao: 0, manaCusto: 0, manaRecuperacao: 0,
-    porcentagem: 0, vidaPorcentagem: 100, manaPorcentagem: 100, energiaPorcentagem: 100,
-
-    dano: 0, danoCombate: 0,
-}
 /*-----*/

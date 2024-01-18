@@ -6,6 +6,28 @@ var golem = {
     dano: 15, danoCombate: 15, energiaGasto: 10, energiaRecuperacao: 0,
 }
 
+/*-GOLEM COMBATE-*/
+function iniciarGolemCombate() {
+    taverna.style.display = 'none'
+
+    fase = 'golem'
+    inimigoHudImagem.src = 'assets/content/img/Golem.gif'
+    inimigoHudImagem.style.width = '50%'
+
+    mainInimigoHud.style.display = 'contents'
+
+    mainHud.style.display = 'contents'
+
+    definirEstatisticaGolem()
+    definirEstatisticaGeral()
+
+    jogadorCombateHud()
+    inimigoCombateHud()
+
+    definirMusica()
+}
+/*-----*/
+
 function definirEstatisticaGolem() {
     inimigo.nome = golem.nome
     inimigo.classe = golem.classe

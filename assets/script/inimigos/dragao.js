@@ -6,6 +6,27 @@ var dragao = {
     dano: 25, danoCombate: 25, manaGasto: 15, manaRecuperacao: 0,
 }
 
+/*-DRAGÃO COMBATE-*/
+function iniciarDragaoCombate() {
+    taverna.style.display = 'none'
+
+    fase = 'dragao'
+    inimigoHudImagem.src = 'assets/content/img/Dragão.gif'
+    inimigoHudImagem.style.width = '50%'
+
+    mainInimigoHud.style.display = 'contents'
+
+    mainHud.style.display = 'contents'
+
+    definirEstatisticaDragao()
+    definirEstatisticaGeral()
+
+    jogadorCombateHud()
+    inimigoCombateHud()
+
+    definirMusica()
+}
+
 function definirEstatisticaDragao() {
     inimigo.nome = dragao.nome
     inimigo.classe = dragao.classe

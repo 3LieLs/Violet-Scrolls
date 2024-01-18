@@ -6,6 +6,27 @@ var goblin = {
     dano: 3, danoCombate: 3, energiaGasto: 2, energiaRecuperacao: 0,
 }
 
+/*-GOBLIN COMBATE-*/
+function iniciarGoblinCombate() {
+    taverna.style.display = 'none'
+
+    fase = 'goblin'
+    inimigoHudImagem.src = 'assets/content/img/Goblin.gif'
+    inimigoHudImagem.style.width = '50%'
+
+    mainInimigoHud.style.display = 'contents'
+
+    mainHud.style.display = 'contents'
+
+    definirEstatisticaGoblin()
+    definirEstatisticaGeral()
+
+    jogadorCombateHud()
+    inimigoCombateHud()
+
+    definirMusica()
+}
+
 function definirEstatisticaGoblin() {
     inimigo.nome = goblin.nome
     inimigo.classe = goblin.classe

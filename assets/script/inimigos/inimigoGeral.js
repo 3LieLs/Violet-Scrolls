@@ -1,31 +1,32 @@
-var inimigoFisicoNomeView = window.document.querySelector('p#inimigoFisicoNome')
-var inimigoFisicoVidaView = window.document.querySelector('p#inimigoFisicoVida')
-var inimigoFisicoEnergiaView = window.document.querySelector('p#inimigoFisicoEnergia')
+var inimigo = {
+    nome: '', classe: '',
 
-var inimigoMagicoNomeView = window.document.querySelector('p#inimigoMagicoNome')
-var inimigoMagicoVidaView = window.document.querySelector('p#inimigoMagicoVida')
-var inimigoMagicoManaView = window.document.querySelector('p#inimigoMagicoMana')
+    vida: 0, mana: 0, energia: 0,
+    vidaCombate: 0, manaCombate: 0, energiaCombate: 0,
 
+    energiaCusto: 0, energiaRecuperacao: 0, manaCusto: 0, manaRecuperacao: 0,
+    
+    porcentagem: 0, vidaPorcentagem: 100, manaPorcentagem: 100, energiaPorcentagem: 100,
+
+    dano: 0, danoCombate: 0,
+}
+
+
+var inimigoHudNome = window.document.querySelector('p#inimigoHudNome')
+var inimigoHudVida = window.document.querySelector('p#inimigoHudVida')
+var inimigoHudEnergiaMana = window.document.querySelector('p#inimigoHudEnergiaMana')
+var inimigoHudImagem = window.document.querySelector('img#inimigoHudImagem')
 
 /*-INIMIGO HUD-*/
-function inimigoCombateView() {
-    if (inimigo.classe == 'fisico') {
-        inimigoFisicoNomeView.innerHTML = `${inimigo.nome}`
-        inimigoFisicoVidaView.innerHTML = `Vida: ${inimigo.vidaCombate}`
-        inimigoFisicoVidaView.style.backgroundSize = `${inimigo.vidaPorcentagem}% 100%`
+function inimigoCombateHud() {
+    
+        inimigoHudNome.innerHTML = `${inimigo.nome}`
+        inimigoHudVida.innerHTML = `Vida: ${inimigo.vidaCombate}`
+        inimigoHudVida.style.backgroundSize = `${inimigo.vidaPorcentagem}% 100%`
 
-        inimigoFisicoEnergiaView.innerHTML = `Energia: ${inimigo.energiaCombate}`
-        inimigoFisicoEnergiaView.style.backgroundSize = `${inimigo.energiaPorcentagem}% 100%`
-    }
+        inimigoHudEnergiaMana.innerHTML = `Energia: ${inimigo.energiaCombate}`
+        inimigoHudEnergiaMana.style.backgroundSize = `${inimigo.energiaPorcentagem}% 100%`
 
-    if (inimigo.classe == 'magico') {
-        inimigoMagicoNomeView.innerHTML = `${inimigo.nome}`
-        inimigoMagicoVidaView.innerHTML = `Vida: ${inimigo.vidaCombate}`
-        inimigoMagicoVidaView.style.backgroundSize = `${inimigo.vidaPorcentagem}% 100%`
-
-        inimigoMagicoManaView.innerHTML = `Mana: ${inimigo.manaCombate}`
-        inimigoMagicoManaView.style.backgroundSize = `${inimigo.manaPorcentagem}% 100%`
-    }
 }
 /*-----*/
 
@@ -212,8 +213,7 @@ function inimigoDerrotado() {
         mainHudDisplay = false
         mainHud.style.display = 'none'
 
-        inimigoFisicoFase.style.display = 'none'
-        inimigoMagicoFase.style.display = 'none'
+        mainInimigoHud.style.display = 'none'
 
         if (fase == 'goblin') {
             jogadorNivel.experiencia = jogadorNivel.experiencia + 10
@@ -248,6 +248,6 @@ function experienciaGanha() {
     experienciaGanhaVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`
     experienciaGanhaVal.style.backgroundSize = `${jogadorNivel.experienciaPorcentagem}% 100%`
 
-    fase = 'safezone'
+    fase = 'taverna'
 }
 /*-----*/

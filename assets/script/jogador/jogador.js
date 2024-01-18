@@ -5,19 +5,19 @@ function acaoIntervalo() {
 var legendaView = window.document.querySelector('p#mensagemLegenda')
 
 /*-JOGADOR HUD-*/
-var estatisticaVidaView = window.document.querySelector('p#estatisticaVida')
-var estatisticaEnergiaView = window.document.querySelector('p#estatisticaEnergia')
-var estatisticaManaView = window.document.querySelector('p#estatisticaMana')
+var estatisticaVida = window.document.querySelector('p#estatisticaVida')
+var estatisticaEnergia = window.document.querySelector('p#estatisticaEnergia')
+var estatisticaMana = window.document.querySelector('p#estatisticaMana')
 
-function usuarioCombateView() {
-    estatisticaVidaView.innerHTML = `Vida: ${jogador.vidaCombate}`
-    estatisticaVidaView.style.backgroundSize = `${jogador.vidaPorcentagem}% 100%`
+function jogadorCombateHud() {
+    estatisticaVida.innerHTML = `Vida: ${racaGeral.vidaCombate}`
+    estatisticaVida.style.backgroundSize = `${racaGeral.vidaPorcentagem}% 100%`
     
-    estatisticaEnergiaView.innerHTML = `Energia: ${jogador.energiaCombate}`
-    estatisticaEnergiaView.style.backgroundSize = `${jogador.energiaPorcentagem}% 100%`
+    estatisticaEnergia.innerHTML = `Energia: ${racaGeral.energiaCombate}`
+    estatisticaEnergia.style.backgroundSize = `${racaGeral.energiaPorcentagem}% 100%`
 
-    estatisticaManaView.innerHTML = `Mana: ${jogador.manaCombate}`
-    estatisticaManaView.style.backgroundSize = `${jogador.manaPorcentagem}% 100%`
+    estatisticaMana.innerHTML = `Mana: ${racaGeral.manaCombate}`
+    estatisticaMana.style.backgroundSize = `${racaGeral.manaPorcentagem}% 100%`
 }
 /*-----*/
 
@@ -26,7 +26,7 @@ var mensagemInimigoJogadorVal = window.document.querySelector('div#mensagemJogad
 
 function jogadorDerrotado() {
     if (jogador.vidaCombate <= 0) {
-        fase = 'safezone'
+        fase = 'taverna'
 
         mainHudDisplay = false
         mainHud.style.display = 'none'
@@ -46,7 +46,7 @@ function jogadorDerrotado() {
 function derrota() {
     mainJogadorDerrotado.style.display = 'contents'
     mensagemJogadorDerrotadoVal.innerHTML = `${jogador.nome} foi derrotado`
-    fase = 'safezone'
+    fase = 'taverna'
 }
 /*-----*/
 

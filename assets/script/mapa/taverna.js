@@ -62,131 +62,43 @@ function menuDisplay() {
 /*-----*/
 
 /*-TAVERNA-*/
-var mensagemSafeZoneVal = window.document.querySelector('p#mensagemTaverna')
+var mensagemTaverna = window.document.querySelector('p#mensagemTaverna')
 mensagemTaverna.innerHTML = ``
-
-var inimigoFisicoImagemVal = window.document.querySelector('img#inimigoFisicoImagem')
-var inimigoMagicoImagemVal = window.document.querySelector('img#inimigoMagicoImagem')
 /*-----*/
 
-/*-GOBLIN-*/
-var botaoGoblinVal = window.document.querySelector('input#botaoGoblin')
-botaoGoblinVal.addEventListener('click', botaoGoblinClick)
-botaoGoblinVal.addEventListener('mouseover', botaoGoblinHover)
-botaoGoblinVal.addEventListener('mouseout', botaoGoblinOut)
+/*-MASMORRA-*/
+var botaoMasmorra = window.document.querySelector('input#botaoMasmorra')
+botaoMasmorra.addEventListener('click', iniciarCombate)
 
-function botaoGoblinClick() {
-    taverna.style.display = 'none'
-    
-    fase = 'goblin'
-    inimigoFisicoImagemVal.src = 'assets/content/img/Goblin.gif'
-    inimigoFisicoImagemVal.style.width = '50%'
+function iniciarCombate() {
+    escolhaInimigo = Math.floor(Math.random() * 100) + 0;
 
-    inimigoFisicoFase.style.display = 'contents'
-    
-    mainHud.style.display = 'contents'
-    
-    definirEstatisticaGoblin()
-    definirEstatisticaGeral()
+    if (escolhaInimigo >= 0 && escolhaInimigo <= 60) {
+        iniciarGoblinCombate()
+    }
 
-    usuarioCombateView()
-    inimigoCombateView()
+    if (escolhaInimigo > 60 && escolhaInimigo < 90) {
+        iniciarGolemCombate()
+    }
 
-    definirMusica()
+    if (escolhaInimigo >= 90 && escolhaInimigo <= 100) {
+        iniciarDragaoCombate()
+    }
 }
-function botaoGoblinHover() {
-    botaoGoblinVal.style.cursor = 'pointer'
-    botaoGoblinVal.style.background = 'orange'
-    botaoGoblinVal.style.transition = '0.5s'
-}
-function botaoGoblinOut() {
-    botaoGoblinVal.style.background = 'gray'
-}
-/*-----*/
-
-/*-GOLEM-*/
-var botaoGolemVal = window.document.querySelector('input#botaoGolem')
-botaoGolemVal.addEventListener('click', botaoGolemClick)
-botaoGolemVal.addEventListener('mouseover', botaoGolemHover)
-botaoGolemVal.addEventListener('mouseout', botaoGolemOut)
-
-function botaoGolemClick() {
-    taverna.style.display = 'none'
-    
-    fase = 'golem'
-    inimigoFisicoImagemVal.src = 'assets/content/img/Golem.gif'
-    inimigoFisicoImagemVal.style.width = '50%'
-
-    inimigoFisicoFase.style.display = 'contents'
-    
-    mainHud.style.display = 'contents'
-    
-    definirEstatisticaGolem()
-    definirEstatisticaGeral()
-
-    usuarioCombateView()
-    inimigoCombateView()
-    
-    definirMusica()
-}
-function botaoGolemHover() {
-    botaoGolemVal.style.cursor = 'pointer'
-    botaoGolemVal.style.background = 'orange'
-    botaoGolemVal.style.transition = '0.5s'
-}
-function botaoGolemOut() {
-    botaoGolemVal.style.background = 'gray'
-}
-/*-----*/
-
-/*-DRAGÃO-*/
-var botaoDragaoVal = window.document.querySelector('input#botaoDragao')
-botaoDragaoVal.addEventListener('click', botaoDragaoClick)
-botaoDragaoVal.addEventListener('mouseover', botaoDragaoHover)
-botaoDragaoVal.addEventListener('mouseout', botaoDragaoOut)
-
-function botaoDragaoClick() {
-    taverna.style.display = 'none'
-    
-    fase = 'dragao'
-    inimigoMagicoImagemVal.src = 'assets/content/img/Dragão.gif'
-    inimigoMagicoImagemVal.style.width = '50%'
-
-    inimigoMagicoFase.style.display = 'contents'
-    
-    mainHud.style.display = 'contents'
-    
-    definirEstatisticaDragao()
-    definirEstatisticaGeral()
-
-    usuarioCombateView()
-    inimigoCombateView()
-
-    definirMusica()
-}
-function botaoDragaoHover() {
-    botaoDragaoVal.style.cursor = 'pointer'
-    botaoDragaoVal.style.background = 'orange'
-    botaoDragaoVal.style.transition = '0.5s'
-}
-function botaoDragaoOut() {
-    botaoDragaoVal.style.background = 'gray'
-}
-/*-----*/
 
 /*-DEFINIR ESTATISTICA-*/
 function definirEstatisticaGeral() {
     legendaView.innerHTML = ``
-    
+
     mainJogadorDerrotado.style.display = 'none'
     mainInimigoDerrotado.style.display = 'none'
 
-    jogador.vidaCombate = jogador.vida, jogador.energiaCombate = jogador.energia, jogador.manaCombate = jogador.mana
-    jogador.vidaPorcentagem = 100, jogador.energiaPorcentagem = 100, jogador.manaPorcentagem = 100,
+    racaGeral.vidaCombate = racaGeral.vida, racaGeral.energiaCombate = racaGeral.energia, racaGeral.manaCombate = racaGeral.mana
+    racaGeral.vidaPorcentagem = 100, racaGeral.energiaPorcentagem = 100, racaGeral.manaPorcentagem = 100
 
-    armaJogador.danoCombate = armaJogador.dano
+    armaGeral.danoCombate = armaGeral.dano
 
-    inimigo.porcentagem = 0, inimigo.vidaPorcentagem = 100, inimigo.energiaPorcentagem = 100, inimigo.manaPorcentagem = 100,
+    inimigo.porcentagem = 0, inimigo.vidaPorcentagem = 100, inimigo.energiaPorcentagem = 100, inimigo.manaPorcentagem = 100
 
     inimigo.vidaCombate = inimigo.vida, inimigo.energiaCombate = inimigo.energia
 

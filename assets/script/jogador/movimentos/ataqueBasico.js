@@ -3,17 +3,15 @@ var botaoAtaqueBasico = window.document.querySelector('input#ataqueBasico')
 
 document.addEventListener(`keypress`, ataqueBasicoAtalho)
 botaoAtaqueBasico.addEventListener('click', botaoAtaqueBasicoClick)
-botaoAtaqueBasico.addEventListener('mouseover', botaoAtaqueBasicoHover)
-botaoAtaqueBasico.addEventListener('mouseout', botaoAtaqueBasicoOut)
 
 function ataqueBasicoDano() {
     miniGameDisplay.style.display = 'none'
 
-    armaJogador.danoCombate = armaJogador.dano
+    armaGeral.danoCombate = armaGeral.dano
 
     if (jogador.click == 3) {
-        armaJogador.danoCombate = armaJogador.dano
-        armaJogador.danoCombate = parseInt(armaJogador.danoCombate)
+        armaGeral.danoCombate = armaGeral.dano
+        armaGeral.danoCombate = parseInt(armaJogador.danoCombate)
     }
 
     if (jogador.click < 3) {
@@ -72,15 +70,6 @@ function ataqueBasicoDano() {
     inimigoCombateView()
 }
 
-function ataqueBasicoAtalho(atalho) {
-    if (mainHudDisplay == true) {
-        if (atalho.key == '1') {
-            console.log("Ataque Básico usado");
-            botaoAtaqueBasico.click()
-        }
-    }
-}
-
 function botaoAtaqueBasicoClick() {
     if (vezUsuario == true) {
         if (jogador.manaCombate > 0 && jogador.manaCombate - armaJogador.manaCusto >= 0 && jogador.energiaCombate > 0 && jogador.energiaCombate - armaJogador.energiaCusto >= 0) {
@@ -109,20 +98,6 @@ function botaoAtaqueBasicoClick() {
     } else {
         console.log(`Calma ${jogador.nome}, espera a sua vez.`)
     }
-}
-
-function botaoAtaqueBasicoHover() {
-    if (vezUsuario == true) {
-        ataqueBasico.style.cursor = 'pointer'
-        ataqueBasico.style.background = 'purple'
-        ataqueBasico.style.transition = '0.5s'
-    } else {
-        ataqueBasico.style.cursor = 'not-allowed'
-    }
-}
-
-function botaoAtaqueBasicoOut() {
-    ataqueBasico.style.background = 'gray'
 }
 
 function minigameAtaqueBasico() {

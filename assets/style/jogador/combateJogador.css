@@ -1,27 +1,69 @@
 /*-----*/
 #acao {
-    display: flex;
-    position: absolute;
-    left: 15%;
-    bottom: 5%;
-    width: 80%;
-    margin: 0% 0% 0% 0%;
+  
 }
 
-#ataqueBasico,
-#ataqueEspecial,
-#defesa,
-#descanso,
-#foco {
-    position: relative;
-    width: 20%;
-    margin-right: 1%;
-    padding: 1% 1% 1% 1%;
-    background-color: gray;
-    border: solid 3px black;
+#acaoEscolha{
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    width: 15%;
+    height: 20%;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    background-color: black;
     border-radius: 5%;
     font-size: 15pt;
     font-weight: bold;
+}
+
+#acaoArmaEscolha, #acaoMagiaEscolha, #acaoArmaduraEscolha, #acaoOutrosEscolha{
+    width: 45%;
+    height: 40%;
+    padding: 0% 0% 0% 0%;
+    background-color: black;
+    color: orangered;
+    border: solid 3px orangered;
+    border-radius: 5%;
+    font-size: 15pt;
+    font-weight: bold;
+    transition: 0.3s all 0s;
+}
+
+#acaoArmaEscolha{
+    margin: 5% 0% 0% 4%;
+}
+
+#acaoArmaEscolha:hover{
+    background-color: red;
+    cursor: pointer;
+}
+
+#acaoMagiaEscolha{
+    margin: 0% 0% 0% 0%;
+}
+
+#acaoMagiaEscolha:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+
+#acaoArmaduraEscolha{
+    margin: 3% 0% 0% 4%;
+}
+
+#acaoArmaduraEscolha:hover{
+    background-color: green;
+    cursor: pointer;
+}
+
+#acaoOutrosEscolha{
+    margin: 3% 0% 0% 0%;
+}
+
+#acaoOutrosEscolha:hover{
+    background-color: wheat;
+    cursor: pointer;
 }
 
 #minigame {

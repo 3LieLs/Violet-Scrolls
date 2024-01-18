@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="assets/style/inicio/inicio.css">
     <link rel="stylesheet" href="assets/style/inicio/personalizacao.css">
     <link rel="stylesheet" href="assets/style/inicio/escolhaRaca.css">
-    <link rel="stylesheet" href="assets/style/inicio/escolhaArma.css">
-    <link rel="stylesheet" href="assets/style/inicio/escolhaArmadura.css">
 
     <link rel="stylesheet" href="assets/style/mapa/taverna.css">
 
@@ -221,15 +219,37 @@
 
             <div id="acao">
 
-                <input id="ataqueBasico" type="button" value="Ataque Básico">
+                <div id="acaoEscolha">
+                    <input id="acaoArmaEscolha" type="button" value="Atacar">
+                    <input id="acaoMagiaEscolha" type="button" value="Magia">
+                    <input id="acaoArmaduraEscolha" type="button" value="Defesa/Recuperar">
+                    <input id="acaoOutrosEscolha" type="button" value="Outros">
+                </div>
+                
+                <!--
+                <div id="acaoArma">
+                    <input id="ataqueBasico" type="button" value="Ataque Básico">
 
-                <input id="ataqueEspecial" type="button" value="Ataque Especial">
+                    <input id="ataqueEspecial" type="button" value="Ataque Especial">
+                </div>
+              
+                <div id="acaoMagia">
+                 
+                </div>
 
-                <input id="defesa" type="button" value="Defender">
+                <div id="acaoArmadura">
+                    <input id="defesa" type="button" value="Defender">
 
-                <input id="descanso" type="button" value="Descansar">
+                    <input id="descanso" type="button" value="Descansar">
+    
+                    <input id="foco" type="button" value="Focar">
+                </div>
 
-                <input id="foco" type="button" value="Focar">
+                <div id="acaoOutros">
+                 
+                </div>
+                -->
+              
             </div>
         </div>
 
@@ -244,29 +264,35 @@
 
         <!----------------------Taverna---------------------->
         <div id="taverna">
+
             <p id="mensagemTaverna"></p>
-            <input id="botaoGoblin" type="button" value="Goblin">
-            <input id="botaoGolem" type="button" value="Golem">
-            <input id="botaoDragao" type="button" value="Dragão">
+
+            <input id="botaoVendedor" type="button" value="Vendedor">
+            <div id="vendedorDisplay">
+
+            </div>
+
+            <input id="botaoFerreiro" type="button" value="Ferreiro">
+            <div id="ferreiroDisplay">
+
+            </div>
+
+            <input id="botaoFeiticeiro" type="button" value="Feiticeiro">
+            <div id="feiticeiroDisplay">
+
+            </div>
+
+            <input id="botaoMasmorra" type="button" value="Masmorra">
         </div>
         <!---------------------------------------------------------------------->
 
-        <!----------------------INIMIGOS---------------------->
-        <div id="inimigoFisicoFase">
-            <div id="inimigoFisico">
-                <p id="inimigoFisicoNome"></p>
-                <p id="inimigoFisicoVida"></p>
-                <p id="inimigoFisicoEnergia"></p>
-                <img id="inimigoFisicoImagem" src="" alt="">
-            </div>
-        </div>
-
-        <div id="inimigoMagicoFase">
-            <div id="inimigoMagico">
-                <p id="inimigoMagicoNome"></p>
-                <p id="inimigoMagicoVida"></p>
-                <p id="inimigoMagicoMana"></p>
-                <img id="inimigoMagicoImagem" src="" alt="">
+        <!----------------------INIMIGO---------------------->
+        <div id="mainInimigoHud">
+            <div id="inimigoHud">
+                <p id="inimigoHudNome"></p>
+                <p id="inimigoHudVida"></p>
+                <p id="inimigoHudEnergiaMana"></p>
+                <img id="inimigoHudImagem" src="" alt="">
             </div>
         </div>
         <!---------------------------------------------------------------------->
