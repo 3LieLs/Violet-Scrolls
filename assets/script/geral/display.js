@@ -1,5 +1,5 @@
 /*-DISPLAY-*/
-inicio.style.display = 'none'
+inicio.style.display = 'contents'
 escolhaGenero.style.display = 'none'
 escolhaNome.style.display = 'none'
 escolhaRaca.style.display = 'none'
@@ -7,7 +7,7 @@ escolhaRaca.style.display = 'none'
 mainBauInicial.style.display = 'none'
 itensIniciais.style.display = 'none'
 
-mainHud.style.display = 'contents'
+mainHud.style.display = 'none'
 miniGameDisplay.style.display = 'none'
 
 mainInimigoHud.style.display = 'none'

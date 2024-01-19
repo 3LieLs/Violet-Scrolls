@@ -5,3 +5,5 @@ Colocar sons nos botões, golpes, e sons dos inimigos atacando e levando golpes
 substituir safezone por taverna
 
 adicionar minigames nos golpes
+
+mudar a cor dos botões caso sem mana ou energia

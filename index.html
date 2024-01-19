@@ -205,63 +205,6 @@
         </div>
         <!---------------------------------------------------------------------->
 
-        <!----------------------HUD---------------------->
-        <div id="mainHud">
-            <div id="legenda">
-                <p id="mensagemLegenda"></p>
-            </div>
-
-            <div id="estatistica">
-                <p id="estatisticaVida"></p>
-                <p id="estatisticaEnergia"></p>
-                <p id="estatisticaMana"></p>
-            </div>
-
-            <div id="acao">
-
-                <div id="acaoEscolha">
-                    <input id="acaoArmaEscolha" type="button" value="Atacar">
-                    <input id="acaoMagiaEscolha" type="button" value="Magia">
-                    <input id="acaoArmaduraEscolha" type="button" value="Defesa/Recuperar">
-                    <input id="acaoOutrosEscolha" type="button" value="Outros">
-                </div>
-                
-                <!--
-                <div id="acaoArma">
-                    <input id="ataqueBasico" type="button" value="Ataque Básico">
-
-                    <input id="ataqueEspecial" type="button" value="Ataque Especial">
-                </div>
-              
-                <div id="acaoMagia">
-                 
-                </div>
-
-                <div id="acaoArmadura">
-                    <input id="defesa" type="button" value="Defender">
-
-                    <input id="descanso" type="button" value="Descansar">
-    
-                    <input id="foco" type="button" value="Focar">
-                </div>
-
-                <div id="acaoOutros">
-                 
-                </div>
-                -->
-              
-            </div>
-        </div>
-
-        <div id="miniGameDisplay">
-            <input id="minigame" type="button">
-        </div>
-
-        <div id="mainJogadorDerrotado">
-            <p id="mensagemJogadorDerrotado"></p>
-        </div>
-        <!---------------------------------------------------------------------->
-
         <!----------------------Taverna---------------------->
         <div id="taverna">
 
@@ -286,6 +229,39 @@
         </div>
         <!---------------------------------------------------------------------->
 
+        <!----------------------JOGADOR---------------------->
+        <div id="mainHud">
+
+            <div id="legenda">
+                <p id="mensagemLegenda"></p>
+            </div>
+
+            <div id="estatistica">
+                <p id="estatisticaVida"></p>
+                <p id="estatisticaEnergia"></p>
+                <p id="estatisticaMana"></p>
+            </div>
+
+            <div id="moveset">
+                <div id="movesetEscolha">
+                    <input id="movesetArmaEscolha" type="button" value="Atacar">
+                    <input id="movesetMagiaEscolha" type="button" value="Magia">
+                    <input id="movesetArmaduraEscolha" type="button" value="Defesa/Recuperar">
+                    <input id="movesetOutrosEscolha" type="button" value="Outros">
+                </div>
+            </div>
+
+        </div>
+
+        <div id="miniGameDisplay">
+            <input id="minigame" type="button">
+        </div>
+
+        <div id="mainJogadorDerrotado">
+            <p id="mensagemJogadorDerrotado"></p>
+        </div>
+        <!---------------------------------------------------------------------->
+
         <!----------------------INIMIGO---------------------->
         <div id="mainInimigoHud">
             <div id="inimigoHud">
@@ -295,15 +271,12 @@
                 <img id="inimigoHudImagem" src="" alt="">
             </div>
         </div>
-        <!---------------------------------------------------------------------->
 
-        <!----------------------INIMIGO DERROTADO---------------------->
         <div id="mainInimigoDerrotado">
             <div id="mensagemInimigoDerrotado"></div>
             <p id="experienciaGanha"></p>
         </div>
         <!---------------------------------------------------------------------->
-
     </main>
 
 
@@ -318,11 +291,6 @@
 
     <script src="assets/script/jogador/jogador.js"></script>
     <script src="assets/script/jogador/combateGeral.js"></script>
-    <script src="assets/script/jogador/movimentos/ataqueBasico.js"></script>
-    <script src="assets/script/jogador/movimentos/ataqueEspecial.js"></script>
-    <script src="assets/script/jogador/movimentos/defesa.js"></script>
-    <script src="assets/script/jogador/movimentos/descanso.js"></script>
-    <script src="assets/script/jogador/movimentos/foco.js"></script>
 
     <script src="assets/script/inimigos/inimigoGeral.js"></script>
     <script src="assets/script/inimigos/goblin.js"></script>

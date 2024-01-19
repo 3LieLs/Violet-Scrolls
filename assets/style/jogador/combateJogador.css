@@ -1,9 +1,5 @@
 /*-----*/
-#acao {
-  
-}
-
-#acaoEscolha{
+#movesetEscolha{
     position: absolute;
     bottom: 5%;
     right: 3%;
@@ -17,7 +13,26 @@
     font-weight: bold;
 }
 
-#acaoArmaEscolha, #acaoMagiaEscolha, #acaoArmaduraEscolha, #acaoOutrosEscolha{
+#movesetArmaEscolha,
+#movesetMagiaEscolha,
+#movesetArmaduraEscolha,
+#movesetOutrosEscolha,
+
+#ataqueFraco,
+#ataqueForte,
+#teste1,
+#voltarArmaAcao,
+
+#magiaDano,
+#magiaRecuperar,
+#magiaBuff,
+#voltarMagiaAcao,
+
+#bloquear,
+#descanso,
+#foco,
+#voltarArmaduraAcao
+{
     width: 45%;
     height: 40%;
     padding: 0% 0% 0% 0%;
@@ -30,39 +45,75 @@
     transition: 0.3s all 0s;
 }
 
-#acaoArmaEscolha{
+#movesetArmaEscolha,
+#ataqueFraco,
+#magiaDano,
+#bloquear{
     margin: 5% 0% 0% 4%;
 }
 
-#acaoArmaEscolha:hover{
-    background-color: red;
-    cursor: pointer;
-}
-
-#acaoMagiaEscolha{
+#movesetMagiaEscolha,
+#ataqueForte,
+#magiaRecuperar,
+#descanso{
     margin: 0% 0% 0% 0%;
 }
 
-#acaoMagiaEscolha:hover{
+#movesetArmaduraEscolha,
+#teste1,
+#magiaBuff,
+#foco{
+    margin: 3% 0% 0% 4%;
+}
+
+#movesetOutrosEscolha,
+#voltarArmaAcao,
+#voltarMagiaAcao,
+#voltarArmaduraAcao{
+    margin: 3% 0% 0% 0%;
+}
+
+
+#movesetArmaEscolha:hover {
+    background-color: red;
+    cursor: pointer;
+}
+#movesetMagiaEscolha:hover {
     background-color: blue;
     cursor: pointer;
 }
 
-#acaoArmaduraEscolha{
-    margin: 3% 0% 0% 4%;
-}
-
-#acaoArmaduraEscolha:hover{
+#movesetArmaduraEscolha:hover {
     background-color: green;
     cursor: pointer;
 }
 
-#acaoOutrosEscolha{
-    margin: 3% 0% 0% 0%;
+#movesetOutrosEscolha:hover {
+    background-color: wheat;
+    cursor: pointer;
 }
 
-#acaoOutrosEscolha:hover{
-    background-color: wheat;
+#ataqueFraco:hover,
+#ataqueForte:hover,
+#teste1:hover,
+#voltarArmaAcao:hover{
+    background-color: red;
+    cursor: pointer;
+} 
+
+#magiaDano:hover,
+#magiaRecuperar:hover,
+#magiaBuff:hover,
+#voltarMagiaAcao:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+
+#bloquear:hover,
+#descanso:hover,
+#foco:hover,
+#voltarArmaduraAcao:hover{
+    background-color: green;
     cursor: pointer;
 }
 
