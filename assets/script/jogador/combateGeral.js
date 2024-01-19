@@ -1,3 +1,7 @@
+function acaoIntervalo() {
+    vezUsuario = true
+}
+
 var primeiraEscolha = window.document.querySelector('input#movesetArmaEscolha')
 primeiraEscolha.addEventListener('click', movesetArmaEscolhaClick)
 
@@ -39,7 +43,7 @@ function movesetArmaEscolhaClick() {
 }
 
 function ataqueFracoClick() {
-    alert('Ataque Fraco Usado')
+    botaoAtaqueFracoClick()
     voltarMovesetInicio()
 }
 

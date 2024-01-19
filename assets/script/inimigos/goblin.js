@@ -9,6 +9,7 @@ var goblin = {
 /*-GOBLIN COMBATE-*/
 function iniciarGoblinCombate() {
     taverna.style.display = 'none'
+    mainBotaoMenu.style.display = 'none'
 
     fase = 'goblin'
     inimigoHudImagem.src = 'assets/content/img/Goblin.gif'
@@ -28,19 +29,19 @@ function iniciarGoblinCombate() {
 }
 
 function definirEstatisticaGoblin() {
-    inimigo.nome = goblin.nome
-    inimigo.classe = goblin.classe
+    inimigoGeral.nome = goblin.nome
+    inimigoGeral.classe = goblin.classe
 
-    inimigo.vida = goblin.vida
-    inimigo.energia = goblin.energia
+    inimigoGeral.vida = goblin.vida
+    inimigoGeral.energia = goblin.energia
 
-    inimigo.vidaCombate = goblin.vidaCombate
-    inimigo.energiaCombate = goblin.energiaCombate
+    inimigoGeral.vidaCombate = goblin.vidaCombate
+    inimigoGeral.energiaCombate = goblin.energiaCombate
 
-    inimigo.energiaGasto = goblin.energiaGasto
-    inimigo.energiaRecuperacao = goblin.energiaRecuperacao
+    inimigoGeral.energiaGasto = goblin.energiaGasto
+    inimigoGeral.energiaRecuperacao = goblin.energiaRecuperacao
 
-    inimigo.dano = goblin.dano
-    inimigo.danoCombate = goblin.danoCombate
+    inimigoGeral.dano = goblin.dano
+    inimigoGeral.danoCombate = goblin.danoCombate
 }
 /*-----*/

@@ -17,6 +17,14 @@ botaoHumano.addEventListener('click', botaoHumanoClick)
 function botaoHumanoClick() {
     racaGeral = racaHumano
 
+    jogador.vida = racaGeral.vida
+    jogador.energia = racaGeral.energia
+    jogador.mana = racaGeral.mana
+
+    jogador.vidaCombate = racaGeral.vidaCombate
+    jogador.energiaCombate = racaGeral.energiaCombate
+    jogador.manaCombate = racaGeral.manaCombate
+
     escolhaRaca.style.display = 'none'
     mainBauInicial.style.display = 'contents'
 }
@@ -28,6 +36,14 @@ botaoElfo.addEventListener('click', botaoElfoClick)
 
 function botaoElfoClick() {
     racaGeral = racaElfo
+
+    jogador.vida = racaGeral.vida
+    jogador.energia = racaGeral.energia
+    jogador.mana = racaGeral.mana
+
+    jogador.vidaCombate = racaGeral.vidaCombate
+    jogador.energiaCombate = racaGeral.energiaCombate
+    jogador.manaCombate = racaGeral.manaCombate
 
     escolhaRaca.style.display = 'none'
     mainBauInicial.style.display = 'contents'
@@ -41,6 +57,14 @@ botaoOrc.addEventListener('click', botaoOrcClick)
 function botaoOrcClick() {
     racaGeral = racaOrc
 
+    jogador.vida = racaGeral.vida
+    jogador.energia = racaGeral.energia
+    jogador.mana = racaGeral.mana
+
+    jogador.vidaCombate = racaGeral.vidaCombate
+    jogador.energiaCombate = racaGeral.energiaCombate
+    jogador.manaCombate = racaGeral.manaCombate
+
     escolhaRaca.style.display = 'none'
     mainBauInicial.style.display = 'contents'
 }
@@ -53,6 +77,14 @@ botaoDraconato.addEventListener('click', botaoDraconatoClick)
 function botaoDraconatoClick() {
     racaGeral = racaDraconato
 
+    jogador.vida = racaGeral.vida
+    jogador.energia = racaGeral.energia
+    jogador.mana = racaGeral.mana
+
+    jogador.vidaCombate = racaGeral.vidaCombate
+    jogador.energiaCombate = racaGeral.energiaCombate
+    jogador.manaCombate = racaGeral.manaCombate
+
     escolhaRaca.style.display = 'none'
     mainBauInicial.style.display = 'contents'
 }
@@ -64,6 +96,14 @@ botaoVampiro.addEventListener('click', botaoVampiroClick)
 
 function botaoVampiroClick() {
     racaGeral = racaVampiro
+
+    jogador.vida = racaGeral.vida
+    jogador.energia = racaGeral.energia
+    jogador.mana = racaGeral.mana
+
+    jogador.vidaCombate = racaGeral.vidaCombate
+    jogador.energiaCombate = racaGeral.energiaCombate
+    jogador.manaCombate = racaGeral.manaCombate
 
     escolhaRaca.style.display = 'none'
     mainBauInicial.style.display = 'contents'

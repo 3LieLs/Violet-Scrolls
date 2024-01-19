@@ -15,8 +15,9 @@ mainInimigoDerrotado.style.display = 'none'
 mainJogadorDerrotado.style.display = 'none'
 
 taverna.style.display = 'none'
+
 mainBotaoMenu.style.display = 'none'
 menu.style.display = 'none'
-subirNivel.style.display = 'none'
+subirNivelDisplay.style.display = 'none'
 upStatus.style.display = 'none'
 /*-----*/

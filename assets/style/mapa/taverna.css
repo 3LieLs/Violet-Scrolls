@@ -5,39 +5,40 @@
     left: 4%;
     width: 8%;
     background-color: gray;
+    border: solid 3px black;
     font-size: 20px;
     font-weight: bold;
 }
 
-#mainMenu {
-    position: absolute;
-    top: 10%;
-    left: 3%;
-    width: 87%;
-    height: 85%;
-    z-index: 9999;
-    background-color: rgb(167, 44, 0);
-    border: solid 5px black;
-    border-radius: 5%;
+#botaoMenu:hover {
+    background-color: lightgray;
+    cursor: pointer;
 }
 
+/*-----*/
+
+/*-NIVEL-*/
 #nivel {
     position: absolute;
-    top: 10%;
-    right: 10%;
+    top: -15%;
+    left: 50%;
+    transform: translate(-50%);
     width: 20%;
-    height: 20vh;
+    height: 5%;
     text-align: center;
     font-weight: bold;
+    transition: 0.5s all 0s;
+    opacity: 0;
 }
 
 #nivelAtual {
-    margin: 0% 0% 0% 0%;
-    padding: 3% 0% 5% 0%;
-    width: 100%;
-    height: 3vh;
-    background-color: gray;
+    margin: auto;
+    padding: 0% 0% 0% 0%;
+    width: 50%;
+    height: 5vh;
+    background-color: rgb(30, 30, 30);
     border: solid 3px black;
+    border-bottom: none;
     text-align: center;
     font-size: 20pt;
     font-weight: bold;
@@ -45,15 +46,13 @@
 
 #experienciaAtual {
     margin: auto;
-    margin-bottom: 5%;
-    padding: 3% 0% 5% 0%;
+    padding: 0% 0% 0% 0%;
     width: 85%;
-    height: 1vh;
+    height: 3.5vh;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEWAgICQdD0xAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=);
     background-repeat: no-repeat;
     background-size: 0% 100%;
     border: solid 3px black;
-    border-top: none;
     text-align: center;
     font-size: 10pt;
     font-weight: bold;
@@ -96,104 +95,149 @@
     background-color: blue;
 }
 
-#menuStats {
-    display: flex;
-    flex-direction: column;
+/*-----*/
+
+/*-CARACTERISTICAS-*/
+#menuNomeGeneroRaca {
     position: absolute;
+    top: 15%;
     left: -5%;
-    top: 10%;
-    width: 100%;
-}
-
-#menuEquip {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    left: -1.5%;
-    bottom: 10%;
-    width: 100%;
-}
-
-#menuNomeClasseGenero {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    top: 30%;
-    left: 31%;
-    width: 60%;
+    width: 15%;
+    padding: 1% 0.5% 5% 0.5%;
+    background-color: rgb(30, 30, 30);
+    border: solid 3px black;
+    border-radius: 5%;
+    transition: 0.5s all 0s;
+    opacity: 0;
 }
 
 #menuNome,
 #menuGenero,
-#menuClasse {
+#menuRaca {
     width: 100%;
-    margin: 0% 0% 3% 3%;
+    margin: 0% 0% 5% 0%;
     padding: 0% 0% 0% 0%;
-    background-color: green;
-    border: solid 3px black;
-    border-radius: 10%;
+    background-color: black;
+    color: orangered;
+    border: solid 3px orangered;
+    border-radius: 5%;
     text-align: center;
     font-size: 15pt;
 }
 
-#menuNome {
-    margin-left: 10%;
-}
+/*-----*/
 
-#menuVidaEnergiaMana {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    top: 30%;
-    left: 31%;
-    width: 60%;
+/*-STATS-*/
+#menuStats {
+    position: absolute;
+    top: 55%;
+    left: -5%;
+    width: 15%;
+    padding: 1% 0.5% 5% 0.5%;
+    background-color: rgb(30, 30, 30);
+    border: solid 3px black;
+    border-radius: 5%;
+    transition: 0.5s all 0s;
+    opacity: 0;
 }
 
 #menuVida,
 #menuEnergia,
 #menuMana {
     width: 100%;
-    margin: 0% 0% 0% 10%;
+    margin: 0% 0% 5% 0%;
     padding: 0% 0% 0% 0%;
-    background-color: green;
-    border: solid 3px black;
+    background-color: black;
+    border: solid 3px orangered;
     border-radius: 10%;
     text-align: center;
     font-size: 15pt;
 }
 
-#menuEquipAtaque,
-#menuEquipDefesa {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    top: 30%;
-    left: 31%;
-    width: 30%;
+#menuVida {
+    color: red;
 }
 
-#menuArma,
+#menuEnergia {
+    color: green;
+}
+
+#menuMana {
+    color: blue;
+}
+
+/*-----*/
+
+/*-EQUIPAMENTO-*/
+#menuArma {
+    position: absolute;
+    top: 5%;
+    right: -5%;
+    width: 20%;
+    height: 40%;
+    padding: 1% 0.5% 5% 0.5%;
+    background-color: rgb(30, 30, 30);
+    border: solid 3px black;
+    border-radius: 5%;
+    transition: 0.5s all 0s;
+    opacity: 0;
+}
+
 #menuArmadura {
-    width: 80%;
-    height: 8vh;
-    margin: 0% 0% 0% 0%;
-    padding: 0% 0% 0% 0%;
-    background-color: green;
+    position: absolute;
+    top: 55%;
+    right: -5%;
+    width: 20%;
+    height: 40%;
+    padding: 1% 0.5% 5% 0.5%;
+    background-color: rgb(30, 30, 30);
     border: solid 3px black;
-    border-radius: 10%;
-    text-align: center;
-    font-size: 15pt;
-    font-weight: bold;
+    border-radius: 5%;
+    transition: 0.5s all 0s;
+    opacity: 0;
 }
 
+#menuArmaNome,
+#menuArmaduraNome,
 #menuDano,
 #menuDefesa,
 #menuEnergiaRecuperacao,
 #menuManaRecuperacao,
 #menuEnergiaCusto,
 #menuManaCusto {
-    width: 70%;
-    margin: 3% 0% 0% 0%;
+    width: 100%;
+    margin: 0% 0% 5% 0%;
+    padding: 0% 0% 0% 0%;
+    background-color: black;
+    color: orangered;
+    border: solid 3px orangered;
+    border-radius: 5%;
+    text-align: center;
+    font-size: 15pt;
+}
+
+/*-----*/
+
+/*-ITENS-*/
+#menuItens {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 50%;
+    height: 60%;
+    background-color: rgb(30, 30, 30);
+    border: solid 5px black;
+    border-radius: 5%;
+    text-align: center;
+    font-weight: bold;
+    transition: 0.5s all 0s;
+    opacity: 0;
+}
+
+#itensNome {
+    width: 100%;
+    margin: 0% 0% 5% 0%;
     padding: 0% 0% 0% 0%;
     background-color: green;
     border: solid 3px black;
@@ -204,8 +248,8 @@
 
 /*-----*/
 
-/*-FASE GOBLIN-*/
-#botaoVendedor{
+/*-NPCs-*/
+#botaoVendedor {
     position: absolute;
     top: 5%;
     right: 0%;
@@ -219,7 +263,7 @@
     font-weight: bold;
 }
 
-#botaoFerreiro{
+#botaoFerreiro {
     position: absolute;
     top: 15%;
     right: 0%;
@@ -233,7 +277,7 @@
     font-weight: bold;
 }
 
-#botaoFeiticeiro{
+#botaoFeiticeiro {
     position: absolute;
     top: 25%;
     right: 0%;
@@ -247,66 +291,24 @@
     font-weight: bold;
 }
 
-#botaoMasmorra{
-    position: absolute;
-    bottom: 5%; 
-    left: 50%;
-    transform: translate(-50%);
-    width: 15%;
-    height: 10%;
-    background-color: gray;
-    border: solid 3px black;
-    border-radius: 20%;
-    font-size: 25pt;
-    font-weight: bold;
-}
-
-#botaoVendedor:hover ,#botaoFerreiro:hover, #botaoFeiticeiro:hover, #botaoMasmorra:hover{
+#botaoVendedor:hover,
+#botaoFerreiro:hover,
+#botaoFeiticeiro:hover,
+#botaoMasmorra:hover {
     background-color: gainsboro;
     cursor: pointer;
 }
 
-#botaoGoblin {
-    position: absolute;
-    bottom: 5%;
-    left: 20%;
-    transform: translate(-50%);
-    width: 25%;
-    height: 8vh;
-    background-color: gray;
-    border: solid 3px black;
-    border-radius: 20%;
-    font-size: 25pt;
-    font-weight: bold;
-}
-
 /*-----*/
 
-/*-FASE GOLEM-*/
-#botaoGolem {
+/*-MASMORRA-*/
+#botaoMasmorra {
     position: absolute;
     bottom: 5%;
     left: 50%;
     transform: translate(-50%);
-    width: 25%;
-    height: 8vh;
-    background-color: gray;
-    border: solid 3px black;
-    border-radius: 20%;
-    font-size: 25pt;
-    font-weight: bold;
-}
-
-/*-----*/
-
-/*-FASE DRAGÃO-*/
-#botaoDragao {
-    position: absolute;
-    bottom: 5%;
-    left: 80%;
-    transform: translate(-50%);
-    width: 25%;
-    height: 8vh;
+    width: 15%;
+    height: 10%;
     background-color: gray;
     border: solid 3px black;
     border-radius: 20%;

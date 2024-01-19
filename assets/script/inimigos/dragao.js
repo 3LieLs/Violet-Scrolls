@@ -9,6 +9,7 @@ var dragao = {
 /*-DRAGÃO COMBATE-*/
 function iniciarDragaoCombate() {
     taverna.style.display = 'none'
+    mainBotaoMenu.style.display = 'none'
 
     fase = 'dragao'
     inimigoHudImagem.src = 'assets/content/img/Dragão.gif'
@@ -28,19 +29,19 @@ function iniciarDragaoCombate() {
 }
 
 function definirEstatisticaDragao() {
-    inimigo.nome = dragao.nome
-    inimigo.classe = dragao.classe
+    inimigoGeral.nome = dragao.nome
+    inimigoGeral.classe = dragao.classe
 
-    inimigo.vida = dragao.vida
-    inimigo.mana = dragao.mana
+    inimigoGeral.vida = dragao.vida
+    inimigoGeral.mana = dragao.mana
 
-    inimigo.vidaCombate = dragao.vidaCombate
-    inimigo.manaCombate = dragao.manaCombate
+    inimigoGeral.vidaCombate = dragao.vidaCombate
+    inimigoGeral.manaCombate = dragao.manaCombate
 
-    inimigo.manaGasto = dragao.manaGasto
-    inimigo.manaRecuperacao = dragao.manaRecuperacao
+    inimigoGeral.manaGasto = dragao.manaGasto
+    inimigoGeral.manaRecuperacao = dragao.manaRecuperacao
 
-    inimigo.dano = dragao.dano
-    inimigo.danoCombate = dragao.danoCombate
+    inimigoGeral.dano = dragao.dano
+    inimigoGeral.danoCombate = dragao.danoCombate
 }
 /*-----*/

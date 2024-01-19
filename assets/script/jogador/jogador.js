@@ -1,6 +1,13 @@
-function acaoIntervalo() {
-    vezUsuario = true
+/*-STATUS JOGADOR-*/
+var jogador = {
+    nome: '', genero: '', raca: '',
+    moeda: 0, moedaGanha: 0,
+    peso: 15, click: 0, minigame: '',
+    vida: 0, mana: 0, energia: 0,
+    vidaCombate: 0, manaCombate: 0, energiaCombate: 0,
+    porcentagem: 0, vidaPorcentagem: 100, manaPorcentagem: 100, energiaPorcentagem: 100,
 }
+/*-----*/
 
 var legendaView = window.document.querySelector('p#mensagemLegenda')
 
@@ -10,14 +17,14 @@ var estatisticaEnergia = window.document.querySelector('p#estatisticaEnergia')
 var estatisticaMana = window.document.querySelector('p#estatisticaMana')
 
 function jogadorCombateHud() {
-    estatisticaVida.innerHTML = `Vida: ${racaGeral.vidaCombate}`
-    estatisticaVida.style.backgroundSize = `${racaGeral.vidaPorcentagem}% 100%`
+    estatisticaVida.innerHTML = `Vida: ${jogador.vidaCombate}`
+    estatisticaVida.style.backgroundSize = `${jogador.vidaPorcentagem}% 100%`
     
-    estatisticaEnergia.innerHTML = `Energia: ${racaGeral.energiaCombate}`
-    estatisticaEnergia.style.backgroundSize = `${racaGeral.energiaPorcentagem}% 100%`
+    estatisticaEnergia.innerHTML = `Energia: ${jogador.energiaCombate}`
+    estatisticaEnergia.style.backgroundSize = `${jogador.energiaPorcentagem}% 100%`
 
-    estatisticaMana.innerHTML = `Mana: ${racaGeral.manaCombate}`
-    estatisticaMana.style.backgroundSize = `${racaGeral.manaPorcentagem}% 100%`
+    estatisticaMana.innerHTML = `Mana: ${jogador.manaCombate}`
+    estatisticaMana.style.backgroundSize = `${jogador.manaPorcentagem}% 100%`
 }
 /*-----*/
 
@@ -47,6 +54,12 @@ function derrota() {
     mainJogadorDerrotado.style.display = 'contents'
     mensagemJogadorDerrotadoVal.innerHTML = `${jogador.nome} foi derrotado`
     fase = 'taverna'
+}
+/*-----*/
+
+/*-NÍVEL DE JOGADOR-*/
+var jogadorNivel = {
+    nivel: 1, experiencia: 0, experienciaPorcentagem: 0, proximoNivel: 20,
 }
 /*-----*/
 

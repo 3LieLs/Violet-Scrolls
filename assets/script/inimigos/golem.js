@@ -9,6 +9,7 @@ var golem = {
 /*-GOLEM COMBATE-*/
 function iniciarGolemCombate() {
     taverna.style.display = 'none'
+    mainBotaoMenu.style.display = 'none'
 
     fase = 'golem'
     inimigoHudImagem.src = 'assets/content/img/Golem.gif'
@@ -29,19 +30,19 @@ function iniciarGolemCombate() {
 /*-----*/
 
 function definirEstatisticaGolem() {
-    inimigo.nome = golem.nome
-    inimigo.classe = golem.classe
+    inimigoGeral.nome = golem.nome
+    inimigoGeral.classe = golem.classe
 
-    inimigo.vida = golem.vida
-    inimigo.energia = golem.energia
+    inimigoGeral.vida = golem.vida
+    inimigoGeral.energia = golem.energia
 
-    inimigo.vidaCombate = golem.vidaCombate
-    inimigo.energiaCombate = golem.energiaCombate
+    inimigoGeral.vidaCombate = golem.vidaCombate
+    inimigoGeral.energiaCombate = golem.energiaCombate
 
-    inimigo.energiaGasto = golem.energiaGasto
-    inimigo.energiaRecuperacao = golem.energiaRecuperacao
+    inimigoGeral.energiaGasto = golem.energiaGasto
+    inimigoGeral.energiaRecuperacao = golem.energiaRecuperacao
 
-    inimigo.dano = golem.dano
-    inimigo.danoCombate = golem.danoCombate
+    inimigoGeral.dano = golem.dano
+    inimigoGeral.danoCombate = golem.danoCombate
 }
 /*-----*/

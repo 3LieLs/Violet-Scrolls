@@ -17,7 +17,6 @@
 
     <link rel="stylesheet" href="assets/style/inimigos/inimigo.css">
     <link rel="stylesheet" href="assets/style/inimigos/combateInimigo.css">
-
 </head>
 
 <style>
@@ -157,52 +156,55 @@
         <div id="mainBotaoMenu">
             <input id="botaoMenu" type="button" value="Menu">
         </div>
+
         <div id="menu">
-            <div id="mainMenu">
-
-                <div id="menuStats">
-                    <div id="menuNomeClasseGenero">
-                        <p id="menuNome"></p>
-                        <p id="menuGenero"></p>
-                        <p id="menuClasse"></p>
-                    </div>
-                    <div id="menuVidaEnergiaMana">
-                        <p id="menuVida"></p>
-                        <p id="menuEnergia"></p>
-                        <p id="menuMana"></p>
-                    </div>
-                </div>
-
-                <div id="menuEquip">
-                    <div id="menuEquipAtaque">
-                        <p id="menuArma"></p>
-                        <p id="menuDano"></p>
-                        <p id="menuEnergiaCusto"></p>
-                        <p id="menuManaCusto"></p>
-                    </div>
-                    <div id="menuEquipDefesa">
-                        <p id="menuArmadura"></p>
-                        <p id="menuDefesa"></p>
-                        <p id="menuEnergiaRecuperacao"></p>
-                        <p id="menuManaRecuperacao"></p>
-                    </div>
-                </div>
-
-                <div id="nivel">
-                    <p id="nivelAtual"></p>
-                    <p id="experienciaAtual"></p>
-
-                    <input id="subirNivel" type="button" value="Subir nível">
-
-                    <div id="upStatus">
-                        <input id="subirVida" type="button" value="Vida">
-                        <input id="subirEnergia" type="button" value="Energia">
-                        <input id="subirMana" type="button" value="Mana">
-                    </div>
-                </div>
-
+            <div id="menuNomeGeneroRaca">
+                <p id="menuNome"></p>
+                <p id="menuGenero"></p>
+                <p id="menuRaca"></p>
             </div>
+
+            <div id="menuStats">
+                <p id="menuVida"></p>
+                <p id="menuEnergia"></p>
+                <p id="menuMana"></p>
+            </div>
+
+            <div id="menuArma">
+                <p id="menuArmaNome"></p>
+                <p id="menuDano"></p>
+                <p id="menuEnergiaCusto"></p>
+                <p id="menuManaCusto"></p>
+            </div>
+
+            <div id="menuArmadura">
+                <p id="menuArmaduraNome"></p>
+                <p id="menuDefesa"></p>
+                <p id="menuEnergiaRecuperacao"></p>
+                <p id="menuManaRecuperacao"></p>
+            </div>
+
+            <div id="menuItens">
+                <p id="itensNome">TESTE</p>
+            </div>
+
+            <div id="nivel">
+                <p id="nivelAtual"></p>
+                <p id="experienciaAtual"></p>
+
+                <div id="subirNivelDisplay">
+                    <input id="subirNivel" type="button" value="Subir nível">
+                </div>
+
+                <div id="upStatus">
+                    <input id="subirVida" type="button" value="Vida">
+                    <input id="subirEnergia" type="button" value="Energia">
+                    <input id="subirMana" type="button" value="Mana">
+                </div>
+            </div>
+
         </div>
+
         <!---------------------------------------------------------------------->
 
         <!----------------------Taverna---------------------->
@@ -291,8 +293,9 @@
 
     <script src="assets/script/jogador/jogador.js"></script>
     <script src="assets/script/jogador/combateGeral.js"></script>
+    <script src="assets/script/jogador/movimentos/ataqueFraco.js"></script>
 
-    <script src="assets/script/inimigos/inimigoGeral.js"></script>
+    <script src="assets/script/inimigos/inimigo.js"></script>
     <script src="assets/script/inimigos/goblin.js"></script>
     <script src="assets/script/inimigos/golem.js"></script>
     <script src="assets/script/inimigos/dragao.js"></script>
