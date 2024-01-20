@@ -14,7 +14,7 @@ function descansoUso() {
         jogador.energiaPorcentagem = parseInt(jogador.energiaPorcentagem) + parseInt(jogador.porcentagem)
     }
 
-    legendaView.innerHTML = `${jogador.nome} utilizou Descanso<br>Energia recuperado: ${armaduraGeral.energiaRecuperacao}`
+    legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} utilizou Descanso<br>Energia recuperado: ${armaduraGeral.energiaRecuperacao}<br><br>`)
 
     jogadorCombateHud()
     inimigoCombateHud()

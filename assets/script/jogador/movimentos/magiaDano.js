@@ -18,7 +18,7 @@ function MagiaDanoUso() {
 
     if (magiaDanoGeral.classe == 'Mágico') {
 
-        legendaView.innerHTML = `${jogador.nome} utilizou ${magiaDanoGeral.nome}<br>Dano causado: ${magiaDanoGeral.danoCombate}<br>Mana gasta: ${magiaDanoGeral.manaCusto}`
+        legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} utilizou ${magiaDanoGeral.nome}<br>Dano causado: ${magiaDanoGeral.danoCombate}<br>Mana gasta: ${magiaDanoGeral.manaCusto}<br><br>`)
 
         jogador.manaCombate = jogador.manaCombate - magiaDanoGeral.manaCusto
 

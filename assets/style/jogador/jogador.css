@@ -1,14 +1,20 @@
-/*-----*/
-#mensagemLegenda {
-    display: flex;
+/*-LEGENDA COMBATE-*/
+#legenda{
     position: absolute;
-    bottom: 20%;
+    bottom: 5%;
     left: 3%;
-    width: 40%;
-    margin: 0px;
-    font-size: 15pt;
+    width: 15%;
+    height: 35%;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0.5% 0% 0.5%;
+    background-color: rgb(20, 20, 20);
+    color: orangered;
+    border: solid 5px black;
+    border-radius: 5%;
+    text-align: justify;
+    font-size: 10pt;
+    overflow: auto;
 }
-
 /*-----*/
 
 /*-ESTATÍSTICAS JOGADOR-*/

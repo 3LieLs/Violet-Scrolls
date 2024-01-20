@@ -2,7 +2,7 @@
 function magiaRecuperacaoUso() {
 
     if (magiaRecuperacaoGeral.classe == 'Mágico') {
-        legendaView.innerHTML = `${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>${magiaRecuperacaoGeral.tipo} recuperado: ${magiaRecuperacaoGeral.vidaRecuperacao}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCusto}`
+        legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>${magiaRecuperacaoGeral.tipo} recuperado: ${magiaRecuperacaoGeral.vidaRecuperacao}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCusto}<br><br>`)
 
         if (jogador.vidaCombate + magiaRecuperacaoGeral.vidaRecuperacao > jogador.vida) {
             jogador.vidaCombate = jogador.vida

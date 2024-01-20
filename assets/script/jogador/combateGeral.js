@@ -225,7 +225,6 @@ var minigameVal = window.document.querySelector('input#minigame')
 minigameVal.addEventListener('click', minigameMove)
 
 function minigameMove() {
-
     if (jogador.minigame == 'ataqueBasico') {
         minigameVal.addEventListener('click', minigameAtaqueBasico)
     }
@@ -245,6 +244,5 @@ function minigameMove() {
     if (jogador.minigame == 'foco') {
 
     }
-
 }
 /*-----*/

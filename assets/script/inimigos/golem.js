@@ -3,7 +3,7 @@ var golem = {
     nome: 'Golem', classe: 'fisico',
     vida: 50, energia: 30,
     vidaCombate: 50, energiaCombate: 30,
-    dano: 15, danoCombate: 15, energiaGasto: 10, energiaRecuperacao: 0,
+    dano: 15, danoCombate: 15, energiaGasto: 10, energiaRecuperacao: 20,
 }
 
 /*-GOLEM COMBATE-*/

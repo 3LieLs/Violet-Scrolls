@@ -41,109 +41,103 @@ function inimigoCombateHud() {
 function inimigoAtaque() {
     if (inimigoGeral.classe == 'fisico') {
         if (inimigoGeral.vidaCombate > 0) {
-            if (inimigoGeral.energiaCombate > 0) {
 
-                if (inimigoGeral.energiaCombate - inimigoGeral.energiaGasto >= 0) {
-                    legendaView.innerHTML = `${inimigoGeral.nome} Atacou<br>Dano causado: ${inimigoGeral.danoCombate}<br>Energia usada: ${inimigoGeral.energiaGasto}`
+            if (inimigoGeral.energiaCombate - inimigoGeral.energiaGasto >= 0) {
+                legendaView.insertAdjacentHTML('beforeend', `${inimigoGeral.nome} Atacou<br>Dano causado: ${inimigoGeral.danoCombate}<br>Energia usada: ${inimigoGeral.energiaGasto}<br><br>`)
 
-                    if (jogador.vidaCombate - inimigoGeral.danoCombate < 0) {
-                        jogador.vidaCombate = 0
-                        jogador.vidaPorcentagem = 0.1
-                        jogador.porcentagem = 0
-                    } else {
+                if (jogador.vidaCombate - inimigoGeral.danoCombate < 0) {
+                    jogador.vidaCombate = 0
+                    jogador.vidaPorcentagem = 0.1
+                    jogador.porcentagem = 0
+                } else {
 
-                        jogador.vidaCombate = jogador.vidaCombate - inimigoGeral.danoCombate
+                    jogador.vidaCombate = jogador.vidaCombate - inimigoGeral.danoCombate
 
-                        jogador.porcentagem = 100 - ((inimigoGeral.danoCombate / jogador.vida) * 100)
-                        jogador.porcentagem = 100 - jogador.porcentagem
-                        jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+                    jogador.porcentagem = 100 - ((inimigoGeral.danoCombate / jogador.vida) * 100)
+                    jogador.porcentagem = 100 - jogador.porcentagem
+                    jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
-                        jogador.vidaPorcentagem = jogador.vidaPorcentagem - jogador.porcentagem
+                    jogador.vidaPorcentagem = jogador.vidaPorcentagem - jogador.porcentagem
 
-                        inimigoGeral.energiaCombate = inimigoGeral.energiaCombate - inimigoGeral.energiaGasto
+                    inimigoGeral.energiaCombate = inimigoGeral.energiaCombate - inimigoGeral.energiaGasto
 
-                        inimigoGeral.porcentagem = 100 - ((inimigoGeral.energiaGasto / inimigoGeral.energia) * 100)
-                        inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
-                        inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
+                    inimigoGeral.porcentagem = 100 - ((inimigoGeral.energiaGasto / inimigoGeral.energia) * 100)
+                    inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
+                    inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
 
-                        inimigoGeral.energiaPorcentagem = inimigoGeral.energiaPorcentagem - inimigoGeral.porcentagem
-                    }
-
-                    if (inimigoGeral.energiaCombate < 0) {
-                        inimigoGeral.energiaCombate = 0
-                        inimigoGeral.energiaPorcentagem = 0.1
-                    }
-
+                    inimigoGeral.energiaPorcentagem = inimigoGeral.energiaPorcentagem - inimigoGeral.porcentagem
                 }
 
-            } else {
-                inimigoGeral.energiaRecuperacao = Math.round(Math.random() * (6 - 3) + 3);
-
-                inimigoGeral.energiaCombate = inimigoGeral.energiaCombate + inimigoGeral.energiaRecuperacao
-                inimigoGeral.porcentagem = 100 - ((inimigoGeral.energiaRecuperacao / inimigoGeral.energia) * 100)
-                inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
-                inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
-
-                inimigoGeral.energiaPorcentagem = parseInt(inimigoGeral.energiaPorcentagem) + parseInt(inimigoGeral.porcentagem)
-
-                legendaView.innerHTML = `${inimigoGeral.nome} utilizou descanso<br>Energia recuperada: ${inimigoGeral.energiaRecuperacao}`
+                if (inimigoGeral.energiaCombate < 0) {
+                    inimigoGeral.energiaCombate = 0
+                    inimigoGeral.energiaPorcentagem = 0.1
+                }
             }
         }
-    }
+        if (inimigoGeral.energiaCombate - inimigoGeral.energiaGasto < 0) {
+            inimigoGeral.energiaCombate = inimigoGeral.energiaCombate + inimigoGeral.energiaRecuperacao
+            inimigoGeral.porcentagem = 100 - ((inimigoGeral.energiaRecuperacao / inimigoGeral.energia) * 100)
+            inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
+            inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
 
+            inimigoGeral.energiaPorcentagem = parseInt(inimigoGeral.energiaPorcentagem) + parseInt(inimigoGeral.porcentagem)
 
-    if (inimigoGeral.classe == 'magico') {
-        if (inimigoGeral.vidaCombate > 0) {
-
-            if (inimigoGeral.manaCombate > 0) {
-
-                if (inimigoGeral.manaCombate - inimigoGeral.manaGasto >= 0) {
-                    legendaView.innerHTML = `${inimigoGeral.nome} Atacou<br>Dano causado: ${inimigoGeral.danoCombate}<br>Mana usada: ${inimigoGeral.manaGasto}`
-
-                    if (jogador.vidaCombate - inimigoGeral.danoCombate < 0) {
-                        jogador.vidaCombate = 0
-                        jogador.vidaPorcentagem = 0.1
-                        jogador.porcentagem = 0
-
-                    } else {
-                        jogador.vidaCombate = jogador.vidaCombate - inimigoGeral.danoCombate
-
-                        jogador.porcentagem = 100 - ((inimigoGeral.danoCombate / jogador.vida) * 100)
-                        jogador.porcentagem = 100 - jogador.porcentagem
-                        jogador.porcentagem = jogador.porcentagem.toPrecision(2)
-
-                        jogador.vidaPorcentagem = jogador.vidaPorcentagem - jogador.porcentagem
-
-                        inimigoGeral.manaCombate = inimigoGeral.manaCombate - inimigoGeral.manaGasto
-
-                        inimigoGeral.porcentagem = 100 - ((inimigoGeral.manaGasto / inimigoGeral.mana) * 100)
-                        inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
-                        inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
-
-                        inimigoGeral.manaPorcentagem = inimigoGeral.manaPorcentagem - inimigoGeral.porcentagem
-                    }
-
-                    if (inimigoGeral.manaCombate < 0) {
-                        inimigoGeral.manaCombate = 0
-                        inimigoGeral.manaPorcentagem = 0.1
-                    }
-                }
-
-            } else {
-                inimigoGeral.manaRecuperacao = Math.round(Math.random() * (6 - 3) + 3);
-
-                inimigoGeral.manaCombate = inimigoGeral.manaCombate + inimigoGeral.manaRecuperacao
-                inimigoGeral.porcentagem = 100 - ((inimigoGeral.manaRecuperacao / inimigoGeral.mana) * 100)
-                inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
-                inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
-
-                inimigoGeral.manaPorcentagem = parseInt(inimigoGeral.manaPorcentagem) + parseInt(inimigoGeral.porcentagem)
-
-                legendaView.innerHTML = `${inimigoGeral.nome} utilizou foco<br>Mana recuperada: ${inimigoGeral.manaRecuperacao}`
-            }
+            legendaView.insertAdjacentHTML('beforeend', `${inimigoGeral.nome} descansou<br>Energia recuperada: ${inimigoGeral.energiaRecuperacao}<br><br>`)
         }
     }
 }
+
+
+if (inimigoGeral.classe == 'magico') {
+    if (inimigoGeral.vidaCombate > 0) {
+
+        if (inimigoGeral.vidaCombate > 0) {
+
+            if (inimigoGeral.manaCombate - inimigoGeral.manaGasto >= 0) {
+                legendaView.insertAdjacentHTML('beforeend', `${inimigoGeral.nome} Atacou<br>Dano causado: ${inimigoGeral.danoCombate}<br>Mana usada: ${inimigoGeral.manaGasto}<br><br>`)
+
+                if (jogador.vidaCombate - inimigoGeral.danoCombate < 0) {
+                    jogador.vidaCombate = 0
+                    jogador.vidaPorcentagem = 0.1
+                    jogador.porcentagem = 0
+                } else {
+
+                    jogador.vidaCombate = jogador.vidaCombate - inimigoGeral.danoCombate
+
+                    jogador.porcentagem = 100 - ((inimigoGeral.danoCombate / jogador.vida) * 100)
+                    jogador.porcentagem = 100 - jogador.porcentagem
+                    jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+
+                    jogador.vidaPorcentagem = jogador.vidaPorcentagem - jogador.porcentagem
+
+                    inimigoGeral.manaCombate = inimigoGeral.manaCombate - inimigoGeral.manaGasto
+
+                    inimigoGeral.porcentagem = 100 - ((inimigoGeral.manaGasto / inimigoGeral.mana) * 100)
+                    inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
+                    inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
+
+                    inimigoGeral.manaPorcentagem = inimigoGeral.manaPorcentagem - inimigoGeral.porcentagem
+                }
+
+                if (inimigoGeral.manaCombate < 0) {
+                    inimigoGeral.manaCombate = 0
+                    inimigoGeral.manaPorcentagem = 0.1
+                }
+            }
+        }
+        if (inimigoGeral.manaCombate - inimigoGeral.manaGasto < 0) {
+            inimigoGeral.manaCombate = inimigoGeral.manaCombate + inimigoGeral.manaRecuperacao
+            inimigoGeral.porcentagem = 100 - ((inimigoGeral.manaRecuperacao / inimigoGeral.mana) * 100)
+            inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
+            inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
+
+            inimigoGeral.manaPorcentagem = parseInt(inimigoGeral.manaPorcentagem) + parseInt(inimigoGeral.porcentagem)
+
+            legendaView.insertAdjacentHTML('beforeend', `${inimigoGeral.nome} focou<br>Mana recuperada: ${inimigoGeral.manaRecuperacao}<br><br>`)
+        }
+    }
+}
+
 /*-----*/
 
 /*-INIMIGO DERROTADO-*/
@@ -152,6 +146,8 @@ var experienciaGanhaVal = window.document.querySelector('p#experienciaGanha')
 
 function inimigoDerrotado() {
     if (inimigoGeral.vidaCombate <= 0) {
+        rodada = 0
+
         mainHud.style.display = 'none'
         mainInimigoHud.style.display = 'none'
 

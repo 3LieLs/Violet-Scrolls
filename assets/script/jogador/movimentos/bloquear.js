@@ -1,6 +1,6 @@
 /*-DEFENDER-*/
 function bloquearUso() {
-    legendaView.innerHTML = `${jogador.nome} Bloqueou<br> Defesa aumentou para ${parseInt(armaduraGeral.defesaCombate + (armaduraGeral.defesaCombate / 2))}`
+    legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} Bloqueou<br> Defesa aumentou para ${parseInt(armaduraGeral.defesaCombate + (armaduraGeral.defesaCombate / 2))}<br><br>`)
 }
 
 function botaoBloquearClick() {

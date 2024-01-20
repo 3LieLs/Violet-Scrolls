@@ -17,7 +17,10 @@ function ataqueFracoDano() {
     }
 
     if (armaGeral.classe == 'Físico') {
-        legendaView.innerHTML = `${jogador.nome} atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}<br>Energia gasta: ${armaGeral.energiaCusto}`
+        
+        legendaView.insertAdjacentHTML('beforeend',`Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}<br>Energia gasta: ${armaGeral.energiaCusto}<br><br>`)
+        
+        
         jogador.energiaCombate = jogador.energiaCombate - armaGeral.energiaCusto
 
         jogador.porcentagem = 100 - ((armaGeral.energiaCusto / jogador.energia) * 100)

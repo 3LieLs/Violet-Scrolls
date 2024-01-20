@@ -16,7 +16,8 @@ function ataqueForteDano() {
     }
 
     if (armaGeral.classe == 'Físico') {
-        legendaView.innerHTML = `${jogador.nome} atacou com ${armaGeral.nome} com força<br>Dano causado: ${parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2))}<br>Energia gasta: ${parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2))}`
+        legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} atacou com ${armaGeral.nome} com força<br>Dano causado: ${parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2))}<br>Energia gasta: ${parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2))}<br><br>`)
+
         jogador.energiaCombate = jogador.energiaCombate - parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2))
 
         jogador.porcentagem = 100 - ((parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2)) / jogador.energia) * 100)

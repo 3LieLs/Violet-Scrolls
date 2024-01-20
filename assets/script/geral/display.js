@@ -8,6 +8,7 @@ mainBauInicial.style.display = 'none'
 itensIniciais.style.display = 'none'
 
 mainHud.style.display = 'none'
+mensagemSemMana.style.display = 'none'
 miniGameDisplay.style.display = 'none'
 
 mainInimigoHud.style.display = 'none'

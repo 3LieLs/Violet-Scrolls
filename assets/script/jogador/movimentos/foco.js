@@ -14,7 +14,7 @@ function focoUso() {
         jogador.manaPorcentagem = parseInt(jogador.manaPorcentagem) + parseInt(jogador.porcentagem)
     }
 
-    legendaView.innerHTML = `${jogador.nome} utilizou Focar<br>Mana recuperado: ${armaduraGeral.manaRecuperacao}`
+    legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} utilizou Focar<br>Mana recuperado: ${armaduraGeral.manaRecuperacao}<br><br>`)
 
     jogadorCombateHud()
     inimigoCombateHud()

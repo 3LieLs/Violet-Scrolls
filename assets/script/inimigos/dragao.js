@@ -3,7 +3,7 @@ var dragao = {
     nome: 'Dragão', classe: 'magico',
     vida: 80, mana: 50,
     vidaCombate: 80, manaCombate: 50,
-    dano: 25, danoCombate: 25, manaGasto: 15, manaRecuperacao: 0,
+    dano: 25, danoCombate: 25, manaGasto: 15, manaRecuperacao: 30,
 }
 
 /*-DRAGÃO COMBATE-*/
