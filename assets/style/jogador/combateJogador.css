@@ -20,7 +20,7 @@
 
 #ataqueFraco,
 #ataqueForte,
-#teste1,
+#contraAtaque,
 #voltarArmaAcao,
 
 #magiaDano,
@@ -60,7 +60,7 @@
 }
 
 #movesetArmaduraEscolha,
-#teste1,
+#contraAtaque,
 #magiaBuff,
 #foco{
     margin: 3% 0% 0% 4%;
@@ -95,7 +95,7 @@
 
 #ataqueFraco:hover,
 #ataqueForte:hover,
-#teste1:hover,
+#contraAtaque:hover,
 #voltarArmaAcao:hover{
     background-color: red;
     cursor: pointer;

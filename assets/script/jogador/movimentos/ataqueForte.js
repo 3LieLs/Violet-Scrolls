@@ -1,14 +1,13 @@
-/*-ATAQUE FRACO-*/
-function ataqueFracoDano() {
-
-    if (inimigoGeral.vidaCombate - armaGeral.danoCombate < 0) {
+/*-ATAQUE ESPECIAL-*/
+function ataqueForteDano() {
+    if (inimigoGeral.vidaCombate - parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2)) < 0) {
         inimigoGeral.vidaCombate = 0
         inimigoGeral.vidaPorcentagem = 0.1
 
     } else {
-        inimigoGeral.vidaCombate = inimigoGeral.vidaCombate - armaGeral.danoCombate
+        inimigoGeral.vidaCombate = inimigoGeral.vidaCombate - parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2))
 
-        inimigoGeral.porcentagem = 100 - ((armaGeral.danoCombate / inimigoGeral.vida) * 100)
+        inimigoGeral.porcentagem = 100 - ((parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2)) / inimigoGeral.vida) * 100)
         inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
         inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
 
@@ -17,10 +16,10 @@ function ataqueFracoDano() {
     }
 
     if (armaGeral.classe == 'Físico') {
-        legendaView.innerHTML = `${jogador.nome} atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}<br>Energia gasta: ${armaGeral.energiaCusto}`
-        jogador.energiaCombate = jogador.energiaCombate - armaGeral.energiaCusto
+        legendaView.innerHTML = `${jogador.nome} atacou com ${armaGeral.nome} com força<br>Dano causado: ${parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2))}<br>Energia gasta: ${parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2))}`
+        jogador.energiaCombate = jogador.energiaCombate - parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2))
 
-        jogador.porcentagem = 100 - ((armaGeral.energiaCusto / jogador.energia) * 100)
+        jogador.porcentagem = 100 - ((parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2)) / jogador.energia) * 100)
         jogador.porcentagem = 100 - jogador.porcentagem
         jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
@@ -31,16 +30,32 @@ function ataqueFracoDano() {
         }
     }
 
+    if (armaGeral.classe == 'Mágico') {
+        legendaView.innerHTML = `${jogador.nome} utilizou Ataque Forte<br>Dano causado: ${parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2))}<br>Mana gasta: ${parseInt(armaGeral.manaCusto + (armaGeral.manaCusto / 2))}`
+
+        jogador.manaCombate = jogador.manaCombate - parseInt(armaGeral.manaCusto + (armaGeral.manaCusto / 2))
+
+        jogador.porcentagem = 100 - ((armaGeral.manaCusto / jogador.mana) * 100)
+        jogador.porcentagem = 100 - jogador.porcentagem
+        jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+
+        jogador.manaPorcentagem = jogador.manaPorcentagem - jogador.porcentagem
+
+        if (jogador.manaCombate < 0) {
+            jogador.manaCombate = 0
+        }
+    }
+
     jogadorCombateHud()
     inimigoCombateHud()
 }
 
-function botaoAtaqueFracoClick() {
+function botaoAtaqueForteClick() {
     if (vezUsuario == true) {
         if (armaGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - armaGeral.energiaCusto >= 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - armaGeral.manaCusto >= 0) {
             vezUsuario = false
 
-            setTimeout(ataqueFracoDano, 0)
+            setTimeout(ataqueForteDano, 0)
             setTimeout(acaoIntervalo, 2000)
 
             setTimeout(inimigoAtaque, 2000)
@@ -50,7 +65,6 @@ function botaoAtaqueFracoClick() {
             setTimeout(jogadorDerrotado, 3000)
 
         }
-
 
         if (armaGeral.classe == 'Mágico' && jogador.manaCombate < 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate - armaGeral.manaCusto < 0) {
             alert(`Você está sem mana o suficiente para fazer está ação`)
@@ -65,57 +79,6 @@ function botaoAtaqueFracoClick() {
     }
 }
 
-function minigameAtaqueBasico() {
-    jogador.click = jogador.click + 1
-
-    if (jogador.click == 3) {
-        miniGameDisplay.style.display = 'none'
-    }
-
-    else {
-        miniGameDisplay.style.display = 'contents'
-
-        let num1 = 0
-        let num2 = 0
-
-        let cimaBaixo = Math.floor(Math.random() * 3) + 1;
-        let esquerdaDireita = Math.floor(Math.random() * 2) + 1;
-
-        if (cimaBaixo == 1) {
-            num1 = 40
-            if (esquerdaDireita == 1) {
-                num2 = 35
-            }
-
-            if (esquerdaDireita == 2) {
-                num2 = 65
-            }
-        }
-
-        if (cimaBaixo == 2) {
-            num1 = 60
-            if (esquerdaDireita == 1) {
-                num2 = 35
-            }
-
-            if (esquerdaDireita == 2) {
-                num2 = 65
-            }
-        }
-
-        if (cimaBaixo == 3) {
-            num1 = 80
-            if (esquerdaDireita == 1) {
-                num2 = 35
-            }
-
-            if (esquerdaDireita == 2) {
-                num2 = 65
-            }
-        }
-
-        minigameVal.style.top = `${num1}%`
-        minigameVal.style.left = `${num2}%`
-    }
+function minigameAtaqueForte() {
 }
 /*-----*/

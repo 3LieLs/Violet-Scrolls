@@ -17,6 +17,10 @@ botaoHumano.addEventListener('click', botaoHumanoClick)
 function botaoHumanoClick() {
     racaGeral = racaHumano
 
+    magiaDanoGeral = espinhoDeFogo
+    magiaRecuperacaoGeral = luzDaVida
+    magiaBuffGeral = furiaDeTouro
+
     jogador.vida = racaGeral.vida
     jogador.energia = racaGeral.energia
     jogador.mana = racaGeral.mana
@@ -36,6 +40,10 @@ botaoElfo.addEventListener('click', botaoElfoClick)
 
 function botaoElfoClick() {
     racaGeral = racaElfo
+
+    magiaDanoGeral = bolaDeFogo
+    magiaRecuperacaoGeral = luzDaVida
+    magiaBuffGeral = furiaDeTouro
 
     jogador.vida = racaGeral.vida
     jogador.energia = racaGeral.energia
@@ -57,6 +65,10 @@ botaoOrc.addEventListener('click', botaoOrcClick)
 function botaoOrcClick() {
     racaGeral = racaOrc
 
+    magiaDanoGeral = espinhoDeFogo
+    magiaRecuperacaoGeral = luzDaVida
+    magiaBuffGeral = furiaDeTouro
+
     jogador.vida = racaGeral.vida
     jogador.energia = racaGeral.energia
     jogador.mana = racaGeral.mana
@@ -77,6 +89,10 @@ botaoDraconato.addEventListener('click', botaoDraconatoClick)
 function botaoDraconatoClick() {
     racaGeral = racaDraconato
 
+    magiaDanoGeral = espinhoDeFogo
+    magiaRecuperacaoGeral = luzDaVida
+    magiaBuffGeral = furiaDeTouro
+
     jogador.vida = racaGeral.vida
     jogador.energia = racaGeral.energia
     jogador.mana = racaGeral.mana
@@ -96,6 +112,10 @@ botaoVampiro.addEventListener('click', botaoVampiroClick)
 
 function botaoVampiroClick() {
     racaGeral = racaVampiro
+
+    magiaDanoGeral = bolaDeFogo
+    magiaRecuperacaoGeral = luzDaVida
+    magiaBuffGeral = furiaDeTouro
 
     jogador.vida = racaGeral.vida
     jogador.energia = racaGeral.energia

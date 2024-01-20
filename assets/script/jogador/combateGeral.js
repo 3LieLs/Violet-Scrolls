@@ -29,11 +29,11 @@ function movesetArmaEscolhaClick() {
     segundaEscolha = window.document.querySelector('input#ataqueForte')
     segundaEscolha.addEventListener('click', ataqueForteClick)
 
-    terceiraEscolha.value = 'teste1'
-    terceiraEscolha.id = 'teste1'
+    terceiraEscolha.value = 'Contra-ataque'
+    terceiraEscolha.id = 'contraAtaque'
 
-    terceiraEscolha = window.document.querySelector('input#teste1')
-    terceiraEscolha.addEventListener('click', teste1Click)
+    terceiraEscolha = window.document.querySelector('input#contraAtaque')
+    terceiraEscolha.addEventListener('click', contraAtaqueClick)
 
     quartaEscolha.value = 'Voltar'
     quartaEscolha.id = 'voltarArmaAcao'
@@ -48,12 +48,12 @@ function ataqueFracoClick() {
 }
 
 function ataqueForteClick() {
-    alert('Ataque Forte Usado')
+    botaoAtaqueForteClick()
     voltarMovesetInicio()
 }
 
-function teste1Click() {
-    alert('Teste1 Usado')
+function contraAtaqueClick() {
+    alert('Contra Ataque Usado')
     voltarMovesetInicio()
 }
 
@@ -90,12 +90,12 @@ function movesetMagiaEscolhaClick() {
 }
 
 function magiaDanoClick() {
-    alert('Magia Dano Usado')
+    botaoMagiaDanoClick()
     voltarMovesetInicio()
 }
 
 function magiaRecuperarClick() {
-    alert('Magia Recuperar Usado')
+    botaoMagiaRestauracaoClick()
     voltarMovesetInicio()
 }
 
@@ -115,7 +115,7 @@ function movesetArmaduraEscolhaClick() {
     primeiraEscolha.id = 'bloquear'
 
     primeiraEscolha = window.document.querySelector('input#bloquear')
-    primeiraEscolha.addEventListener('click', defesaClick)
+    primeiraEscolha.addEventListener('click', bloquearClick)
 
     segundaEscolha.value = 'Descanso'
     segundaEscolha.id = 'descanso'
@@ -136,18 +136,18 @@ function movesetArmaduraEscolhaClick() {
     quartaEscolha.addEventListener('click', voltarArmaduraAcaoClick)
 }
 
-function defesaClick() {
-    alert('Bloquear Usado')
+function bloquearClick() {
+    botaoBloquearClick()
     voltarMovesetInicio()
 }
 
 function descansoClick() {
-    alert('Descanso Usado')
+    botaoDescansoClick()
     voltarMovesetInicio()
 }
 
 function focoClick() {
-    alert('Foco Usado')
+    botaoFocoClick()
     voltarMovesetInicio()
 }
 
@@ -164,7 +164,7 @@ function movesetOutrosEscolhaClick() { }
 function voltarMovesetInicio() {
     primeiraEscolha.removeEventListener('click', ataqueFracoClick)
     primeiraEscolha.removeEventListener('click', magiaDanoClick)
-    primeiraEscolha.removeEventListener('click', defesaClick)
+    primeiraEscolha.removeEventListener('click', bloquearClick)
 
 
     segundaEscolha.removeEventListener('click', ataqueForteClick)
@@ -172,7 +172,7 @@ function voltarMovesetInicio() {
     segundaEscolha.removeEventListener('click', descansoClick)
 
 
-    terceiraEscolha.removeEventListener('click', teste1Click)
+    terceiraEscolha.removeEventListener('click', contraAtaqueClick)
     terceiraEscolha.removeEventListener('click', magiaBuffClick)
     terceiraEscolha.removeEventListener('click', focoClick)
 

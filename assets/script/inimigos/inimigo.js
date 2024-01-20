@@ -153,7 +153,6 @@ var experienciaGanhaVal = window.document.querySelector('p#experienciaGanha')
 function inimigoDerrotado() {
     if (inimigoGeral.vidaCombate <= 0) {
         mainHud.style.display = 'none'
-
         mainInimigoHud.style.display = 'none'
 
         if (fase == 'goblin') {

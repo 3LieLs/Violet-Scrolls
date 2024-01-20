@@ -35,18 +35,11 @@ function jogadorDerrotado() {
     if (jogador.vidaCombate <= 0) {
         fase = 'taverna'
 
-        mainHudDisplay = false
         mainHud.style.display = 'none'
-
-        inimigoFisicoFase.style.display = 'none'
-        inimigoMagicoFase.style.display = 'none' 
+        mainInimigoHud.style.display = 'none'
 
         definirEstatisticaGeral()
         definirMusica()
-
-        //derrota()
-        //setTimeout(definirEstatisticaGeral, 2000)
-        //setTimeout(definirMusica, 2000)
     }
 }
 

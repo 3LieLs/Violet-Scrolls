@@ -2,8 +2,10 @@ Corrigir o bug da energia
 
 Colocar sons nos botões, golpes, e sons dos inimigos atacando e levando golpes
 
-substituir safezone por taverna
-
 adicionar minigames nos golpes
 
 mudar a cor dos botões caso sem mana ou energia
+
+Adicionar diferença entre dano Físico e Mágico (nos buffs também)
+
+mudar a frase de sem mana ou energia para um text html ao invés de alert
