@@ -1,0 +1,82 @@
+#vendedorDisplayStyle{
+    position: absolute;
+    top: 5%;
+    right: -5%;
+    width: 30%;
+    height: 90%;
+    background-color: burlywood;
+    color: black;
+    border: solid 3px black;
+    border-radius: 5%;
+    transition: 0.5s all 0s;
+    opacity: 0;
+}
+
+#mensagemVendedor{
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 90%;
+    height: 15%;
+    background-color: none;
+    text-align: center;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+#itemVendedor1, #itemVendedor2, #itemVendedor3{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 75%;
+    background-color: gray;
+    border: solid 3px black;
+    border-radius: 5%;
+    text-align: center;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+#itemVendedor1{
+    top: 20%;
+}
+
+#itemVendedor2{
+    top: 40%;
+}
+
+#itemVendedor3{
+    top: 60%;
+}
+
+#BotaoItemVendedor1, #BotaoItemVendedor2, #BotaoItemVendedor3{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 30%;
+    height: 5%;
+    background-color: gray;
+    border: solid 3px black;
+    border-radius: 20%;
+    text-align: center;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+#BotaoItemVendedor1{
+    top: 35%;
+}
+
+#BotaoItemVendedor2{
+    top: 55%;
+}
+
+#BotaoItemVendedor3{
+    top: 75%;
+}
+
+#BotaoItemVendedor1:hover, #BotaoItemVendedor2:hover, #BotaoItemVendedor3:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}

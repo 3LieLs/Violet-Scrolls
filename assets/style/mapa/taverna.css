@@ -251,9 +251,8 @@
 /*-NPCs-*/
 #botaoVendedor {
     position: absolute;
-    top: 5%;
-    right: 0%;
-    transform: translate(-50%);
+    bottom: 25%;
+    left: 3%;
     width: 10%;
     height: 5%;
     background-color: gray;
@@ -265,9 +264,8 @@
 
 #botaoFerreiro {
     position: absolute;
-    top: 15%;
-    right: 0%;
-    transform: translate(-50%);
+    bottom: 15%;
+    left: 3%;
     width: 10%;
     height: 5%;
     background-color: gray;
@@ -279,9 +277,8 @@
 
 #botaoFeiticeiro {
     position: absolute;
-    top: 25%;
-    right: 0%;
-    transform: translate(-50%);
+    bottom: 5%;
+    left: 3%;
     width: 10%;
     height: 5%;
     background-color: gray;

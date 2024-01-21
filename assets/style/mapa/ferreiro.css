@@ -1,0 +1,82 @@
+#ferreiroDisplayStyle{
+    position: absolute;
+    top: 5%;
+    right: -5%;
+    width: 30%;
+    height: 90%;
+    background-color: rgb(50, 50, 50);
+    color: black;
+    border: solid 3px black;
+    border-radius: 5%;
+    transition: 0.5s all 0s;
+    opacity: 0;
+}
+
+#mensagemFerreiro{
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 90%;
+    height: 15%;
+    background-color: none;
+    text-align: center;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+#itemFerreiro1, #itemFerreiro2, #itemFerreiro3{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 75%;
+    background-color: gray;
+    border: solid 3px black;
+    border-radius: 5%;
+    text-align: center;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+#itemFerreiro1{
+    top: 20%;
+}
+
+#itemFerreiro2{
+    top: 40%;
+}
+
+#itemFerreiro3{
+    top: 60%;
+}
+
+#BotaoItemFerreiro1, #BotaoItemFerreiro2, #BotaoItemFerreiro3{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 30%;
+    height: 5%;
+    background-color: gray;
+    border: solid 3px black;
+    border-radius: 20%;
+    text-align: center;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+#BotaoItemFerreiro1{
+    top: 35%;
+}
+
+#BotaoItemFerreiro2{
+    top: 55%;
+}
+
+#BotaoItemFerreiro3{
+    top: 75%;
+}
+
+#BotaoItemFerreiro1:hover, #BotaoItemFerreiro2:hover, #BotaoItemFerreiro3:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
