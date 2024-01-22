@@ -2,6 +2,7 @@
 var menuNomeVal = window.document.querySelector(`p#menuNome`)
 var menuGeneroVal = window.document.querySelector(`p#menuGenero`)
 var menuRacaVal = window.document.querySelector(`p#menuRaca`)
+var menuPecitasVal = window.document.querySelector(`p#menuPecitas`)
 
 var menuVidaVal = window.document.querySelector(`p#menuVida`)
 var menuEnergiaVal = window.document.querySelector(`p#menuEnergia`)
@@ -31,6 +32,7 @@ function menuDisplay() {
         menuNomeVal.innerHTML = `Nome: ${jogador.nome}`
         menuGeneroVal.innerHTML = `Gênero: ${jogador.genero}`
         menuRacaVal.innerHTML = `Raça: ${racaGeral.nome}`
+        menuPecitasVal.innerHTML = `Pecitas: ${jogador.pecitas}`
 
         menuVidaVal.innerHTML = `Vida: ${jogador.vida}`
         menuEnergiaVal.innerHTML = `Energia: ${jogador.energia}`
@@ -92,6 +94,9 @@ function menuAnimacaoAbrir() {
     menuArmadura.style.right = '1%'
 
     menuItens.style.opacity = '1'
+
+    menuTeste.style.opacity = '1'
+    menuTeste.style.bottom = '5%'
     
 }
 
@@ -112,6 +117,9 @@ function menuAnimacaoFechar() {
     menuArmadura.style.right = '-5%'
 
     menuItens.style.opacity = '0'
+
+    menuTeste.style.opacity = '0'
+    menuTeste.style.bottom = '-5%'
     
 }
 /*-----*/

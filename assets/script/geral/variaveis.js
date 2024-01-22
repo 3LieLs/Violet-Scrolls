@@ -1,5 +1,6 @@
 /*-VARIÁVEIS-*/
-var escolhaInimigo = 0 , fase = '', vezUsuario = true, mainHudDisplay = false
-var menuAbertoFechado = false, legendaInfo, rodada = 0
+var escolhaInimigo = 0 , fase = '', vezUsuario = true
+
+var menuAbertoFechado = false, rodada = 0
 /*-----*/
 

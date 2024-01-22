@@ -6,6 +6,6 @@ var magiaBuffGeral = {
 
 var furiaDeTouro = {
     nome: 'Furia de Touro', classe: 'Mágico',
-    danoBuff: 3, vidaBuff: 5, defesaBuff: 3, buff: '',
+    danoBuff: 1.5, vidaBuff: 0, defesaBuff: 1.5, buff: '',
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15, 
 }

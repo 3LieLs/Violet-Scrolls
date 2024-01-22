@@ -53,7 +53,7 @@ function ataqueForteClick() {
 }
 
 function contraAtaqueClick() {
-    alert('Contra Ataque Usado')
+    botaoContraAtaqueClick()
     voltarMovesetInicio()
 }
 
@@ -100,7 +100,7 @@ function magiaRecuperarClick() {
 }
 
 function magiaBuffClick() {
-    alert('Magia Buff Usado')
+    botaoMagiaBuffClick()
     voltarMovesetInicio()
 }
 
@@ -217,6 +217,18 @@ function critico() {
 
         inimigo.danoCombate = inimigo.danoCombate * 2
     }
+}
+/*-----*/
+
+/*-CALCULO DEFESA-*/
+function calculoDefesa() {
+    armaduraGeral.defesaCombate = (armaduraGeral.defesaCombate / (100 + parseInt(armaduraGeral.defesaCombate))) * 150
+    armaduraGeral.defesaCombate = armaduraGeral.defesaCombate.toPrecision(3)
+
+    armaduraGeral.defesaCombate = (armaduraGeral.defesaCombate / 100) * inimigoGeral.danoCombate
+    inimigoGeral.danoCombate = inimigoGeral.danoCombate - armaduraGeral.defesaCombate
+
+    inimigoGeral.danoCombate = Math.trunc(inimigoGeral.danoCombate)
 }
 /*-----*/
 

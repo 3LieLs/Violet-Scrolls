@@ -113,7 +113,8 @@
 
 #menuNome,
 #menuGenero,
-#menuRaca {
+#menuRaca,
+#menuPecitas {
     width: 100%;
     margin: 0% 0% 5% 0%;
     padding: 0% 0% 0% 0%;
@@ -125,6 +126,14 @@
     font-size: 15pt;
 }
 
+#menuPecitas {
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 53%;
+    font-size: 13pt;
+}
 /*-----*/
 
 /*-STATS-*/
@@ -244,6 +253,23 @@
     border-radius: 10%;
     text-align: center;
     font-size: 15pt;
+}
+
+#menuTeste{
+    position: absolute;
+    bottom: -5%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 20%;
+    height: 7%;
+    background-color: rgb(30, 30, 30);
+    border: solid 5px black;
+    border-radius: 5%;
+    text-align: center;
+    font-size: 14pt;
+    font-weight: bold;
+    transition: 0.5s all 0s;
+    opacity: 0;
 }
 
 /*-----*/

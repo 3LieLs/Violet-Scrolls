@@ -28,10 +28,11 @@ function  abrirBauInicialClick() {
     
     armaGeral = adaga
     armaduraGeral = armaduraDePele
+    jogador.pecitas = parseInt(jogador.pecitas) + 5
 
     itensIniciais.style.display = 'contents'
     
-    item1.innerHTML = `${5} Moedas`
+    item1.innerHTML = `${5} Pecitas`
     item2.innerHTML = `${adaga.nome}`
     item3.innerHTML = `${armaduraDePele.nome}`
     setTimeout (sumirItensAdquiridos, 2000)

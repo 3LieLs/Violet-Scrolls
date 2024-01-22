@@ -1,7 +1,7 @@
 /*-STATUS JOGADOR-*/
 var jogador = {
     nome: '', genero: '', raca: '',
-    moeda: 0, moedaGanha: 0,
+    pecitas: 0, pecitasGanha: 0,
     peso: 15, click: 0, minigame: '',
     vida: 0, mana: 0, energia: 0,
     vidaCombate: 0, manaCombate: 0, energiaCombate: 0,
