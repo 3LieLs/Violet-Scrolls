@@ -243,17 +243,55 @@
     font-weight: bold;
     transition: 0.5s all 0s;
     opacity: 0;
+    overflow: auto;
 }
 
-#itensNome {
+#voltarItens{
+    position: absolute;
+    left: 1%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+}
+
+#proximoItens{
+    position: absolute;
+    right: 1%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+}
+
+#itemClasse {
     width: 100%;
-    margin: 0% 0% 5% 0%;
+    margin: 0% 0% 0% 0%;
     padding: 0% 0% 0% 0%;
-    background-color: green;
+    background-color: black;
+    color: orangered;
     border: solid 3px black;
     border-radius: 10%;
     text-align: center;
-    font-size: 15pt;
+    font-size: 20pt;
+}
+
+#menuItens > section{
+    float: left;
+    width: 20%;
+    margin: 4% 2.5% 0% 2.5%;
+    padding: 0% 0% 0% 0%;
+    background-color: black;
+    border-radius: 5%;
+}
+
+section > p{
+    color: orangered;
+    padding: 10% 0% 0% 0%;
+}
+
+section > input{
+    background-color: black;
+    color: orangered;
+    border-radius: 20%;
 }
 
 #menuTeste{

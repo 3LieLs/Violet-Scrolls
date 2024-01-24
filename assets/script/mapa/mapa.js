@@ -4,6 +4,8 @@ botaoMapa.addEventListener('click', botaoMapaClick)
 function botaoMapaClick() {
     local = 'mapa'
     mapaDisplay.style.display = 'contents'
+    botaoMapaDisplay.style.display = 'none'
+    mainBotaoMenu.style.display = 'none'
 
     taverna.style.display = 'none'
     vendedorDisplay.style.display = 'none'
@@ -18,8 +20,10 @@ mapaTaverna.addEventListener('click', mapaTavernaClick)
 
 function mapaTavernaClick() {
     mapaDisplay.style.display = 'none'
+    botaoMapaDisplay.style.display = 'contents'
     local = 'taverna'
     taverna.style.display = 'contents'
+    mainBotaoMenu.style.display = 'contents'
 }
 
 
@@ -29,8 +33,10 @@ mapaVendedor.addEventListener('click', mapaVendedorClick)
 
 function mapaVendedorClick() {
     mapaDisplay.style.display = 'none'
+    botaoMapaDisplay.style.display = 'contents'
     local = 'vendedor'
     vendedorDisplay.style.display = 'contents'
+    mainBotaoMenu.style.display = 'contents'
 }
 
 
@@ -40,8 +46,10 @@ mapaFerreiro.addEventListener('click', mapaFerreiroClick)
 
 function mapaFerreiroClick() {
     mapaDisplay.style.display = 'none'
+    botaoMapaDisplay.style.display = 'contents'
     local = 'ferreiro'
     ferreiroDisplay.style.display = 'contents'
+    mainBotaoMenu.style.display = 'contents'
 }
 
 
@@ -51,8 +59,10 @@ mapaFeiticeiro.addEventListener('click', mapaFeiticeiroClick)
 
 function mapaFeiticeiroClick() {
     mapaDisplay.style.display = 'none'
+    botaoMapaDisplay.style.display = 'contents'
     local = 'feiticeiro'
     feiticeiroDisplay.style.display = 'contents'
+    mainBotaoMenu.style.display = 'contents'
 }
 
 
@@ -62,6 +72,7 @@ mapaFloresta.addEventListener('click', mapaFlorestaClick)
 
 function mapaFlorestaClick() {
     mapaDisplay.style.display = 'none'
+    botaoMapaDisplay.style.display = 'contents'
     local = 'floresta'
     florestaDisplay.style.display = 'contents'
 }
@@ -73,6 +84,7 @@ mapaCaverna.addEventListener('click', mapaCavernaClick)
 
 function mapaCavernaClick() {
     mapaDisplay.style.display = 'none'
+    botaoMapaDisplay.style.display = 'contents'
     local = 'caverna'
     cavernaDisplay.style.display = 'contents'
 }

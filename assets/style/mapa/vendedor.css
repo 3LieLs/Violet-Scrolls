@@ -1,0 +1,108 @@
+/*-TAVERNA-*/
+#mensagemVendedor{
+    position: absolute;
+    top: -4%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 70%;
+    height: 15%;
+    padding: 0.5%;
+    background-color: black;
+    color: orangered;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    text-align: center;
+    font-size: 15pt;
+}
+
+#botaoAbrirLojaVendedor{
+    position: absolute;
+    top: 35%;
+    right: -0.1%;
+    width: 5%;
+    height: 25%;
+    background-color: black;
+    color: orangered;
+    border-top-left-radius: 20%;
+    border-bottom-left-radius: 20%;
+    font-size: 12pt;
+    transition: 0.5s all 0s;
+    z-index: 9999;
+}
+
+#botaoAbrirLojaVendedor:hover{
+    background-color: rgb(30, 30, 30);
+    cursor: pointer;
+}
+
+#botaoFecharLojaVendedor{
+    position: absolute;
+    top: -3%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 25%;
+    height: 5%;
+    background-color: black;
+    color: orangered;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
+}
+
+#botaoFecharLojaVendedor:hover{
+    background-color: rgb(30, 30, 30);
+    cursor: pointer;
+}
+
+#lojaVendedor{
+    position: absolute;
+    top: 15%;
+    right: -5%;
+    padding: 0% 1% 0% 1%;
+    width: 25%;
+    height: 80%;
+    background-color: rgb(30, 30, 30);
+    color: orangered;
+    border: solid 5px black;
+    border-radius: 5%;
+    transition: 0.5s all 0s;
+    opacity: 0;
+}
+
+#itemVendedor1, #itemVendedor2, #itemVendedor3{
+    width: 100%;
+    height: 25%;
+    margin: 10% 0% 0% 0%;
+    padding: 0% 0.1% 0% 5%;
+    background-color: black;
+    border-radius: 5%;
+    text-align: center;
+}
+
+#nomeItemVendedor1, #nomeItemVendedor2, #nomeItemVendedor3{
+    margin: 0% 0% 0% 0%;
+    padding: 3% 0% 0% 0%;
+    font-size: 15pt;
+}
+
+#informacaoItemVendedor1, #informacaoItemVendedor2, #informacaoItemVendedor3{
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    font-size: 12pt;
+}
+
+#comprarItemVendedor1, #comprarItemVendedor2, #comprarItemVendedor3{
+    position: absolute;
+    right: 5%;
+    margin: 0%;
+    padding: 0%;
+    background-color: rgb(30, 30, 30);
+    color: orangered;
+    border-radius: 5%;
+    font-size: 10pt;
+}
+
+#comprarItemVendedor1:hover, #comprarItemVendedor2:hover, #comprarItemVendedor3:hover{
+    background-color: gray;
+    cursor: pointer;
+}
+/*-----*/

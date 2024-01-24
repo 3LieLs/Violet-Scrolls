@@ -66,17 +66,22 @@ function menuDisplay() {
 
 function menuDisplayAbrir() {
     menu.style.display = 'contents'
+    
     if (local == 'taverna') {
         taverna.style.display = 'none'
+        botaoMapaDisplay.style.display = 'none'
     }
-    if (local == 'vendedorDisplay') {
+    if (local == 'vendedor') {
         vendedorDisplay.style.display = 'none'
+        botaoMapaDisplay.style.display = 'none'
     }
-    if (local == 'ferreiroDisplay') {
+    if (local == 'ferreiro') {
         ferreiroDisplay.style.display = 'none'
+        botaoMapaDisplay.style.display = 'none'
     }
-    if (local == 'feiticeiroDisplay') {
+    if (local == 'feiticeiro') {
         feiticeiroDisplay.style.display = 'none'
+        botaoMapaDisplay.style.display = 'none'
     }
 
     menuAbertoFechado = true
@@ -86,15 +91,19 @@ function menuDisplayFechar() {
     menu.style.display = 'none'
     if (local == 'taverna') {
         taverna.style.display = 'contents'
+        botaoMapaDisplay.style.display = 'contents'
     }
-    if (local == 'vendedorDisplay') {
+    if (local == 'vendedor') {
         vendedorDisplay.style.display = 'contents'
+        botaoMapaDisplay.style.display = 'contents'
     }
-    if (local == 'ferreiroDisplay') {
+    if (local == 'ferreiro') {
         ferreiroDisplay.style.display = 'contents'
+        botaoMapaDisplay.style.display = 'contents'
     }
-    if (local == 'feiticeiroDisplay') {
+    if (local == 'feiticeiro') {
         feiticeiroDisplay.style.display = 'contents'
+        botaoMapaDisplay.style.display = 'contents'
     }
     
     menuAbertoFechado = false

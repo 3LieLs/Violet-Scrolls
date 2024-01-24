@@ -14,6 +14,7 @@ mainInimigoHud.style.display = 'none'
 mainInimigoDerrotado.style.display = 'none'
 mainJogadorDerrotado.style.display = 'none'
 
+botaoMapaDisplay.style.display = 'none'
 mapaDisplay.style.display = 'none'
 taverna.style.display = 'none'
 vendedorDisplay.style.display = 'none'
