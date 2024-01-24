@@ -14,8 +14,11 @@ mainInimigoHud.style.display = 'none'
 mainInimigoDerrotado.style.display = 'none'
 mainJogadorDerrotado.style.display = 'none'
 
+mapaDisplay.style.display = 'none'
 taverna.style.display = 'none'
-
+vendedorDisplay.style.display = 'none'
+ferreiroDisplay.style.display = 'none'
+feiticeiroDisplay.style.display = 'none'
 
 mainBotaoMenu.style.display = 'none'
 menu.style.display = 'none'

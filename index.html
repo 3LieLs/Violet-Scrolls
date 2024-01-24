@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="assets/style/inicio/personalizacao.css">
     <link rel="stylesheet" href="assets/style/inicio/escolhaRaca.css">
 
+    <link rel="stylesheet" href="assets/style/geral/menu.css">
+
+    <link rel="stylesheet" href="assets/style/mapa/mapa.css">
     <link rel="stylesheet" href="assets/style/mapa/taverna.css">
     <link rel="stylesheet" href="assets/style/mapa/vendedor.css">
     <link rel="stylesheet" href="assets/style/mapa/ferreiro.css">
@@ -119,7 +122,6 @@
                         intermináveis.</p>
                     <p id="vampiroStats">Status: Vida = 20 / Mana = 20 / Energia = 20</p>
                 </div>
-
             </div>
         </div>
         <!---------------------------------------------------------------------->
@@ -146,12 +148,6 @@
                 <li id="item8"></li>
             </ul>
             <input id="continuarInicio" type="button" value="Continuar">
-        </div>
-        <!---------------------------------------------------------------------->
-
-        <!----------------------HISTÓRIA---------------------->
-        <div id="mainHistoria">
-            <p id="mensagemHistoria"></p>
         </div>
         <!---------------------------------------------------------------------->
 
@@ -212,78 +208,96 @@
             </div>
 
         </div>
-
         <!---------------------------------------------------------------------->
 
-        <!----------------------Taverna---------------------->
+        <!----------------------MAPA---------------------->
+        <div id="mapaDisplay">
+            <div id="mainMapa">
+                <input id="mapaTaverna" type="button" value="Taverna">
+
+                <input id="mapaVendedor" type="button" value="Vendedor">
+
+                <input id="mapaFerreiro" type="button" value="Ferreiro">
+
+                <input id="mapaFeiticeiro" type="button" value="Feiticeiro">
+
+                <input id="mapaFloresta" type="button" value="Floresta">
+
+                <input id="mapaCaverna" type="button" value="Caverna">
+            </div>
+        </div>
+        <!---------------------------------------------------------------------->
+
+        <!----------------------TAVERNA---------------------->
         <div id="taverna">
+            <input id="botaoMapa" type="button" value="Mapa">
 
-            <p id="mensagemTaverna"></p>
+            <p id="mensagemTaverneiro">Seja bem-vindo, destemido aventureiro! Nesta taverna, os brindes são tão épicos
+                quanto as histórias que aguardam para serem contadas.</p>
 
-            <input id="botaoVendedor" type="button" value="Vendedor">
+            <input id="botaoAbrirMissoes" type="button" value="Missões">
 
-            <div id="vendedorDisplay">
-                <div id="vendedorDisplayStyle">
-                    <p id="mensagemVendedor">Bem vindo a minha loja<br> compre o que quiser<br> caso tenha pecitas,
-                        claro</p>
+            <div id="missoesTavernaDisplay">
+                <div id="missoesTaverna">
+                    <input id="botaoFecharMissoes" type="button" value="X">
 
-                    <p id="itemVendedor1">Item 1<br>Dano / EnergiaCusto<br>Preço</p>
-                    <input id="BotaoItemVendedor1" type="button" value="Comprar 1">
+                    <div id="missao1">
+                        <h1 id="nomeMissao1">Derrote Goblins</h1>
+                        <p id="informacaoMissao1">Preciso que alguém derrote 5 Goblins</p>
+                        <p id="recompensaMissao1">Recompensa: 3 Pecitas</p>
+                        <input id="aceitarMissao1" type="button" value="Aceitar">
+                    </div>
 
-                    <p id="itemVendedor2">Item 1<br>Dano / EnergiaCusto<br>Preço</p>
-                    <input id="BotaoItemVendedor2" type="button" value="Comprar 2">
+                    <div id="missao2">
+                        <h1 id="nomeMissao2">Derrote Golem</h1>
+                        <p id="informacaoMissao2">Preciso que alguém derrote 3 Golens</p>
+                        <p id="recompensaMissao2">Recompensa: 6 Pecitas</p>
+                        <input id="aceitarMissao2" type="button" value="Aceitar">
+                    </div>
 
-                    <p id="itemVendedor3">Item 1<br>Dano / EnergiaCusto<br>Preço</p>
-                    <input id="BotaoItemVendedor3" type="button" value="Comprar 3">
+                    <div id="missao3">
+                        <h1 id="nomeMissao3">Derrote Dragão</h1>
+                        <p id="informacaoMissao3">Preciso que alguém derrote 1 Dragão</p>
+                        <p id="recompensaMissao3">Recompensa: 10 Pecitas</p>
+                        <input id="aceitarMissao3" type="button" value="Aceitar">
+                    </div>
                 </div>
             </div>
+        </div>
+        <!---------------------------------------------------------------------->
 
+        <!----------------------VENDEDOR---------------------->
+        <div id="vendedorDisplay">
+            <input id="botaoMapa" type="button" value="Mapa">
 
-            <input id="botaoFerreiro" type="button" value="Ferreiro">
+            <p id="mensagemVendedor">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur deserunt, fuga
+                at cum expedita minus doloremque distinctio? Optio quia consequuntur, earum tenetur consectetur modi
+                dolor aspernatur asperiores id repellat amet!</p>
+        </div>
+        <!---------------------------------------------------------------------->
 
-            <div id="ferreiroDisplay">
-                <div id="ferreiroDisplayStyle">
-                    <p id="mensagemFerreiro">Bem vindo a minha loja<br> compre o que quiser<br> caso tenha pecitas,
-                        claro</p>
+          <!----------------------FERREIRO---------------------->
+          <div id="ferreiroDisplay">
+            <input id="botaoMapa" type="button" value="Mapa">
 
-                    <p id="itemFerreiro1">Item 1<br>Dano / EnergiaCusto<br>Preço</p>
-                    <input id="BotaoItemFerreiro1" type="button" value="Comprar 1">
+            <p id="mensagemFerreiro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur deserunt, fuga
+                at cum expedita minus doloremque distinctio? Optio quia consequuntur, earum tenetur consectetur modi
+                dolor aspernatur asperiores id repellat amet!</p>
+        </div>
+        <!---------------------------------------------------------------------->
 
-                    <p id="itemFerreiro2">Item 1<br>Dano / EnergiaCusto<br>Preço</p>
-                    <input id="BotaoItemFerreiro2" type="button" value="Comprar 2">
+          <!----------------------FEITICEIRO---------------------->
+          <div id="feiticeiroDisplay">
+            <input id="botaoMapa" type="button" value="Mapa">
 
-                    <p id="itemFerreiro3">Item 1<br>Dano / EnergiaCusto<br>Preço</p>
-                    <input id="BotaoItemFerreiro3" type="button" value="Comprar 3">
-                </div>
-            </div>
-
-
-            <input id="botaoFeiticeiro" type="button" value="Feiticeiro">
-
-            <div id="feiticeiroDisplay">
-                <div id="feiticeiroDisplayStyle">
-                    <p id="mensagemFeiticeiro">Bem vindo a minha loja<br> compre o que quiser<br> caso tenha pecitas,
-                        claro</p>
-
-                    <p id="itemFeiticeiro1">Item 1<br>Dano / EnergiaCusto<br>Preço</p>
-                    <input id="BotaoItemFeiticeiro1" type="button" value="Comprar 1">
-
-                    <p id="itemFeiticeiro2">Item 1<br>Dano / EnergiaCusto<br>Preço</p>
-                    <input id="BotaoItemFeiticeiro2" type="button" value="Comprar 2">
-
-                    <p id="itemFeiticeiro3">Item 1<br>Dano / EnergiaCusto<br>Preço</p>
-                    <input id="BotaoItemFeiticeiro3" type="button" value="Comprar 3">
-                </div>
-            </div>
-
-
-            <input id="botaoMasmorra" type="button" value="Masmorra">
+            <p id="mensagemFeiticeiro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur deserunt, fuga
+                at cum expedita minus doloremque distinctio? Optio quia consequuntur, earum tenetur consectetur modi
+                dolor aspernatur asperiores id repellat amet!</p>
         </div>
         <!---------------------------------------------------------------------->
 
         <!----------------------JOGADOR---------------------->
         <div id="mainHud">
-
             <div id="legenda">
                 <p id="mensagemLegenda"></p>
             </div>
@@ -335,6 +349,7 @@
     <script src="assets/script/geral/display.js"></script>
     <script src="assets/script/geral/variaveis.js"></script>
     <script src="assets/script/geral/musica.js"></script>
+    <script src="assets/script/geral/menu.js"></script>
 
 
     <script src="assets/script/inicio/inicio.js"></script>
@@ -381,6 +396,7 @@
 
     <script src="assets/script/Raça/raca.js"></script>
 
+    <script src="assets/script/mapa/mapa.js"></script>
     <script src="assets/script/mapa/taverna.js"></script>
     <script src="assets/script/mapa/vendedor.js"></script>
     <script src="assets/script/mapa/ferreiro.js"></script>

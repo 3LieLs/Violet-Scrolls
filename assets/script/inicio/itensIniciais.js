@@ -55,6 +55,7 @@ function continuarInicioClick() {
         mainBauInicial.style.display = 'none'
         itensIniciais.style.display = 'none'
 
+        local = 'taverna'
         taverna.style.display = 'contents'
         mainBotaoMenu.style.display = 'contents'
 
