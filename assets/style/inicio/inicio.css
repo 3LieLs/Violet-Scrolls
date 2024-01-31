@@ -13,7 +13,14 @@ main {
 
 /*-----*/
 
+
+
 /*-INICIO-*/
+#inicio
+{
+    display: contents;
+}
+
 #mensagemInicio {
     margin: auto;
     width: 95%;
@@ -52,7 +59,19 @@ main {
 
 /*-----*/
 
+
+
 /*-ITENS INICIAIS-*/
+#mainBauInicial
+{
+    display: none;
+}
+
+#itensIniciais
+{
+    display: none;
+}
+
 #mensagemBauInicial {
     position: relative;
     left: 50%;
@@ -117,5 +136,4 @@ main {
     font-size: 15pt;
     transition: 0.5s all 0s;
 }
-
 /*-----*/

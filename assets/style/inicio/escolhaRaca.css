@@ -1,4 +1,10 @@
 /*-ESCOLHA RAÇA-*/
+#escolhaRaca
+{
+    display: none;
+}
+
+
 #voltarRaca {
     position: absolute;
     top: 3%;

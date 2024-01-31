@@ -1,3 +1,16 @@
+/*-----*/
+#mapaDisplay
+{
+    display: none;
+}
+/*-----*/
+
+/*-----*/
+#botaoMapaDisplay
+{
+    display: none;
+}
+
 #botaoMapa{
     position: absolute;
     top: 0%;
@@ -14,9 +27,9 @@
     background-color: rgb(30, 30, 30);
     cursor: pointer;
 }
+/*-----*/
 
-
-
+/*-----*/
 #mapaTaverna{
     position: absolute;
     top: 20%;
@@ -28,7 +41,9 @@
     font-size: 20pt;
     font-weight: bold;
 }
+/*-----*/
 
+/*-----*/
 #mapaVendedor{
     position: absolute;
     top: 20%;
@@ -40,7 +55,9 @@
     font-size: 20pt;
     font-weight: bold;
 }
+/*-----*/
 
+/*-----*/
 #mapaFerreiro{
     position: absolute;
     top: 20%;
@@ -52,7 +69,9 @@
     font-size: 20pt;
     font-weight: bold;
 }
+/*-----*/
 
+/*-----*/
 #mapaFeiticeiro{
     position: absolute;
     top: 20%;
@@ -64,7 +83,9 @@
     font-size: 20pt;
     font-weight: bold;
 }
+/*-----*/
 
+/*-----*/
 #mapaFloresta{
     position: absolute;
     top: 20%;
@@ -76,7 +97,9 @@
     font-size: 20pt;
     font-weight: bold;
 }
+/*-----*/
 
+/*-----*/
 #mapaCaverna{
     position: absolute;
     top: 40%;
@@ -88,7 +111,9 @@
     font-size: 20pt;
     font-weight: bold;
 }
+/*-----*/
 
+/*-----*/
 #mapaMontanha{
     position: absolute;
     top: 40%;
@@ -100,3 +125,4 @@
     font-size: 20pt;
     font-weight: bold;
 }
+/*-----*/

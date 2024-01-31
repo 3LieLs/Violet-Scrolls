@@ -1,4 +1,16 @@
-/*-MENU-*/
+/*-----*/
+#menu
+{
+    display: none;
+}
+/*-----*/
+
+/*-----*/
+#mainBotaoMenu
+{
+    display: none;
+}
+
 #botaoMenu {
     position: absolute;
     top: 0%;
@@ -15,8 +27,9 @@
     background-color: rgb(30, 30, 30);
     cursor: pointer;
 }
-
 /*-----*/
+
+
 
 /*-NIVEL-*/
 #nivel {
@@ -59,6 +72,20 @@
     font-weight: bold;
     transition: 1s linear 0s;
 }
+/*-----*/
+
+
+
+/*-----*/
+#subirNivelDisplay
+{
+    display: none;
+}
+
+#upStatus
+{
+    display: none;
+}
 
 #subirNivel {
     margin: 0% 0% 5% 0%;
@@ -98,6 +125,8 @@
 
 /*-----*/
 
+
+
 /*-CARACTERISTICAS-*/
 #menuNomeGeneroRaca {
     position: absolute;
@@ -126,7 +155,11 @@
     text-align: center;
     font-size: 15pt;
 }
+/*-----*/
 
+
+
+/*-----*/
 #menuPecitas {
     position: absolute;
     bottom: 1%;
@@ -136,6 +169,8 @@
     font-size: 13pt;
 }
 /*-----*/
+
+
 
 /*-STATS-*/
 #menuStats {
@@ -177,6 +212,8 @@
 }
 
 /*-----*/
+
+
 
 /*-EQUIPAMENTO-*/
 #menuArma {
@@ -227,6 +264,8 @@
 }
 
 /*-----*/
+
+
 
 /*-ITENS-*/
 #menuItens {
@@ -293,7 +332,11 @@ section > input{
     color: orangered;
     border-radius: 20%;
 }
+/*-----*/
 
+
+
+/*-----*/
 #menuMissao{
     position: absolute;
     bottom: -5%;
@@ -311,5 +354,4 @@ section > input{
     transition: 0.5s all 0s;
     opacity: 0;
 }
-
 /*-----*/

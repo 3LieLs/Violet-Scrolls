@@ -1,4 +1,11 @@
 /*-GOBLIN, GOLEM, DRAGÃO-*/
+
+/*-----*/
+#mainInimigoHud
+{
+    display: none;
+}
+
 #inimigoHud{
     display: flex;
     flex-direction: column;
@@ -55,13 +62,26 @@
     font-size: 20pt;
     transition: 0.5s linear 0s;
 }
+/*-----*/
+
+
+
+/*-----*/
+#mainInimigoDerrotado
+{
+    display: none;
+}
 
 #mensagemInimigoDerrotado {
     margin-top: 15%;
     text-align: center;
     font-size: 50pt;
 }
+/*-----*/
 
+
+
+/*-----*/
 #experienciaGanha {
     position: absolute;
     top: 50%;
@@ -81,5 +101,4 @@
     font-weight: bold;
     transition: 1s linear 0s;
 }
-
 /*-----*/

@@ -111,6 +111,16 @@ function menuDisplayAbrir()
         florestaDisplay.style.display = 'none';
     }
 
+    if (local == 'caverna') 
+    {
+        cavernaDisplay.style.display = 'none';
+    }
+
+    if (local == 'montanha') 
+    {
+        montanhaDisplay.style.display = 'none';
+    }
+
     botaoMapaDisplay.style.display = 'none';
     menuAbertoFechado = true;
 }
@@ -145,6 +155,18 @@ function menuDisplayFechar()
     if (local == 'floresta') 
     {
         florestaDisplay.style.display = 'contents';
+        botaoMapaDisplay.style.display = 'contents';
+    }
+
+    if (local == 'caverna') 
+    {
+        cavernaDisplay.style.display = 'contents';
+        botaoMapaDisplay.style.display = 'contents';
+    }
+
+    if (local == 'montanha') 
+    {
+        montanhaDisplay.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
     }
     
