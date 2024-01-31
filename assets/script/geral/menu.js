@@ -21,6 +21,9 @@ var menuManaRecuperacaoVal = window.document.querySelector(`p#menuManaRecuperaca
 var experienciaAtualVal = window.document.querySelector('p#experienciaAtual')
 var nivelAtualVal = window.document.querySelector('p#nivelAtual')
 
+var menuMissao = window.document.querySelector('div#menuMissao')
+menuMissao.innerHTML = 'Nenhuma Missão iniciada'
+
 var menuBotaoVal = window.document.querySelector(`input#botaoMenu`)
 menuBotaoVal.addEventListener('click', menuDisplay)
 
@@ -67,68 +70,94 @@ function menuDisplay() {
 function menuDisplayAbrir() {
     menu.style.display = 'contents'
     
-    if (local == 'taverna') {
-        taverna.style.display = 'none'
-        botaoMapaDisplay.style.display = 'none'
-    }
-    if (local == 'vendedor') {
-        vendedorDisplay.style.display = 'none'
-        botaoMapaDisplay.style.display = 'none'
-    }
-    if (local == 'ferreiro') {
-        ferreiroDisplay.style.display = 'none'
-        botaoMapaDisplay.style.display = 'none'
-    }
-    if (local == 'feiticeiro') {
-        feiticeiroDisplay.style.display = 'none'
-        botaoMapaDisplay.style.display = 'none'
+    if (local == 'taverna') 
+    {
+        taverna.style.display = 'none';
     }
 
+    if (local == 'vendedor') 
+    {
+        vendedorDisplay.style.display = 'none';
+    }
+
+    if (local == 'ferreiro') 
+    {
+        ferreiroDisplay.style.display = 'none';
+      
+    }
+
+    if (local == 'feiticeiro') 
+    {
+        feiticeiroDisplay.style.display = 'none';
+       
+    }
+
+    if (local == 'floresta') 
+    {
+        florestaDisplay.style.display = 'none';
+    }
+
+    botaoMapaDisplay.style.display = 'none'
     menuAbertoFechado = true
 }
 
-function menuDisplayFechar() {
-    menu.style.display = 'none'
-    if (local == 'taverna') {
-        taverna.style.display = 'contents'
-        botaoMapaDisplay.style.display = 'contents'
+function menuDisplayFechar() 
+{
+    menu.style.display = 'none';
+    if (local == 'taverna') 
+    {
+        taverna.style.display = 'contents';
+        botaoMapaDisplay.style.display = 'contents';
     }
-    if (local == 'vendedor') {
-        vendedorDisplay.style.display = 'contents'
-        botaoMapaDisplay.style.display = 'contents'
+
+    if (local == 'vendedor') 
+    {
+        vendedorDisplay.style.display = 'contents';
+        botaoMapaDisplay.style.display = 'contents';
     }
-    if (local == 'ferreiro') {
-        ferreiroDisplay.style.display = 'contents'
-        botaoMapaDisplay.style.display = 'contents'
+
+    if (local == 'ferreiro') 
+    {
+        ferreiroDisplay.style.display = 'contents';
+        botaoMapaDisplay.style.display = 'contents';
     }
-    if (local == 'feiticeiro') {
-        feiticeiroDisplay.style.display = 'contents'
-        botaoMapaDisplay.style.display = 'contents'
+
+    if (local == 'feiticeiro') 
+    {
+        feiticeiroDisplay.style.display = 'contents';
+        botaoMapaDisplay.style.display = 'contents';
+    }
+
+    if (local == 'floresta') 
+    {
+        florestaDisplay.style.display = 'contents';
+        botaoMapaDisplay.style.display = 'contents';
     }
     
-    menuAbertoFechado = false
+    menuAbertoFechado = false;
 }
 
-function menuAnimacaoAbrir() {
-    nivel.style.opacity = '1'
-    nivel.style.top = '5%'
+function menuAnimacaoAbrir() 
+{
+    nivel.style.opacity = '1';
+    nivel.style.top = '5%';
 
-    menuNomeGeneroRaca.style.opacity = '1'
-    menuNomeGeneroRaca.style.left = '1%'
+    menuNomeGeneroRaca.style.opacity = '1';
+    menuNomeGeneroRaca.style.left = '1%';
 
-    menuStats.style.opacity = '1'
-    menuStats.style.left = '1%'
+    menuStats.style.opacity = '1';
+    menuStats.style.left = '1%';
 
-    menuArma.style.opacity = '1'
-    menuArma.style.right = '1%'
+    menuArma.style.opacity = '1';
+    menuArma.style.right = '1%';
 
-    menuArmadura.style.opacity = '1'
-    menuArmadura.style.right = '1%'
+    menuArmadura.style.opacity = '1';
+    menuArmadura.style.right = '1%';
 
-    menuItens.style.opacity = '1'
+    menuItens.style.opacity = '1';
 
-    menuTeste.style.opacity = '1'
-    menuTeste.style.bottom = '5%'
+    menuMissao.style.opacity = '1';
+    menuMissao.style.bottom = '3%';
 
 }
 
@@ -150,8 +179,36 @@ function menuAnimacaoFechar() {
 
     menuItens.style.opacity = '0'
 
-    menuTeste.style.opacity = '0'
-    menuTeste.style.bottom = '-5%'
+    menuMissao.style.opacity = '0'
+    menuMissao.style.bottom = '-5%'
 
+}
+
+var addItemVal, addItemNome, funcaoEquip
+function adicionarItem() {
+    let add;
+   
+    add = document.createElement("section");
+    add.setAttribute("id", `slot${addItemVal}`);
+    add.innerText = ``;
+    menuItens.appendChild(add);
+
+    add = document.createElement("p");
+    add.setAttribute("id", `nomeSlot${addItemVal}`);
+    add.innerText = `${addItemNome}`;
+    document.getElementById(`slot${addItemVal}`).appendChild(add);
+
+    add = document.createElement("input");
+    add.setAttribute("id", `informacaoItemSlot${addItemVal}`);
+    add.setAttribute("type", `button`);
+    add.setAttribute("value", `Sobre`);
+    document.getElementById(`slot${addItemVal}`).appendChild(add);
+
+    add = document.createElement("input");
+    add.setAttribute("id", `equiparItemSlot${addItemVal}`);
+    add.setAttribute("type", `button`);
+    add.setAttribute("value", `Equipar`);
+    add.addEventListener('click', funcaoEquip)
+    document.getElementById(`slot${addItemVal}`).appendChild(add);
 }
 /*-----*/

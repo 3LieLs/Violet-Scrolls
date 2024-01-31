@@ -26,9 +26,18 @@ function abrirBauInicialClick() {
     bauInicial.style.display = 'none'
     mensagemBauInicial.innerHTML = `Você pega alguns itens dentro dele...`
 
-    armaGeral = adaga
+    armaGeral = soco
+    addItemVal = adaga.val
+    addItemNome = adaga.nome
+    funcaoEquip = equipAdaga
     adicionarItem()
-    armaduraGeral = armaduraDePele
+
+    armaduraGeral = panoSujo
+    addItemVal = armaduraDePele.val
+    addItemNome = armaduraDePele.nome
+    funcaoEquip = equipArmaduraDePele
+    adicionarItem()
+
     jogador.pecitas = parseInt(jogador.pecitas) + 5;
 
     itensIniciais.style.display = 'contents';
@@ -37,34 +46,6 @@ function abrirBauInicialClick() {
     item2.innerHTML = `${adaga.nome}`;
     item3.innerHTML = `${armaduraDePele.nome}`;
     setTimeout(sumirItensAdquiridos, 2000);
-
-
-}
-
-function adicionarItem() {
-    let add;
-    
-    add = document.createElement("section");
-    add.setAttribute("id", `slot${adaga.val}`);
-    add.innerText = ``;
-    menuItens.appendChild(add);
-
-    add = document.createElement("p");
-    add.setAttribute("id", `nomeSlot${adaga.val}`);
-    add.innerText = `${adaga.nome}`;
-    document.getElementById(`slot${adaga.val}`).appendChild(add);
-
-    add = document.createElement("input");
-    add.setAttribute("id", `informacaoItemSlot${adaga.val}`);
-    add.setAttribute("type", `button`);
-    add.setAttribute("value", `Sobre`);
-    document.getElementById(`slot${adaga.val}`).appendChild(add);
-
-    add = document.createElement("input");
-    add.setAttribute("id", `equiparItemSlot${adaga.val}`);
-    add.setAttribute("type", `button`);
-    add.setAttribute("value", `Equipar`);
-    document.getElementById(`slot${adaga.val}`).appendChild(add);
 }
 
 function sumirItensAdquiridos() {

@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="assets/style/mapa/vendedor.css">
     <link rel="stylesheet" href="assets/style/mapa/ferreiro.css">
     <link rel="stylesheet" href="assets/style/mapa/feiticeiro.css">
+    <link rel="stylesheet" href="assets/style/mapa/floresta.css">
+    <link rel="stylesheet" href="assets/style/mapa/caverna.css">
+    <link rel="stylesheet" href="assets/style/mapa/montanha.css">
 
     <link rel="stylesheet" href="assets/style/jogador/jogador.css">
     <link rel="stylesheet" href="assets/style/jogador/combateJogador.css">
@@ -194,7 +197,7 @@
                     <input id="informacaoItemSlot" type="button" value="Sobre">
                     <input id="equiparItemSlot" type="button" value="Equipar">
                 </section>
-                
+
             </div>
 
             <div id="nivel">
@@ -212,8 +215,8 @@
                 </div>
             </div>
 
-            <div id="menuTeste">
-                TESTE
+            <div id="menuMissao">
+
             </div>
 
         </div>
@@ -237,6 +240,8 @@
                 <input id="mapaFloresta" type="button" value="Floresta">
 
                 <input id="mapaCaverna" type="button" value="Caverna">
+
+                <input id="mapaMontanha" type="button" value="Montanha">
             </div>
         </div>
         <!---------------------------------------------------------------------->
@@ -254,23 +259,23 @@
                     <input id="botaoFecharMissoes" type="button" value="X">
 
                     <div id="missao1">
-                        <h1 id="nomeMissao1">Derrote Goblins</h1>
-                        <p id="informacaoMissao1">Preciso que alguém derrote 5 Goblins</p>
-                        <p id="recompensaMissao1">Recompensa: 3 Pecitas</p>
+                        <h1 id="nomeMissao1"></h1>
+                        <p id="informacaoMissao1"></p>
+                        <p id="recompensaMissao1"></p>
                         <input id="aceitarMissao1" type="button" value="Aceitar">
                     </div>
 
                     <div id="missao2">
-                        <h1 id="nomeMissao2">Derrote Golem</h1>
-                        <p id="informacaoMissao2">Preciso que alguém derrote 3 Golens</p>
-                        <p id="recompensaMissao2">Recompensa: 6 Pecitas</p>
+                        <h1 id="nomeMissao2"></h1>
+                        <p id="informacaoMissao2"></p>
+                        <p id="recompensaMissao2"></p>
                         <input id="aceitarMissao2" type="button" value="Aceitar">
                     </div>
 
                     <div id="missao3">
-                        <h1 id="nomeMissao3">Derrote Dragão</h1>
-                        <p id="informacaoMissao3">Preciso que alguém derrote 1 Dragão</p>
-                        <p id="recompensaMissao3">Recompensa: 10 Pecitas</p>
+                        <h1 id="nomeMissao3"></h1>
+                        <p id="informacaoMissao3"></p>
+                        <p id="recompensaMissao3"></p>
                         <input id="aceitarMissao3" type="button" value="Aceitar">
                     </div>
                 </div>
@@ -377,6 +382,36 @@
         </div>
         <!---------------------------------------------------------------------->
 
+        <!----------------------FLORESTA---------------------->
+        <div id="florestaDisplay">
+
+            <p id="mensagemFloresta">...</p>
+
+            <input id="botaoIniciarGoblinCombate" type="button" value="Goblin">
+
+        </div>
+        <!---------------------------------------------------------------------->
+
+        <!----------------------CAVERNA---------------------->
+        <div id="cavernaDisplay">
+
+            <p id="mensagemCaverna">...</p>
+
+            <input id="botaoIniciarGolemCombate" type="button" value="Golem">
+
+        </div>
+        <!---------------------------------------------------------------------->
+
+        <!----------------------MONTANHA---------------------->
+        <div id="montanhaDisplay">
+
+            <p id="mensagemMontanha">...</p>
+
+            <input id="botaoIniciarDragaoCombate" type="button" value="Dragão">
+
+        </div>
+        <!---------------------------------------------------------------------->
+
         <!----------------------JOGADOR---------------------->
         <div id="mainHud">
             <div id="legenda">
@@ -464,6 +499,7 @@
     <script src="assets/script/armas/armaGeral.js"></script>
     <script src="assets/script/armas/curtoAlcance.js"></script>
     <script src="assets/script/armas/longoAlcance.js"></script>
+    <script src="assets/script/armas/cajado.js"></script>
 
     <script src="assets/script/magias/magiaDano.js"></script>
     <script src="assets/script/magias/magiaBuff.js"></script>
@@ -482,6 +518,9 @@
     <script src="assets/script/mapa/vendedor.js"></script>
     <script src="assets/script/mapa/ferreiro.js"></script>
     <script src="assets/script/mapa/feiticeiro.js"></script>
+    <script src="assets/script/mapa/floresta.js"></script>
+    <script src="assets/script/mapa/caverna.js"></script>
+    <script src="assets/script/mapa/montanha.js"></script>
 
 </body>
 

@@ -294,13 +294,14 @@ section > input{
     border-radius: 20%;
 }
 
-#menuTeste{
+#menuMissao{
     position: absolute;
     bottom: -5%;
     left: 50%;
     transform: translate(-50%);
     width: 20%;
-    height: 7%;
+    height: 10%;
+    padding: 0% 0% 0% 0%;
     background-color: rgb(30, 30, 30);
     border: solid 5px black;
     border-radius: 5%;

@@ -80,10 +80,22 @@
 #mapaCaverna{
     position: absolute;
     top: 40%;
-    left: 45%;
+    left: 60%;
     width: 10%;
     height: 10%;
     background-color: darkslategrey;
+    color: black;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+#mapaMontanha{
+    position: absolute;
+    top: 40%;
+    left: 75%;
+    width: 10%;
+    height: 10%;
+    background-color: rgb(44, 56, 56);
     color: black;
     font-size: 20pt;
     font-weight: bold;

@@ -258,3 +258,21 @@ function minigameMove() {
     }
 }
 /*-----*/
+
+/*-DEFINIR ESTATISTICA-*/
+function definirEstatisticaGeral() {
+    legendaView.innerHTML = ``
+
+    mainJogadorDerrotado.style.display = 'none'
+    mainInimigoDerrotado.style.display = 'none'
+
+    jogador.vidaCombate = jogador.vida, jogador.energiaCombate = jogador.energia, jogador.manaCombate = jogador.mana
+    jogador.vidaPorcentagem = 100, jogador.energiaPorcentagem = 100, jogador.manaPorcentagem = 100
+
+    armaGeral.danoCombate = armaGeral.dano
+
+    inimigoGeral.porcentagem = 0, inimigoGeral.vidaPorcentagem = 100, inimigoGeral.energiaPorcentagem = 100, inimigoGeral.manaPorcentagem = 100
+
+    inimigoGeral.vidaCombate = inimigoGeral.vida, inimigoGeral.energiaCombate = inimigoGeral.energia, inimigoGeral.manaCombate = inimigoGeral.mana
+}
+/*-----*/

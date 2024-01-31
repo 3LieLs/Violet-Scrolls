@@ -153,7 +153,11 @@ function inimigoDerrotado() {
         mainInimigoHud.style.display = 'none'
 
         if (fase == 'goblin') {
-            jogadorNivel.experiencia = jogadorNivel.experiencia + 10
+            jogadorNivel.experiencia = jogadorNivel.experiencia + 10;
+            if (missao.inimigoDerrotar == 'Goblin') 
+            {
+                missao.inimigosDerrotados += 1
+            }
         }
         if (fase == 'golem') {
             jogadorNivel.experiencia = jogadorNivel.experiencia + 30

@@ -8,7 +8,8 @@ var goblin = {
 
 /*-GOBLIN COMBATE-*/
 function iniciarGoblinCombate() {
-    taverna.style.display = 'none'
+    florestaDisplay.style.display = 'none'
+    botaoMapaDisplay.style.display = 'none'
     mainBotaoMenu.style.display = 'none'
 
     fase = 'goblin'
