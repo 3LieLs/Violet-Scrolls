@@ -1,5 +1,6 @@
 /*-GOLEM HUD-*/
-var golem = {
+var golem =
+{
     nome: 'Golem', classe: 'fisico',
     vida: 50, energia: 30,
     vidaCombate: 50, energiaCombate: 30,
@@ -7,42 +8,46 @@ var golem = {
 }
 
 /*-GOLEM COMBATE-*/
-function iniciarGolemCombate() {
-    taverna.style.display = 'none'
-    mainBotaoMenu.style.display = 'none'
+function iniciarGolemCombate()
+{
+    cavernaDisplay.style.display = 'none';
+    botaoMapaDisplay.style.display = 'none';
+    mainBotaoMenu.style.display = 'none';
 
-    fase = 'golem'
-    inimigoHudImagem.src = 'assets/content/img/Golem.gif'
-    inimigoHudImagem.style.width = '50%'
+    fase = 'golem';
+    local = 'combate';
 
-    mainInimigoHud.style.display = 'contents'
+    inimigoHudImagem.src = 'assets/content/img/Golem.gif';
+    inimigoHudImagem.style.width = '50%';
 
-    mainHud.style.display = 'contents'
+    mainInimigoHud.style.display = 'contents';
+    mainHud.style.display = 'contents';
 
-    definirEstatisticaGolem()
-    definirEstatisticaGeral()
+    definirEstatisticaGolem();
+    definirEstatisticaGeral();
 
-    jogadorCombateHud()
-    inimigoCombateHud()
+    jogadorCombateHud();
+    inimigoCombateHud();
 
-    definirMusica()
+    definirMusica();
 }
 /*-----*/
 
-function definirEstatisticaGolem() {
-    inimigoGeral.nome = golem.nome
-    inimigoGeral.classe = golem.classe
+function definirEstatisticaGolem()
+{
+    inimigoGeral.nome = golem.nome;
+    inimigoGeral.classe = golem.classe;
 
-    inimigoGeral.vida = golem.vida
-    inimigoGeral.energia = golem.energia
+    inimigoGeral.vida = golem.vida;
+    inimigoGeral.energia = golem.energia;
 
-    inimigoGeral.vidaCombate = golem.vidaCombate
-    inimigoGeral.energiaCombate = golem.energiaCombate
+    inimigoGeral.vidaCombate = golem.vidaCombate;
+    inimigoGeral.energiaCombate = golem.energiaCombate;
 
-    inimigoGeral.energiaGasto = golem.energiaGasto
-    inimigoGeral.energiaRecuperacao = golem.energiaRecuperacao
+    inimigoGeral.energiaGasto = golem.energiaGasto;
+    inimigoGeral.energiaRecuperacao = golem.energiaRecuperacao;
 
-    inimigoGeral.dano = golem.dano
-    inimigoGeral.danoCombate = golem.danoCombate
+    inimigoGeral.dano = golem.dano;
+    inimigoGeral.danoCombate = golem.danoCombate;
 }
 /*-----*/

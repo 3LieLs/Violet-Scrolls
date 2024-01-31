@@ -1,74 +1,88 @@
-/*-MENU-*/
-var menuNomeVal = window.document.querySelector(`p#menuNome`)
-var menuGeneroVal = window.document.querySelector(`p#menuGenero`)
-var menuRacaVal = window.document.querySelector(`p#menuRaca`)
-var menuPecitasVal = window.document.querySelector(`p#menuPecitas`)
+/*-MENU VARIÁVEIS-*/
+var menuNomeVal = window.document.querySelector(`p#menuNome`);
+var menuGeneroVal = window.document.querySelector(`p#menuGenero`);
+var menuRacaVal = window.document.querySelector(`p#menuRaca`);
+var menuPecitasVal = window.document.querySelector(`p#menuPecitas`);
 
-var menuVidaVal = window.document.querySelector(`p#menuVida`)
-var menuEnergiaVal = window.document.querySelector(`p#menuEnergia`)
-var menuManaVal = window.document.querySelector(`p#menuMana`)
+var menuVidaVal = window.document.querySelector(`p#menuVida`);
+var menuEnergiaVal = window.document.querySelector(`p#menuEnergia`);
+var menuManaVal = window.document.querySelector(`p#menuMana`);
 
-var menuArmaVal = window.document.querySelector(`p#menuArmaNome`)
-var menuDanoVal = window.document.querySelector(`p#menuDano`)
-var menuEnergiaCustoVal = window.document.querySelector(`p#menuEnergiaCusto`)
-var menuManaCustoVal = window.document.querySelector(`p#menuManaCusto`)
+var menuArmaVal = window.document.querySelector(`p#menuArmaNome`);
+var menuDanoVal = window.document.querySelector(`p#menuDano`);
+var menuEnergiaCustoVal = window.document.querySelector(`p#menuEnergiaCusto`);
+var menuManaCustoVal = window.document.querySelector(`p#menuManaCusto`);
 
-var menuArmaduraVal = window.document.querySelector(`p#menuArmaduraNome`)
-var menuDefesaVal = window.document.querySelector(`p#menuDefesa`)
-var menuEnergiaRecuperacaoVal = window.document.querySelector(`p#menuEnergiaRecuperacao`)
-var menuManaRecuperacaoVal = window.document.querySelector(`p#menuManaRecuperacao`)
+var menuArmaduraVal = window.document.querySelector(`p#menuArmaduraNome`);
+var menuDefesaVal = window.document.querySelector(`p#menuDefesa`);
+var menuEnergiaRecuperacaoVal = window.document.querySelector(`p#menuEnergiaRecuperacao`);
+var menuManaRecuperacaoVal = window.document.querySelector(`p#menuManaRecuperacao`);
 
-var experienciaAtualVal = window.document.querySelector('p#experienciaAtual')
-var nivelAtualVal = window.document.querySelector('p#nivelAtual')
+var experienciaAtualVal = window.document.querySelector('p#experienciaAtual');
+var nivelAtualVal = window.document.querySelector('p#nivelAtual');
 
-var menuMissao = window.document.querySelector('div#menuMissao')
-menuMissao.innerHTML = 'Nenhuma Missão iniciada'
+var menuMissao = window.document.querySelector('div#menuMissao');
 
-var menuBotaoVal = window.document.querySelector(`input#botaoMenu`)
-menuBotaoVal.addEventListener('click', menuDisplay)
+var menuBotaoVal = window.document.querySelector(`input#botaoMenu`);
+menuBotaoVal.addEventListener('click', menuDisplay);
+/*-----*/
 
-function menuDisplay() {
-    if (menuAbertoFechado == false) {
-        setTimeout(menuAnimacaoAbrir, 100)
-        setTimeout(menuDisplayAbrir, 0)
+/*-ABRIR/FECHAR MENU-*/
+function menuDisplay()
+{
+    if (menuAbertoFechado == false)
+    {
+        setTimeout(menuAnimacaoAbrir, 100);
+        setTimeout(menuDisplayAbrir, 0);
 
-        menuNomeVal.innerHTML = `Nome: ${jogador.nome}`
-        menuGeneroVal.innerHTML = `Gênero: ${jogador.genero}`
-        menuRacaVal.innerHTML = `Raça: ${racaGeral.nome}`
-        menuPecitasVal.innerHTML = `Pecitas: ${jogador.pecitas}`
+        menuNomeVal.innerHTML = `Nome: ${jogador.nome}`;
+        menuGeneroVal.innerHTML = `Gênero: ${jogador.genero}`;
+        menuRacaVal.innerHTML = `Raça: ${racaGeral.nome}`;
+        menuPecitasVal.innerHTML = `Pecitas: ${jogador.pecitas}`;
 
-        menuVidaVal.innerHTML = `Vida: ${jogador.vida}`
-        menuEnergiaVal.innerHTML = `Energia: ${jogador.energia}`
-        menuManaVal.innerHTML = `Mana: ${jogador.mana}`
+        menuVidaVal.innerHTML = `Vida: ${jogador.vida}`;
+        menuEnergiaVal.innerHTML = `Energia: ${jogador.energia}`;
+        menuManaVal.innerHTML = `Mana: ${jogador.mana}`;
 
-        menuArmaVal.innerHTML = `Arma:<br>${armaGeral.nome}`
-        menuDanoVal.innerHTML = `Dano: ${armaGeral.dano}`
-        menuEnergiaCustoVal.innerHTML = `E custo: ${armaGeral.energiaCusto}`
-        menuManaCustoVal.innerHTML = `M custo: ${armaGeral.manaCusto}`
+        menuArmaVal.innerHTML = `Arma:<br>${armaGeral.nome}`;
+        menuDanoVal.innerHTML = `Dano: ${armaGeral.dano}`;
+        menuEnergiaCustoVal.innerHTML = `E custo: ${armaGeral.energiaCusto}`;
+        menuManaCustoVal.innerHTML = `M custo: ${armaGeral.manaCusto}`;
 
-        menuArmaduraVal.innerHTML = `Armadura:<br>${armaduraGeral.nome}`
-        menuDefesaVal.innerHTML = `Defesa: ${armaduraGeral.defesa}`
-        menuEnergiaRecuperacaoVal.innerHTML = `E recuperação: ${armaduraGeral.energiaRecuperacao}`
-        menuManaRecuperacaoVal.innerHTML = `M recuperação: ${armaduraGeral.manaRecuperacao}`
+        menuArmaduraVal.innerHTML = `Armadura:<br>${armaduraGeral.nome}`;
+        menuDefesaVal.innerHTML = `Defesa: ${armaduraGeral.defesa}`;
+        menuEnergiaRecuperacaoVal.innerHTML = `E recuperação: ${armaduraGeral.energiaRecuperacao}`;
+        menuManaRecuperacaoVal.innerHTML = `M recuperação: ${armaduraGeral.manaRecuperacao}`;
 
-        nivelAtualVal.innerHTML = `Nível: ${jogadorNivel.nivel}`
-        experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`
+        nivelAtualVal.innerHTML = `Nível: ${jogadorNivel.nivel}`;
+        experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
 
-        barraExperiencia()
+        barraExperiencia();
 
-        if (jogadorNivel.experiencia >= jogadorNivel.proximoNivel) {
-            upStatus.style.display = 'contents'
+        if (jogadorNivel.experiencia >= jogadorNivel.proximoNivel)
+        {
+            upStatus.style.display = 'contents';
         }
-    } else {
 
-        setTimeout(menuAnimacaoFechar, 100)
-
-        setTimeout(menuDisplayFechar, 500)
+        if (missao.ativo == true) 
+        {
+            menuMissao.innerHTML = `${missao.inimigoDerrotar}:<br> ${missao.inimigosDerrotados}/${missao.inimigosDerrotadosMax}`;
+        }
+        else  
+        {
+            menuMissao.innerHTML = `Nenhuma missão iniciada`;
+        }
+    } 
+    else
+    {
+        setTimeout(menuAnimacaoFechar, 100);
+        setTimeout(menuDisplayFechar, 500);
     }
 }
 
-function menuDisplayAbrir() {
-    menu.style.display = 'contents'
+function menuDisplayAbrir()
+{
+    menu.style.display = 'contents';
     
     if (local == 'taverna') 
     {
@@ -97,8 +111,8 @@ function menuDisplayAbrir() {
         florestaDisplay.style.display = 'none';
     }
 
-    botaoMapaDisplay.style.display = 'none'
-    menuAbertoFechado = true
+    botaoMapaDisplay.style.display = 'none';
+    menuAbertoFechado = true;
 }
 
 function menuDisplayFechar() 
@@ -161,31 +175,36 @@ function menuAnimacaoAbrir()
 
 }
 
-function menuAnimacaoFechar() {
-    nivel.style.opacity = '0'
-    nivel.style.top = '-15%'
+function menuAnimacaoFechar()
+{
+    nivel.style.opacity = '0';
+    nivel.style.top = '-15%';
 
-    menuNomeGeneroRaca.style.opacity = '0'
-    menuNomeGeneroRaca.style.left = '-5%'
+    menuNomeGeneroRaca.style.opacity = '0';
+    menuNomeGeneroRaca.style.left = '-5%';
 
-    menuStats.style.opacity = '0'
-    menuStats.style.left = '-5%'
+    menuStats.style.opacity = '0';
+    menuStats.style.left = '-5%';
 
-    menuArma.style.opacity = '0'
-    menuArma.style.right = '-5%'
+    menuArma.style.opacity = '0';
+    menuArma.style.right = '-5%';
 
-    menuArmadura.style.opacity = '0'
-    menuArmadura.style.right = '-5%'
+    menuArmadura.style.opacity = '0';
+    menuArmadura.style.right = '-5%';
 
-    menuItens.style.opacity = '0'
+    menuItens.style.opacity = '0';
 
-    menuMissao.style.opacity = '0'
-    menuMissao.style.bottom = '-5%'
+    menuMissao.style.opacity = '0';
+    menuMissao.style.bottom = '-5%';
 
 }
+/*-----*/
 
-var addItemVal, addItemNome, funcaoEquip
-function adicionarItem() {
+/*-ADICIONAR/REMOVER ITEM NA MOCHILA-*/
+var addItemVal, addItemNome, funcaoEquip;
+
+function adicionarItem()
+{
     let add;
    
     add = document.createElement("section");

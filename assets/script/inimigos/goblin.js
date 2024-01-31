@@ -1,5 +1,6 @@
-/*-GOBLIN HUD-*/
-var goblin = {
+/*-GOBLIN VARIÁVEIS-*/
+var goblin =
+{
     nome: 'Goblin', classe: 'fisico',
     vida: 25, energia: 15,
     vidaCombate: 25, energiaCombate: 15,
@@ -7,42 +8,46 @@ var goblin = {
 }
 
 /*-GOBLIN COMBATE-*/
-function iniciarGoblinCombate() {
-    florestaDisplay.style.display = 'none'
-    botaoMapaDisplay.style.display = 'none'
-    mainBotaoMenu.style.display = 'none'
+function iniciarGoblinCombate()
+{
+    florestaDisplay.style.display = 'none';
+    botaoMapaDisplay.style.display = 'none';
+    mainBotaoMenu.style.display = 'none';
 
-    fase = 'goblin'
-    inimigoHudImagem.src = 'assets/content/img/Goblin.gif'
-    inimigoHudImagem.style.width = '50%'
+    fase = 'goblin';
+    local = 'combate';
+    
+    inimigoHudImagem.src = 'assets/content/img/Goblin.gif';
+    inimigoHudImagem.style.width = '50%';
 
-    mainInimigoHud.style.display = 'contents'
+    mainInimigoHud.style.display = 'contents';
 
-    mainHud.style.display = 'contents'
+    mainHud.style.display = 'contents';
 
-    definirEstatisticaGoblin()
-    definirEstatisticaGeral()
+    definirEstatisticaGoblin();
+    definirEstatisticaGeral();
 
-    jogadorCombateHud()
-    inimigoCombateHud()
+    jogadorCombateHud();
+    inimigoCombateHud();
 
-    definirMusica()
+    definirMusica();
 }
 
-function definirEstatisticaGoblin() {
-    inimigoGeral.nome = goblin.nome
-    inimigoGeral.classe = goblin.classe
+function definirEstatisticaGoblin()
+{
+    inimigoGeral.nome = goblin.nome;
+    inimigoGeral.classe = goblin.classe;
 
-    inimigoGeral.vida = goblin.vida
-    inimigoGeral.energia = goblin.energia
+    inimigoGeral.vida = goblin.vida;
+    inimigoGeral.energia = goblin.energia;
 
-    inimigoGeral.vidaCombate = goblin.vidaCombate
-    inimigoGeral.energiaCombate = goblin.energiaCombate
+    inimigoGeral.vidaCombate = goblin.vidaCombate;
+    inimigoGeral.energiaCombate = goblin.energiaCombate;
 
-    inimigoGeral.energiaGasto = goblin.energiaGasto
-    inimigoGeral.energiaRecuperacao = goblin.energiaRecuperacao
+    inimigoGeral.energiaGasto = goblin.energiaGasto;
+    inimigoGeral.energiaRecuperacao = goblin.energiaRecuperacao;
 
-    inimigoGeral.dano = goblin.dano
-    inimigoGeral.danoCombate = goblin.danoCombate
+    inimigoGeral.dano = goblin.dano;
+    inimigoGeral.danoCombate = goblin.danoCombate;
 }
 /*-----*/
