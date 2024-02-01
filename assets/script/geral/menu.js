@@ -227,7 +227,7 @@ var addItemVal, addItemNome, funcaoEquip;
 
 function adicionarItem()
 {
-    let add;
+    let add = '';
    
     add = document.createElement("section");
     add.setAttribute("id", `slot${addItemVal}`);

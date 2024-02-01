@@ -101,10 +101,17 @@
     font-size: 12pt;
 }
 
+#custoItemFerreiro1, #custoItemFerreiro2, #custoItemFerreiro3
+{
+    margin: 5% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    font-size: 12pt;
+}
+
 #comprarItemFerreiro1, #comprarItemFerreiro2, #comprarItemFerreiro3{
     position: absolute;
     right: 5%;
-    margin: 0%;
+    margin: 5% 0% 0% 0%;
     padding: 0%;
     background-color: rgb(30, 30, 30);
     color: orangered;

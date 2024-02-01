@@ -1,14 +1,14 @@
 var armaduraGeral =
 {
-    nome: '', peso: 0,
-    defesa: 0, defesaCombate: 0, tipoDefesa: '',
+    nome: '', val: '', obtido: false, peso: 0, preco: 0, 
+    defesa: 0, defesaCombate: 0, tipoDefesa: '', buff: '',
     manaRecuperacao: 0, energiaRecuperacao: 0,
 }
 
 var panoSujo =
 {
-    nome: 'Pano sujo', peso: 0,
-    defesa: 0, defesaCombate: 0, tipoDefesa: '',
+    nome: 'Pano sujo', val: 'panoSujo', obtido: false, peso: 0, preco: 0, 
+    defesa: 0, defesaCombate: 0, tipoDefesa: '', buff: '',
     manaRecuperacao: 20, energiaRecuperacao: 20,
 }
 
@@ -16,8 +16,8 @@ var panoSujo =
 
 var armaduraDePele =
 {
-    nome: 'Armadura de pele', peso: 2, buff: '',
-    defesa: 1, defesaCombate: 1, tipoDefesa: '',
+    nome: 'Armadura de pele', val: 'armaduraDePele', obtido: false, peso: 0, preco: 3, 
+    defesa: 1, defesaCombate: 1, tipoDefesa: '', buff: '',
     energiaRecuperacao: 20, manaRecuperacao: 15,
 }
 function equipArmaduraDePele()

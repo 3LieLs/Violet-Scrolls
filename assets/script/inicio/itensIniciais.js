@@ -41,6 +41,7 @@ function abrirBauInicialClick()
 
     armaGeral = soco;
 
+    adaga.obtido = true;
     addItemVal = adaga.val;
     addItemNome = adaga.nome;
     funcaoEquip = equipAdaga;
@@ -48,6 +49,7 @@ function abrirBauInicialClick()
 
     armaduraGeral = panoSujo;
 
+    armaduraDePele.obtido = true;
     addItemVal = armaduraDePele.val;
     addItemNome = armaduraDePele.nome;
     funcaoEquip = equipArmaduraDePele;

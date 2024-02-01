@@ -1,13 +1,13 @@
 var armaGeral =
 {
-    nome: '', classe: '', peso: 0, val: '',
+    nome: '', classe: '', obtido: false, peso: 0, val: '', preco: 0,
     dano: 0, danoCombate: 0, tipoDano: '',
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 0, manaCustoCombate: 0, 
 }
 
 var soco =
 {
-    nome: 'Soco', classe: '', peso: 0, val: '',
+    nome: 'Soco', classe: 'Físico', obtido: false, peso: 0, val: 'soco', preco: 0,
     dano: 1, danoCombate: 1, tipoDano: '',
     energiaCusto: 1, energiaCustoCombate: 1, manaCusto: 0, manaCustoCombate: 0, 
 }
@@ -16,7 +16,7 @@ var soco =
 
 var adaga =
 {
-    nome: 'Adaga', classe: 'Físico',  peso: 1, val: 'adaga',
+    nome: 'Adaga', classe: 'Físico', obtido: false,  peso: 0, val: 'adaga', preco: 3,
     dano: 3, danoCombate: 3, tipoDano: '',
     energiaCusto: 1, energiaCustoCombate: 1, manaCusto: 0, manaCustoCombate: 0, 
 }
