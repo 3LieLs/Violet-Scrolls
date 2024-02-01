@@ -18,10 +18,26 @@ var menuDefesaVal = window.document.querySelector(`p#menuDefesa`);
 var menuEnergiaRecuperacaoVal = window.document.querySelector(`p#menuEnergiaRecuperacao`);
 var menuManaRecuperacaoVal = window.document.querySelector(`p#menuManaRecuperacao`);
 
+
+
 var experienciaAtualVal = window.document.querySelector('p#experienciaAtual');
 var nivelAtualVal = window.document.querySelector('p#nivelAtual');
 
+
+
+var voltarItens = window.document.querySelector('input#voltarItens');
+voltarItens.addEventListener('click', voltarItensClick);
+
+var proximoItens = window.document.querySelector('input#proximoItens');
+proximoItens.addEventListener('click', proximoItensClick);
+
+var mudarItens = 1
+
+
+
 var menuMissao = window.document.querySelector('div#menuMissao');
+
+
 
 var menuBotaoVal = window.document.querySelector(`input#botaoMenu`);
 menuBotaoVal.addEventListener('click', menuDisplay);
@@ -223,16 +239,18 @@ function menuAnimacaoFechar()
 /*-----*/
 
 /*-ADICIONAR/REMOVER ITEM NA MOCHILA-*/
-var addItemVal, addItemNome, funcaoEquip;
+var addItemTipo, addItemVal, addItemNome, funcaoEquip;
 
 function adicionarItem()
 {
     let add = '';
-   
+
+    if (addItemTipo == 'equipamento')
+    {
     add = document.createElement("section");
     add.setAttribute("id", `slot${addItemVal}`);
     add.innerText = ``;
-    menuItens.appendChild(add);
+    menuItensEquipamentosDisplay.appendChild(add);
 
     add = document.createElement("p");
     add.setAttribute("id", `nomeSlot${addItemVal}`);
@@ -251,5 +269,91 @@ function adicionarItem()
     add.setAttribute("value", `Equipar`);
     add.addEventListener('click', funcaoEquip)
     document.getElementById(`slot${addItemVal}`).appendChild(add);
+    }
+
+    if (addItemTipo == 'magia')
+    {
+    add = document.createElement("section");
+    add.setAttribute("id", `slot${addItemVal}`);
+    add.innerText = ``;
+    menuItensMagiasDisplay.appendChild(add);
+
+    add = document.createElement("p");
+    add.setAttribute("id", `nomeSlot${addItemVal}`);
+    add.innerText = `${addItemNome}`;
+    document.getElementById(`slot${addItemVal}`).appendChild(add);
+
+    add = document.createElement("input");
+    add.setAttribute("id", `informacaoItemSlot${addItemVal}`);
+    add.setAttribute("type", `button`);
+    add.setAttribute("value", `Sobre`);
+    document.getElementById(`slot${addItemVal}`).appendChild(add);
+
+    add = document.createElement("input");
+    add.setAttribute("id", `equiparItemSlot${addItemVal}`);
+    add.setAttribute("type", `button`);
+    add.setAttribute("value", `Equipar`);
+    add.addEventListener('click', funcaoEquip)
+    document.getElementById(`slot${addItemVal}`).appendChild(add);
+    }
+}
+/*-----*/
+
+
+/*-MUDAR TIPO DE ITENS MOCHILA-*/
+function voltarItensClick()
+{
+    mudarItens --;
+
+    if (mudarItens < 1)
+    {
+        mudarItens = 1;
+    }
+
+    mudarTipoItens();
+}
+
+function proximoItensClick()
+{
+    mudarItens ++;
+
+    if (mudarItens > 3)
+    {
+        mudarItens = 3;
+    }
+
+    mudarTipoItens();
+}
+
+function mudarTipoItens() {
+    if (mudarItens == 1)
+    {
+        itensTipo.innerHTML = 'Equipamentos';
+        itensTipo.style.color = 'red'
+
+        menuItensEquipamentosDisplay.style.display = 'contents';
+        menuItensMagiasDisplay.style.display = 'none';
+        menuItensPocoesDisplay.style.display = 'none';
+    }
+
+    if (mudarItens == 2)
+    {
+        itensTipo.innerHTML = 'Magias';
+        itensTipo.style.color = 'blue'
+
+        menuItensEquipamentosDisplay.style.display = 'none';
+        menuItensMagiasDisplay.style.display = 'contents';
+        menuItensPocoesDisplay.style.display = 'none';
+    }
+
+    if (mudarItens == 3)
+    {
+        itensTipo.innerHTML = 'Poções';
+        itensTipo.style.color = 'gray'
+
+        menuItensEquipamentosDisplay.style.display = 'none';
+        menuItensMagiasDisplay.style.display = 'none';
+        menuItensPocoesDisplay.style.display = 'contents';
+    }
 }
 /*-----*/

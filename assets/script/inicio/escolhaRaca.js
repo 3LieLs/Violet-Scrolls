@@ -32,8 +32,28 @@ function botaoHumanoClick()
     racaGeral = racaHumano;
 
     magiaDanoGeral = espinhoDeFogo;
+    adaga.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = espinhoDeFogo.val;
+    addItemNome = espinhoDeFogo.nome;
+    funcaoEquip = equipEspinhoDeFogo;
+    adicionarItem();
+
     magiaRecuperacaoGeral = luzDaVida;
+    luzDaVida.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = luzDaVida.val;
+    addItemNome = luzDaVida.nome;
+    funcaoEquip = equipLuzDaVida;
+    adicionarItem();
+
     magiaBuffGeral = furiaDeTouro;
+    furiaDeTouro.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = furiaDeTouro.val;
+    addItemNome = furiaDeTouro.nome;
+    funcaoEquip = equipFuriaDeTouro;
+    adicionarItem();
 
     jogador.vida = racaGeral.vida;
     jogador.energia = racaGeral.energia;
@@ -52,9 +72,29 @@ function botaoElfoClick()
 {
     racaGeral = racaElfo;
 
-    magiaDanoGeral = bolaDeFogo;
+    magiaDanoGeral = espinhoDeFogo;
+    adaga.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = espinhoDeFogo.val;
+    addItemNome = espinhoDeFogo.nome;
+    funcaoEquip = equipEspinhoDeFogo;
+    adicionarItem();
+
     magiaRecuperacaoGeral = luzDaVida;
+    luzDaVida.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = luzDaVida.val;
+    addItemNome = luzDaVida.nome;
+    funcaoEquip = equipLuzDaVida;
+    adicionarItem();
+
     magiaBuffGeral = furiaDeTouro;
+    furiaDeTouro.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = furiaDeTouro.val;
+    addItemNome = furiaDeTouro.nome;
+    funcaoEquip = equipFuriaDeTouro;
+    adicionarItem();
 
     jogador.vida = racaGeral.vida;
     jogador.energia = racaGeral.energia;
@@ -74,8 +114,28 @@ function botaoOrcClick()
     racaGeral = racaOrc;
 
     magiaDanoGeral = espinhoDeFogo;
+    adaga.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = espinhoDeFogo.val;
+    addItemNome = espinhoDeFogo.nome;
+    funcaoEquip = equipEspinhoDeFogo;
+    adicionarItem();
+
     magiaRecuperacaoGeral = luzDaVida;
+    luzDaVida.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = luzDaVida.val;
+    addItemNome = luzDaVida.nome;
+    funcaoEquip = equipLuzDaVida;
+    adicionarItem();
+
     magiaBuffGeral = furiaDeTouro;
+    furiaDeTouro.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = furiaDeTouro.val;
+    addItemNome = furiaDeTouro.nome;
+    funcaoEquip = equipFuriaDeTouro;
+    adicionarItem();
 
     jogador.vida = racaGeral.vida;
     jogador.energia = racaGeral.energia;
@@ -95,8 +155,28 @@ function botaoDraconatoClick()
     racaGeral = racaDraconato;
 
     magiaDanoGeral = espinhoDeFogo;
+    adaga.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = espinhoDeFogo.val;
+    addItemNome = espinhoDeFogo.nome;
+    funcaoEquip = equipEspinhoDeFogo;
+    adicionarItem();
+
     magiaRecuperacaoGeral = luzDaVida;
+    luzDaVida.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = luzDaVida.val;
+    addItemNome = luzDaVida.nome;
+    funcaoEquip = equipLuzDaVida;
+    adicionarItem();
+
     magiaBuffGeral = furiaDeTouro;
+    furiaDeTouro.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = furiaDeTouro.val;
+    addItemNome = furiaDeTouro.nome;
+    funcaoEquip = equipFuriaDeTouro;
+    adicionarItem();
 
     jogador.vida = racaGeral.vida;
     jogador.energia = racaGeral.energia;
@@ -115,9 +195,29 @@ function botaoVampiroClick()
 {
     racaGeral = racaVampiro;
 
-    magiaDanoGeral = bolaDeFogo;
+    magiaDanoGeral = espinhoDeFogo;
+    adaga.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = espinhoDeFogo.val;
+    addItemNome = espinhoDeFogo.nome;
+    funcaoEquip = equipEspinhoDeFogo;
+    adicionarItem();
+
     magiaRecuperacaoGeral = luzDaVida;
+    luzDaVida.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = luzDaVida.val;
+    addItemNome = luzDaVida.nome;
+    funcaoEquip = equipLuzDaVida;
+    adicionarItem();
+
     magiaBuffGeral = furiaDeTouro;
+    furiaDeTouro.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = furiaDeTouro.val;
+    addItemNome = furiaDeTouro.nome;
+    funcaoEquip = equipFuriaDeTouro;
+    adicionarItem();
 
     jogador.vida = racaGeral.vida;
     jogador.energia = racaGeral.energia;

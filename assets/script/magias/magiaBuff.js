@@ -1,13 +1,33 @@
 var magiaBuffGeral =
 {
-    nome: '', classe: '',
+    nome: '', classe: '', obtido: false, val: '', preco: 0,
     danoBuff: 0, vidaBuff: 0, defesaBuff: 0, buff: '',
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 0, manaCustoCombate: 0, 
 }
 
+
+
 var furiaDeTouro =
 {
-    nome: 'Furia de Touro', classe: 'Mágico',
+    nome: 'Furia de Touro', classe: 'Mágico', obtido: false, val: 'furiaDeTouro', preco: 7,
     danoBuff: 1.5, vidaBuff: 0, defesaBuff: 1.5, buff: '',
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15, 
 }
+function equipFuriaDeTouro()
+{
+    magiaBuffGeral = furiaDeTouro;
+}
+
+
+
+var esferasDaVida =
+{
+    nome: 'Esferas da vida', classe: 'Mágico', obtido: false, val: 'esferasDaVida', preco: 7,
+    danoBuff: 1.5, vidaBuff: 0, defesaBuff: 1.5, buff: '',
+    energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15, 
+}
+function equipEsferasDaVida()
+{
+    magiaBuffGeral = esferasDaVida;
+}
+
