@@ -16,6 +16,10 @@ var luzDaVida =
 function equipLuzDaVida()
 {
     magiaRecuperacaoGeral = luzDaVida;
+
+    if (mudarMagiasRecuperacao == true) {
+        atualizarItensMagiasRecuperacao();
+    }
 }
 
 
@@ -29,4 +33,8 @@ var raiosRevigorantes =
 function equipRaiosRevigorantes()
 {
     magiaRecuperacaoGeral = raiosRevigorantes;
+
+    if (mudarMagiasRecuperacao == true) {
+        atualizarItensMagiasRecuperacao();
+    }
 }

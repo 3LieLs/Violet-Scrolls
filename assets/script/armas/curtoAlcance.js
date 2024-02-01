@@ -8,10 +8,9 @@ function equipChicoteDeAco()
 {
     armaGeral = chicoteDeAco;
 
-    menuArmaVal.innerHTML = `Arma:<br>${armaGeral.nome}`;
-    menuDanoVal.innerHTML = `Dano: ${armaGeral.dano}`;
-    menuEnergiaCustoVal.innerHTML = `E custo: ${armaGeral.energiaCusto}`;
-    menuManaCustoVal.innerHTML = `M custo: ${armaGeral.manaCusto}`;
+    if (mudarEquipamentosArmaVal == true) {
+        atualizarItensEquipamentosArma();
+    }
 }
 
 
@@ -25,8 +24,7 @@ var espadaDeAco =
 function equipEspadaDeAco() {
     armaGeral = espadaDeAco;
 
-    menuArmaVal.innerHTML = `Arma:<br>${armaGeral.nome}`;
-    menuDanoVal.innerHTML = `Dano: ${armaGeral.dano}`;
-    menuEnergiaCustoVal.innerHTML = `E custo: ${armaGeral.energiaCusto}`;
-    menuManaCustoVal.innerHTML = `M custo: ${armaGeral.manaCusto}`;
+    if (mudarEquipamentosArmaVal == true) {
+        atualizarItensEquipamentosArma();
+    }
 }

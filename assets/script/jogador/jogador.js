@@ -2,7 +2,7 @@
 var jogador =
 {
     nome: '', genero: '', raca: '',
-    pecitas: 0, peso: 15,
+    pecitas: 0, peso: 0, pesoMax: 20,
     vida: 0, mana: 0, energia: 0,
     vidaCombate: 0, manaCombate: 0, energiaCombate: 0,
     porcentagem: 0, vidaPorcentagem: 100, manaPorcentagem: 100, energiaPorcentagem: 100,
@@ -108,6 +108,7 @@ function upVida()
 function upEnergia()
 {
     jogador.energia = jogador.energia + 5;
+    jogador.pesoMax += 5
     jogadorNivel.nivel = jogadorNivel.nivel + 1;
     jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel;
     jogadorNivel.proximoNivel = parseInt(jogadorNivel.proximoNivel) + parseInt(jogadorNivel.proximoNivel);

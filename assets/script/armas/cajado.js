@@ -8,10 +8,9 @@ function equipCajadoDeFogo()
 {
     armaGeral = cajadoDeFogo;
 
-    menuArmaVal.innerHTML = `Arma:<br>${armaGeral.nome}`;
-    menuDanoVal.innerHTML = `Dano: ${armaGeral.dano}`;
-    menuEnergiaCustoVal.innerHTML = `E custo: ${armaGeral.energiaCusto}`;
-    menuManaCustoVal.innerHTML = `M custo: ${armaGeral.manaCusto}`;
+    if (mudarEquipamentosArmaVal == true) {
+        atualizarItensEquipamentosArma();
+    }
 }
 
 
@@ -26,8 +25,7 @@ function equipCajadoEletrico()
 {
     armaGeral = cajadoEletrico;
 
-    menuArmaVal.innerHTML = `Arma:<br>${armaGeral.nome}`;
-    menuDanoVal.innerHTML = `Dano: ${armaGeral.dano}`;
-    menuEnergiaCustoVal.innerHTML = `E custo: ${armaGeral.energiaCusto}`;
-    menuManaCustoVal.innerHTML = `M custo: ${armaGeral.manaCusto}`;
+    if (mudarEquipamentosArmaVal == true) {
+        atualizarItensEquipamentosArma();
+    }
 }

@@ -16,6 +16,10 @@ var espinhoDeFogo =
 function equipEspinhoDeFogo()
 {
     magiaDanoGeral = espinhoDeFogo;
+    
+    if (mudarMagiasDano == true) {
+        atualizarItensMagiasDano();
+    }
 }
 
 
@@ -29,4 +33,8 @@ var bolaDeFogo =
 function equipBolaDeFogo()
 {
     magiaDanoGeral = bolaDeFogo;
+
+    if (mudarMagiasDano == true) {
+        atualizarItensMagiasDano();
+    }
 }

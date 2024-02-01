@@ -133,6 +133,7 @@
     top: 15%;
     left: -5%;
     width: 15%;
+    height: 35%;
     padding: 1% 0.5% 5% 0.5%;
     background-color: rgb(30, 30, 30);
     border: solid 3px black;
@@ -146,7 +147,7 @@
 #menuRaca,
 #menuPecitas {
     width: 100%;
-    margin: 0% 0% 5% 0%;
+    margin: 0% 0% 10% 0%;
     padding: 0% 0% 0% 0%;
     background-color: black;
     color: orangered;
@@ -162,7 +163,7 @@
 /*-----*/
 #menuPecitas {
     position: absolute;
-    bottom: 1%;
+    bottom: 5%;
     left: 50%;
     transform: translate(-50%);
     width: 53%;
@@ -178,6 +179,7 @@
     top: 55%;
     left: -5%;
     width: 15%;
+    height: 35%;
     padding: 1% 0.5% 5% 0.5%;
     background-color: rgb(30, 30, 30);
     border: solid 3px black;
@@ -188,7 +190,8 @@
 
 #menuVida,
 #menuEnergia,
-#menuMana {
+#menuMana,
+#menuPeso {
     width: 100%;
     margin: 0% 0% 5% 0%;
     padding: 0% 0% 0% 0%;
@@ -211,58 +214,281 @@
     color: blue;
 }
 
+#menuPeso{
+    width: 80%;
+    margin: auto;
+    margin-top: 20%;
+    padding: 0% 0% 0% 0%;
+    background-color: black;
+    color: gray;
+    border: solid 3px orangered;
+    border-radius: 10%;
+    text-align: center;
+    font-size: 15pt;
+}
 /*-----*/
 
 
 
 /*-EQUIPAMENTO-*/
-#menuArma {
+#menuEquipamentos {
     position: absolute;
     top: 5%;
     right: -5%;
     width: 20%;
     height: 40%;
-    padding: 1% 0.5% 5% 0.5%;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
     background-color: rgb(30, 30, 30);
     border: solid 3px black;
     border-radius: 5%;
     transition: 0.5s all 0s;
     opacity: 0;
 }
+#menuEquipamentosTipo
+{
+    width: 100%;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    background-color: black;
+    color: red;
+    border: solid 3px black;
+    border-radius: 10%;
+    text-align: center;
+    font-size: 15pt;
+}
+#voltarEquipamentos{
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+}
 
-#menuArmadura {
+#proximoEquipamentos{
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+}
+#menuEquipamentosInfo1
+{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 75%;
+    margin: 0%;
+    padding: 0%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+    text-align: center;
+}
+#menuEquipamentosInfo2
+{
+    position: absolute;
+    top: 35%;
+    left: 3%;
+    width: 25%;
+    height: 30%;
+    margin: 0%;
+    padding: 0%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+    text-align: center;
+}
+#menuEquipamentosInfo3
+{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 25%;
+    height: 30%;
+    margin: 0%;
+    padding: 0%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+    text-align: center;
+}
+#menuEquipamentosInfo4
+{
+    position: absolute;
+    top: 35%;
+    right: 3%;
+    width: 25%;
+    height: 30%;
+    margin: 0%;
+    padding: 0%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+    text-align: center;
+}
+#menuEquipamentosInfo5
+{
+    position: absolute;
+    top: 75%;
+    left: 3%;
+    width: 25%;
+    height: 20%;
+    margin: 0%;
+    padding: 0%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+    text-align: center;
+}
+#menuEquipamentosInfo6
+{
+    position: absolute;
+    top: 75%;
+    right: 3%;
+    width: 25%;
+    height: 20%;
+    margin: 0%;
+    padding: 0%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+    text-align: center;
+}
+
+
+
+#menuMagias {
     position: absolute;
     top: 55%;
     right: -5%;
     width: 20%;
     height: 40%;
-    padding: 1% 0.5% 5% 0.5%;
+    padding: 0% 0% 0% 0%;
     background-color: rgb(30, 30, 30);
     border: solid 3px black;
     border-radius: 5%;
     transition: 0.5s all 0s;
     opacity: 0;
 }
-
-#menuArmaNome,
-#menuArmaduraNome,
-#menuDano,
-#menuDefesa,
-#menuEnergiaRecuperacao,
-#menuManaRecuperacao,
-#menuEnergiaCusto,
-#menuManaCusto {
+#menuMagiasTipo
+{
     width: 100%;
-    margin: 0% 0% 5% 0%;
+    margin: 0% 0% 0% 0%;
     padding: 0% 0% 0% 0%;
     background-color: black;
-    color: orangered;
-    border: solid 3px orangered;
-    border-radius: 5%;
+    color: red;
+    border: solid 3px black;
+    border-radius: 10%;
     text-align: center;
     font-size: 15pt;
 }
+#voltarMagias{
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+}
 
+#proximoMagias{
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+}
+#menuMagiasInfo1
+{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 75%;
+    margin: 0%;
+    padding: 0%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+    text-align: center;
+}
+#menuMagiasInfo2
+{
+    position: absolute;
+    top: 35%;
+    left: 3%;
+    width: 25%;
+    height: 30%;
+    margin: 0%;
+    padding: 0%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+    text-align: center;
+}
+#menuMagiasInfo3
+{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 25%;
+    height: 30%;
+    margin: 0%;
+    padding: 0%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+    text-align: center;
+}
+#menuMagiasInfo4
+{
+    position: absolute;
+    top: 35%;
+    right: 3%;
+    width: 25%;
+    height: 30%;
+    margin: 0%;
+    padding: 0%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+    text-align: center;
+}
+#menuMagiasInfo5
+{
+    position: absolute;
+    top: 75%;
+    left: 3%;
+    width: 25%;
+    height: 20%;
+    margin: 0%;
+    padding: 0%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+    text-align: center;
+}
+#menuMagiasInfo6
+{
+    position: absolute;
+    top: 75%;
+    right: 3%;
+    width: 25%;
+    height: 20%;
+    margin: 0%;
+    padding: 0%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+    text-align: center;
+}
 /*-----*/
 
 
