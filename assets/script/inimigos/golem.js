@@ -1,7 +1,7 @@
 /*-GOLEM HUD-*/
 var golem =
 {
-    nome: 'Golem', classe: 'fisico',
+    nome: 'Golem', classe: 'fisico', experiencia: 30,
     vida: 50, energia: 30,
     vidaCombate: 50, energiaCombate: 30,
     dano: 15, danoCombate: 15, energiaGasto: 10, energiaRecuperacao: 20,
@@ -37,6 +37,7 @@ function definirEstatisticaGolem()
 {
     inimigoGeral.nome = golem.nome;
     inimigoGeral.classe = golem.classe;
+    inimigoGeral.experiencia = goblin.experiencia
 
     inimigoGeral.vida = golem.vida;
     inimigoGeral.energia = golem.energia;

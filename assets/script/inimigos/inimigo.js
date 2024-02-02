@@ -180,19 +180,19 @@ function inimigoDerrotado()
 
         if (fase == 'goblin')
         {
-            jogadorNivel.experiencia = jogadorNivel.experiencia + 10;
+            jogadorNivel.experiencia += inimigoGeral.experiencia;
             local = 'floresta';
         }
 
         if (fase == 'golem')
         {
-            jogadorNivel.experiencia = jogadorNivel.experiencia + 30;
+            jogadorNivel.experiencia += inimigoGeral.experiencia;
             local = 'caverna';
         }
 
         if (fase == 'dragao')
         {
-            jogadorNivel.experiencia = jogadorNivel.experiencia + 60;
+            jogadorNivel.experiencia += inimigoGeral.experiencia;
             local = 'montanha';
         }
 

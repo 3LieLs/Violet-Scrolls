@@ -98,8 +98,8 @@ function upVida()
     barraExperiencia()
     jogadorNivel.experienciaPorcentagem = 0;
 
-    menuVidaVal.innerHTML = `Vida: ${jogador.vida}`;
-    nivelAtualVal.innerHTML = `Nível: ${jogadorNivel.nivel}`;
+    menuVida.innerHTML = `Vida: ${jogador.vida}`;
+    nivelAtual.innerHTML = `Nível: ${jogadorNivel.nivel}`;
     experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
     
     upStatus.style.display = 'none';
@@ -116,8 +116,8 @@ function upEnergia()
     barraExperiencia();
     jogadorNivel.experienciaPorcentagem = 0;
 
-    menuEnergiaVal.innerHTML = `Energia: ${jogador.energia}`;
-    nivelAtualVal.innerHTML = `Nível: ${jogadorNivel.nivel}`;
+    menuEnergia.innerHTML = `Energia: ${jogador.energia}`;
+    nivelAtual.innerHTML = `Nível: ${jogadorNivel.nivel}`;
     experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
 
     upStatus.style.display = 'none';
@@ -133,8 +133,8 @@ function upMana()
     barraExperiencia();
     jogadorNivel.experienciaPorcentagem = 0;
     
-    menuManaVal.innerHTML = `Mana: ${jogador.mana}`;
-    nivelAtualVal.innerHTML = `Nível: ${jogadorNivel.nivel}`;
+    menuMana.innerHTML = `Mana: ${jogador.mana}`;
+    nivelAtual.innerHTML = `Nível: ${jogadorNivel.nivel}`;
     experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
 
     upStatus.style.display = 'none';

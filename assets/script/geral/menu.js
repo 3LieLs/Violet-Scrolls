@@ -61,6 +61,8 @@ var nivelAtualVal = window.document.querySelector('p#nivelAtual');
 
 var menuMissao = window.document.querySelector('div#menuMissao');
 
+var horario = window.document.querySelector('div#horario');
+var horarioHora = 12, horarioMinuto = 0
 
 var menuBotaoVal = window.document.querySelector(`input#botaoMenu`);
 menuBotaoVal.addEventListener('click', menuDisplay);
@@ -100,7 +102,7 @@ function menuDisplay()
 
         if (jogadorNivel.experiencia >= jogadorNivel.proximoNivel)
         {
-            upStatus.style.display = 'contents';
+            subirNivelDisplay.style.display = 'contents';
         }
 
         
@@ -235,6 +237,8 @@ function menuAnimacaoAbrir()
     menuMissao.style.opacity = '1';
     menuMissao.style.bottom = '3%';
 
+    horario.style.opacity = '1';
+    horario.style.bottom = '3%';
 }
 
 function menuAnimacaoFechar()
@@ -259,6 +263,8 @@ function menuAnimacaoFechar()
     menuMissao.style.opacity = '0';
     menuMissao.style.bottom = '-5%';
 
+    horario.style.opacity = '0';
+    horario.style.bottom = '-5%';
 }
 /*-----*/
 
@@ -553,5 +559,27 @@ function atualizarItensMagiasBuff()
     menuMagiasInfo4.innerHTML = `Mana:<br>${magiaBuffGeral.manaCusto}`;
     menuMagiasInfo5.innerHTML = `Tipo:<br>${magiaBuffGeral.buff}`;
     menuMagiasInfo6.innerHTML = `Duração:<br>${magiaBuffGeral.duracao}`;
+}
+/*-----*/
+
+
+/*-HORÁRIO-*/
+setInterval(atualizarHorario, 500)
+
+function atualizarHorario()
+{
+    horario.innerHTML = `Horário<br>${horarioHora}:${horarioMinuto}`;
+    horarioMinuto ++;
+
+    if (horarioMinuto >= 60)
+    {
+        horarioMinuto = 0;
+        horarioHora ++;
+    }
+
+    if (horarioHora >= 23)
+    {
+        horarioHora = 0;
+    }
 }
 /*-----*/

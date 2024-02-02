@@ -1,7 +1,7 @@
 /*-GOBLIN VARIÁVEIS-*/
 var goblin =
 {
-    nome: 'Goblin', classe: 'fisico',
+    nome: 'Goblin', classe: 'fisico', experiencia: 10,
     vida: 25, energia: 15,
     vidaCombate: 25, energiaCombate: 15,
     dano: 5, danoCombate: 5, energiaGasto: 3, energiaRecuperacao: 10,
@@ -37,6 +37,7 @@ function definirEstatisticaGoblin()
 {
     inimigoGeral.nome = goblin.nome;
     inimigoGeral.classe = goblin.classe;
+    inimigoGeral.experiencia = goblin.experiencia
 
     inimigoGeral.vida = goblin.vida;
     inimigoGeral.energia = goblin.energia;

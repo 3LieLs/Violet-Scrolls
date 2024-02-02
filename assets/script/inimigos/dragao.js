@@ -1,7 +1,7 @@
 /*-DRAGÃO VARIÁVEIS-*/
 var dragao =
 {
-    nome: 'Dragão', classe: 'magico',
+    nome: 'Dragão', classe: 'magico', experiencia: 60,
     vida: 80, mana: 50,
     vidaCombate: 80, manaCombate: 50,
     dano: 25, danoCombate: 25, manaGasto: 15, manaRecuperacao: 30,
@@ -37,6 +37,7 @@ function definirEstatisticaDragao()
 {
     inimigoGeral.nome = dragao.nome;
     inimigoGeral.classe = dragao.classe;
+    inimigoGeral.experiencia = goblin.experiencia
 
     inimigoGeral.vida = dragao.vida;
     inimigoGeral.mana = dragao.mana;

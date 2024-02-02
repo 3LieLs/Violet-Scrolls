@@ -5,6 +5,4 @@ tentar colocar imagem nos  botões de ação
 mudar a cor dos botões caso sem mana ou energia
 Adicionar diferença entre dano Físico e Mágico (nos buffs também)
 mudar a frase de sem mana ou energia para um text html ao invés de alert
-colocar a experiencia ganha em um objeto no inimigoGeral
 
-imprementar sistema de horário
