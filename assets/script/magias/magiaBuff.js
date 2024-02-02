@@ -21,7 +21,14 @@ function equipFuriaDeTouro()
         atualizarItensMagiasBuff();
     }
 }
-
+function adicionarFuriaDeTouro()
+{
+    furiaDeTouro.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = furiaDeTouro.val;
+    addItemNome = furiaDeTouro.nome;
+    funcaoEquip = equipFuriaDeTouro;
+}
 
 
 var esferasDaVida =
@@ -38,4 +45,11 @@ function equipEsferasDaVida()
         atualizarItensMagiasBuff();
     }
 }
-
+function adicionarEsferasDaVida()
+{
+    esferasDaVida.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = esferasDaVida.val;
+    addItemNome = esferasDaVida.nome;
+    funcaoEquip = equipEsferasDaVida;
+}

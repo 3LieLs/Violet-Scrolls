@@ -12,6 +12,14 @@ function equipArmaduraDeFerro()
         atualizarItensEquipamentosArmadura();
     }
 }
+function adicionarArmaduraDeFerro()
+{
+    armaduraDeFerro.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = armaduraDeFerro.val;
+    addItemNome = armaduraDeFerro.nome;
+    funcaoEquip = equipArmaduraDeFerro;
+}
 
 
 
@@ -28,4 +36,12 @@ function equipArmaduraDeAco()
     if (mudarEquipamentosArmaduraVal == true) {
         atualizarItensEquipamentosArmadura();
     }
+}
+function adicionarArmaduraDeAco()
+{
+    armaduraDeAco.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = armaduraDeAco.val;
+    addItemNome = armaduraDeAco.nome;
+    funcaoEquip = equipArmaduraDeAco;
 }

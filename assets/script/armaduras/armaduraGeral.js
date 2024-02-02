@@ -1,3 +1,5 @@
+armaduraGeral = panoSujo;
+
 var armaduraGeral =
 {
     nome: '', val: '', obtido: false, peso: 0, preco: 0, 
@@ -27,4 +29,12 @@ function equipArmaduraDePele()
     if (mudarEquipamentosArmaduraVal == true) {
         atualizarItensEquipamentosArmadura();
     }
+}
+function adicionarArmaduraDePele()
+{
+    armaduraDePele.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = armaduraDePele.val;
+    addItemNome = armaduraDePele.nome;
+    funcaoEquip = equipArmaduraDePele;
 }

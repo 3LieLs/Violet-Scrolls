@@ -54,11 +54,7 @@ function comprarItemFeiticeiro1Click()
     {
         if (jogador.pecitas - cajadoDeFogo.preco >= 0)
         {
-            cajadoDeFogo.obtido = true;
-
-            addItemVal = cajadoDeFogo.val;
-            addItemNome = cajadoDeFogo.nome;
-            funcaoEquip = equipCajadoDeFogo;
+            adicionarCajadoDeFogo();
             adicionarItem();
     
             jogador.pecitas -= cajadoDeFogo.preco;
@@ -76,18 +72,14 @@ function comprarItemFeiticeiro1Click()
 
 function comprarItemFeiticeiro2Click()
 {
-    if (adaga.obtido == false)
+    if (cajadoEletrico.obtido == false)
     {
-        if (jogador.pecitas - adaga.preco >= 0)
+        if (jogador.pecitas - cajadoEletrico.preco >= 0)
         {
-            adaga.obtido = true;
-
-            addItemVal = adaga.val;
-            addItemNome = adaga.nome;
-            funcaoEquip = equipAdaga;
+            adicionarCajadoEletrico();
             adicionarItem();
     
-            jogador.pecitas -= adaga.preco;
+            jogador.pecitas -= cajadoEletrico.preco;
         }
         else
         {
@@ -102,18 +94,14 @@ function comprarItemFeiticeiro2Click()
 
 function comprarItemFeiticeiro3Click()
 {
-    if (tunicaBasica.obtido == false)
+    if (tunicaEspecialista.obtido == false)
     {
-        if (jogador.pecitas - tunicaBasica.preco >= 0)
+        if (jogador.pecitas - tunicaEspecialista.preco >= 0)
         {
-            tunicaBasica.obtido = true;
-
-            addItemVal = tunicaBasica.val;
-            addItemNome = tunicaBasica.nome;
-            funcaoEquip = equipTunicaBasica;
+            adicionarTunicaEspecialista();
             adicionarItem();
     
-            jogador.pecitas -= tunicaBasica.preco;
+            jogador.pecitas -= tunicaEspecialista.preco;
         }
         else
         {
@@ -137,12 +125,12 @@ function attLojaFeiticeiro()
     informacaoItemFeiticeiro1.innerHTML = `Teste Teste Teste Teste Teste`;
     custoItemFeiticeiro1.innerHTML = `Preço: ${cajadoDeFogo.preco} Pecitas`;
 
-    nomeItemFeiticeiro2.innerHTML = `${adaga.nome}`;
+    nomeItemFeiticeiro2.innerHTML = `${cajadoEletrico.nome}`;
     informacaoItemFeiticeiro2.innerHTML = `Teste Teste Teste Teste Teste`;
-    custoItemFeiticeiro2.innerHTML = `Preço: ${adaga.preco} Pecitas`;
+    custoItemFeiticeiro2.innerHTML = `Preço: ${cajadoEletrico.preco} Pecitas`;
 
-    nomeItemFeiticeiro3.innerHTML = `${tunicaBasica.nome}`;
+    nomeItemFeiticeiro3.innerHTML = `${tunicaEspecialista.nome}`;
     informacaoItemFeiticeiro3.innerHTML = `Teste Teste Teste Teste Teste`;
-    custoItemFeiticeiro3.innerHTML = `Preço: ${tunicaBasica.preco} Pecitas`;
+    custoItemFeiticeiro3.innerHTML = `Preço: ${tunicaEspecialista.preco} Pecitas`;
 }
 /*-----*/

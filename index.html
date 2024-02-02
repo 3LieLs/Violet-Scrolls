@@ -131,31 +131,6 @@
         </div>
         <!---------------------------------------------------------------------->
 
-        <!----------------------BAU INICIAL / ITENS INICIAIS---------------------->
-        <div id="mainBauInicial">
-
-            <p id="mensagemBauInicial">Após uma longa caminhada, você encontrou um pequeno bau em sua frente</p>
-
-            <div id="bauInicial">
-                <input id="abrirBauInicial" type="button" value="Abrir">
-            </div>
-        </div>
-
-        <div id="itensIniciais">
-            <ul id="itensAdquiridos">Itens Adquiridos
-                <li id="item1"></li>
-                <li id="item2"></li>
-                <li id="item3"></li>
-                <li id="item4"></li>
-                <li id="item5"></li>
-                <li id="item6"></li>
-                <li id="item7"></li>
-                <li id="item8"></li>
-            </ul>
-            <input id="continuarInicio" type="button" value="Continuar">
-        </div>
-        <!---------------------------------------------------------------------->
-
         <!----------------------MENU---------------------->
         <div id="mainBotaoMenu">
             <input id="botaoMenu" type="button" value="Menu">
@@ -191,7 +166,7 @@
             </div>
 
             <div id="menuMagias">
-                <h1 id="menuMagiasTipo"></h1>
+                <h1 id="menuMagiasTipo">Dano</h1>
 
                 <input id="voltarMagias" type="button" value="Voltar">
                 <input id="proximoMagias" type="button" value="Próximo">
@@ -242,6 +217,54 @@
 
             </div>
 
+        </div>
+        <!---------------------------------------------------------------------->
+
+        <!----------------------JOGADOR---------------------->
+        <div id="mainHud">
+            <div id="legenda">
+                <p id="mensagemLegenda"></p>
+            </div>
+
+            <div id="estatistica">
+                <p id="estatisticaVida"></p>
+                <p id="estatisticaEnergia"></p>
+                <p id="estatisticaMana"></p>
+            </div>
+
+            <div id="moveset">
+                <div id="movesetEscolha">
+                    <input id="movesetArmaEscolha" type="button" value="Atacar">
+                    <input id="movesetMagiaEscolha" type="button" value="Magia">
+                    <input id="movesetArmaduraEscolha" type="button" value="Defesa/Recuperar">
+                    <input id="movesetOutrosEscolha" type="button" value="Outros">
+                </div>
+            </div>
+
+        </div>
+
+        <div id="miniGameDisplay">
+            <input id="minigame" type="button">
+        </div>
+
+        <div id="mainJogadorDerrotado">
+            <p id="mensagemJogadorDerrotado"></p>
+        </div>
+        <!--------------------------------------------------------------------->
+
+         <!----------------------INIMIGO---------------------->
+         <div id="mainInimigoHud">
+            <div id="inimigoHud">
+                <p id="inimigoHudNome"></p>
+                <p id="inimigoHudVida"></p>
+                <p id="inimigoHudEnergiaMana"></p>
+                <img id="inimigoHudImagem" src="" alt="">
+            </div>
+        </div>
+
+        <div id="mainInimigoDerrotado">
+            <div id="mensagemInimigoDerrotado"></div>
+            <p id="experienciaGanha"></p>
         </div>
         <!---------------------------------------------------------------------->
 
@@ -443,54 +466,6 @@
 
         </div>
         <!---------------------------------------------------------------------->
-
-        <!----------------------JOGADOR---------------------->
-        <div id="mainHud">
-            <div id="legenda">
-                <p id="mensagemLegenda"></p>
-            </div>
-
-            <div id="estatistica">
-                <p id="estatisticaVida"></p>
-                <p id="estatisticaEnergia"></p>
-                <p id="estatisticaMana"></p>
-            </div>
-
-            <div id="moveset">
-                <div id="movesetEscolha">
-                    <input id="movesetArmaEscolha" type="button" value="Atacar">
-                    <input id="movesetMagiaEscolha" type="button" value="Magia">
-                    <input id="movesetArmaduraEscolha" type="button" value="Defesa/Recuperar">
-                    <input id="movesetOutrosEscolha" type="button" value="Outros">
-                </div>
-            </div>
-
-        </div>
-
-        <div id="miniGameDisplay">
-            <input id="minigame" type="button">
-        </div>
-
-        <div id="mainJogadorDerrotado">
-            <p id="mensagemJogadorDerrotado"></p>
-        </div>
-        <!--------------------------------------------------------------------->
-
-        <!----------------------INIMIGO---------------------->
-        <div id="mainInimigoHud">
-            <div id="inimigoHud">
-                <p id="inimigoHudNome"></p>
-                <p id="inimigoHudVida"></p>
-                <p id="inimigoHudEnergiaMana"></p>
-                <img id="inimigoHudImagem" src="" alt="">
-            </div>
-        </div>
-
-        <div id="mainInimigoDerrotado">
-            <div id="mensagemInimigoDerrotado"></div>
-            <p id="experienciaGanha"></p>
-        </div>
-        <!---------------------------------------------------------------------->
     </main>
 
 
@@ -502,9 +477,9 @@
     <script src="assets/script/inicio/inicio.js"></script>
     <script src="assets/script/inicio/escolhaNomeGenero.js"></script>
     <script src="assets/script/inicio/escolhaRaca.js"></script>
-    <script src="assets/script/inicio/itensIniciais.js"></script>
 
 
+    <script src="assets/script/Raça/raca.js"></script>
     <script src="assets/script/jogador/jogador.js"></script>
     <script src="assets/script/jogador/combateGeral.js"></script>
 
@@ -541,8 +516,6 @@
     <script src="assets/script/armaduras/pesado.js"></script>
     <script src="assets/script/armaduras/roupa.js"></script>
 
-
-    <script src="assets/script/Raça/raca.js"></script>
 
     <script src="assets/script/mapa/mapa.js"></script>
     <script src="assets/script/mapa/taverna.js"></script>

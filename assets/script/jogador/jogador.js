@@ -2,7 +2,7 @@
 var jogador =
 {
     nome: '', genero: '', raca: '',
-    pecitas: 0, peso: 0, pesoMax: 20,
+    pecitas: 100, peso: 0, pesoMax: 20,
     vida: 0, mana: 0, energia: 0,
     vidaCombate: 0, manaCombate: 0, energiaCombate: 0,
     porcentagem: 0, vidaPorcentagem: 100, manaPorcentagem: 100, energiaPorcentagem: 100,

@@ -31,28 +31,20 @@ function botaoHumanoClick()
 {
     racaGeral = racaHumano;
 
-    magiaDanoGeral = espinhoDeFogo;
-    adaga.obtido = true;
-    addItemTipo = 'magia';
-    addItemVal = espinhoDeFogo.val;
-    addItemNome = espinhoDeFogo.nome;
-    funcaoEquip = equipEspinhoDeFogo;
+    adicionarChicoteDeAco();
     adicionarItem();
 
-    magiaRecuperacaoGeral = luzDaVida;
-    luzDaVida.obtido = true;
-    addItemTipo = 'magia';
-    addItemVal = luzDaVida.val;
-    addItemNome = luzDaVida.nome;
-    funcaoEquip = equipLuzDaVida;
+    adicionarArmaduraDeCouro();
+    adicionarItem();
+    
+
+    adicionarEspinhoDeFogo();
     adicionarItem();
 
-    magiaBuffGeral = furiaDeTouro;
-    furiaDeTouro.obtido = true;
-    addItemTipo = 'magia';
-    addItemVal = furiaDeTouro.val;
-    addItemNome = furiaDeTouro.nome;
-    funcaoEquip = equipFuriaDeTouro;
+    adicionarLuzDaVida();
+    adicionarItem();
+
+    adicionarFuriaDeTouro();
     adicionarItem();
 
     jogador.vida = racaGeral.vida;
@@ -72,28 +64,19 @@ function botaoElfoClick()
 {
     racaGeral = racaElfo;
 
-    magiaDanoGeral = espinhoDeFogo;
-    adaga.obtido = true;
-    addItemTipo = 'magia';
-    addItemVal = espinhoDeFogo.val;
-    addItemNome = espinhoDeFogo.nome;
-    funcaoEquip = equipEspinhoDeFogo;
+    adicionarAdaga();
     adicionarItem();
 
-    magiaRecuperacaoGeral = luzDaVida;
-    luzDaVida.obtido = true;
-    addItemTipo = 'magia';
-    addItemVal = luzDaVida.val;
-    addItemNome = luzDaVida.nome;
-    funcaoEquip = equipLuzDaVida;
+    adicionarTunicaBasica();
     adicionarItem();
 
-    magiaBuffGeral = furiaDeTouro;
-    furiaDeTouro.obtido = true;
-    addItemTipo = 'magia';
-    addItemVal = furiaDeTouro.val;
-    addItemNome = furiaDeTouro.nome;
-    funcaoEquip = equipFuriaDeTouro;
+    adicionarBolaDeFogo();
+    adicionarItem();
+
+    adicionarRaiosRevigorantes();
+    adicionarItem();
+
+    adicionarEsferasDaVida();
     adicionarItem();
 
     jogador.vida = racaGeral.vida;
@@ -113,28 +96,19 @@ function botaoOrcClick()
 {
     racaGeral = racaOrc;
 
-    magiaDanoGeral = espinhoDeFogo;
-    adaga.obtido = true;
-    addItemTipo = 'magia';
-    addItemVal = espinhoDeFogo.val;
-    addItemNome = espinhoDeFogo.nome;
-    funcaoEquip = equipEspinhoDeFogo;
+    adicionarEspadaDeAco()
+    adicionarItem()
+
+    adicionarArmaduraDeFerro()
+    adicionarItem()
+
+    adicionarEspinhoDeFogo();
     adicionarItem();
 
-    magiaRecuperacaoGeral = luzDaVida;
-    luzDaVida.obtido = true;
-    addItemTipo = 'magia';
-    addItemVal = luzDaVida.val;
-    addItemNome = luzDaVida.nome;
-    funcaoEquip = equipLuzDaVida;
+    adicionarLuzDaVida();
     adicionarItem();
 
-    magiaBuffGeral = furiaDeTouro;
-    furiaDeTouro.obtido = true;
-    addItemTipo = 'magia';
-    addItemVal = furiaDeTouro.val;
-    addItemNome = furiaDeTouro.nome;
-    funcaoEquip = equipFuriaDeTouro;
+    adicionarFuriaDeTouro();
     adicionarItem();
 
     jogador.vida = racaGeral.vida;
@@ -154,28 +128,19 @@ function botaoDraconatoClick()
 {
     racaGeral = racaDraconato;
 
-    magiaDanoGeral = espinhoDeFogo;
-    adaga.obtido = true;
-    addItemTipo = 'magia';
-    addItemVal = espinhoDeFogo.val;
-    addItemNome = espinhoDeFogo.nome;
-    funcaoEquip = equipEspinhoDeFogo;
+    adicionarEspadaDeAco()
+    adicionarItem()
+
+    adicionarArmaduraDeEscamas()
+    adicionarItem()
+
+    adicionarEspinhoDeFogo();
     adicionarItem();
 
-    magiaRecuperacaoGeral = luzDaVida;
-    luzDaVida.obtido = true;
-    addItemTipo = 'magia';
-    addItemVal = luzDaVida.val;
-    addItemNome = luzDaVida.nome;
-    funcaoEquip = equipLuzDaVida;
+    adicionarRaiosRevigorantes();
     adicionarItem();
 
-    magiaBuffGeral = furiaDeTouro;
-    furiaDeTouro.obtido = true;
-    addItemTipo = 'magia';
-    addItemVal = furiaDeTouro.val;
-    addItemNome = furiaDeTouro.nome;
-    funcaoEquip = equipFuriaDeTouro;
+    adicionarFuriaDeTouro();
     adicionarItem();
 
     jogador.vida = racaGeral.vida;
@@ -195,28 +160,19 @@ function botaoVampiroClick()
 {
     racaGeral = racaVampiro;
 
-    magiaDanoGeral = espinhoDeFogo;
-    adaga.obtido = true;
-    addItemTipo = 'magia';
-    addItemVal = espinhoDeFogo.val;
-    addItemNome = espinhoDeFogo.nome;
-    funcaoEquip = equipEspinhoDeFogo;
+    adicionarArcoSimples()
+    adicionarItem()
+
+    adicionarArmaduraDeCouro()
+    adicionarItem()
+
+    adicionarBolaDeFogo();
     adicionarItem();
 
-    magiaRecuperacaoGeral = luzDaVida;
-    luzDaVida.obtido = true;
-    addItemTipo = 'magia';
-    addItemVal = luzDaVida.val;
-    addItemNome = luzDaVida.nome;
-    funcaoEquip = equipLuzDaVida;
+    adicionarLuzDaVida();
     adicionarItem();
 
-    magiaBuffGeral = furiaDeTouro;
-    furiaDeTouro.obtido = true;
-    addItemTipo = 'magia';
-    addItemVal = furiaDeTouro.val;
-    addItemNome = furiaDeTouro.nome;
-    funcaoEquip = equipFuriaDeTouro;
+    adicionarEsferasDaVida();
     adicionarItem();
 
     jogador.vida = racaGeral.vida;
@@ -234,5 +190,10 @@ function botaoVampiroClick()
 function racaEscolhida()
 {
     escolhaRaca.style.display = 'none';
-    mainBauInicial.style.display = 'contents';
+
+    taverna.style.display = 'contents';
+    local = 'taverna';
+
+    mainBotaoMenu.style.display = 'contents';
+    botaoMapaDisplay.style.display = 'contents';
 }

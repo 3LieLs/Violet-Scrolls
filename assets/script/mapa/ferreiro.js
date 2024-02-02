@@ -51,19 +51,14 @@ function botaoFecharLojaFerreiroClick()
 /*-----*/
 function comprarItemFerreiro1Click()
 {
-    jogador.pecitas += 100
-    if (chicoteDeAco.obtido == false)
+    if (espadaDeAco.obtido == false)
     {
-        if (jogador.pecitas - chicoteDeAco.preco >= 0)
+        if (jogador.pecitas - espadaDeAco.preco >= 0)
         {
-            chicoteDeAco.obtido = true;
-
-            addItemVal = chicoteDeAco.val;
-            addItemNome = chicoteDeAco.nome;
-            funcaoEquip = equipChicoteDeAco;
+            adicionarEspadaDeAco()
             adicionarItem();
     
-            jogador.pecitas -= chicoteDeAco.preco;
+            jogador.pecitas -= espadaDeAco.preco;
         }
         else
         {
@@ -78,18 +73,14 @@ function comprarItemFerreiro1Click()
 
 function comprarItemFerreiro2Click()
 {
-    if (arcoSimples.obtido == false)
+    if (arcoLongo.obtido == false)
     {
-        if (jogador.pecitas - arcoSimples.preco >= 0)
+        if (jogador.pecitas - arcoLongo.preco >= 0)
         {
-            arcoSimples.obtido = true;
-
-            addItemVal = arcoSimples.val;
-            addItemNome = arcoSimples.nome;
-            funcaoEquip = equipArcoSimples;
+            adicionarArcoLongo()
             adicionarItem();
     
-            jogador.pecitas -= arcoSimples.preco;
+            jogador.pecitas -= arcoLongo.preco;
         }
         else
         {
@@ -104,18 +95,14 @@ function comprarItemFerreiro2Click()
 
 function comprarItemFerreiro3Click()
 {
-    if (armaduraDeCouro.obtido == false)
+    if (armaduraDeEscamas.obtido == false)
     {
-        if (jogador.pecitas - armaduraDeCouro.preco >= 0)
+        if (jogador.pecitas - armaduraDeEscamas.preco >= 0)
         {
-            armaduraDeCouro.obtido = true;
-
-            addItemVal = armaduraDeCouro.val;
-            addItemNome = armaduraDeCouro.nome;
-            funcaoEquip = equipArmaduraDeCouro;
+            adicionarArmaduraDeEscamas()
             adicionarItem();
     
-            jogador.pecitas -= armaduraDeCouro.preco;
+            jogador.pecitas -= armaduraDeEscamas.preco;
         }
         else
         {
@@ -135,16 +122,16 @@ attLojaFerreiro();
 
 function attLojaFerreiro()
 {
-    nomeItemFerreiro1.innerHTML = `${chicoteDeAco.nome}`;
+    nomeItemFerreiro1.innerHTML = `${espadaDeAco.nome}`;
     informacaoItemFerreiro1.innerHTML = `Teste Teste Teste Teste Teste`;
-    custoItemFerreiro1.innerHTML = `Preço: ${chicoteDeAco.preco} Pecitas`;
+    custoItemFerreiro1.innerHTML = `Preço: ${espadaDeAco.preco} Pecitas`;
 
-    nomeItemFerreiro2.innerHTML = `${arcoSimples.nome}`;
+    nomeItemFerreiro2.innerHTML = `${arcoLongo.nome}`;
     informacaoItemFerreiro2.innerHTML = `Teste Teste Teste Teste Teste`;
-    custoItemFerreiro2.innerHTML = `Preço: ${arcoSimples.preco} Pecitas`;
+    custoItemFerreiro2.innerHTML = `Preço: ${arcoLongo.preco} Pecitas`;
 
-    nomeItemFerreiro3.innerHTML = `${armaduraDeCouro.nome}`;
+    nomeItemFerreiro3.innerHTML = `${armaduraDeEscamas.nome}`;
     informacaoItemFerreiro3.innerHTML = `Teste Teste Teste Teste Teste`;
-    custoItemFerreiro3.innerHTML = `Preço: ${armaduraDeCouro.preco} Pecitas`;
+    custoItemFerreiro3.innerHTML = `Preço: ${armaduraDeEscamas.preco} Pecitas`;
 }
 /*-----*/

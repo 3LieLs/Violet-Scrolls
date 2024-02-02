@@ -1,3 +1,5 @@
+armaGeral = soco;
+
 var armaGeral =
 {
     nome: '', classe: '', obtido: false, peso: 0, val: '', preco: 0,
@@ -27,4 +29,12 @@ function equipAdaga()
     if (mudarEquipamentosArmaVal == true) {
         atualizarItensEquipamentosArma();
     }
+}
+function adicionarAdaga()
+{
+    adaga.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = adaga.val;
+    addItemNome = adaga.nome;
+    funcaoEquip = equipAdaga;
 }

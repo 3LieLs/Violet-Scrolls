@@ -12,6 +12,14 @@ function equipArmaduraDeCouro()
         atualizarItensEquipamentosArmadura();
     }
 }
+function adicionarArmaduraDeCouro()
+{
+    armaduraDeCouro.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = armaduraDeCouro.val;
+    addItemNome = armaduraDeCouro.nome;
+    funcaoEquip = equipArmaduraDeCouro;
+}
 
 
 
@@ -28,4 +36,12 @@ function equipArmaduraDeEscamas()
     if (mudarEquipamentosArmaduraVal == true) {
         atualizarItensEquipamentosArmadura();
     }
+}
+function adicionarArmaduraDeEscamas()
+{
+    armaduraDeEscamas.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = armaduraDeEscamas.val;
+    addItemNome = armaduraDeEscamas.nome;
+    funcaoEquip = equipArmaduraDeEscamas;
 }

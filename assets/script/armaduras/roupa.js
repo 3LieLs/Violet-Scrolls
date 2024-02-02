@@ -12,6 +12,14 @@ function equipTunicaBasica()
         atualizarItensEquipamentosArmadura();
     }
 }
+function adicionarTunicaBasica()
+{
+    tunicaBasica.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = tunicaBasica.val;
+    addItemNome = tunicaBasica.nome;
+    funcaoEquip = equipTunicaBasica;
+}
 
 
 
@@ -28,4 +36,12 @@ function equipTunicaEspecialista()
     if (mudarEquipamentosArmaduraVal == true) {
         atualizarItensEquipamentosArmadura();
     }
+}
+function adicionarTunicaEspecialista()
+{
+    tunicaEspecialista.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = tunicaEspecialista.val;
+    addItemNome = tunicaEspecialista.nome;
+    funcaoEquip = equipTunicaEspecialista;
 }

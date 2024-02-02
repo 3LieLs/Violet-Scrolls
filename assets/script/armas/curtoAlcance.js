@@ -12,6 +12,14 @@ function equipChicoteDeAco()
         atualizarItensEquipamentosArma();
     }
 }
+function adicionarChicoteDeAco()
+{
+    chicoteDeAco.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = chicoteDeAco.val;
+    addItemNome = chicoteDeAco.nome;
+    funcaoEquip = equipChicoteDeAco;
+}
 
 
 
@@ -27,4 +35,12 @@ function equipEspadaDeAco() {
     if (mudarEquipamentosArmaVal == true) {
         atualizarItensEquipamentosArma();
     }
+}
+function adicionarEspadaDeAco()
+{
+    espadaDeAco.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = espadaDeAco.val;
+    addItemNome = espadaDeAco.nome;
+    funcaoEquip = equipEspadaDeAco;
 }

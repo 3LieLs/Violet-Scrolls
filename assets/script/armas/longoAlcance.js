@@ -12,6 +12,14 @@ function equipArcoSimples()
         atualizarItensEquipamentosArma();
     }
 }
+function adicionarArcoSimples()
+{
+    arcoSimples.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = arcoSimples.val;
+    addItemNome = arcoSimples.nome;
+    funcaoEquip = equipArcoSimples;
+}
 
 
 
@@ -28,4 +36,12 @@ function equipArcoLongo()
     if (mudarEquipamentosArmaVal == true) {
         atualizarItensEquipamentosArma();
     }
+}
+function adicionarArcoLongo()
+{
+    arcoLongo.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = arcoLongo.val;
+    addItemNome = arcoLongo.nome;
+    funcaoEquip = equipArcoLongo;
 }

@@ -63,7 +63,7 @@ function aceitarMissao1Click()
     missao.recompensa = 3;
     missao.inimigoDerrotar = 'Goblin';
     missao.inimigosDerrotados = 0;
-    missao.inimigosDerrotadosMax = 2;
+    missao.inimigosDerrotadosMax = 5;
 }
 
 function aceitarMissao2Click()

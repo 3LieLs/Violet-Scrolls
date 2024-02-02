@@ -12,6 +12,14 @@ function equipCajadoDeFogo()
         atualizarItensEquipamentosArma();
     }
 }
+function adicionarCajadoDeFogo()
+{
+    cajadoDeFogo.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = cajadoDeFogo.val;
+    addItemNome = cajadoDeFogo.nome;
+    funcaoEquip = equipCajadoDeFogo;
+}
 
 
 
@@ -28,4 +36,12 @@ function equipCajadoEletrico()
     if (mudarEquipamentosArmaVal == true) {
         atualizarItensEquipamentosArma();
     }
+}
+function adicionarCajadoEletrico()
+{
+    cajadoEletrico.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = cajadoEletrico.val;
+    addItemNome = cajadoEletrico.nome;
+    funcaoEquip = equipCajadoEletrico;
 }

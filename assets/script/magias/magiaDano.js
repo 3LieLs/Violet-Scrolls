@@ -21,6 +21,14 @@ function equipEspinhoDeFogo()
         atualizarItensMagiasDano();
     }
 }
+function adicionarEspinhoDeFogo()
+{
+    espinhoDeFogo.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = espinhoDeFogo.val;
+    addItemNome = espinhoDeFogo.nome;
+    funcaoEquip = equipEspinhoDeFogo;
+}
 
 
 
@@ -37,4 +45,12 @@ function equipBolaDeFogo()
     if (mudarMagiasDano == true) {
         atualizarItensMagiasDano();
     }
+}
+function adicionarBolaDeFogo()
+{
+    bolaDeFogo.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = bolaDeFogo.val;
+    addItemNome = bolaDeFogo.nome;
+    funcaoEquip = equipBolaDeFogo;
 }

@@ -1,7 +1,7 @@
 /*-STATUS INIMIGO VARIÁVEIS-*/
 var inimigoGeral =
 {
-    nome: '', classe: '',
+    nome: '', classe: '', experiencia: 0,
 
     vida: 0, mana: 0, energia: 0,
     vidaCombate: 0, manaCombate: 0, energiaCombate: 0,

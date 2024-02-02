@@ -548,6 +548,7 @@
 #menuItensEquipamentosDisplay > section{
     float: left;
     width: 20%;
+    height: 30%;
     margin: 4% 2.5% 0% 2.5%;
     padding: 0% 0% 0% 0%;
     background-color: black;
@@ -572,6 +573,7 @@
 #menuItensMagiasDisplay > section{
     float: left;
     width: 20%;
+    height: 30%;
     margin: 4% 2.5% 0% 2.5%;
     padding: 0% 0% 0% 0%;
     background-color: black;
@@ -596,6 +598,7 @@
 #menuItensPocoesDisplay > section{
     float: left;
     width: 20%;
+    height: 30%;
     margin: 4% 2.5% 0% 2.5%;
     padding: 0% 0% 0% 0%;
     background-color: black;

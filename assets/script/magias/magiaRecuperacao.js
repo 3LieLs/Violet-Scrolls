@@ -21,6 +21,14 @@ function equipLuzDaVida()
         atualizarItensMagiasRecuperacao();
     }
 }
+function adicionarLuzDaVida()
+{
+    luzDaVida.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = luzDaVida.val;
+    addItemNome = luzDaVida.nome;
+    funcaoEquip = equipLuzDaVida;
+}
 
 
 
@@ -28,7 +36,7 @@ var raiosRevigorantes =
 {
     nome: 'Raios revigorantes', classe: 'Mágico', tipo: 'Vida', obtido: false, val: 'raiosRevigorantes', preco: 15,
     vidaRecuperacao: 15, energiaRecuperacao: 0, manaRecuperacao: 0,
-    energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 10, manaCustoCombate: 10,
+    energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15,
 }
 function equipRaiosRevigorantes()
 {
@@ -37,4 +45,12 @@ function equipRaiosRevigorantes()
     if (mudarMagiasRecuperacao == true) {
         atualizarItensMagiasRecuperacao();
     }
+}
+function adicionarRaiosRevigorantes()
+{
+    raiosRevigorantes.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = raiosRevigorantes.val;
+    addItemNome = raiosRevigorantes.nome;
+    funcaoEquip = equipRaiosRevigorantes;
 }
