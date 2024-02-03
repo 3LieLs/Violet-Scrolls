@@ -34,6 +34,13 @@ function semEnergiaManaVisibilidade()
 /*-MOVESET ARMA-*/
 function movesetArmaEscolhaClick()
 {
+   
+    primeiraEscolha.removeEventListener('click', movesetArmaEscolhaClick);
+    segundaEscolha.removeEventListener('click', movesetMagiaEscolhaClick);
+    terceiraEscolha.removeEventListener('click', movesetArmaduraEscolhaClick);
+    quartaEscolha.removeEventListener('click', movesetOutrosEscolhaClick);
+
+
     primeiraEscolha.value = 'Ataque fraco';
     primeiraEscolha.id = 'ataqueFraco';
 
@@ -62,8 +69,7 @@ function movesetArmaEscolhaClick()
 function ataqueFracoClick()
 {
     if (vezUsuario == false) {
-        movesetArmaEscolhaClick()
-        console.log(`Calma ${jogador.nome}, espere a sua vez`)
+        console.log(`Calma ${jogador.nome}, espere a sua vez ${vezUsuario}`)
     }
 
     if (vezUsuario == true) {
@@ -75,8 +81,7 @@ function ataqueFracoClick()
 function ataqueForteClick()
 {
     if (vezUsuario == false) {
-        movesetArmaEscolhaClick()
-        console.log(`Calma ${jogador.nome}, espere a sua vez`)
+        console.log(`Calma ${jogador.nome}, espere a sua vez ${vezUsuario}`)
     }
 
     if (vezUsuario == true) {
@@ -88,7 +93,6 @@ function ataqueForteClick()
 function contraAtaqueClick()
 {
     if (vezUsuario == false) {
-        movesetArmaEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
     }
 
@@ -107,6 +111,11 @@ function voltarArmaAcaoClick()
 /*-MOVESET MAGIA-*/
 function movesetMagiaEscolhaClick()
 {
+    primeiraEscolha.removeEventListener('click', movesetArmaEscolhaClick);
+    segundaEscolha.removeEventListener('click', movesetMagiaEscolhaClick);
+    terceiraEscolha.removeEventListener('click', movesetArmaduraEscolhaClick);
+    quartaEscolha.removeEventListener('click', movesetOutrosEscolhaClick);
+
     primeiraEscolha.value = 'Magia Dano';
     primeiraEscolha.id = 'magiaDano';
 
@@ -153,7 +162,7 @@ function magiaRecuperarClick()
     }
 
     if (vezUsuario == true) {
-        botaoMagiaDanoClick();
+        botaoMagiaRecuperacaoClick();
         voltarMovesetInicio();
     }
 }
@@ -180,6 +189,11 @@ function voltarMagiaAcaoClick()
 /*-MOVESET ARMADURA-*/
 function movesetArmaduraEscolhaClick()
 {
+    primeiraEscolha.removeEventListener('click', movesetArmaEscolhaClick);
+    segundaEscolha.removeEventListener('click', movesetMagiaEscolhaClick);
+    terceiraEscolha.removeEventListener('click', movesetArmaduraEscolhaClick);
+    quartaEscolha.removeEventListener('click', movesetOutrosEscolhaClick);
+
     primeiraEscolha.value = 'Bloquear';
     primeiraEscolha.id = 'bloquear';
 
@@ -253,6 +267,7 @@ function voltarArmaduraAcaoClick()
 /*-MOVESET OUTROS-*/
 function movesetOutrosEscolhaClick()
 {
+    
 
 }
 /*-----*/

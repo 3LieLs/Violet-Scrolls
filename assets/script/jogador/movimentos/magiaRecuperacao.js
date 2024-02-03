@@ -38,7 +38,7 @@ function magiaRecuperacaoUso() {
 }
 
 
-function botaoMagiaRestauracaoClick()
+function botaoMagiaRecuperacaoClick()
 {
     if (magiaRecuperacaoGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - magiaRecuperacaoGeral.energiaCusto >= 0 || magiaRecuperacaoGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - magiaRecuperacaoGeral.manaCusto >= 0)
     {
