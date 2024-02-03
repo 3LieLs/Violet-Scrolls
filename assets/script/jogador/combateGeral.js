@@ -1,4 +1,6 @@
 /*-COMBATE GERAL VARIÁVEIS-*/
+var semEnergiaMana = window.document.querySelector('p#semEnergiaMana');
+
 var primeiraEscolha = window.document.querySelector('input#movesetArmaEscolha');
 primeiraEscolha.addEventListener('click', movesetArmaEscolhaClick);
 
@@ -17,6 +19,18 @@ function acaoIntervalo()
     vezUsuario = true;
 }
 
+function semEnergiaManaVisibilidade()
+{
+    semEnergiaManaDisplay.style.animation = 'semEnergiaManaMostrar 3s 0ms 1';
+
+    setTimeout(function ()
+     {
+        semEnergiaManaDisplay.style.animation = 'semEnergiaManaEsconder 1s 1s 1';
+      }, 2000)
+}
+/*-----*/
+
+/*-----*/
 /*-MOVESET ARMA-*/
 function movesetArmaEscolhaClick()
 {
@@ -47,20 +61,41 @@ function movesetArmaEscolhaClick()
 
 function ataqueFracoClick()
 {
-    botaoAtaqueFracoClick();
-    voltarMovesetInicio();
+    if (vezUsuario == false) {
+        movesetArmaEscolhaClick()
+        console.log(`Calma ${jogador.nome}, espere a sua vez`)
+    }
+
+    if (vezUsuario == true) {
+        botaoAtaqueFracoClick();
+        voltarMovesetInicio();
+    }
 }
 
 function ataqueForteClick()
 {
-    botaoAtaqueForteClick();
-    voltarMovesetInicio();
+    if (vezUsuario == false) {
+        movesetArmaEscolhaClick()
+        console.log(`Calma ${jogador.nome}, espere a sua vez`)
+    }
+
+    if (vezUsuario == true) {
+        botaoAtaqueForteClick();
+        voltarMovesetInicio();
+    }
 }
 
 function contraAtaqueClick()
 {
-    botaoContraAtaqueClick();
-    voltarMovesetInicio();
+    if (vezUsuario == false) {
+        movesetArmaEscolhaClick()
+        console.log(`Calma ${jogador.nome}, espere a sua vez`)
+    }
+
+    if (vezUsuario == true) {
+        botaoContraAtaqueClick();
+        voltarMovesetInicio();
+    }
 }
 
 function voltarArmaAcaoClick()
@@ -99,20 +134,41 @@ function movesetMagiaEscolhaClick()
 
 function magiaDanoClick()
 {
-    botaoMagiaDanoClick();
-    voltarMovesetInicio();
+    if (vezUsuario == false) {
+        movesetMagiaEscolhaClick()
+        console.log(`Calma ${jogador.nome}, espere a sua vez`)
+    }
+
+    if (vezUsuario == true) {
+        botaoMagiaDanoClick();
+        voltarMovesetInicio();
+    }
 }
 
 function magiaRecuperarClick()
 {
-    botaoMagiaRestauracaoClick();
-    voltarMovesetInicio();
+    if (vezUsuario == false) {
+        movesetMagiaEscolhaClick()
+        console.log(`Calma ${jogador.nome}, espere a sua vez`)
+    }
+
+    if (vezUsuario == true) {
+        botaoMagiaDanoClick();
+        voltarMovesetInicio();
+    }
 }
 
 function magiaBuffClick()
 {
-    botaoMagiaBuffClick();
-    voltarMovesetInicio();
+    if (vezUsuario == false) {
+        movesetMagiaEscolhaClick()
+        console.log(`Calma ${jogador.nome}, espere a sua vez`)
+    }
+
+    if (vezUsuario == true) {
+        botaoMagiaBuffClick();
+        voltarMovesetInicio();
+    }
 }
 
 function voltarMagiaAcaoClick()
@@ -151,20 +207,41 @@ function movesetArmaduraEscolhaClick()
 
 function bloquearClick()
 {
-    botaoBloquearClick();
-    voltarMovesetInicio();
+    if (vezUsuario == false) {
+        movesetArmaduraEscolhaClick()
+        console.log(`Calma ${jogador.nome}, espere a sua vez`)
+    }
+
+    if (vezUsuario == true) {
+        botaoBloquearClick();
+        voltarMovesetInicio();
+    }
 }
 
 function descansoClick()
 {
-    botaoDescansoClick();
-    voltarMovesetInicio();
+    if (vezUsuario == false) {
+        movesetArmaduraEscolhaClick()
+        console.log(`Calma ${jogador.nome}, espere a sua vez`)
+    }
+
+    if (vezUsuario == true) {
+        botaoDescansoClick();
+        voltarMovesetInicio();
+    }
 }
 
 function focoClick()
 {
-    botaoFocoClick();
-    voltarMovesetInicio();
+    if (vezUsuario == false) {
+        movesetArmaduraEscolhaClick()
+        console.log(`Calma ${jogador.nome}, espere a sua vez`)
+    }
+
+    if (vezUsuario == true) {
+        botaoFocoClick();
+        voltarMovesetInicio();
+    }
 }
 
 function voltarArmaduraAcaoClick()
@@ -256,43 +333,11 @@ function calculoDefesa()
 }
 /*-----*/
 
-/*-MINIGAME-*/
-var minigameVal = window.document.querySelector('input#minigame');
-minigameVal.addEventListener('click', minigameMove);
-
-function minigameMove()
-{
-    if (jogador.minigame == 'ataqueBasico')
-    {
-        minigameVal.addEventListener('click', minigameAtaqueBasico);
-    }
-
-    if (jogador.minigame == 'ataqueEspecial')
-    {
-
-    }
-
-    if (jogador.minigame == 'defesa')
-    {
-        minigameVal.addEventListener('click', minigameDefesa);
-    }
-
-    if (jogador.minigame == 'descanso')
-    {
-
-    }
-
-    if (jogador.minigame == 'foco')
-    {
-
-    }
-}
-/*-----*/
-
 /*-DEFINIR ESTATISTICA-*/
 function definirEstatisticaGeral()
 {
     legendaView.innerHTML = ``;
+    voltarMovesetInicio()
 
     mainJogadorDerrotado.style.display = 'none';
     mainInimigoDerrotado.style.display = 'none';

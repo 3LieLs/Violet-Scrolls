@@ -19,10 +19,10 @@ function contraAtaqueDano() {
     }
 
     if (armaGeral.classe == 'Físico') {
-        
-        legendaView.insertAdjacentHTML('beforeend',`${jogador.nome} contra-atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}<br>Energia gasta: ${armaGeral.energiaCusto}<br><br>`)
-        
-        
+
+        legendaView.insertAdjacentHTML('beforeend', `${jogador.nome} contra-atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}<br>Energia gasta: ${armaGeral.energiaCusto}<br><br>`)
+
+
         jogador.energiaCombate = jogador.energiaCombate - armaGeral.energiaCusto
 
         jogador.porcentagem = 100 - ((armaGeral.energiaCusto / jogador.energia) * 100)
@@ -42,39 +42,39 @@ function contraAtaqueDano() {
     inimigoCombateHud()
 }
 
-function botaoContraAtaqueClick() {
-    if (vezUsuario == true) {
-        if (armaGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - armaGeral.energiaCusto >= 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - armaGeral.manaCusto >= 0) {
-            vezUsuario = false
+function botaoContraAtaqueClick()
+{
+    if (armaGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - armaGeral.energiaCusto >= 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - armaGeral.manaCusto >= 0)
+    {
+        vezUsuario = false;
 
-            legendaView.insertAdjacentHTML('beforeend',`Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} se preparou para um contra-ataque<br><br>`)
+        legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} se preparou para um contra-ataque<br><br>`);
 
-            setTimeout(contraAtaqueDano, 4000)
-            setTimeout(acaoIntervalo, 4000)
+        setTimeout(contraAtaqueDano, 4000);
+        setTimeout(acaoIntervalo, 4000);
 
-            setTimeout(inimigoAtaque, 2000)
-            setTimeout(jogadorCombateHud, 2000)
-            setTimeout(inimigoCombateHud, 2000)
-            setTimeout(inimigoDerrotado, 4000)
-            setTimeout(jogadorDerrotado, 3000)
+        setTimeout(inimigoAtaque, 2000);
+        setTimeout(jogadorCombateHud, 2000);
+        setTimeout(inimigoCombateHud, 2000);
+        setTimeout(inimigoDerrotado, 4000);
+        setTimeout(jogadorDerrotado, 3000);
 
-        }
-
-
-        if (armaGeral.classe == 'Mágico' && jogador.manaCombate < 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate - armaGeral.manaCusto < 0) {
-            alert(`Você está sem mana o suficiente para fazer está ação`)
-        }
-
-        if (armaGeral.classe == 'Físico' && jogador.energiaCombate < 0 || armaGeral.classe == 'Físico' && jogador.energiaCombate - armaGeral.energiaCusto < 0) {
-            alert(`Você está sem energia o suficiente para fazer está ação`)
-        }
-
-    } else {
-        console.log(`Calma ${jogador.nome}, espera a sua vez.`)
     }
-}
 
-function minigameContraAtaque() {
+    if (armaGeral.classe == 'Físico' && jogador.energiaCombate < 0 || armaGeral.classe == 'Físico' && jogador.energiaCombate - armaGeral.energiaCusto < 0)
+    {
+        semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
+        semEnergiaMana.style.color = 'green';
 
+        semEnergiaManaVisibilidade();
+    }
+
+    if (armaGeral.classe == 'Mágico' && jogador.manaCombate < 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate - armaGeral.manaCusto < 0)
+    {
+        semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
+        semEnergiaMana.style.color = 'mana';
+
+        semEnergiaManaVisibilidade();
+    }
 }
 /*-----*/

@@ -24,31 +24,36 @@ function magiaBuffUso() {
 }
 
 
-function botaoMagiaBuffClick() {
-    if (vezUsuario == true) {
-        if (magiaBuffGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - magiaBuffGeral.energiaCusto >= 0 || magiaBuffGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - magiaBuffGeral.manaCusto >= 0) {
-            vezUsuario = false
+function botaoMagiaBuffClick()
+{
+    if (magiaBuffGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - magiaBuffGeral.energiaCusto >= 0 || magiaBuffGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - magiaBuffGeral.manaCusto >= 0)
+    {
+        vezUsuario = false;
 
-            setTimeout(magiaBuffUso, 0)
-            setTimeout(acaoIntervalo, 2000)
+        setTimeout(magiaBuffUso, 0);
+        setTimeout(acaoIntervalo, 2000);
 
-            setTimeout(inimigoAtaque, 2000)
-            setTimeout(jogadorCombateHud, 2000)
-            setTimeout(inimigoCombateHud, 2000)
-            setTimeout(inimigoDerrotado, 2000)
-            setTimeout(jogadorDerrotado, 3000)
-        }
+        setTimeout(inimigoAtaque, 2000);
+        setTimeout(jogadorCombateHud, 2000);
+        setTimeout(inimigoCombateHud, 2000);
+        setTimeout(inimigoDerrotado, 2000);
+        setTimeout(jogadorDerrotado, 3000);
+    }
 
-        if (magiaBuffGeral.classe == 'Mágico' && jogador.manaCombate <= 0 || jogador.manaCombate - magiaBuffGeral.manaCusto < 0) {
-            alert(`Você está sem mana o suficiente para fazer está ação`)
-        }
+    if (magiaBuffGeral.classe == 'Físico' && jogador.energiaCombate <= 0 || jogador.energiaCombate - magiaBuffGeral.energiaCusto < 0)
+    {
+        semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
+        semEnergiaMana.style.color = 'green';
 
-        if (magiaBuffGeral.classe == 'Físico' && jogador.energiaCombate <= 0 || jogador.energiaCombate - magiaBuffGeral.energiaCusto < 0) {
-            alert(`Você está sem energia o suficiente para fazer está ação`)
-        }
+        semEnergiaManaVisibilidade();
+    }
 
-    } else {
-        console.log(`Calma ${jogador.nome}, espera a sua vez.`)
+    if (magiaBuffGeral.classe == 'Mágico' && jogador.manaCombate <= 0 || jogador.manaCombate - magiaBuffGeral.manaCusto < 0)
+    {
+        semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
+        semEnergiaMana.style.color = 'blue';
+
+        semEnergiaManaVisibilidade();
     }
 }
 /*-----*/

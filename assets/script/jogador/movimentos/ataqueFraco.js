@@ -34,91 +34,40 @@ function ataqueFracoDano() {
         }
     }
 
-    jogadorCombateHud()
-    inimigoCombateHud()
+    jogadorCombateHud();
+    inimigoCombateHud();
 }
 
-function botaoAtaqueFracoClick() {
-    if (vezUsuario == true) {
-        if (armaGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - armaGeral.energiaCusto >= 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - armaGeral.manaCusto >= 0) {
-            vezUsuario = false
+function botaoAtaqueFracoClick()
+{
+    if (armaGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - armaGeral.energiaCusto >= 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - armaGeral.manaCusto >= 0)
+    {
+        vezUsuario = false;
 
-            setTimeout(ataqueFracoDano, 0)
-            setTimeout(acaoIntervalo, 2000)
+        setTimeout(ataqueFracoDano, 0);
+        setTimeout(acaoIntervalo, 2000);
 
-            setTimeout(inimigoAtaque, 2000)
-            setTimeout(jogadorCombateHud, 2000)
-            setTimeout(inimigoCombateHud, 2000)
-            setTimeout(inimigoDerrotado, 2000)
-            setTimeout(jogadorDerrotado, 3000)
-
-        }
-
-
-        if (armaGeral.classe == 'Mágico' && jogador.manaCombate < 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate - armaGeral.manaCusto < 0) {
-            alert(`Você está sem mana o suficiente para fazer está ação`)
-        }
-
-        if (armaGeral.classe == 'Físico' && jogador.energiaCombate < 0 || armaGeral.classe == 'Físico' && jogador.energiaCombate - armaGeral.energiaCusto < 0) {
-            alert(`Você está sem energia o suficiente para fazer está ação`)
-        }
-
-    } else {
-        console.log(`Calma ${jogador.nome}, espera a sua vez.`)
-    }
-}
-
-function minigameAtaqueBasico() {
-    jogador.click = jogador.click + 1
-
-    if (jogador.click == 3) {
-        miniGameDisplay.style.display = 'none'
+        setTimeout(inimigoAtaque, 2000);
+        setTimeout(jogadorCombateHud, 2000);
+        setTimeout(inimigoCombateHud, 2000);
+        setTimeout(inimigoDerrotado, 2000);
+        setTimeout(jogadorDerrotado, 3000);
     }
 
-    else {
-        miniGameDisplay.style.display = 'contents'
+    if (armaGeral.classe == 'Físico' && jogador.energiaCombate < 0 || armaGeral.classe == 'Físico' && jogador.energiaCombate - armaGeral.energiaCusto < 0)
+    {
+        semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
+        semEnergiaMana.style.color = 'green';
+            
+        semEnergiaManaVisibilidade();
+    }
 
-        let num1 = 0
-        let num2 = 0
-
-        let cimaBaixo = Math.floor(Math.random() * 3) + 1;
-        let esquerdaDireita = Math.floor(Math.random() * 2) + 1;
-
-        if (cimaBaixo == 1) {
-            num1 = 40
-            if (esquerdaDireita == 1) {
-                num2 = 35
-            }
-
-            if (esquerdaDireita == 2) {
-                num2 = 65
-            }
-        }
-
-        if (cimaBaixo == 2) {
-            num1 = 60
-            if (esquerdaDireita == 1) {
-                num2 = 35
-            }
-
-            if (esquerdaDireita == 2) {
-                num2 = 65
-            }
-        }
-
-        if (cimaBaixo == 3) {
-            num1 = 80
-            if (esquerdaDireita == 1) {
-                num2 = 35
-            }
-
-            if (esquerdaDireita == 2) {
-                num2 = 65
-            }
-        }
-
-        minigameVal.style.top = `${num1}%`
-        minigameVal.style.left = `${num2}%`
+    if (armaGeral.classe == 'Mágico' && jogador.manaCombate < 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate - armaGeral.manaCusto < 0)
+    {
+        semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
+        semEnergiaMana.style.color = 'blue';
+            
+        semEnergiaManaVisibilidade();
     }
 }
 /*-----*/

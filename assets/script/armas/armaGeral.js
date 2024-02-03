@@ -20,7 +20,7 @@ var adaga =
 {
     nome: 'Adaga', classe: 'Físico', obtido: false,  peso: 0, val: 'adaga', preco: 3,
     dano: 3, danoCombate: 3, tipoDano: '',
-    energiaCusto: 1, energiaCustoCombate: 1, manaCusto: 0, manaCustoCombate: 0, 
+    energiaCusto: 6, energiaCustoCombate: 6, manaCusto: 0, manaCustoCombate: 0, 
 }
 function equipAdaga()
 {

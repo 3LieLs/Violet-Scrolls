@@ -1,41 +1,41 @@
 /*-DESCANSAR-*/
-function descansoUso() {
-    if (jogador.energiaCombate + armaduraGeral.energiaRecuperacao > jogador.energia) {
-        jogador.energiaCombate = jogador.energia
-        jogador.energiaPorcentagem = 100
+function descansoUso()
+{
+    if (jogador.energiaCombate + armaduraGeral.energiaRecuperacao > jogador.energia)
+    {
+        jogador.energiaCombate = jogador.energia;
+        jogador.energiaPorcentagem = 100;
 
-    } else {
-        jogador.energiaCombate = jogador.energiaCombate + armaduraGeral.energiaRecuperacao
+    } 
+    else 
+    {
+        jogador.energiaCombate = jogador.energiaCombate + armaduraGeral.energiaRecuperacao;
 
-        jogador.porcentagem = 100 - ((armaduraGeral.energiaRecuperacao / jogador.energia) * 100)
-        jogador.porcentagem = 100 - jogador.porcentagem
-        jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+        jogador.porcentagem = 100 - ((armaduraGeral.energiaRecuperacao / jogador.energia) * 100);
+        jogador.porcentagem = 100 - jogador.porcentagem;
+        jogador.porcentagem = jogador.porcentagem.toPrecision(2);
 
-        jogador.energiaPorcentagem = parseInt(jogador.energiaPorcentagem) + parseInt(jogador.porcentagem)
+        jogador.energiaPorcentagem = parseInt(jogador.energiaPorcentagem) + parseInt(jogador.porcentagem);
     }
 
-    legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} utilizou Descanso<br>Energia recuperado: ${armaduraGeral.energiaRecuperacao}<br><br>`)
+    legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} utilizou Descanso<br>Energia recuperado: ${armaduraGeral.energiaRecuperacao}<br><br>`);
 
-    jogadorCombateHud()
-    inimigoCombateHud()
+    jogadorCombateHud();
+    inimigoCombateHud();
 }
 
 
-function botaoDescansoClick() {
-    if (vezUsuario == true) {
-        vezUsuario = false
+function botaoDescansoClick()
+{
+    vezUsuario = false;
 
-        setTimeout(descansoUso, 0)
-        setTimeout(acaoIntervalo, 2000)
+    setTimeout(descansoUso, 0);
+    setTimeout(acaoIntervalo, 2000);
 
-        setTimeout(inimigoAtaque, 2000)
-        setTimeout(jogadorCombateHud, 2000)
-        setTimeout(inimigoCombateHud, 2000)
-        setTimeout(inimigoDerrotado, 2000)
-        setTimeout(jogadorDerrotado, 3000)
-
-    } else {
-        console.log(`Calma ${jogador.nome}, espera a sua vez.`)
-    }
+    setTimeout(inimigoAtaque, 2000);
+    setTimeout(jogadorCombateHud, 2000);
+    setTimeout(inimigoCombateHud, 2000);
+    setTimeout(inimigoDerrotado, 2000);
+    setTimeout(jogadorDerrotado, 3000);
 }
 /*-----*/

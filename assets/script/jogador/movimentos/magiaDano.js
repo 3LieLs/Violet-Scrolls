@@ -1,6 +1,6 @@
 /*-ATAQUE FRACO-*/
 function MagiaDanoUso() {
-    
+
     if (inimigoGeral.vidaCombate - magiaDanoGeral.danoCombate < 0) {
         inimigoGeral.vidaCombate = 0
         inimigoGeral.vidaPorcentagem = 0.1
@@ -37,35 +37,36 @@ function MagiaDanoUso() {
     inimigoCombateHud()
 }
 
-function botaoMagiaDanoClick() {
-    if (vezUsuario == true) {
-        if (magiaDanoGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - magiaDanoGeral.energiaCusto >= 0 || magiaDanoGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - magiaDanoGeral.manaCusto >= 0) {
-            vezUsuario = false
+function botaoMagiaDanoClick()
+{
+    if (magiaDanoGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - magiaDanoGeral.energiaCusto >= 0 || magiaDanoGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - magiaDanoGeral.manaCusto >= 0)
+    {
+        vezUsuario = false;
 
-            setTimeout(MagiaDanoUso, 0)
-            setTimeout(acaoIntervalo, 2000)
+        setTimeout(MagiaDanoUso, 0);
+        setTimeout(acaoIntervalo, 2000);
 
-            setTimeout(inimigoAtaque, 2000)
-            setTimeout(jogadorCombateHud, 2000)
-            setTimeout(inimigoCombateHud, 2000)
-            setTimeout(inimigoDerrotado, 2000)
-            setTimeout(jogadorDerrotado, 3000)
-
-        }
-
-        if (magiaDanoGeral.classe == 'Mágico' && jogador.manaCombate <= 0 || jogador.manaCombate - magiaDanoGeral.manaCusto < 0) {
-            alert(`Você está sem mana o suficiente para fazer está ação`)
-        }
-        if (magiaDanoGeral.classe == 'Físico' && jogador.energiaCombate <= 0 || jogador.energiaCombate - magiaDanoGeral.energiaCusto < 0) {
-            alert(`Você está sem energia o suficiente para fazer está ação`)
-        }
-
-    } else {
-        console.log(`Calma ${jogador.nome}, espera a sua vez.`)
+        setTimeout(inimigoAtaque, 2000);
+        setTimeout(jogadorCombateHud, 2000);
+        setTimeout(inimigoCombateHud, 2000);
+        setTimeout(inimigoDerrotado, 2000);
+        setTimeout(jogadorDerrotado, 3000);
     }
-}
 
-function minigameMagiaDano() {
-   
+    if (magiaDanoGeral.classe == 'Físico' && jogador.energiaCombate <= 0 || jogador.energiaCombate - magiaDanoGeral.energiaCusto < 0)
+    {
+        semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
+        semEnergiaMana.style.color = 'green';
+
+        semEnergiaManaVisibilidade();
+    }
+
+    if (magiaDanoGeral.classe == 'Mágico' && jogador.manaCombate <= 0 || jogador.manaCombate - magiaDanoGeral.manaCusto < 0)
+    {
+        semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
+        semEnergiaMana.style.color = 'blue';
+
+        semEnergiaManaVisibilidade();
+    }
 }
 /*-----*/
