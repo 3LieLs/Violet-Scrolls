@@ -44,3 +44,12 @@ function adicionarEspadaDeAco()
     addItemNome = espadaDeAco.nome;
     funcaoEquip = equipEspadaDeAco;
 }
+
+function removerEspadaDeAco()
+{
+    espadaDeAco.obtido = false;
+    removItemTipo = 'equipamento';
+    removItemVal = espadaDeAco.val;
+    removItemNome = espadaDeAco.nome;
+   
+}

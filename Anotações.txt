@@ -5,3 +5,6 @@ tentar colocar imagem nos  botões de ação
 mudar a cor dos botões caso sem mana ou energia
 Adicionar diferença entre dano Físico e Mágico (nos buffs também)
 
+Aumentar a quantidade de itens na loja e colocar sistema de vender itens
+
+som de conquista do minecraft ao subir de nivel kk

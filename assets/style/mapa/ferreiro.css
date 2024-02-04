@@ -1,12 +1,12 @@
 /*-----*/
-#ferreiroDisplay
-{
+#ferreiroDisplay {
     display: none;
 }
+
 /*-----*/
 
 /*-----*/
-#mensagemFerreiro{
+#mensagemFerreiro {
     position: absolute;
     top: -4%;
     left: 50%;
@@ -21,54 +21,47 @@
     text-align: center;
     font-size: 15pt;
 }
-/*-----*/
 
 /*-----*/
-#botaoAbrirLojaFerreiro{
-    position: absolute;
-    top: 35%;
-    right: -0.1%;
-    width: 5%;
-    height: 25%;
-    background-color: black;
-    color: orangered;
-    border-top-left-radius: 20%;
-    border-bottom-left-radius: 20%;
-    font-size: 12pt;
-    transition: 0.5s all 0s;
-    z-index: 9999;
-}
 
-#botaoAbrirLojaFerreiro:hover{
-    background-color: rgb(30, 30, 30);
-    cursor: pointer;
-}
-
-#botaoFecharLojaFerreiro{
+/*-----*/
+#botaoAbrirFecharLojaFerreiro {
     position: absolute;
-    top: -3%;
+    bottom: 0%;
     left: 50%;
     transform: translate(-50%);
-    width: 25%;
+    width: 15%;
     height: 5%;
     background-color: black;
     color: orangered;
     border-top-left-radius: 20%;
     border-top-right-radius: 20%;
+    font-size: 12pt;
+    transition: 0.5s all 0s;
+    z-index: 9999;
 }
 
-#botaoFecharLojaFerreiro:hover{
+#botaoAbrirFecharLojaFerreiro:hover {
     background-color: rgb(30, 30, 30);
     cursor: pointer;
 }
 /*-----*/
 
 /*-----*/
-#lojaFerreiro{
+#lojaComprarFerreiroMensagem
+{
+    background-color: black;
+    border-radius: 5%;
+    text-align: center;
+    font-size: 10;
+}
+
+
+#lojaComprarFerreiro {
     position: absolute;
-    top: 15%;
-    right: -5%;
-    padding: 0% 1% 0% 1%;
+    bottom: 3%;
+    left: -6%;
+    padding: 0% 1% 1% 1%;
     width: 25%;
     height: 80%;
     background-color: rgb(30, 30, 30);
@@ -77,9 +70,15 @@
     border-radius: 5%;
     transition: 0.5s all 0s;
     opacity: 0;
+    overflow: auto;
 }
 
-#itemFerreiro1, #itemFerreiro2, #itemFerreiro3{
+#itemComprarFerreiro1,
+#itemComprarFerreiro2,
+#itemComprarFerreiro3,
+#itemComprarFerreiro4,
+#itemComprarFerreiro5,
+#itemComprarFerreiro6 {
     width: 100%;
     height: 25%;
     margin: 10% 0% 0% 0%;
@@ -89,26 +88,45 @@
     text-align: center;
 }
 
-#nomeItemFerreiro1, #nomeItemFerreiro2, #nomeItemFerreiro3{
+#nomeItemComprarFerreiro1,
+#nomeItemComprarFerreiro2,
+#nomeItemComprarFerreiro3,
+#nomeItemComprarFerreiro4,
+#nomeItemComprarFerreiro5,
+#nomeItemComprarFerreiro6 {
     margin: 0% 0% 0% 0%;
     padding: 3% 0% 0% 0%;
     font-size: 15pt;
 }
 
-#informacaoItemFerreiro1, #informacaoItemFerreiro2, #informacaoItemFerreiro3{
+#informacaoItemComprarFerreiro1,
+#informacaoItemComprarFerreiro2,
+#informacaoItemComprarFerreiro3,
+#informacaoItemComprarFerreiro4,
+#informacaoItemComprarFerreiro5,
+#informacaoItemComprarFerreiro6 {
     margin: 0% 0% 0% 0%;
     padding: 0% 0% 0% 0%;
     font-size: 12pt;
 }
 
-#custoItemFerreiro1, #custoItemFerreiro2, #custoItemFerreiro3
-{
+#custoItemComprarFerreiro1,
+#custoItemComprarFerreiro2,
+#custoItemComprarFerreiro3,
+#custoItemComprarFerreiro4,
+#custoItemComprarFerreiro5,
+#custoItemComprarFerreiro6 {
     margin: 5% 0% 0% 0%;
     padding: 0% 0% 0% 0%;
     font-size: 12pt;
 }
 
-#comprarItemFerreiro1, #comprarItemFerreiro2, #comprarItemFerreiro3{
+#comprarItemFerreiro1,
+#comprarItemFerreiro2,
+#comprarItemFerreiro3,
+#comprarItemFerreiro4,
+#comprarItemFerreiro5,
+#comprarItemFerreiro6 {
     position: absolute;
     right: 5%;
     margin: 5% 0% 0% 0%;
@@ -119,7 +137,104 @@
     font-size: 10pt;
 }
 
-#comprarItemFerreiro1:hover, #comprarItemFerreiro2:hover, #comprarItemFerreiro3:hover{
+#comprarItemFerreiro1:hover,
+#comprarItemFerreiro2:hover,
+#comprarItemFerreiro3:hover,
+#comprarItemFerreiro4:hover,
+#comprarItemFerreiro5:hover,
+#comprarItemFerreiro6:hover {
+    background-color: gray;
+    cursor: pointer;
+}
+/*-----*/
+
+/*-----*/
+#lojaVenderFerreiro {
+    position: absolute;
+    bottom: 3%;
+    right: -6%;
+    padding: 0% 1% 1% 1%;
+    width: 25%;
+    height: 80%;
+    background-color: rgb(30, 30, 30);
+    color: orangered;
+    border: solid 5px black;
+    border-radius: 5%;
+    transition: 0.5s all 0s;
+    opacity: 0;
+    overflow: auto;
+}
+
+#itemVenderFerreiro1,
+#itemVenderFerreiro2,
+#itemVenderFerreiro3,
+#itemVenderFerreiro4,
+#itemVenderFerreiro5,
+#itemVenderFerreiro6 {
+    width: 100%;
+    height: 25%;
+    margin: 10% 0% 0% 0%;
+    padding: 0% 0.1% 0% 5%;
+    background-color: black;
+    border-radius: 5%;
+    text-align: center;
+}
+
+#nomeItemVenderFerreiro1,
+#nomeItemVenderFerreiro2,
+#nomeItemVenderFerreiro3,
+#nomeItemVenderFerreiro4,
+#nomeItemVenderFerreiro5,
+#nomeItemVenderFerreiro6 {
+    margin: 0% 0% 0% 0%;
+    padding: 3% 0% 0% 0%;
+    font-size: 15pt;
+}
+
+#informacaoItemVenderFerreiro1,
+#informacaoItemVenderFerreiro2,
+#informacaoItemVenderFerreiro3,
+#informacaoItemVenderFerreiro4,
+#informacaoItemVenderFerreiro5,
+#informacaoItemVenderFerreiro6 {
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    font-size: 12pt;
+}
+
+#custoItemVenderFerreiro1,
+#custoItemVenderFerreiro2,
+#custoItemVenderFerreiro3,
+#custoItemVenderFerreiro4,
+#custoItemVenderFerreiro5,
+#custoItemVenderFerreiro6 {
+    margin: 5% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    font-size: 12pt;
+}
+
+#venderItemFerreiro1,
+#venderItemFerreiro2,
+#venderItemFerreiro3,
+#venderItemFerreiro4,
+#venderItemFerreiro5,
+#venderItemFerreiro6 {
+    position: absolute;
+    right: 5%;
+    margin: 5% 0% 0% 0%;
+    padding: 0%;
+    background-color: rgb(30, 30, 30);
+    color: orangered;
+    border-radius: 5%;
+    font-size: 10pt;
+}
+
+#venderItemFerreiro1:hover,
+#venderItemFerreiro2:hover,
+#venderItemFerreiro3:hover,
+#venderItemFerreiro4:hover,
+#venderItemFerreiro5:hover,
+#venderItemFerreiro6:hover {
     background-color: gray;
     cursor: pointer;
 }

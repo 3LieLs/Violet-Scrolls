@@ -13,7 +13,7 @@ var menuPeso = window.document.querySelector(`p#menuPeso`);
 /*-----*/
 
 /*-----*/
-var mudarItens = 1, mudarEquipamentos = 1, mudarMagias = 1;
+var mudarItens = 1, mudarEquipamentos = 1, mudarMagias = 1, menuAbertoFechado = false;
 var mudarEquipamentosArmaVal = true, mudarEquipamentosArmaduraVal = false, mudarMagiasDano = true, mudarMagiasRecuperacao = false, mudarMagiasBuff = false;
 
 
@@ -268,7 +268,7 @@ function menuAnimacaoFechar()
 }
 /*-----*/
 
-/*-ADICIONAR/REMOVER ITEM NA MOCHILA-*/
+/*-ADICIONAR ITEM NA MOCHILA-*/
 var addItemTipo, addItemVal, addItemNome, funcaoEquip;
 
 function adicionarItem()
@@ -325,6 +325,53 @@ function adicionarItem()
     add.setAttribute("value", `Equipar`);
     add.addEventListener('click', funcaoEquip)
     document.getElementById(`slot${addItemVal}`).appendChild(add);
+    }
+}
+/*-----*/
+
+/*-REMOVER ITEM NA MOCHILA-*/
+var removItemTipo, removItemVal, addItemNome, funcaoEquip;
+
+function removerItem()
+{
+    let remov = '';
+
+    if (removItemTipo == 'equipamento')
+    {
+    remov = document.getElementById(`slot${removItemVal}`).remove();
+
+    remov = document.getElementById(`nomeSlot${removItemVal}`).remove();
+    
+
+    remov = document.getElementById(`informacaoItemSlot${removItemVal}`).remove();
+    
+    remov = document.getElementById(`equiparItemSlot${removItemVal}`).remove();
+    }
+
+    if (removItemTipo == 'magia')
+    {
+    remov = document.createElement("section");
+    remov.setAttribute("id", `slot${removItemVal}`);
+    remov.innerText = ``;
+    menuItensMagiasDisplay.appendChild(remov);
+
+    remov = document.createElement("p");
+    remov.setAttribute("id", `nomeSlot${removItemVal}`);
+    remov.innerText = `${removItemNome}`;
+    document.getElementById(`slot${removItemVal}`).appendChild(remov);
+
+    remov = document.createElement("input");
+    remov.setAttribute("id", `informacaoItemSlot${removItemVal}`);
+    remov.setAttribute("type", `button`);
+    remov.setAttribute("value", `Sobre`);
+    document.getElementById(`slot${removItemVal}`).appendChild(remov);
+
+    remov = document.createElement("input");
+    remov.setAttribute("id", `equiparItemSlot${removItemVal}`);
+    remov.setAttribute("type", `button`);
+    remov.setAttribute("value", `Equipar`);
+    remov.removEventListener('click', funcaoEquip)
+    document.getElementById(`slot${removItemVal}`).appendChild(remov);
     }
 }
 /*-----*/

@@ -32,6 +32,7 @@ function equipAdaga()
 }
 function adicionarAdaga()
 {
+    jogador.peso += adaga.peso
     adaga.obtido = true;
     addItemTipo = 'equipamento';
     addItemVal = adaga.val;
