@@ -1,5 +1,4 @@
 Corrigir o bug da energia
-Corrigir bug de do VezUsuario
 Colocar sons nos botões, golpes, e sons dos inimigos atacando e levando golpes
 adicionar minigames nos golpes
 tentar colocar imagem nos  botões de ação

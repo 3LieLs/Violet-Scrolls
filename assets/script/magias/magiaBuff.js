@@ -1,7 +1,7 @@
 var magiaBuffGeral =
 {
     nome: '', classe: '', obtido: false, val: '', preco: 0,
-    danoBuff: 0, vidaBuff: 0, defesaBuff: 0, buff: '', duracao: 0,
+    danoBuff: 0, vidaBuff: 0, vidaRegen: 0, defesaBuff: 0, buff: '', duracao: 0,
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 0, manaCustoCombate: 0, 
 }
 
@@ -10,7 +10,7 @@ var magiaBuffGeral =
 var furiaDeTouro =
 {
     nome: 'Furia de Touro', classe: 'Mágico', obtido: false, val: 'furiaDeTouro', preco: 7,
-    danoBuff: 1.5, vidaBuff: 0, defesaBuff: 1.5, buff: '', duracao: 2,
+    danoBuff: 5, vidaBuff: 0, vidaRegen: 2, defesaBuff: 1.5, buff: '', duracao: 2,
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15, 
 }
 function equipFuriaDeTouro()

@@ -1,8 +1,12 @@
 /*-DESCANSAR-*/
-function magiaBuffUso() {
+function magiaBuffUso()
+{
 
     if (magiaRecuperacaoGeral.classe == 'Mágico') {
+        rodadaBuffMax = parseInt(rodada) + parseInt(magiaBuffGeral.duracao)
 
+        jogador.danoCombate += magiaBuffGeral.danoBuff
+        jogador.danoCombate += magiaBuffGeral.vidaBuff
 
         jogador.manaCombate = jogador.manaCombate - magiaBuffGeral.manaCusto
 
@@ -16,7 +20,7 @@ function magiaBuffUso() {
             jogador.manaCombate = 0
         }
 
-        legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} utilizou ${magiaBuffGeral.nome}<br>Mana gasta: ${magiaBuffGeral.manaCusto}<br><br>`)
+        legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada += 1}<br><br> ${jogador.nome} utilizou ${magiaBuffGeral.nome}<br>Mana gasta: ${magiaBuffGeral.manaCusto}<br><br>`)
     }
 
     jogadorCombateHud()
