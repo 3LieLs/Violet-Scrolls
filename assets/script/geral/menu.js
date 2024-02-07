@@ -69,10 +69,8 @@ menuBotaoVal.addEventListener('click', menuDisplay);
 /*-----*/
 
 /*-ABRIR/FECHAR MENU-*/
-function menuDisplay()
-{
-    if (menuAbertoFechado == false)
-    {
+function menuDisplay() {
+    if (menuAbertoFechado == false) {
         setTimeout(menuAnimacaoAbrir, 100);
         setTimeout(menuDisplayAbrir, 0);
 
@@ -96,70 +94,58 @@ function menuDisplay()
 
         nivelAtualVal.innerHTML = `Nível: ${jogadorNivel.nivel}`;
         experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
-        
+
 
         barraExperiencia();
 
-        if (jogadorNivel.experiencia >= jogadorNivel.proximoNivel)
-        {
+        if (jogadorNivel.experiencia >= jogadorNivel.proximoNivel) {
             subirNivelDisplay.style.display = 'contents';
         }
 
-        
-        if (missao.ativo == true) 
-        {
+
+        if (missao.ativo == true) {
             menuMissao.innerHTML = `${missao.inimigoDerrotar}:<br> ${missao.inimigosDerrotados}/${missao.inimigosDerrotadosMax}`;
         }
-        else  
-        {
+        else {
             menuMissao.innerHTML = `Nenhuma missão iniciada`;
         }
-    } 
-    else
-    {
+    }
+    else {
         setTimeout(menuAnimacaoFechar, 100);
         setTimeout(menuDisplayFechar, 500);
     }
 }
 
-function menuDisplayAbrir()
-{
+function menuDisplayAbrir() {
     menu.style.display = 'contents';
-    
-    if (local == 'taverna') 
-    {
+
+    if (local == 'taverna') {
         taverna.style.display = 'none';
     }
 
-    if (local == 'vendedor') 
-    {
+    if (local == 'vendedor') {
         vendedorDisplay.style.display = 'none';
     }
 
-    if (local == 'ferreiro') 
-    {
+    if (local == 'ferreiro') {
         ferreiroDisplay.style.display = 'none';
-      
+
     }
 
-    if (local == 'feiticeiro') 
-    {
+    if (local == 'feiticeiro') {
         feiticeiroDisplay.style.display = 'none';
-       
+
     }
 
-    if (local == 'floresta') 
-    {
+    if (local == 'floresta') {
         florestaDisplay.style.display = 'none';
     }
 
-    if (local == 'caverna') 
-    {
+    if (local == 'caverna') {
         cavernaDisplay.style.display = 'none';
     }
 
-    if (local == 'montanha') 
-    {
+    if (local == 'montanha') {
         montanhaDisplay.style.display = 'none';
     }
 
@@ -167,56 +153,47 @@ function menuDisplayAbrir()
     menuAbertoFechado = true;
 }
 
-function menuDisplayFechar() 
-{
+function menuDisplayFechar() {
     menu.style.display = 'none';
-    if (local == 'taverna') 
-    {
+    if (local == 'taverna') {
         taverna.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
     }
 
-    if (local == 'vendedor') 
-    {
+    if (local == 'vendedor') {
         vendedorDisplay.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
     }
 
-    if (local == 'ferreiro') 
-    {
+    if (local == 'ferreiro') {
         ferreiroDisplay.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
     }
 
-    if (local == 'feiticeiro') 
-    {
+    if (local == 'feiticeiro') {
         feiticeiroDisplay.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
     }
 
-    if (local == 'floresta') 
-    {
+    if (local == 'floresta') {
         florestaDisplay.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
     }
 
-    if (local == 'caverna') 
-    {
+    if (local == 'caverna') {
         cavernaDisplay.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
     }
 
-    if (local == 'montanha') 
-    {
+    if (local == 'montanha') {
         montanhaDisplay.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
     }
-    
+
     menuAbertoFechado = false;
 }
 
-function menuAnimacaoAbrir() 
-{
+function menuAnimacaoAbrir() {
     nivel.style.opacity = '1';
     nivel.style.top = '5%';
 
@@ -241,8 +218,7 @@ function menuAnimacaoAbrir()
     horario.style.bottom = '3%';
 }
 
-function menuAnimacaoFechar()
-{
+function menuAnimacaoFechar() {
     nivel.style.opacity = '0';
     nivel.style.top = '-15%';
 
@@ -271,60 +247,57 @@ function menuAnimacaoFechar()
 /*-ADICIONAR ITEM NA MOCHILA-*/
 var addItemTipo, addItemVal, addItemNome, funcaoEquip;
 
-function adicionarItem()
-{
+function adicionarItem() {
     let add = '';
 
-    if (addItemTipo == 'equipamento')
-    {
-    add = document.createElement("section");
-    add.setAttribute("id", `slot${addItemVal}`);
-    add.innerText = ``;
-    menuItensEquipamentosDisplay.appendChild(add);
+    if (addItemTipo == 'equipamento') {
+        add = document.createElement("section");
+        add.setAttribute("id", `slot${addItemVal}`);
+        add.innerText = ``;
+        menuItensEquipamentosDisplay.appendChild(add);
 
-    add = document.createElement("p");
-    add.setAttribute("id", `nomeSlot${addItemVal}`);
-    add.innerText = `${addItemNome}`;
-    document.getElementById(`slot${addItemVal}`).appendChild(add);
+        add = document.createElement("p");
+        add.setAttribute("id", `nomeSlot${addItemVal}`);
+        add.innerText = `${addItemNome}`;
+        document.getElementById(`slot${addItemVal}`).appendChild(add);
 
-    add = document.createElement("input");
-    add.setAttribute("id", `informacaoItemSlot${addItemVal}`);
-    add.setAttribute("type", `button`);
-    add.setAttribute("value", `Sobre`);
-    document.getElementById(`slot${addItemVal}`).appendChild(add);
+        add = document.createElement("input");
+        add.setAttribute("id", `informacaoItemSlot${addItemVal}`);
+        add.setAttribute("type", `button`);
+        add.setAttribute("value", `Sobre`);
+        document.getElementById(`slot${addItemVal}`).appendChild(add);
 
-    add = document.createElement("input");
-    add.setAttribute("id", `equiparItemSlot${addItemVal}`);
-    add.setAttribute("type", `button`);
-    add.setAttribute("value", `Equipar`);
-    add.addEventListener('click', funcaoEquip)
-    document.getElementById(`slot${addItemVal}`).appendChild(add);
+        add = document.createElement("input");
+        add.setAttribute("id", `equiparItemSlot${addItemVal}`);
+        add.setAttribute("type", `button`);
+        add.setAttribute("value", `Equipar`);
+        add.addEventListener('click', funcaoEquip)
+        document.getElementById(`slot${addItemVal}`).appendChild(add);
     }
 
-    if (addItemTipo == 'magia')
-    {
-    add = document.createElement("section");
-    add.setAttribute("id", `slot${addItemVal}`);
-    add.innerText = ``;
-    menuItensMagiasDisplay.appendChild(add);
+    if (addItemTipo == 'magia') {
+        add = document.createElement("section");
+        add.setAttribute("id", `slot${addItemVal}`);
+        add.innerText = ``;
+        menuItensMagiasDisplay.appendChild(add);
 
-    add = document.createElement("p");
-    add.setAttribute("id", `nomeSlot${addItemVal}`);
-    add.innerText = `${addItemNome}`;
-    document.getElementById(`slot${addItemVal}`).appendChild(add);
+        add = document.createElement("p");
+        add.setAttribute("id", `nomeSlot${addItemVal}`);
+        add.innerText = `${addItemNome}`;
+        document.getElementById(`slot${addItemVal}`).appendChild(add);
 
-    add = document.createElement("input");
-    add.setAttribute("id", `informacaoItemSlot${addItemVal}`);
-    add.setAttribute("type", `button`);
-    add.setAttribute("value", `Sobre`);
-    document.getElementById(`slot${addItemVal}`).appendChild(add);
+        add = document.createElement("input");
+        add.setAttribute("id", `informacaoItemSlot${addItemVal}`);
+        add.setAttribute("type", `button`);
+        add.setAttribute("value", `Sobre`);
+        document.getElementById(`slot${addItemVal}`).appendChild(add);
 
-    add = document.createElement("input");
-    add.setAttribute("id", `equiparItemSlot${addItemVal}`);
-    add.setAttribute("type", `button`);
-    add.setAttribute("value", `Equipar`);
-    add.addEventListener('click', funcaoEquip)
-    document.getElementById(`slot${addItemVal}`).appendChild(add);
+        add = document.createElement("input");
+        add.setAttribute("id", `equiparItemSlot${addItemVal}`);
+        add.setAttribute("type", `button`);
+        add.setAttribute("value", `Equipar`);
+        add.addEventListener('click', funcaoEquip)
+        document.getElementById(`slot${addItemVal}`).appendChild(add);
     }
 }
 /*-----*/
@@ -332,80 +305,71 @@ function adicionarItem()
 /*-REMOVER ITEM NA MOCHILA-*/
 var removItemTipo, removItemVal, addItemNome, funcaoEquip;
 
-function removerItem()
-{
+function removerItem() {
     let remov = '';
 
-    if (removItemTipo == 'equipamento')
-    {
-    remov = document.getElementById(`slot${removItemVal}`).remove();
+    if (removItemTipo == 'equipamento') {
+        remov = document.getElementById(`slot${removItemVal}`).remove();
 
-    remov = document.getElementById(`nomeSlot${removItemVal}`).remove();
-    
+        remov = document.getElementById(`nomeSlot${removItemVal}`).remove();
 
-    remov = document.getElementById(`informacaoItemSlot${removItemVal}`).remove();
-    
-    remov = document.getElementById(`equiparItemSlot${removItemVal}`).remove();
+
+        remov = document.getElementById(`informacaoItemSlot${removItemVal}`).remove();
+
+        remov = document.getElementById(`equiparItemSlot${removItemVal}`).remove();
     }
 
-    if (removItemTipo == 'magia')
-    {
-    remov = document.createElement("section");
-    remov.setAttribute("id", `slot${removItemVal}`);
-    remov.innerText = ``;
-    menuItensMagiasDisplay.appendChild(remov);
+    if (removItemTipo == 'magia') {
+        remov = document.createElement("section");
+        remov.setAttribute("id", `slot${removItemVal}`);
+        remov.innerText = ``;
+        menuItensMagiasDisplay.appendChild(remov);
 
-    remov = document.createElement("p");
-    remov.setAttribute("id", `nomeSlot${removItemVal}`);
-    remov.innerText = `${removItemNome}`;
-    document.getElementById(`slot${removItemVal}`).appendChild(remov);
+        remov = document.createElement("p");
+        remov.setAttribute("id", `nomeSlot${removItemVal}`);
+        remov.innerText = `${removItemNome}`;
+        document.getElementById(`slot${removItemVal}`).appendChild(remov);
 
-    remov = document.createElement("input");
-    remov.setAttribute("id", `informacaoItemSlot${removItemVal}`);
-    remov.setAttribute("type", `button`);
-    remov.setAttribute("value", `Sobre`);
-    document.getElementById(`slot${removItemVal}`).appendChild(remov);
+        remov = document.createElement("input");
+        remov.setAttribute("id", `informacaoItemSlot${removItemVal}`);
+        remov.setAttribute("type", `button`);
+        remov.setAttribute("value", `Sobre`);
+        document.getElementById(`slot${removItemVal}`).appendChild(remov);
 
-    remov = document.createElement("input");
-    remov.setAttribute("id", `equiparItemSlot${removItemVal}`);
-    remov.setAttribute("type", `button`);
-    remov.setAttribute("value", `Equipar`);
-    remov.removEventListener('click', funcaoEquip)
-    document.getElementById(`slot${removItemVal}`).appendChild(remov);
+        remov = document.createElement("input");
+        remov.setAttribute("id", `equiparItemSlot${removItemVal}`);
+        remov.setAttribute("type", `button`);
+        remov.setAttribute("value", `Equipar`);
+        remov.removEventListener('click', funcaoEquip)
+        document.getElementById(`slot${removItemVal}`).appendChild(remov);
     }
 }
 /*-----*/
 
 
 /*-BOTAO VOLTAR / PRÓXIMO ITENS-*/
-function voltarItensClick()
-{
-    mudarItens --;
+function voltarItensClick() {
+    mudarItens--;
 
-    if (mudarItens < 1)
-    {
+    if (mudarItens < 1) {
         mudarItens = 1;
     }
 
     mudarTipoItens();
 }
 
-function proximoItensClick()
-{
-    mudarItens ++;
+function proximoItensClick() {
+    mudarItens++;
 
-    if (mudarItens > 3)
-    {
+    if (mudarItens > 3) {
         mudarItens = 3;
     }
 
     mudarTipoItens();
 }
 
-function mudarTipoItens()
-{
-    if (mudarItens == 1)
-    {
+function mudarTipoItens() {
+    if (mudarItens == 1) {
         itensTipo.innerHTML = 'Equipamentos';
         itensTipo.style.color = 'red';
 
@@ -414,8 +378,7 @@ function mudarTipoItens()
         menuItensPocoesDisplay.style.display = 'none';
     }
 
-    if (mudarItens == 2)
-    {
+    if (mudarItens == 2) {
         itensTipo.innerHTML = 'Magias';
         itensTipo.style.color = 'blue';
 
@@ -424,8 +387,7 @@ function mudarTipoItens()
         menuItensPocoesDisplay.style.display = 'none';
     }
 
-    if (mudarItens == 3)
-    {
+    if (mudarItens == 3) {
         itensTipo.innerHTML = 'Poções';
         itensTipo.style.color = 'gray';
 
@@ -438,24 +400,20 @@ function mudarTipoItens()
 
 
 /*-BOTÃO VOLTAR / PRÓXIMO EQUIPAMENTOS-*/
-function voltarEquipamentosClick()
-{
-    mudarEquipamentos --;
+function voltarEquipamentosClick() {
+    mudarEquipamentos--;
 
-    if (mudarEquipamentos < 1)
-    {
+    if (mudarEquipamentos < 1) {
         mudarEquipamentos = 1;
     }
 
     mudarTipoEquipamentos();
 }
 
-function proximoEquipamentosClick()
-{
-    mudarEquipamentos ++;
+function proximoEquipamentosClick() {
+    mudarEquipamentos++;
 
-    if (mudarEquipamentos > 2)
-    {
+    if (mudarEquipamentos > 2) {
         mudarEquipamentos = 2;
     }
 
@@ -463,10 +421,8 @@ function proximoEquipamentosClick()
 }
 
 
-function mudarTipoEquipamentos()
-{
-    if (mudarEquipamentos == 1)
-    {
+function mudarTipoEquipamentos() {
+    if (mudarEquipamentos == 1) {
         mudarEquipamentosArmaVal = true
         mudarEquipamentosArmaduraVal = false
 
@@ -476,8 +432,7 @@ function mudarTipoEquipamentos()
         atualizarItensEquipamentosArma()
     }
 
-    if (mudarEquipamentos == 2)
-    {
+    if (mudarEquipamentos == 2) {
         mudarEquipamentosArmaVal = true
         mudarEquipamentosArmaduraVal = true
 
@@ -490,8 +445,7 @@ function mudarTipoEquipamentos()
 /*-----*/
 
 /*-ATUALIZAR EQUIPAMENTOS-*/
-function atualizarItensEquipamentosArma()
-{
+function atualizarItensEquipamentosArma() {
     menuEquipamentosInfo1.innerHTML = `Item equipado:<br>${armaGeral.nome}`;
     menuEquipamentosInfo2.innerHTML = `Dano:<br>${armaGeral.dano}`;
     menuEquipamentosInfo3.innerHTML = `Energia:<br>${armaGeral.energiaCusto}`;
@@ -500,8 +454,7 @@ function atualizarItensEquipamentosArma()
     menuEquipamentosInfo6.innerHTML = `Peso:<br>${armaGeral.peso}`;
 }
 
-function atualizarItensEquipamentosArmadura()
-{
+function atualizarItensEquipamentosArmadura() {
     menuEquipamentosInfo1.innerHTML = `Item equipado:<br>${armaduraGeral.nome}`;
     menuEquipamentosInfo2.innerHTML = `Defesa:<br>${armaduraGeral.defesa}`;
     menuEquipamentosInfo3.innerHTML = `Energia:<br>${armaduraGeral.energiaRecuperacao}`;
@@ -513,34 +466,28 @@ function atualizarItensEquipamentosArmadura()
 
 
 /*-BOTÃO VOLTAR / PRÓXIMO MAGIAS-*/
-function voltarMagiasClick()
-{
-    mudarMagias --;
+function voltarMagiasClick() {
+    mudarMagias--;
 
-    if (mudarMagias < 1)
-    {
+    if (mudarMagias < 1) {
         mudarMagias = 1;
     }
 
     mudarTipoMagias();
 }
 
-function proximoMagiasClick()
-{
-    mudarMagias ++;
+function proximoMagiasClick() {
+    mudarMagias++;
 
-    if (mudarMagias > 3)
-    {
+    if (mudarMagias > 3) {
         mudarMagias = 3;
     }
 
     mudarTipoMagias();
 }
 
-function mudarTipoMagias()
-{
-    if (mudarMagias == 1)
-    {
+function mudarTipoMagias() {
+    if (mudarMagias == 1) {
         mudarMagiasDano = true;
         mudarMagiasRecuperacao = false;
         mudarMagiasBuff = false;
@@ -551,8 +498,7 @@ function mudarTipoMagias()
         atualizarItensMagiasDano();
     }
 
-    if (mudarMagias == 2)
-    {
+    if (mudarMagias == 2) {
         mudarMagiasDano = false;
         mudarMagiasRecuperacao = true;
         mudarMagiasBuff = false;
@@ -563,8 +509,7 @@ function mudarTipoMagias()
         atualizarItensMagiasRecuperacao();
     }
 
-    if (mudarMagias == 3)
-    {
+    if (mudarMagias == 3) {
         mudarMagiasDano = false;
         mudarMagiasRecuperacao = false;
         mudarMagiasBuff = true;
@@ -578,8 +523,7 @@ function mudarTipoMagias()
 /*-----*/
 
 /*-ATUALIZAR MAGIAS-*/
-function atualizarItensMagiasDano()
-{
+function atualizarItensMagiasDano() {
     menuMagiasInfo1.innerHTML = `Magia equipado:<br>${magiaDanoGeral.nome}`;
     menuMagiasInfo2.innerHTML = `Dano:<br>${magiaDanoGeral.dano}`;
     menuMagiasInfo3.innerHTML = `Energia:<br>${magiaDanoGeral.energiaCusto}`;
@@ -588,8 +532,7 @@ function atualizarItensMagiasDano()
     menuMagiasInfo6.innerHTML = `Classe:<br>${magiaDanoGeral.classe}`;
 }
 
-function atualizarItensMagiasRecuperacao()
-{
+function atualizarItensMagiasRecuperacao() {
     menuMagiasInfo1.innerHTML = `Magia equipado:<br>${magiaRecuperacaoGeral.nome}`;
     menuMagiasInfo2.innerHTML = `Vida:<br>${magiaRecuperacaoGeral.vidaRecuperacao}`;
     menuMagiasInfo3.innerHTML = `Energia:<br>${magiaRecuperacaoGeral.energiaRecuperacao}`;
@@ -598,8 +541,7 @@ function atualizarItensMagiasRecuperacao()
     menuMagiasInfo6.innerHTML = `Recuperação:<br>${magiaRecuperacaoGeral.classe}`;
 }
 
-function atualizarItensMagiasBuff()
-{
+function atualizarItensMagiasBuff() {
     menuMagiasInfo1.innerHTML = `Magia equipado:<br>${magiaBuffGeral.nome}`;
     menuMagiasInfo2.innerHTML = `Classe:<br>${magiaBuffGeral.classe}`;
     menuMagiasInfo3.innerHTML = `Energia:<br>${magiaBuffGeral.energiaCusto}`;
@@ -613,19 +555,16 @@ function atualizarItensMagiasBuff()
 /*-HORÁRIO-*/
 setInterval(atualizarHorario, 500)
 
-function atualizarHorario()
-{
+function atualizarHorario() {
     horario.innerHTML = `Horário<br>${horarioHora}:${horarioMinuto}`;
-    horarioMinuto ++;
+    horarioMinuto++;
 
-    if (horarioMinuto >= 60)
-    {
+    if (horarioMinuto >= 60) {
         horarioMinuto = 0;
-        horarioHora ++;
+        horarioHora++;
     }
 
-    if (horarioHora >= 23)
-    {
+    if (horarioHora >= 23) {
         horarioHora = 0;
     }
 }

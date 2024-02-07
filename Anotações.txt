@@ -6,5 +6,6 @@ mudar a cor dos botões caso sem mana ou energia
 Adicionar diferença entre dano Físico e Mágico (nos buffs também)
 
 Aumentar a quantidade de itens na loja e colocar sistema de vender itens
+fazer separação de armadura e arma ferreiro e terminar as configurações
 
 som de conquista do minecraft ao subir de nivel kk
