@@ -4,8 +4,10 @@ adicionar minigames nos golpes
 tentar colocar imagem nos  botões de ação
 mudar a cor dos botões caso sem mana ou energia
 Adicionar diferença entre dano Físico e Mágico (nos buffs também)
+Optimizar o sistema de combate
+
 
 Aumentar a quantidade de itens na loja e colocar sistema de vender itens
-fazer separação de armadura e arma ferreiro e terminar as configurações
+Terminar as funcionalidades dos botões de comprar e vender
 
 som de conquista do minecraft ao subir de nivel kk

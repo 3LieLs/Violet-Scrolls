@@ -1,38 +1,13 @@
-/*-SCROLL BAR-*/
-/* width */
-::-webkit-scrollbar {
-    width: 0px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    visibility: hidden;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: black;
-    width: 0px;
-    visibility: hidden;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-/*-----*/
-
-
-
-/*-----*/
+/*-DISPLAY MENU-*/
 #menu {
     display: none;
 }
 
 /*-----*/
 
-/*-----*/
+
+
+/*-BOTÃO PRINCIPAL MENU-*/
 #mainBotaoMenu {
     display: none;
 }
@@ -100,11 +75,6 @@
     transition: 1s linear 0s;
 }
 
-/*-----*/
-
-
-
-/*-----*/
 #subirNivelDisplay {
     display: none;
 }
@@ -187,7 +157,7 @@
 
 
 
-/*-----*/
+/*-PECITAS / PESO-*/
 #menuPecitas {
     position: absolute;
     bottom: 5%;
@@ -195,6 +165,19 @@
     transform: translate(-50%);
     width: 53%;
     font-size: 13pt;
+}
+
+#menuPeso {
+    width: 80%;
+    margin: auto;
+    margin-top: 20%;
+    padding: 0% 0% 0% 0%;
+    background-color: black;
+    color: gray;
+    border: solid 3px orangered;
+    border-radius: 10%;
+    text-align: center;
+    font-size: 15pt;
 }
 
 /*-----*/
@@ -240,19 +223,6 @@
 
 #menuMana {
     color: blue;
-}
-
-#menuPeso {
-    width: 80%;
-    margin: auto;
-    margin-top: 20%;
-    padding: 0% 0% 0% 0%;
-    background-color: black;
-    color: gray;
-    border: solid 3px orangered;
-    border-radius: 10%;
-    text-align: center;
-    font-size: 15pt;
 }
 
 /*-----*/
@@ -656,7 +626,7 @@
 
 
 
-/*-----*/
+/*-MISSÃO / HORÁRIO-*/
 #menuMissao {
     position: absolute;
     bottom: -5%;
@@ -675,9 +645,6 @@
     opacity: 0;
 }
 
-/*-----*/
-
-/*-----*/
 #horario {
     position: absolute;
     bottom: -5%;

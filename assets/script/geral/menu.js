@@ -1,18 +1,4 @@
 /*-MENU VARIÁVEIS-*/
-/*-----*/
-var menuNome = window.document.querySelector(`p#menuNome`);
-var menuGenero = window.document.querySelector(`p#menuGenero`);
-var menuRaca = window.document.querySelector(`p#menuRaca`);
-var menuPecitas = window.document.querySelector(`p#menuPecitas`);
-
-
-var menuVida = window.document.querySelector(`p#menuVida`);
-var menuEnergia = window.document.querySelector(`p#menuEnergia`);
-var menuMana = window.document.querySelector(`p#menuMana`);
-var menuPeso = window.document.querySelector(`p#menuPeso`);
-/*-----*/
-
-/*-----*/
 var mudarItens = 1, mudarEquipamentos = 1, mudarMagias = 1, menuAbertoFechado = false;
 var mudarEquipamentosArmaVal = true, mudarEquipamentosArmaduraVal = false, mudarMagiasDano = true, mudarMagiasRecuperacao = false, mudarMagiasBuff = false;
 
@@ -31,6 +17,9 @@ var menuMagiasInfo4 = window.document.querySelector(`p#menuMagiasInfo4`);
 var menuMagiasInfo5 = window.document.querySelector(`p#menuMagiasInfo5`);
 var menuMagiasInfo6 = window.document.querySelector(`p#menuMagiasInfo6`);
 
+
+var menuBotaoVal = window.document.querySelector(`input#botaoMenu`);
+menuBotaoVal.addEventListener('click', menuDisplay);
 
 
 var voltarItens = window.document.querySelector('input#voltarItens');
@@ -52,20 +41,16 @@ voltarMagias.addEventListener('click', voltarMagiasClick);
 
 var proximoMagias = window.document.querySelector('input#proximoMagias');
 proximoMagias.addEventListener('click', proximoMagiasClick);
-/*-----*/
 
-/*-----*/
+
+
 var experienciaAtualVal = window.document.querySelector('p#experienciaAtual');
 var nivelAtualVal = window.document.querySelector('p#nivelAtual');
-
 
 var menuMissao = window.document.querySelector('div#menuMissao');
 
 var horario = window.document.querySelector('div#horario');
 var horarioHora = 12, horarioMinuto = 0
-
-var menuBotaoVal = window.document.querySelector(`input#botaoMenu`);
-menuBotaoVal.addEventListener('click', menuDisplay);
 /*-----*/
 
 /*-ABRIR/FECHAR MENU-*/
@@ -92,8 +77,8 @@ function menuDisplay() {
         menuPeso.innerHTML = `Peso: ${jogador.peso} / ${jogador.pesoMax}`
 
 
-        nivelAtualVal.innerHTML = `Nível: ${jogadorNivel.nivel}`;
-        experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
+        nivelAtual.innerHTML = `Nível: ${jogadorNivel.nivel}`;
+        experienciaAtual.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
 
 
         barraExperiencia();
@@ -115,7 +100,9 @@ function menuDisplay() {
         setTimeout(menuDisplayFechar, 500);
     }
 }
+/*-----*/
 
+/*-----*/
 function menuDisplayAbrir() {
     menu.style.display = 'contents';
 
@@ -152,7 +139,9 @@ function menuDisplayAbrir() {
     botaoMapaDisplay.style.display = 'none';
     menuAbertoFechado = true;
 }
+/*-----*/
 
+/*-----*/
 function menuDisplayFechar() {
     menu.style.display = 'none';
     if (local == 'taverna') {
@@ -192,7 +181,9 @@ function menuDisplayFechar() {
 
     menuAbertoFechado = false;
 }
+/*-----*/
 
+/*-----*/
 function menuAnimacaoAbrir() {
     nivel.style.opacity = '1';
     nivel.style.top = '5%';
@@ -217,7 +208,9 @@ function menuAnimacaoAbrir() {
     horario.style.opacity = '1';
     horario.style.bottom = '3%';
 }
+/*-----*/
 
+/*-----*/
 function menuAnimacaoFechar() {
     nivel.style.opacity = '0';
     nivel.style.top = '-15%';
@@ -244,61 +237,45 @@ function menuAnimacaoFechar() {
 }
 /*-----*/
 
+
+
 /*-ADICIONAR ITEM NA MOCHILA-*/
 var addItemTipo, addItemVal, addItemNome, funcaoEquip;
 
 function adicionarItem() {
     let add = '';
+    let menuItensDisplay
 
     if (addItemTipo == 'equipamento') {
-        add = document.createElement("section");
-        add.setAttribute("id", `slot${addItemVal}`);
-        add.innerText = ``;
-        menuItensEquipamentosDisplay.appendChild(add);
-
-        add = document.createElement("p");
-        add.setAttribute("id", `nomeSlot${addItemVal}`);
-        add.innerText = `${addItemNome}`;
-        document.getElementById(`slot${addItemVal}`).appendChild(add);
-
-        add = document.createElement("input");
-        add.setAttribute("id", `informacaoItemSlot${addItemVal}`);
-        add.setAttribute("type", `button`);
-        add.setAttribute("value", `Sobre`);
-        document.getElementById(`slot${addItemVal}`).appendChild(add);
-
-        add = document.createElement("input");
-        add.setAttribute("id", `equiparItemSlot${addItemVal}`);
-        add.setAttribute("type", `button`);
-        add.setAttribute("value", `Equipar`);
-        add.addEventListener('click', funcaoEquip)
-        document.getElementById(`slot${addItemVal}`).appendChild(add);
+        menuItensDisplay = menuItensEquipamentosDisplay
     }
 
     if (addItemTipo == 'magia') {
-        add = document.createElement("section");
-        add.setAttribute("id", `slot${addItemVal}`);
-        add.innerText = ``;
-        menuItensMagiasDisplay.appendChild(add);
-
-        add = document.createElement("p");
-        add.setAttribute("id", `nomeSlot${addItemVal}`);
-        add.innerText = `${addItemNome}`;
-        document.getElementById(`slot${addItemVal}`).appendChild(add);
-
-        add = document.createElement("input");
-        add.setAttribute("id", `informacaoItemSlot${addItemVal}`);
-        add.setAttribute("type", `button`);
-        add.setAttribute("value", `Sobre`);
-        document.getElementById(`slot${addItemVal}`).appendChild(add);
-
-        add = document.createElement("input");
-        add.setAttribute("id", `equiparItemSlot${addItemVal}`);
-        add.setAttribute("type", `button`);
-        add.setAttribute("value", `Equipar`);
-        add.addEventListener('click', funcaoEquip)
-        document.getElementById(`slot${addItemVal}`).appendChild(add);
+        menuItensDisplay = menuItensMagiasDisplay
     }
+
+    add = document.createElement("section");
+    add.setAttribute("id", `slot${addItemVal}`);
+    add.innerText = ``;
+    menuItensDisplay.appendChild(add);
+
+    add = document.createElement("p");
+    add.setAttribute("id", `nomeSlot${addItemVal}`);
+    add.innerText = `${addItemNome}`;
+    document.getElementById(`slot${addItemVal}`).appendChild(add);
+
+    add = document.createElement("input");
+    add.setAttribute("id", `informacaoItemSlot${addItemVal}`);
+    add.setAttribute("type", `button`);
+    add.setAttribute("value", `Sobre`);
+    document.getElementById(`slot${addItemVal}`).appendChild(add);
+
+    add = document.createElement("input");
+    add.setAttribute("id", `equiparItemSlot${addItemVal}`);
+    add.setAttribute("type", `button`);
+    add.setAttribute("value", `Equipar`);
+    add.addEventListener('click', funcaoEquip)
+    document.getElementById(`slot${addItemVal}`).appendChild(add);
 }
 /*-----*/
 
@@ -313,38 +290,23 @@ function removerItem() {
 
         remov = document.getElementById(`nomeSlot${removItemVal}`).remove();
 
-
         remov = document.getElementById(`informacaoItemSlot${removItemVal}`).remove();
 
         remov = document.getElementById(`equiparItemSlot${removItemVal}`).remove();
     }
 
     if (removItemTipo == 'magia') {
-        remov = document.createElement("section");
-        remov.setAttribute("id", `slot${removItemVal}`);
-        remov.innerText = ``;
-        menuItensMagiasDisplay.appendChild(remov);
+        remov = document.getElementById(`slot${removItemVal}`).remove();
 
-        remov = document.createElement("p");
-        remov.setAttribute("id", `nomeSlot${removItemVal}`);
-        remov.innerText = `${removItemNome}`;
-        document.getElementById(`slot${removItemVal}`).appendChild(remov);
+        remov = document.getElementById(`nomeSlot${removItemVal}`).remove();
 
-        remov = document.createElement("input");
-        remov.setAttribute("id", `informacaoItemSlot${removItemVal}`);
-        remov.setAttribute("type", `button`);
-        remov.setAttribute("value", `Sobre`);
-        document.getElementById(`slot${removItemVal}`).appendChild(remov);
+        remov = document.getElementById(`informacaoItemSlot${removItemVal}`).remove();
 
-        remov = document.createElement("input");
-        remov.setAttribute("id", `equiparItemSlot${removItemVal}`);
-        remov.setAttribute("type", `button`);
-        remov.setAttribute("value", `Equipar`);
-        remov.removEventListener('click', funcaoEquip)
-        document.getElementById(`slot${removItemVal}`).appendChild(remov);
+        remov = document.getElementById(`equiparItemSlot${removItemVal}`).remove();
     }
 }
 /*-----*/
+
 
 
 /*-BOTAO VOLTAR / PRÓXIMO ITENS-*/
@@ -443,6 +405,8 @@ function mudarTipoEquipamentos() {
     }
 }
 /*-----*/
+
+
 
 /*-ATUALIZAR EQUIPAMENTOS-*/
 function atualizarItensEquipamentosArma() {

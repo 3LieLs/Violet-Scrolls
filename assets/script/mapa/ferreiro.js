@@ -1,12 +1,8 @@
 /*-FERREIRO VARIÁVEIS-*/
-var ferreiroPecitas
+var ferreiroPecitas = 20, LojaFerreiroAbertoFechado = false;
 
 var botaoAbrirFecharLojaFerreiro = window.document.querySelector('input#botaoAbrirFecharLojaFerreiro');
 botaoAbrirFecharLojaFerreiro.addEventListener('click', botaoAbrirFecharLojaFerreiroClick);
-
-var LojaFerreiroAbertoFechado = false;
-
-var lojaComprarFerreiroMensagem = window.document.querySelector('p#lojaComprarFerreiroMensagem');
 
 
 var botaoVoltarComprarFerreiro = window.document.querySelector('input#botaoVoltarComprarFerreiro');
@@ -20,13 +16,6 @@ botaoVoltarVenderFerreiro.addEventListener('click', botaoVoltarVenderFerreiroCli
 
 var botaoProximoVenderFerreiro = window.document.querySelector('input#botaoProximoVenderFerreiro');
 botaoProximoVenderFerreiro.addEventListener('click', botaoProximoVenderFerreiroClick)
-
-
-var nomeItemComprarFerreiro1 = window.document.querySelector('h1#nomeItemComprarFerreiro1');
-var informacaoComprarItemFerreiro1 = window.document.querySelector('p#informacaoItemComprarFerreiro1');
-var custoItemComprarFerreiro1 = window.document.querySelector('p#custoItemComprarFerreiro1');
-var comprarItemFerreiro1 = window.document.querySelector('input#comprarItemFerreiro1');
-
 /*-----*/
 
 /*-ABRIR/FECHAR FERREIRO LOJA-*/
@@ -56,7 +45,6 @@ function botaoAbrirFecharLojaFerreiroClick() {
 
 }
 /*-----*/
-
 
 
 /*-MUDAR ARMA/ARMADURA FERREIRO COMPRAR LOJA-*/
@@ -331,31 +319,7 @@ function addItemLojaComprarFerreiro() {
 
     slotFerreiro++;
 }
-
 /*-----*/
-function comprarItemFerreiroClick(clicked_id) {
-
-    alert("O botao que foi clicado é: " + clicked_id);
-
-    /*if (espadaDeAco.obtido == false) {
-        if (jogador.pecitas - espadaDeAco.preco >= 0) {
-            adicionarEspadaDeAco()
-            adicionarItem();
-
-            jogador.pecitas -= espadaDeAco.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }*/
-}
-/*-----*/
-
-
-
 
 
 
@@ -535,25 +499,5 @@ function addItemLojaVenderFerreiro() {
     document.getElementById(`itemVender${Arma_Armadura}Ferreiro${slotFerreiro}`).appendChild(add);
 
     slotFerreiro++;
-}
-/*-----*/
-
-/*-----*/
-function venderItemFerreiroClick() {
-    if (espadaDeAco.obtido == true) {
-        if (ferreiroPecitas - espadaDeAco.preco >= 0) {
-            removerEspadaDeAco();
-            removerItem();
-
-            jogador.pecitas += espadaDeAco.preco;
-            ferreiroPecitas -= espadaDeAco.preco;
-        }
-        else {
-            alert('O ferreiro não possui pecitas o suficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
 }
 /*-----*/
