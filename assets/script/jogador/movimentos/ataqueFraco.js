@@ -17,9 +17,7 @@ function ataqueFracoDano() {
     }
 
     if (armaGeral.classe == 'Físico') {
-        
-        legendaView.insertAdjacentHTML('beforeend',`Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}<br>Energia gasta: ${armaGeral.energiaCusto}<br><br>`)
-        
+        legendaView.insertAdjacentHTML('beforeend',`${jogador.nome} atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}<br>Energia gasta: ${armaGeral.energiaCusto}<br><br>`)
         
         jogador.energiaCombate = jogador.energiaCombate - armaGeral.energiaCusto
 
@@ -44,6 +42,7 @@ function botaoAtaqueFracoClick()
     {
         vezUsuario = false;
 
+        mudarRodada();
         setTimeout(ataqueFracoDano, 0);
         setTimeout(acaoIntervalo, 2000);
 
@@ -52,6 +51,7 @@ function botaoAtaqueFracoClick()
         setTimeout(inimigoCombateHud, 2000);
         setTimeout(inimigoDerrotado, 2000);
         setTimeout(jogadorDerrotado, 3000);
+        setTimeout(buff_debuff, 3000)
     }
 
     if (armaGeral.classe == 'Físico' && jogador.energiaCombate < 0 || armaGeral.classe == 'Físico' && jogador.energiaCombate - armaGeral.energiaCusto < 0)

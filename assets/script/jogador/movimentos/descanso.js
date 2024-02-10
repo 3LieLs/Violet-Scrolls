@@ -18,7 +18,7 @@ function descansoUso()
         jogador.energiaPorcentagem = parseInt(jogador.energiaPorcentagem) + parseInt(jogador.porcentagem);
     }
 
-    legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} utilizou Descanso<br>Energia recuperado: ${armaduraGeral.energiaRecuperacao}<br><br>`);
+    legendaView.insertAdjacentHTML('beforeend', `${jogador.nome} utilizou Descanso<br>Energia recuperado: ${armaduraGeral.energiaRecuperacao}<br><br>`);
 
     jogadorCombateHud();
     inimigoCombateHud();
@@ -29,6 +29,7 @@ function botaoDescansoClick()
 {
     vezUsuario = false;
 
+    mudarRodada();
     setTimeout(descansoUso, 0);
     setTimeout(acaoIntervalo, 2000);
 
@@ -37,5 +38,6 @@ function botaoDescansoClick()
     setTimeout(inimigoCombateHud, 2000);
     setTimeout(inimigoDerrotado, 2000);
     setTimeout(jogadorDerrotado, 3000);
+    setTimeout(buff_debuff, 3000)
 }
 /*-----*/
