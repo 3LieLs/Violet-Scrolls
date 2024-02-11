@@ -13,7 +13,8 @@ function fimRodada() {
 /*-----*/
 
 
-/*-----*/
+
+/*-BUFF / DEBUFF-*/
 function buff_debuff_jogador() {
     if (rodada == rodadaBuffMax) {
         magiaBuffGeral.ativo = false
@@ -40,18 +41,27 @@ function buff_debuff_jogador() {
 }
 /*-----*/
 
+/*-----*/
+function buff_debuff_inimigo() {
+
+}
+/*-----*/
+
+
 
 /*-CRÍTICO-*/
 function critico() {
-    let chance = Math.floor(Math.random() * 100) + 0;
+    let chanceCritico = Math.floor(Math.random() * 100) + 0;
 
-    if (chance <= 10) {
-        armaJogador.danoCombate = armaJogador.danoCombate * 2;
+    if (chanceCritico <= 10) {
+        armaGeral.danoCombate *= 2;
 
-        inimigo.danoCombate = inimigo.danoCombate * 2;
+        inimigoGeral.danoCombate *= 2;
     }
 }
 /*-----*/
+
+
 
 /*-CALCULO DEFESA-*/
 function calculoDefesa() {
@@ -64,6 +74,8 @@ function calculoDefesa() {
     inimigoGeral.danoCombate = Math.trunc(inimigoGeral.danoCombate);
 }
 /*-----*/
+
+
 
 /*-DEFINIR ESTATISTICA-*/
 function definirEstatisticaGeral() {
