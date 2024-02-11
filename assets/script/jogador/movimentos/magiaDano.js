@@ -18,7 +18,7 @@ function MagiaDanoUso() {
 
     if (magiaDanoGeral.classe == 'Mágico') {
 
-        legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} utilizou ${magiaDanoGeral.nome}<br>Dano causado: ${magiaDanoGeral.danoCombate}<br>Mana gasta: ${magiaDanoGeral.manaCusto}<br><br>`)
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaDanoGeral.nome}<br>Dano causado: ${magiaDanoGeral.danoCombate}<br>Mana gasta: ${magiaDanoGeral.manaCusto}`)
 
         jogador.manaCombate = jogador.manaCombate - magiaDanoGeral.manaCusto
 
@@ -41,16 +41,20 @@ function botaoMagiaDanoClick()
 {
     if (magiaDanoGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - magiaDanoGeral.energiaCusto >= 0 || magiaDanoGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - magiaDanoGeral.manaCusto >= 0)
     {
-        vezUsuario = false;
+        inicioRodada();
 
         setTimeout(MagiaDanoUso, 0);
-        setTimeout(acaoIntervalo, 2000);
+        setTimeout(inimigoDerrotado, 2000);
 
         setTimeout(inimigoAtaque, 2000);
         setTimeout(jogadorCombateHud, 2000);
         setTimeout(inimigoCombateHud, 2000);
-        setTimeout(inimigoDerrotado, 2000);
         setTimeout(jogadorDerrotado, 3000);
+
+        setTimeout(buff_debuff_jogador, 3000)
+        //setTimeout(buff_debuff_inimigo, 3500)
+
+        setTimeout(fimRodada, 4000);
     }
 
     if (magiaDanoGeral.classe == 'Físico' && jogador.energiaCombate <= 0 || jogador.energiaCombate - magiaDanoGeral.energiaCusto < 0)

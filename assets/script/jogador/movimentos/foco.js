@@ -18,7 +18,7 @@ function focoUso()
         jogador.manaPorcentagem = parseInt(jogador.manaPorcentagem) + parseInt(jogador.porcentagem);
     }
 
-    legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} utilizou Focar<br>Mana recuperado: ${armaduraGeral.manaRecuperacao}<br><br>`);
+    legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou Focar<br>Mana recuperado: ${armaduraGeral.manaRecuperacao}`);
 
     jogadorCombateHud();
     inimigoCombateHud();
@@ -26,15 +26,18 @@ function focoUso()
 
 function botaoFocoClick()
 {
-    vezUsuario = false;
+    inicioRodada();
 
     setTimeout(focoUso, 0);
-    setTimeout(acaoIntervalo, 2000);
 
     setTimeout(inimigoAtaque, 2000);
     setTimeout(jogadorCombateHud, 2000);
     setTimeout(inimigoCombateHud, 2000);
-    setTimeout(inimigoDerrotado, 2000);
     setTimeout(jogadorDerrotado, 3000);
+
+    setTimeout(buff_debuff_jogador, 3000)
+    //setTimeout(buff_debuff_inimigo, 3500)
+
+    setTimeout(fimRodada, 4000);
 }
 /*-----*/

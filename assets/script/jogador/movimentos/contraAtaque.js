@@ -20,7 +20,7 @@ function contraAtaqueDano() {
 
     if (armaGeral.classe == 'Físico') {
 
-        legendaView.insertAdjacentHTML('beforeend', `${jogador.nome} contra-atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}<br>Energia gasta: ${armaGeral.energiaCusto}<br><br>`)
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} contra-atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}<br>Energia gasta: ${armaGeral.energiaCusto}`)
 
 
         jogador.energiaCombate = jogador.energiaCombate - armaGeral.energiaCusto
@@ -46,19 +46,22 @@ function botaoContraAtaqueClick()
 {
     if (armaGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - armaGeral.energiaCusto >= 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - armaGeral.manaCusto >= 0)
     {
-        vezUsuario = false;
+        inicioRodada();
 
-        legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} se preparou para um contra-ataque<br><br>`);
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} se preparou para um contra-ataque`);
 
         setTimeout(contraAtaqueDano, 4000);
-        setTimeout(acaoIntervalo, 4000);
+        setTimeout(inimigoDerrotado, 4000);
 
         setTimeout(inimigoAtaque, 2000);
         setTimeout(jogadorCombateHud, 2000);
         setTimeout(inimigoCombateHud, 2000);
-        setTimeout(inimigoDerrotado, 4000);
         setTimeout(jogadorDerrotado, 3000);
 
+        setTimeout(buff_debuff_jogador, 5000)
+        //setTimeout(buff_debuff_inimigo, 3500)
+
+        setTimeout(fimRodada, 6000);
     }
 
     if (armaGeral.classe == 'Físico' && jogador.energiaCombate < 0 || armaGeral.classe == 'Físico' && jogador.energiaCombate - armaGeral.energiaCusto < 0)

@@ -55,7 +55,7 @@ function inimigoAtaque() {
                     inimigoGeral.energiaPorcentagem = 0.1;
                 }
 
-                legendaView.insertAdjacentHTML('beforeend', `${inimigoGeral.nome} Atacou<br>Dano causado: ${inimigoGeral.danoCombate}<br>Energia usada: ${inimigoGeral.energiaGasto}<br><br>`);
+                legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou<br>Dano causado: ${inimigoGeral.danoCombate}<br>Energia usada: ${inimigoGeral.energiaGasto}`);
 
             }
             else {
@@ -66,7 +66,7 @@ function inimigoAtaque() {
 
                 inimigoGeral.energiaPorcentagem = parseInt(inimigoGeral.energiaPorcentagem) + parseInt(inimigoGeral.porcentagem);
 
-                legendaView.insertAdjacentHTML('beforeend', `${inimigoGeral.nome} descansou<br>Energia recuperada: ${inimigoGeral.energiaRecuperacao}<br><br>`);
+                legendaView.insertAdjacentHTML('beforeend', `<br>${inimigoGeral.nome} descansou<br>Energia recuperada: ${inimigoGeral.energiaRecuperacao}`);
             }
         }
     }
@@ -105,7 +105,7 @@ function inimigoAtaque() {
                     inimigoGeral.manaPorcentagem = 0.1;
                 }
 
-                legendaView.insertAdjacentHTML('beforeend', `${inimigoGeral.nome} Atacou<br>Dano causado: ${inimigoGeral.danoCombate}<br>Mana usada: ${inimigoGeral.manaGasto}<br><br>`);
+                legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou<br>Dano causado: ${inimigoGeral.danoCombate}<br>Mana usada: ${inimigoGeral.manaGasto}`);
 
             }
             else {
@@ -116,7 +116,7 @@ function inimigoAtaque() {
 
                 inimigoGeral.manaPorcentagem = parseInt(inimigoGeral.manaPorcentagem) + parseInt(inimigoGeral.porcentagem);
 
-                legendaView.insertAdjacentHTML('beforeend', `${inimigoGeral.nome} focou<br>Mana recuperada: ${inimigoGeral.manaRecuperacao}<br><br>`);
+                legendaView.insertAdjacentHTML('beforeend', `<br>${inimigoGeral.nome} focou<br>Mana recuperada: ${inimigoGeral.manaRecuperacao}`);
             }
         }
     }

@@ -25,7 +25,17 @@ function magiaBuffUso() {
             jogador.manaCombate = 0
         }
 
-        legendaView.insertAdjacentHTML('beforeend', `${jogador.nome} utilizou ${magiaBuffGeral.nome}<br>Mana gasta: ${magiaBuffGeral.manaCusto}<br><br>`)
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaBuffGeral.nome}<br>Mana gasta: ${magiaBuffGeral.manaCusto}`)
+
+        if (magiaBuffGeral.danoBuff > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>${magiaBuffGeral.nome} aumentou o dano de ${jogador.nome} em ${magiaBuffGeral.danoBuff}`)
+        }
+        if (magiaBuffGeral.vidaBuff > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>${magiaBuffGeral.nome} aumentou a vida de ${jogador.nome} em ${magiaBuffGeral.vidaBuff}`)
+        }
+        if (magiaBuffGeral.vidaRegen > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>${magiaBuffGeral.nome} criou uma regeneração de vida em ${jogador.nome} de ${magiaBuffGeral.vidaRegen} vida`)
+        }
     }
 
     jogadorCombateHud()
@@ -37,16 +47,20 @@ function botaoMagiaBuffClick() {
     if (magiaBuffGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - magiaBuffGeral.energiaCusto >= 0 || magiaBuffGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - magiaBuffGeral.manaCusto >= 0) {
         vezUsuario = false;
 
-        mudarRodada();
+        inicioRodada();
+
         setTimeout(magiaBuffUso, 0);
-        setTimeout(acaoIntervalo, 2000);
+        setTimeout(inimigoDerrotado, 2000);
 
         setTimeout(inimigoAtaque, 2000);
         setTimeout(jogadorCombateHud, 2000);
         setTimeout(inimigoCombateHud, 2000);
-        setTimeout(inimigoDerrotado, 2000);
         setTimeout(jogadorDerrotado, 3000);
-        setTimeout(buff_debuff, 3000)
+
+        setTimeout(buff_debuff_jogador, 3000)
+        //setTimeout(buff_debuff_inimigo, 3500)
+
+        setTimeout(fimRodada, 4000);
     }
 
     if (magiaBuffGeral.classe == 'Físico' && jogador.energiaCombate <= 0 || jogador.energiaCombate - magiaBuffGeral.energiaCusto < 0) {

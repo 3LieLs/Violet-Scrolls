@@ -1,13 +1,20 @@
 /*-MUDAR RODADA-*/
-function mudarRodada() {
+function inicioRodada() {
+    vezUsuario = false;
     rodada += 1
-    legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada}<br><br>`)
+    legendaView.insertAdjacentHTML('beforeend', `--------------------------------<br>`)
+    legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada}`)
+}
+
+function fimRodada() {  
+    vezUsuario = true;
+    legendaView.insertAdjacentHTML('beforeend', `<br>--------------------------------<br><br>`)
 }
 /*-----*/
 
 
 /*-----*/
-function buff_debuff() {
+function buff_debuff_jogador() {
     if (rodada == rodadaBuffMax) {
         magiaBuffGeral.ativo = false
 
@@ -24,7 +31,7 @@ function buff_debuff() {
 
             jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) + parseInt(jogador.porcentagem)
 
-            legendaView.insertAdjacentHTML('beforeend', `${jogador.nome} recuperou ${vidaGanha} de vida<br><br>`);
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${vidaGanha} de vida`);
         }
 
         jogadorCombateHud();

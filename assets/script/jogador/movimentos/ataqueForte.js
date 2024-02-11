@@ -16,7 +16,7 @@ function ataqueForteDano() {
     }
 
     if (armaGeral.classe == 'Físico') {
-        legendaView.insertAdjacentHTML('beforeend', `Rodada: ${rodada = rodada + 1}<br><br> ${jogador.nome} atacou com ${armaGeral.nome} com força<br>Dano causado: ${parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2))}<br>Energia gasta: ${parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2))}<br><br>`);
+        legendaView.insertAdjacentHTML('beforeend', `<br><br> ${jogador.nome} atacou com ${armaGeral.nome} com força<br>Dano causado: ${parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2))}<br>Energia gasta: ${parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2))}`);
 
         jogador.energiaCombate = jogador.energiaCombate - parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2));
 
@@ -55,16 +55,20 @@ function botaoAtaqueForteClick()
 {
     if (armaGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - armaGeral.energiaCusto >= 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - armaGeral.manaCusto >= 0)
     {
-        vezUsuario = false;
+        inicioRodada();
 
         setTimeout(ataqueForteDano, 0);
-        setTimeout(acaoIntervalo, 2000);
+        setTimeout(inimigoDerrotado, 2000);
 
         setTimeout(inimigoAtaque, 2000);
         setTimeout(jogadorCombateHud, 2000);
         setTimeout(inimigoCombateHud, 2000);
-        setTimeout(inimigoDerrotado, 2000);
         setTimeout(jogadorDerrotado, 3000);
+
+        setTimeout(buff_debuff_jogador, 3000)
+        //setTimeout(buff_debuff_inimigo, 3500)
+
+        setTimeout(fimRodada, 4000);
     }
 
     if (armaGeral.classe == 'Físico' && jogador.energiaCombate < 0 || armaGeral.classe == 'Físico' && jogador.energiaCombate - armaGeral.energiaCusto < 0)

@@ -14,10 +14,6 @@ var quartaEscolha = window.document.querySelector('input#movesetOutrosEscolha');
 quartaEscolha.addEventListener('click', movesetOutrosEscolhaClick);
 /*-----*/
 
-function acaoIntervalo()
-{
-    vezUsuario = true;
-}
 
 function semEnergiaManaVisibilidade()
 {
