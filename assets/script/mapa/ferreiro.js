@@ -241,6 +241,7 @@ function attLojaComprarFerreiro() {
 }
 /*-----*/
 
+
 /*-----*/
 function addItemLojaComprarFerreiro() {
     let add = '';
@@ -288,8 +289,7 @@ function addItemLojaComprarFerreiro() {
     add.setAttribute("type", `button`);
     add.setAttribute("value", `Comprar`);
 
-
-    add.addEventListener('click', function (slotFerreiro) {
+    add.addEventListener('click', function () {
         if (addItemFerreiro.obtido == false) {
             if (jogador.pecitas - addItemFerreiro.preco >= 0) {
 
@@ -299,7 +299,6 @@ function addItemLojaComprarFerreiro() {
                 addItemVal = addItemFerreiro.val;
                 addItemNome = addItemFerreiro.nome;
                 funcaoEquip = `equip${addItemFerreiro.nome}`;
-                alert(addItemFerreiro.nome)
 
                 adicionarItem();
 
@@ -320,7 +319,6 @@ function addItemLojaComprarFerreiro() {
     slotFerreiro++;
 }
 /*-----*/
-
 
 
 /*-ATUALIZAR ITENS DA LOJA VENDER FERREIRO-*/

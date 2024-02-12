@@ -1,22 +1,25 @@
 /*-GOBLIN VARIÁVEIS-*/
 var goblin =
 {
-    nome: 'Goblin', classe: 'fisico', experiencia: 10,
-    vida: 25, energia: 15,
-    vidaCombate: 25, energiaCombate: 15,
-    dano: 5, danoCombate: 5, energiaGasto: 3, energiaRecuperacao: 10,
+    nome: 'Goblin', classe: 'fisico', resistencia: '', fraqueza: '', experiencia: 10,
+
+    vidaBase: 25, energiaBase: 15, manaBase: 0,
+    vidaCombate: 25, energiaCombate: 15, manaCombate: 0,
+
+    energiaGasto: 3, energiaRecuperacao: 10, manaGasto: 0, manaRecuperacao: 0,
+
+    danoBase: 5, danoCombate: 5,
 }
 
 /*-GOBLIN COMBATE-*/
-function iniciarGoblinCombate()
-{
+function iniciarGoblinCombate() {
     florestaDisplay.style.display = 'none';
     botaoMapaDisplay.style.display = 'none';
     mainBotaoMenu.style.display = 'none';
 
     fase = 'goblin';
     local = 'combate';
-    
+
     inimigoHudImagem.src = 'assets/content/img/Goblin.gif';
     inimigoHudImagem.style.width = '50%';
 
@@ -33,22 +36,7 @@ function iniciarGoblinCombate()
     definirMusica();
 }
 
-function definirEstatisticaGoblin()
-{
-    inimigoGeral.nome = goblin.nome;
-    inimigoGeral.classe = goblin.classe;
-    inimigoGeral.experiencia = goblin.experiencia
-
-    inimigoGeral.vida = goblin.vida;
-    inimigoGeral.energia = goblin.energia;
-
-    inimigoGeral.vidaCombate = goblin.vidaCombate;
-    inimigoGeral.energiaCombate = goblin.energiaCombate;
-
-    inimigoGeral.energiaGasto = goblin.energiaGasto;
-    inimigoGeral.energiaRecuperacao = goblin.energiaRecuperacao;
-
-    inimigoGeral.dano = goblin.dano;
-    inimigoGeral.danoCombate = goblin.danoCombate;
+function definirEstatisticaGoblin() {
+    inimigoGeral = goblin;
 }
 /*-----*/

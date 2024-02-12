@@ -47,9 +47,9 @@ function botaoHumanoClick()
     adicionarFuriaDeTouro();
     adicionarItem();
 
-    jogador.vida = racaGeral.vida;
-    jogador.energia = racaGeral.energia;
-    jogador.mana = racaGeral.mana;
+    jogador.vidaBase = racaGeral.vidaBase;
+    jogador.energiaBase = racaGeral.energiaBase;
+    jogador.manaBase = racaGeral.manaBase;
 
     jogador.vidaCombate = racaGeral.vidaCombate;
     jogador.energiaCombate = racaGeral.energiaCombate;
@@ -79,9 +79,9 @@ function botaoElfoClick()
     adicionarEsferasDaVida();
     adicionarItem();
 
-    jogador.vida = racaGeral.vida;
-    jogador.energia = racaGeral.energia;
-    jogador.mana = racaGeral.mana;
+    jogador.vidaBase = racaGeral.vidaBase;
+    jogador.energiaBase = racaGeral.energiaBase;
+    jogador.manaBase = racaGeral.manaBase;
 
     jogador.vidaCombate = racaGeral.vidaCombate;
     jogador.energiaCombate = racaGeral.energiaCombate;
@@ -111,9 +111,9 @@ function botaoOrcClick()
     adicionarFuriaDeTouro();
     adicionarItem();
 
-    jogador.vida = racaGeral.vida;
-    jogador.energia = racaGeral.energia;
-    jogador.mana = racaGeral.mana;
+    jogador.vidaBase = racaGeral.vidaBase;
+    jogador.energiaBase = racaGeral.energiaBase;
+    jogador.manaBase = racaGeral.manaBase;
 
     jogador.vidaCombate = racaGeral.vidaCombate;
     jogador.energiaCombate = racaGeral.energiaCombate;
@@ -143,9 +143,9 @@ function botaoDraconatoClick()
     adicionarFuriaDeTouro();
     adicionarItem();
 
-    jogador.vida = racaGeral.vida;
-    jogador.energia = racaGeral.energia;
-    jogador.mana = racaGeral.mana;
+    jogador.vidaBase = racaGeral.vidaBase;
+    jogador.energiaBase = racaGeral.energiaBase;
+    jogador.manaBase = racaGeral.manaBase;
 
     jogador.vidaCombate = racaGeral.vidaCombate;
     jogador.energiaCombate = racaGeral.energiaCombate;
@@ -175,9 +175,9 @@ function botaoVampiroClick()
     adicionarEsferasDaVida();
     adicionarItem();
 
-    jogador.vida = racaGeral.vida;
-    jogador.energia = racaGeral.energia;
-    jogador.mana = racaGeral.mana;
+    jogador.vidaBase = racaGeral.vidaBase;
+    jogador.energiaBase = racaGeral.energiaBase;
+    jogador.manaBase = racaGeral.manaBase;
 
     jogador.vidaCombate = racaGeral.vidaCombate;
     jogador.energiaCombate = racaGeral.energiaCombate;

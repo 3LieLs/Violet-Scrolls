@@ -1,9 +1,9 @@
 /*-FOCAR-*/
 function focoUso()
 {
-    if (jogador.manaCombate + armaduraGeral.manaRecuperacao > jogador.mana)
+    if (jogador.manaCombate + armaduraGeral.manaRecuperacao > jogador.manaBase)
     {
-        jogador.manaCombate = jogador.mana;
+        jogador.manaCombate = jogador.manaBase;
         jogador.manaPorcentagem = 100;
 
     }
@@ -11,7 +11,7 @@ function focoUso()
     {
         jogador.manaCombate = jogador.manaCombate + armaduraGeral.manaRecuperacao;
 
-        jogador.porcentagem = 100 - ((armaduraGeral.manaRecuperacao / jogador.mana) * 100);
+        jogador.porcentagem = 100 - ((armaduraGeral.manaRecuperacao / jogador.manaBase) * 100);
         jogador.porcentagem = 100 - jogador.porcentagem;
         jogador.porcentagem = jogador.porcentagem.toPrecision(2);
 

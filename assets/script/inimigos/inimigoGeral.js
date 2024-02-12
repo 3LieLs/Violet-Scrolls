@@ -1,17 +1,18 @@
 /*-STATUS INIMIGO VARIÁVEIS-*/
 var inimigoGeral =
 {
-    nome: '', classe: '', experiencia: 0,
+    nome: '', classe: '', resistencia: '', fraqueza: '', experiencia: 0,
 
-    vida: 0, mana: 0, energia: 0,
-    vidaCombate: 0, manaCombate: 0, energiaCombate: 0,
+    vidaBase: 0, manaBase: 0, energiaBase: 0,
+    vidaCombate: 0, energiaCombate: 0, manaCombate: 0,
 
     energiaGasto: 0, energiaRecuperacao: 0, manaGasto: 0, manaRecuperacao: 0,
 
     porcentagem: 0, vidaPorcentagem: 100, manaPorcentagem: 100, energiaPorcentagem: 100,
 
-    dano: 0, danoCombate: 0,
+    danoBase: 0, danoCombate: 0,
 }
+
 
 var inimigoHudNome = window.document.querySelector('p#inimigoHudNome');
 var inimigoHudVida = window.document.querySelector('p#inimigoHudVida');

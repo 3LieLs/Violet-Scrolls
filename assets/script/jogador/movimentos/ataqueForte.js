@@ -7,7 +7,7 @@ function ataqueForteDano() {
     } else {
         inimigoGeral.vidaCombate = inimigoGeral.vidaCombate - parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2));
 
-        inimigoGeral.porcentagem = 100 - ((parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2)) / inimigoGeral.vida) * 100);
+        inimigoGeral.porcentagem = 100 - ((parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2)) / inimigoGeral.vidaBase) * 100);
         inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem;
         inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2);
 
@@ -20,7 +20,7 @@ function ataqueForteDano() {
 
         jogador.energiaCombate = jogador.energiaCombate - parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2));
 
-        jogador.porcentagem = 100 - ((parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2)) / jogador.energia) * 100);
+        jogador.porcentagem = 100 - ((parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2)) / jogador.energiaBase) * 100);
         jogador.porcentagem = 100 - jogador.porcentagem;
         jogador.porcentagem = jogador.porcentagem.toPrecision(2);
 
@@ -36,7 +36,7 @@ function ataqueForteDano() {
 
         jogador.manaCombate = jogador.manaCombate - parseInt(armaGeral.manaCusto + (armaGeral.manaCusto / 2));
 
-        jogador.porcentagem = 100 - ((armaGeral.manaCusto / jogador.mana) * 100);
+        jogador.porcentagem = 100 - ((armaGeral.manaCusto / jogador.manaBase) * 100);
         jogador.porcentagem = 100 - jogador.porcentagem;
         jogador.porcentagem = jogador.porcentagem.toPrecision(2);
 

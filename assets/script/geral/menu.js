@@ -65,9 +65,9 @@ function menuDisplay() {
         menuPecitas.innerHTML = `Pecitas: ${jogador.pecitas}`;
 
 
-        menuVida.innerHTML = `Vida: ${jogador.vida}`;
-        menuEnergia.innerHTML = `Energia: ${jogador.energia}`;
-        menuMana.innerHTML = `Mana: ${jogador.mana}`;
+        menuVida.innerHTML = `Vida: ${jogador.vidaBase}`;
+        menuEnergia.innerHTML = `Energia: ${jogador.energiaBase}`;
+        menuMana.innerHTML = `Mana: ${jogador.manaBase}`;
 
 
         atualizarItensEquipamentosArma()
@@ -411,7 +411,7 @@ function mudarTipoEquipamentos() {
 /*-ATUALIZAR EQUIPAMENTOS-*/
 function atualizarItensEquipamentosArma() {
     menuEquipamentosInfo1.innerHTML = `Item equipado:<br>${armaGeral.nome}`;
-    menuEquipamentosInfo2.innerHTML = `Dano:<br>${armaGeral.dano}`;
+    menuEquipamentosInfo2.innerHTML = `Dano:<br>${armaGeral.danoBase}`;
     menuEquipamentosInfo3.innerHTML = `Energia:<br>${armaGeral.energiaCusto}`;
     menuEquipamentosInfo4.innerHTML = `Mana:<br>${armaGeral.manaCusto}`;
     menuEquipamentosInfo5.innerHTML = `Tipo:<br>${armaGeral.classe}`;
@@ -489,7 +489,7 @@ function mudarTipoMagias() {
 /*-ATUALIZAR MAGIAS-*/
 function atualizarItensMagiasDano() {
     menuMagiasInfo1.innerHTML = `Magia equipado:<br>${magiaDanoGeral.nome}`;
-    menuMagiasInfo2.innerHTML = `Dano:<br>${magiaDanoGeral.dano}`;
+    menuMagiasInfo2.innerHTML = `Dano:<br>${magiaDanoGeral.danoBase}`;
     menuMagiasInfo3.innerHTML = `Energia:<br>${magiaDanoGeral.energiaCusto}`;
     menuMagiasInfo4.innerHTML = `Mana:<br>${magiaDanoGeral.manaCusto}`;
     menuMagiasInfo5.innerHTML = `Tipo:<br>${magiaDanoGeral.tipoDano}`;

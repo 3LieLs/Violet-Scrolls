@@ -5,14 +5,14 @@ function magiaRecuperacaoUso() {
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCusto}`)
         legendaView.insertAdjacentHTML('beforeend', `<br>${magiaRecuperacaoGeral.tipo} recuperado: ${magiaRecuperacaoGeral.vidaRecuperacao}`)
 
-        if (jogador.vidaCombate + magiaRecuperacaoGeral.vidaRecuperacao > jogador.vida) {
-            jogador.vidaCombate = jogador.vida
+        if (jogador.vidaCombate + magiaRecuperacaoGeral.vidaRecuperacao > jogador.vidaBase) {
+            jogador.vidaCombate = jogador.vidaBase
             jogador.vidaPorcentagem = 100
 
         } else {
             jogador.vidaCombate += magiaRecuperacaoGeral.vidaRecuperacao
 
-            jogador.porcentagem = 100 - ((magiaRecuperacaoGeral.vidaRecuperacao / jogador.vida) * 100)
+            jogador.porcentagem = 100 - ((magiaRecuperacaoGeral.vidaRecuperacao / jogador.vidaBase) * 100)
             jogador.porcentagem = 100 - jogador.porcentagem
             jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
@@ -21,7 +21,7 @@ function magiaRecuperacaoUso() {
 
         jogador.manaCombate = jogador.manaCombate - magiaRecuperacaoGeral.manaCusto
 
-        jogador.porcentagem = 100 - ((magiaRecuperacaoGeral.manaCusto / jogador.mana) * 100)
+        jogador.porcentagem = 100 - ((magiaRecuperacaoGeral.manaCusto / jogador.manaBase) * 100)
         jogador.porcentagem = 100 - jogador.porcentagem
         jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 

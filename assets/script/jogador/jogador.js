@@ -3,7 +3,7 @@ var jogador =
 {
     nome: '', genero: '', raca: '',
     pecitas: 100, peso: 0, pesoMax: 20,
-    vida: 0, mana: 0, energia: 0,
+    vidaBase: 0, manaBase: 0, energiaBase: 0,
     vidaCombate: 0, manaCombate: 0, energiaCombate: 0,
     porcentagem: 0, vidaPorcentagem: 100, manaPorcentagem: 100, energiaPorcentagem: 100,
 }
@@ -90,7 +90,7 @@ function mostrarStats()
 
 function upVida()
 {
-    jogador.vida = jogador.vida + 5
+    jogador.vidaBase = jogador.vidaBase + 5
     jogadorNivel.nivel = jogadorNivel.nivel + 1
     jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel;
     jogadorNivel.proximoNivel = parseInt(jogadorNivel.proximoNivel) + parseInt(jogadorNivel.proximoNivel);
@@ -98,7 +98,7 @@ function upVida()
     barraExperiencia()
     jogadorNivel.experienciaPorcentagem = 0;
 
-    menuVida.innerHTML = `Vida: ${jogador.vida}`;
+    menuVida.innerHTML = `Vida: ${jogador.vidaBase}`;
     nivelAtual.innerHTML = `Nível: ${jogadorNivel.nivel}`;
     experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
     
@@ -107,7 +107,7 @@ function upVida()
 
 function upEnergia()
 {
-    jogador.energia = jogador.energia + 5;
+    jogador.energiaBase = jogador.energiaBase + 5;
     jogador.pesoMax += 5
     jogadorNivel.nivel = jogadorNivel.nivel + 1;
     jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel;
@@ -116,7 +116,7 @@ function upEnergia()
     barraExperiencia();
     jogadorNivel.experienciaPorcentagem = 0;
 
-    menuEnergia.innerHTML = `Energia: ${jogador.energia}`;
+    menuEnergia.innerHTML = `Energia: ${jogador.energiaBase}`;
     nivelAtual.innerHTML = `Nível: ${jogadorNivel.nivel}`;
     experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
 
@@ -125,7 +125,7 @@ function upEnergia()
 
 function upMana()
 {
-    jogador.mana = jogador.mana + 5;
+    jogador.manaBase = jogador.manaBase + 5;
     jogadorNivel.nivel = jogadorNivel.nivel + 1;
     jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel;
     jogadorNivel.proximoNivel = parseInt(jogadorNivel.proximoNivel) + parseInt(jogadorNivel.proximoNivel);
@@ -133,7 +133,7 @@ function upMana()
     barraExperiencia();
     jogadorNivel.experienciaPorcentagem = 0;
     
-    menuMana.innerHTML = `Mana: ${jogador.mana}`;
+    menuMana.innerHTML = `Mana: ${jogador.manaBase}`;
     nivelAtual.innerHTML = `Nível: ${jogadorNivel.nivel}`;
     experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
 

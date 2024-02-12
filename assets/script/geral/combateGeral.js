@@ -26,7 +26,7 @@ function buff_debuff_jogador() {
         if (vidaGanha > 0) {
             jogador.vidaCombate += vidaGanha;
 
-            jogador.porcentagem = 100 - ((vidaGanha / jogador.vida) * 100)
+            jogador.porcentagem = 100 - ((vidaGanha / jogador.vidaBase) * 100)
             jogador.porcentagem = 100 - jogador.porcentagem
             jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
@@ -85,13 +85,13 @@ function definirEstatisticaGeral() {
     mainJogadorDerrotado.style.display = 'none';
     mainInimigoDerrotado.style.display = 'none';
 
-    jogador.vidaCombate = jogador.vida, jogador.energiaCombate = jogador.energia, jogador.manaCombate = jogador.mana;
+    jogador.vidaCombate = jogador.vidaBase, jogador.energiaCombate = jogador.energiaBase, jogador.manaCombate = jogador.manaBase;
     jogador.vidaPorcentagem = 100, jogador.energiaPorcentagem = 100, jogador.manaPorcentagem = 100;
 
-    armaGeral.danoCombate = armaGeral.dano;
+    armaGeral.danoCombate = armaGeral.danoBase;
 
     inimigoGeral.porcentagem = 0, inimigoGeral.vidaPorcentagem = 100, inimigoGeral.energiaPorcentagem = 100, inimigoGeral.manaPorcentagem = 100;
 
-    inimigoGeral.vidaCombate = inimigoGeral.vida, inimigoGeral.energiaCombate = inimigoGeral.energia, inimigoGeral.manaCombate = inimigoGeral.mana;
+    inimigoGeral.vidaCombate = inimigoGeral.vidaBase, inimigoGeral.energiaCombate = inimigoGeral.energiaBase, inimigoGeral.manaCombate = inimigoGeral.manaBase;
 }
 /*-----*/

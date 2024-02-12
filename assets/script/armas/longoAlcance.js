@@ -1,7 +1,7 @@
 var arcoSimples =
 {
     nome: 'Arco simples', classe: 'Físico', obtido: false, val: 'arcoSimples', peso: 0, preco: 4,
-    dano: 6, danoCombate: 6, tipoDano: '',
+    danoBase: 6, danoCombate: 6, tipoDano: '',
     energiaCusto: 3, energiaCustoCombate: 3, manaCusto: 0, manaCustoCombate: 0,
 }
 function equipArcoSimples()
@@ -26,7 +26,7 @@ function adicionarArcoSimples()
 var arcoLongo =
 {
     nome: 'Arco longo', classe: 'Físico', obtido: false, val: '', peso: 0, preco: 3,
-    dano: 4, danoCombate: 4, tipoDano: '',
+    danoBase: 4, danoCombate: 4, tipoDano: '',
     energiaCusto: 1, energiaCustoCombate: 1, manaCusto: 0, manaCustoCombate: 0,
 }
 function equipArcoLongo()

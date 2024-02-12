@@ -1,9 +1,9 @@
 /*-DESCANSAR-*/
 function descansoUso()
 {
-    if (jogador.energiaCombate + armaduraGeral.energiaRecuperacao > jogador.energia)
+    if (jogador.energiaCombate + armaduraGeral.energiaRecuperacao > jogador.energiaBase)
     {
-        jogador.energiaCombate = jogador.energia;
+        jogador.energiaCombate = jogador.energiaBase;
         jogador.energiaPorcentagem = 100;
 
     } 
@@ -11,7 +11,7 @@ function descansoUso()
     {
         jogador.energiaCombate = jogador.energiaCombate + armaduraGeral.energiaRecuperacao;
 
-        jogador.porcentagem = 100 - ((armaduraGeral.energiaRecuperacao / jogador.energia) * 100);
+        jogador.porcentagem = 100 - ((armaduraGeral.energiaRecuperacao / jogador.energiaBase) * 100);
         jogador.porcentagem = 100 - jogador.porcentagem;
         jogador.porcentagem = jogador.porcentagem.toPrecision(2);
 

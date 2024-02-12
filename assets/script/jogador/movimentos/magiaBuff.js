@@ -15,7 +15,7 @@ function magiaBuffUso() {
     if (magiaRecuperacaoGeral.classe == 'Mágico') {
         jogador.manaCombate = jogador.manaCombate - magiaBuffGeral.manaCusto
 
-        jogador.porcentagem = 100 - ((magiaBuffGeral.manaCusto / jogador.mana) * 100)
+        jogador.porcentagem = 100 - ((magiaBuffGeral.manaCusto / jogador.manaBase) * 100)
         jogador.porcentagem = 100 - jogador.porcentagem
         jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 

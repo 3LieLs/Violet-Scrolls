@@ -10,7 +10,7 @@ function contraAtaqueDano() {
     } else {
         inimigoGeral.vidaCombate = inimigoGeral.vidaCombate - armaGeral.danoCombate
 
-        inimigoGeral.porcentagem = 100 - ((armaGeral.danoCombate / inimigoGeral.vida) * 100)
+        inimigoGeral.porcentagem = 100 - ((armaGeral.danoCombate / inimigoGeral.vidaBase) * 100)
         inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
         inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
 
@@ -25,7 +25,7 @@ function contraAtaqueDano() {
 
         jogador.energiaCombate = jogador.energiaCombate - armaGeral.energiaCusto
 
-        jogador.porcentagem = 100 - ((armaGeral.energiaCusto / jogador.energia) * 100)
+        jogador.porcentagem = 100 - ((armaGeral.energiaCusto / jogador.energiaBase) * 100)
         jogador.porcentagem = 100 - jogador.porcentagem
         jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
@@ -75,7 +75,7 @@ function botaoContraAtaqueClick()
     if (armaGeral.classe == 'Mágico' && jogador.manaCombate < 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate - armaGeral.manaCusto < 0)
     {
         semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
-        semEnergiaMana.style.color = 'mana';
+        semEnergiaMana.style.color = 'blue';
 
         semEnergiaManaVisibilidade();
     }

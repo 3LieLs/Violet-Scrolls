@@ -1,10 +1,14 @@
 /*-GOLEM HUD-*/
 var golem =
 {
-    nome: 'Golem', classe: 'fisico', experiencia: 30,
-    vida: 50, energia: 30,
+    nome: 'Golem', classe: 'fisico', resistencia: '', fraqueza: '', experiencia: 30,
+
+    vidaBase: 50, energiaBase: 30, manaBase: 0,
     vidaCombate: 50, energiaCombate: 30,
-    dano: 15, danoCombate: 15, energiaGasto: 10, energiaRecuperacao: 20,
+
+    energiaGasto: 10, energiaRecuperacao: 20, manaGasto: 0, manaRecuperacao: 0,
+
+    danoBase: 15, danoCombate: 15, 
 }
 
 /*-GOLEM COMBATE-*/
@@ -35,20 +39,6 @@ function iniciarGolemCombate()
 
 function definirEstatisticaGolem()
 {
-    inimigoGeral.nome = golem.nome;
-    inimigoGeral.classe = golem.classe;
-    inimigoGeral.experiencia = goblin.experiencia
-
-    inimigoGeral.vida = golem.vida;
-    inimigoGeral.energia = golem.energia;
-
-    inimigoGeral.vidaCombate = golem.vidaCombate;
-    inimigoGeral.energiaCombate = golem.energiaCombate;
-
-    inimigoGeral.energiaGasto = golem.energiaGasto;
-    inimigoGeral.energiaRecuperacao = golem.energiaRecuperacao;
-
-    inimigoGeral.dano = golem.dano;
-    inimigoGeral.danoCombate = golem.danoCombate;
+    inimigoGeral = golem;
 }
 /*-----*/

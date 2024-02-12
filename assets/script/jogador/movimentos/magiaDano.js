@@ -8,7 +8,7 @@ function MagiaDanoUso() {
     } else {
         inimigoGeral.vidaCombate = inimigoGeral.vidaCombate - magiaDanoGeral.danoCombate
 
-        inimigoGeral.porcentagem = 100 - ((magiaDanoGeral.danoCombate / inimigoGeral.vida) * 100)
+        inimigoGeral.porcentagem = 100 - ((magiaDanoGeral.danoCombate / inimigoGeral.vidaBase) * 100)
         inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
         inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
 
@@ -22,7 +22,7 @@ function MagiaDanoUso() {
 
         jogador.manaCombate = jogador.manaCombate - magiaDanoGeral.manaCusto
 
-        jogador.porcentagem = 100 - ((magiaDanoGeral.manaCusto / jogador.mana) * 100)
+        jogador.porcentagem = 100 - ((magiaDanoGeral.manaCusto / jogador.manaBase) * 100)
         jogador.porcentagem = 100 - jogador.porcentagem
         jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
