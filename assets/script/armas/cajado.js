@@ -1,7 +1,9 @@
 var cajadoDeFogo =
 {
-    nome: 'Cajado de fogo', classe: 'Mágico', obtido: false, val: 'cajadoDeFogo', peso: 0, preco: 8,
-    danoBase: 8, danoCombate: 8, tipoDano: '',
+    nome: 'Cajado de fogo', val: 'cajadoDeFogo', obtido: false, peso: 0, preco: 8,
+
+    danoBase: 8, danoCombate: 8, tipoDano: 'Mágico', debuff: 'Chamas',
+
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 5, manaCustoCombate: 5,
 }
 function equipCajadoDeFogo()
@@ -25,8 +27,10 @@ function adicionarCajadoDeFogo()
 
 var cajadoEletrico =
 {
-    nome: 'Cajado elétrico', classe: 'Mágico', obtido: false, val: 'cajadoEletrico', peso: 0, preco: 10,
-    danoBase: 10, danoCombate: 10, tipoDano: '',
+    nome: 'Cajado elétrico', val: 'cajadoEletrico', obtido: false, peso: 0, preco: 10,
+
+    danoBase: 10, danoCombate: 10, tipoDano: 'Mágico', debuff: 'Estática',
+
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 7, manaCustoCombate: 7,
 }
 function equipCajadoEletrico()

@@ -10,6 +10,7 @@ botaoFeminino.addEventListener('click', botaoFemininoClick);
 function botaoMasculinoClick()
 {
     jogador.genero = 'Homem';
+    armaGeral = soco;
     escolhaGenero.style.display = 'none';
     escolhaNome.style.display = 'contents';
 }
@@ -17,6 +18,7 @@ function botaoMasculinoClick()
 function botaoFemininoClick()
 {
     jogador.genero = 'Mulher';
+    armaGeral = soco;
     escolhaGenero.style.display = 'none';
     escolhaNome.style.display = 'contents';
 }

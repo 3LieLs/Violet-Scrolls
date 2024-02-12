@@ -1,36 +1,35 @@
 /*-DESCANSAR-*/
 function magiaRecuperacaoUso() {
 
-    if (magiaRecuperacaoGeral.classe == 'Mágico') {
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCusto}`)
-        legendaView.insertAdjacentHTML('beforeend', `<br>${magiaRecuperacaoGeral.tipo} recuperado: ${magiaRecuperacaoGeral.vidaRecuperacao}`)
+    legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCusto}`)
+    legendaView.insertAdjacentHTML('beforeend', `<br>${magiaRecuperacaoGeral.tipo} recuperado: ${magiaRecuperacaoGeral.vidaRecuperacao}`)
 
-        if (jogador.vidaCombate + magiaRecuperacaoGeral.vidaRecuperacao > jogador.vidaBase) {
-            jogador.vidaCombate = jogador.vidaBase
-            jogador.vidaPorcentagem = 100
+    if (jogador.vidaCombate + magiaRecuperacaoGeral.vidaRecuperacao > jogador.vidaBase) {
+        jogador.vidaCombate = jogador.vidaBase
+        jogador.vidaPorcentagem = 100
 
-        } else {
-            jogador.vidaCombate += magiaRecuperacaoGeral.vidaRecuperacao
+    } else {
+        jogador.vidaCombate += magiaRecuperacaoGeral.vidaRecuperacao
 
-            jogador.porcentagem = 100 - ((magiaRecuperacaoGeral.vidaRecuperacao / jogador.vidaBase) * 100)
-            jogador.porcentagem = 100 - jogador.porcentagem
-            jogador.porcentagem = jogador.porcentagem.toPrecision(2)
-
-            jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) + parseInt(jogador.porcentagem)
-        }
-
-        jogador.manaCombate = jogador.manaCombate - magiaRecuperacaoGeral.manaCusto
-
-        jogador.porcentagem = 100 - ((magiaRecuperacaoGeral.manaCusto / jogador.manaBase) * 100)
+        jogador.porcentagem = 100 - ((magiaRecuperacaoGeral.vidaRecuperacao / jogador.vidaBase) * 100)
         jogador.porcentagem = 100 - jogador.porcentagem
         jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
-        jogador.manaPorcentagem -= jogador.porcentagem
-
-        if (jogador.manaCombate < 0) {
-            jogador.manaCombate = 0
-        }
+        jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) + parseInt(jogador.porcentagem)
     }
+
+    jogador.manaCombate = jogador.manaCombate - magiaRecuperacaoGeral.manaCusto
+
+    jogador.porcentagem = 100 - ((magiaRecuperacaoGeral.manaCusto / jogador.manaBase) * 100)
+    jogador.porcentagem = 100 - jogador.porcentagem
+    jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+
+    jogador.manaPorcentagem -= jogador.porcentagem
+
+    if (jogador.manaCombate < 0) {
+        jogador.manaCombate = 0
+    }
+
     jogadorCombateHud()
     inimigoCombateHud()
 }

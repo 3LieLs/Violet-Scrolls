@@ -1,19 +1,19 @@
 var chicoteDeAco =
 {
-    nome: 'Chicote de aço', classe: 'Físico', obtido: false, val: 'chicoteDeAco', peso: 0, preco: 3,
-    danoBase: 6, danoCombate: 6, tipoDano: '',
+    nome: 'Chicote de aço', val: 'chicoteDeAco', obtido: false,  peso: 0, preco: 3,
+
+    danoBase: 6, danoCombate: 6, tipoDano: 'Físico', debuff: 'Nenhum',
+
     energiaCusto: 3, energiaCustoCombate: 3, manaCusto: 0, manaCustoCombate: 0,
 }
-function equipChicoteDeAco()
-{
+function equipChicoteDeAco() {
     armaGeral = chicoteDeAco;
 
     if (mudarEquipamentosArmaVal == true) {
         atualizarItensEquipamentosArma();
     }
 }
-function adicionarChicoteDeAco()
-{
+function adicionarChicoteDeAco() {
     chicoteDeAco.obtido = true;
     addItemTipo = 'equipamento';
     addItemVal = chicoteDeAco.val;
@@ -23,10 +23,37 @@ function adicionarChicoteDeAco()
 
 
 
+var lancaEnvenenada =
+{
+    nome: 'Lança envenenada', val: 'lancaEnvenenada', obtido: false, peso: 0, preco: 5,
+    
+    danoBase: 5, danoCombate: 5, tipoDano: 'Físico', debuff: 'Veneno',
+
+    energiaCusto: 5, energiaCustoCombate: 5, manaCusto: 0, manaCustoCombate: 0,
+}
+function equipLancaEnvenenada() {
+    armaGeral = lancaEnvenenada;
+
+    if (mudarEquipamentosArmaVal == true) {
+        atualizarItensEquipamentosArma();
+    }
+}
+function adicionarLancaEnvenenada() {
+    lancaEnvenenada.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = lancaEnvenenada.val;
+    addItemNome = lancaEnvenenada.nome;
+    funcaoEquip = equipEspadaDeAco;
+}
+
+
+
 var espadaDeAco =
 {
-    nome: 'Espada de aço', classe: 'Físico', obtido: false, val: 'espadaDeAco', peso: 0, preco: 5,
-    danoBase: 8, danoCombate: 8, tipoDano: '',
+    nome: 'Espada de aço', val: 'espadaDeAco', obtido: false, peso: 0, preco: 5,
+
+    danoBase: 8, danoCombate: 8, tipoDano: 'Físico', debuff: 'Nenhum',
+
     energiaCusto: 5, energiaCustoCombate: 5, manaCusto: 0, manaCustoCombate: 0,
 }
 function equipEspadaDeAco() {
@@ -36,8 +63,7 @@ function equipEspadaDeAco() {
         atualizarItensEquipamentosArma();
     }
 }
-function adicionarEspadaDeAco()
-{
+function adicionarEspadaDeAco() {
     espadaDeAco.obtido = true;
     addItemTipo = 'equipamento';
     addItemVal = espadaDeAco.val;
@@ -45,11 +71,9 @@ function adicionarEspadaDeAco()
     funcaoEquip = equipEspadaDeAco;
 }
 
-function removerEspadaDeAco()
-{
+function removerEspadaDeAco() {
     espadaDeAco.obtido = false;
     removItemTipo = 'equipamento';
     removItemVal = espadaDeAco.val;
     removItemNome = espadaDeAco.nome;
-   
 }

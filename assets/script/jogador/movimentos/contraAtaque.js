@@ -18,22 +18,18 @@ function contraAtaqueDano() {
 
     }
 
-    if (armaGeral.classe == 'Físico') {
+    legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} contra-atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}<br>Energia gasta: ${armaGeral.energiaCusto}`)
 
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} contra-atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}<br>Energia gasta: ${armaGeral.energiaCusto}`)
+    jogador.energiaCombate = jogador.energiaCombate - armaGeral.energiaCusto
 
+    jogador.porcentagem = 100 - ((armaGeral.energiaCusto / jogador.energiaBase) * 100)
+    jogador.porcentagem = 100 - jogador.porcentagem
+    jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
-        jogador.energiaCombate = jogador.energiaCombate - armaGeral.energiaCusto
+    jogador.energiaPorcentagem = jogador.energiaPorcentagem - jogador.porcentagem
 
-        jogador.porcentagem = 100 - ((armaGeral.energiaCusto / jogador.energiaBase) * 100)
-        jogador.porcentagem = 100 - jogador.porcentagem
-        jogador.porcentagem = jogador.porcentagem.toPrecision(2)
-
-        jogador.energiaPorcentagem = jogador.energiaPorcentagem - jogador.porcentagem
-
-        if (jogador.energiaCombate < 0) {
-            jogador.energiaCombate = 0
-        }
+    if (jogador.energiaCombate < 0) {
+        jogador.energiaCombate = 0
     }
 
     armaGeral.danoCombate = armaGeral.danoCombate / 2
@@ -42,10 +38,8 @@ function contraAtaqueDano() {
     inimigoCombateHud()
 }
 
-function botaoContraAtaqueClick()
-{
-    if (armaGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - armaGeral.energiaCusto >= 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - armaGeral.manaCusto >= 0)
-    {
+function botaoContraAtaqueClick() {
+    if (armaGeral.tipoDano == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - armaGeral.energiaCusto >= 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - armaGeral.manaCusto >= 0) {
         inicioRodada();
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} se preparou para um contra-ataque`);
@@ -64,16 +58,14 @@ function botaoContraAtaqueClick()
         setTimeout(fimRodada, 6000);
     }
 
-    if (armaGeral.classe == 'Físico' && jogador.energiaCombate < 0 || armaGeral.classe == 'Físico' && jogador.energiaCombate - armaGeral.energiaCusto < 0)
-    {
+    if (armaGeral.tipoDano == 'Físico' && jogador.energiaCombate < 0 || armaGeral.classe == 'Físico' && jogador.energiaCombate - armaGeral.energiaCusto < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
 
         semEnergiaManaVisibilidade();
     }
 
-    if (armaGeral.classe == 'Mágico' && jogador.manaCombate < 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate - armaGeral.manaCusto < 0)
-    {
+    if (armaGeral.tipoDano == 'Mágico' && jogador.manaCombate < 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate - armaGeral.manaCusto < 0) {
         semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
         semEnergiaMana.style.color = 'blue';
 

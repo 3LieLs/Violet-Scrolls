@@ -12,30 +12,28 @@ function magiaBuffUso() {
 
     armaGeral.danoCombate += magiaBuffGeral.danoBuff
 
-    if (magiaRecuperacaoGeral.classe == 'Mágico') {
-        jogador.manaCombate = jogador.manaCombate - magiaBuffGeral.manaCusto
+    jogador.manaCombate = jogador.manaCombate - magiaBuffGeral.manaCusto
 
-        jogador.porcentagem = 100 - ((magiaBuffGeral.manaCusto / jogador.manaBase) * 100)
-        jogador.porcentagem = 100 - jogador.porcentagem
-        jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+    jogador.porcentagem = 100 - ((magiaBuffGeral.manaCusto / jogador.manaBase) * 100)
+    jogador.porcentagem = 100 - jogador.porcentagem
+    jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
-        jogador.manaPorcentagem = jogador.manaPorcentagem - jogador.porcentagem
+    jogador.manaPorcentagem = jogador.manaPorcentagem - jogador.porcentagem
 
-        if (jogador.manaCombate < 0) {
-            jogador.manaCombate = 0
-        }
+    if (jogador.manaCombate < 0) {
+        jogador.manaCombate = 0
+    }
 
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaBuffGeral.nome}<br>Mana gasta: ${magiaBuffGeral.manaCusto}`)
+    legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaBuffGeral.nome}<br>Mana gasta: ${magiaBuffGeral.manaCusto}`)
 
-        if (magiaBuffGeral.danoBuff > 0) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>${magiaBuffGeral.nome} aumentou o dano de ${jogador.nome} em ${magiaBuffGeral.danoBuff}`)
-        }
-        if (magiaBuffGeral.vidaBuff > 0) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>${magiaBuffGeral.nome} aumentou a vida de ${jogador.nome} em ${magiaBuffGeral.vidaBuff}`)
-        }
-        if (magiaBuffGeral.vidaRegen > 0) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>${magiaBuffGeral.nome} criou uma regeneração de vida em ${jogador.nome} de ${magiaBuffGeral.vidaRegen} vida`)
-        }
+    if (magiaBuffGeral.danoBuff > 0) {
+        legendaView.insertAdjacentHTML('beforeend', `<br>${magiaBuffGeral.nome} aumentou o dano de ${jogador.nome} em ${magiaBuffGeral.danoBuff}`)
+    }
+    if (magiaBuffGeral.vidaBuff > 0) {
+        legendaView.insertAdjacentHTML('beforeend', `<br>${magiaBuffGeral.nome} aumentou a vida de ${jogador.nome} em ${magiaBuffGeral.vidaBuff}`)
+    }
+    if (magiaBuffGeral.vidaRegen > 0) {
+        legendaView.insertAdjacentHTML('beforeend', `<br>${magiaBuffGeral.nome} criou uma regeneração de vida em ${jogador.nome} de ${magiaBuffGeral.vidaRegen} vida`)
     }
 
     jogadorCombateHud()
