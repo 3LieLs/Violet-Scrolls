@@ -15,11 +15,10 @@ var furiaDeTouro =
 {
     nome: 'Furia de Touro', classe: 'Mágico', obtido: false, val: 'furiaDeTouro', preco: 7,
     
-    buff: '', duracao: 3,
-    danoBuff: 3, vidaBuff: 0, defesaBuff: 0,
-    vidaRegen: 0,
+    buff: 'dano', duracao: 3,
+    danoBuff: 0.10,
 
-    energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15,
+    manaCusto: 15, manaCustoCombate: 15,
 }
 function equipFuriaDeTouro() {
     magiaBuffGeral = furiaDeTouro;
@@ -41,11 +40,10 @@ var esferasDaVida =
 {
     nome: 'Esferas da vida', classe: 'Mágico', obtido: false, val: 'esferasDaVida', preco: 7,
     
-    buff: '', duracao: 5,
-    danoBuff: 0, vidaBuff: 0, defesaBuff: 0, 
-    vidaRegen: 3,
-
-    energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15,
+    buff: 'vidaRegen', duracao: 5,
+    vidaRegenBuff: 0.15,
+    
+    manaCusto: 15, manaCustoCombate: 15,
 }
 function equipEsferasDaVida() {
     magiaBuffGeral = esferasDaVida;

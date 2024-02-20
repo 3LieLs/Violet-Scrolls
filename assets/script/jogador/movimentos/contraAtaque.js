@@ -53,7 +53,7 @@ function botaoContraAtaqueClick() {
         setTimeout(jogadorDerrotado, 3000);
 
         setTimeout(buff_debuff_jogador, 5000)
-        //setTimeout(buff_debuff_inimigo, 3500)
+        setTimeout(buff_debuff_inimigo, 3500)
 
         setTimeout(fimRodada, 6000);
     }

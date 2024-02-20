@@ -15,6 +15,7 @@ quartaEscolha.addEventListener('click', movesetOutrosEscolhaClick);
 /*-----*/
 
 
+/*-----*/
 function semEnergiaManaVisibilidade()
 {
     semEnergiaManaDisplay.style.animation = 'semEnergiaManaMostrar 3s 0ms 1';

@@ -9,15 +9,6 @@ var goblin =
     energiaRecuperacao: 10, manaRecuperacao: 0,
 }
 
-var goblinArma =
-{
-    nome: '', val: '', obtido: false, peso: 0, preco: 0,
-
-    danoBase: 0, danoCombate: 0, tipoDano: '', debuff: '',
-
-    energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 0, manaCustoCombate: 0,
-}
-
 /*-GOBLIN COMBATE-*/
 function iniciarGoblinCombate() {
     florestaDisplay.style.display = 'none';
@@ -45,31 +36,31 @@ function iniciarGoblinCombate() {
 
 function definirEstatisticaGoblin() {
     inimigoGeral = goblin;
-    goblinArma = lancaEnvenenada
+    inimigoArmaGeral = lancaEnvenenada
     funcaoInimigoAtaque = GoblinAtaque
 }
 
 function GoblinAtaque() {
-    if (inimigoGeral.energiaCombate - goblinArma.energiaCusto >= 0) {
+    if (inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCusto >= 0) {
 
-        if (jogador.vidaCombate - goblinArma.danoCombate < 0) {
+        if (jogador.vidaCombate - inimigoArmaGeral.danoCombate < 0) {
             jogador.vidaCombate = 0;
             jogador.vidaPorcentagem = 0.1;
             jogador.porcentagem = 0;
         }
         else {
 
-            jogador.vidaCombate -= goblinArma.danoCombate;
+            jogador.vidaCombate -= inimigoArmaGeral.danoCombate;
 
-            jogador.porcentagem = 100 - ((goblinArma.danoCombate / jogador.vidaBase) * 100);
+            jogador.porcentagem = 100 - ((inimigoArmaGeral.danoCombate / jogador.vidaBase) * 100);
             jogador.porcentagem = 100 - jogador.porcentagem;
             jogador.porcentagem = jogador.porcentagem.toPrecision(2);
 
             jogador.vidaPorcentagem = jogador.vidaPorcentagem - jogador.porcentagem;
 
-            inimigoGeral.energiaCombate = inimigoGeral.energiaCombate - goblinArma.energiaCusto;
+            inimigoGeral.energiaCombate = inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCusto;
 
-            inimigoGeral.porcentagem = 100 - ((goblinArma.energiaCusto / inimigoGeral.energiaBase) * 100);
+            inimigoGeral.porcentagem = 100 - ((inimigoArmaGeral.energiaCusto / inimigoGeral.energiaBase) * 100);
             inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem;
             inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2);
 
@@ -81,7 +72,18 @@ function GoblinAtaque() {
             inimigoGeral.energiaPorcentagem = 0.1;
         }
 
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou com ${goblinArma.nome}<br>Dano causado: ${goblinArma.danoCombate}<br>Energia usada: ${goblinArma.energiaCusto}`);
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou com ${inimigoArmaGeral.nome}<br>Dano causado: ${inimigoArmaGeral.danoCombate}<br>Energia usada: ${inimigoArmaGeral.energiaCusto}`);
+
+        if (inimigoArmaGeral.debuff == 'veneno') {
+            let x = Math.floor(Math.random() * 100) + 0;
+
+            if (x < inimigoArmaGeral.chance && debuffVeneno.jogador == false) {
+                rodadaDebuffVenenoMax.jogador = parseInt(rodada) + parseInt(inimigoArmaGeral.duracao)
+                debuffVeneno.jogador = true
+
+                legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoArmaGeral.nome} envenenou ${jogador.nome}`);
+            }
+        }
 
     } else {
         inimigoGeral.energiaCombate += inimigoGeral.energiaRecuperacao;
@@ -92,7 +94,7 @@ function GoblinAtaque() {
 
         inimigoGeral.energiaPorcentagem = parseInt(inimigoGeral.energiaPorcentagem) + parseInt(inimigoGeral.porcentagem);
 
-        legendaView.insertAdjacentHTML('beforeend', `<br>${inimigoGeral.nome} descansou<br>Energia recuperada: ${inimigoGeral.energiaRecuperacao}`);
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} descansou<br>Energia recuperada: ${inimigoGeral.energiaRecuperacao}`);
     }
 }
 /*-----*/

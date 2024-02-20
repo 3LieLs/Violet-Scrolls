@@ -27,7 +27,7 @@ var lancaEnvenenada =
 {
     nome: 'Lança envenenada', val: 'lancaEnvenenada', obtido: false, peso: 0, preco: 5,
     
-    danoBase: 5, danoCombate: 5, tipoDano: 'Físico', debuff: 'Veneno',
+    danoBase: 5, danoCombate: 5, tipoDano: 'Físico', debuff: 'veneno', chance: 20, duracao: 2,
 
     energiaCusto: 5, energiaCustoCombate: 5, manaCusto: 0, manaCustoCombate: 0,
 }
@@ -45,6 +45,7 @@ function adicionarLancaEnvenenada() {
     addItemNome = lancaEnvenenada.nome;
     funcaoEquip = equipEspadaDeAco;
 }
+
 
 
 

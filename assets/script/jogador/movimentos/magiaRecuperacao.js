@@ -48,7 +48,7 @@ function botaoMagiaRecuperacaoClick() {
         setTimeout(jogadorDerrotado, 3000);
 
         setTimeout(buff_debuff_jogador, 3000)
-        //setTimeout(buff_debuff_inimigo, 3500)
+        setTimeout(buff_debuff_inimigo, 3500)
 
         setTimeout(fimRodada, 4000);
     }

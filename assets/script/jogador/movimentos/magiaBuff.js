@@ -1,16 +1,51 @@
 /*-----*/
-var rodadaBuffMax = 0, danoAumentado = 0, vidaGanha = 0
+var
+    rodadaBuffDanoMax = { jogador: 0, inimigo: 0, },
+    rodadaBuffVidaRegenMax = { jogador: 0, inimigo: 0, },
+    rodadaBuffDefesaMax = { jogador: 0, inimigo: 0, },
+    rodadaBuffVidaMax = { jogador: 0, inimigo: 0, },
+    rodadaDebuffVenenoMax = { jogador: 0, inimigo: 0, },
+    rodadaDebuffChamasMax = { jogador: 0, inimigo: 0, },
+    rodadaDebuffCongeladoMax = { jogador: 0, inimigo: 0, },
+    rodadaDebuffEletricidadeMax = { jogador: 0, inimigo: 0, }
+
+var
+    buffVidaRegen = { jogador: false, inimigo: false, },
+    buffDano = { jogador: false, inimigo: false, },
+    debuffVeneno = { jogador: false, inimigo: false, },
+    debuffChamas = { jogador: false, inimigo: false, },
+    debuffCongelado = { jogador: false, inimigo: false, },
+    debuffEletricidade = { jogador: false, inimigo: false, }
 /*-----*/
 
 
 /*-DESCANSAR-*/
 function magiaBuffUso() {
-    magiaBuffGeral.ativo = true
-    rodadaBuffMax = parseInt(rodada) + parseInt(magiaBuffGeral.duracao)
+    legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaBuffGeral.nome}<br>Mana gasta: ${magiaBuffGeral.manaCusto}`)
 
-    vidaGanha = magiaBuffGeral.vidaRegen;
+    if (magiaBuffGeral.buff == 'dano') {
+        buffDano.jogador = true
+        rodadaBuffDanoMax.jogador = parseInt(rodada) + parseInt(magiaBuffGeral.duracao)
 
-    armaGeral.danoCombate += magiaBuffGeral.danoBuff
+        danoGanho = armaGeral.danoCombate * magiaBuffGeral.danoBuff
+        danoGanho = Math.round(danoGanho)
+        armaGeral.danoCombate += danoGanho
+
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${magiaBuffGeral.nome} aumentou o dano de ${jogador.nome} em ${danoGanho}`)
+    }
+
+
+    if (magiaBuffGeral.buff == 'vidaRegen') {
+        buffVidaRegen.jogador = true
+        rodadaBuffVidaRegenMax.jogador = parseInt(rodada) + parseInt(magiaBuffGeral.duracao)
+
+        vidaGanha = jogador.vidaBase * magiaBuffGeral.vidaRegenBuff
+        vidaGanha = Math.round(vidaGanha)
+
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${magiaBuffGeral.nome} criou uma regeneração de vida em ${jogador.nome} de ${vidaGanha} de vida`)
+    }
+
+
 
     jogador.manaCombate = jogador.manaCombate - magiaBuffGeral.manaCusto
 
@@ -22,18 +57,6 @@ function magiaBuffUso() {
 
     if (jogador.manaCombate < 0) {
         jogador.manaCombate = 0
-    }
-
-    legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaBuffGeral.nome}<br>Mana gasta: ${magiaBuffGeral.manaCusto}`)
-
-    if (magiaBuffGeral.danoBuff > 0) {
-        legendaView.insertAdjacentHTML('beforeend', `<br>${magiaBuffGeral.nome} aumentou o dano de ${jogador.nome} em ${magiaBuffGeral.danoBuff}`)
-    }
-    if (magiaBuffGeral.vidaBuff > 0) {
-        legendaView.insertAdjacentHTML('beforeend', `<br>${magiaBuffGeral.nome} aumentou a vida de ${jogador.nome} em ${magiaBuffGeral.vidaBuff}`)
-    }
-    if (magiaBuffGeral.vidaRegen > 0) {
-        legendaView.insertAdjacentHTML('beforeend', `<br>${magiaBuffGeral.nome} criou uma regeneração de vida em ${jogador.nome} de ${magiaBuffGeral.vidaRegen} vida`)
     }
 
     jogadorCombateHud()
@@ -56,7 +79,7 @@ function botaoMagiaBuffClick() {
         setTimeout(jogadorDerrotado, 3000);
 
         setTimeout(buff_debuff_jogador, 3000)
-        //setTimeout(buff_debuff_inimigo, 3500)
+        setTimeout(buff_debuff_inimigo, 3500)
 
         setTimeout(fimRodada, 4000);
     }
@@ -74,9 +97,5 @@ function botaoMagiaBuffClick() {
 
         semEnergiaManaVisibilidade();
     }
-}
-/*-----*/
-function efeitoBuff() {
-
 }
 /*-----*/

@@ -13,7 +13,6 @@ function MagiaDanoUso() {
         inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
 
         inimigoGeral.vidaPorcentagem = inimigoGeral.vidaPorcentagem - inimigoGeral.porcentagem
-
     }
 
     legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaDanoGeral.nome}<br>Dano causado: ${magiaDanoGeral.danoCombate}<br>Mana gasta: ${magiaDanoGeral.manaCusto}`)
@@ -28,6 +27,40 @@ function MagiaDanoUso() {
 
     if (jogador.manaCombate < 0) {
         jogador.manaCombate = 0
+    }
+
+
+    if (magiaDanoGeral.debuff == 'chamas') {
+        let x = Math.floor(Math.random() * 100) + 0;
+
+        if (x < magiaDanoGeral.chance && debuffChamas.inimigo == false) {
+            rodadaDebuffChamasMax.inimigo = parseInt(rodada) + parseInt(magiaDanoGeral.duracao)
+            debuffChamas.inimigo = true
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} ficou em chamas`);
+        }
+    }
+
+    if (magiaDanoGeral.debuff == 'congelado') {
+        let x = Math.floor(Math.random() * 100) + 0;
+
+        if (x < magiaDanoGeral.chance && debuffCongelado.inimigo == false) {
+            rodadaDebuffCongeladoMax.inimigo = parseInt(rodada) + parseInt(magiaDanoGeral.duracao)
+            debuffCongelado.inimigo = true
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} ficou em congelado`);
+        }
+    }
+
+    if (magiaDanoGeral.debuff == 'eletricidade') {
+        let x = Math.floor(Math.random() * 100) + 0;
+
+        if (x < magiaDanoGeral.chance && debuffEletricidade.inimigo == false) {
+            rodadaDebuffEletricidadeMax.inimigo = parseInt(rodada) + parseInt(magiaDanoGeral.duracao)
+            debuffEletricidade.inimigo = true
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} ficou em eletricidade`);
+        }
     }
 
     jogadorCombateHud()
@@ -47,7 +80,7 @@ function botaoMagiaDanoClick() {
         setTimeout(jogadorDerrotado, 3000);
 
         setTimeout(buff_debuff_jogador, 3000)
-        //setTimeout(buff_debuff_inimigo, 3500)
+        setTimeout(buff_debuff_inimigo, 3500)
 
         setTimeout(fimRodada, 4000);
     }
