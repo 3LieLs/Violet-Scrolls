@@ -317,15 +317,43 @@ function buff_debuff_inimigo() {
 /*-----*/
 
 
-
 /*-CRÍTICO-*/
-function critico() {
-    let chanceCritico = Math.floor(Math.random() * 100) + 0;
+var danoCritico = 0, chanceCriticoJogador = 50, chanceCriticoInimigo = 10, criticoJogador = false, criticoInimigo = false;
 
-    if (chanceCritico <= 10) {
-        armaGeral.danoCombate *= 2;
+function aplicarCriticoJogador() {
+    let x = Math.floor(Math.random() * 100) + 0;
 
-        inimigoGeral.danoCombate *= 2;
+    if (x <= chanceCriticoJogador) {
+        criticoJogador = true;
+        danoCritico = armaGeral.danoBase * 0.5;
+        danoCritico = Math.round(danoCritico);
+        armaGeral.danoCombate += danoCritico;
+    }
+}
+
+function desaplicarCriticoJogador() {
+    if (criticoJogador == true) {
+        criticoJogador = false;
+        armaGeral.danoCombate -= danoCritico;
+    }
+}
+
+
+function aplicarCriticoInimigo() {
+    let x = Math.floor(Math.random() * 100) + 0;
+
+    if (x <= chanceCriticoInimigo) {
+        criticoInimigo = true
+        danoCritico = inimigoArmaGeral.danoBase * 0.5;
+        danoCritico = Math.round(danoCritico);
+        inimigoArmaGeral.danoCombate += danoCritico;
+    }
+}
+
+function desaplicarCriticoInimigo() {
+    if (criticoInimigo == true) {
+        criticoInimigo = false
+        inimigoArmaGeral.danoCombate -= danoCritico;
     }
 }
 /*-----*/

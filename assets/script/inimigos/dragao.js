@@ -12,6 +12,7 @@ var dragao =
 }
 /*-----*/
 
+/*-----*/
 var mordidaCortante =
 {
     nome: 'Mordida cortante', val: 'mordidaCortante',
@@ -31,6 +32,7 @@ var soproFlamejante =
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15,
 }
+/*-----*/
 
 /*-DRAGÃO COMBATE-*/
 function iniciarDragaoCombate() {
@@ -65,8 +67,6 @@ function definirEstatisticaDragao() {
 
 /*-----*/
 function DragaoAtaque() {
-    aplicarFraquezaResistenciaJogador()
-
     let random = Math.floor(Math.random() * 100) + 0
 
     if (random <= 25) {
@@ -76,9 +76,10 @@ function DragaoAtaque() {
         inimigoArmaGeral = mordidaCortante;
     }
 
-
     if (inimigoArmaGeral.energiaCusto > 0) {
         if (inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCusto >= 0) {
+            aplicarFraquezaResistenciaJogador()
+            aplicarCriticoInimigo()
 
             if (jogador.vidaCombate - inimigoArmaGeral.danoCombate < 0) {
                 jogador.vidaCombate = 0;
@@ -109,9 +110,13 @@ function DragaoAtaque() {
             }
 
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou com ${inimigoArmaGeral.nome}<br>Dano causado: ${inimigoArmaGeral.danoCombate}<br>Energia usada: ${inimigoArmaGeral.energiaCusto}`);
+            if (criticoJogador == true) {
+                legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`)
+            }
 
+            desaplicarFraquezaResistenciaJogador()
+            desaplicarCriticoInimigo()
             verificarDebuffArmaInimigo()
-
         } else {
             inimigoGeral.energiaCombate += inimigoGeral.energiaRecuperacao;
 
@@ -128,6 +133,8 @@ function DragaoAtaque() {
 
     if (inimigoArmaGeral.manaCusto > 0) {
         if (inimigoGeral.manaCombate - inimigoArmaGeral.manaCusto >= 0) {
+            aplicarFraquezaResistenciaJogador()
+            aplicarCriticoInimigo()
 
             if (jogador.vidaCombate - inimigoArmaGeral.danoCombate < 0) {
                 jogador.vidaCombate = 0;
@@ -159,8 +166,9 @@ function DragaoAtaque() {
 
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou com ${inimigoArmaGeral.nome}<br>Dano causado: ${inimigoArmaGeral.danoCombate}<br>Mana usada: ${inimigoArmaGeral.manaCusto}`);
 
+            desaplicarFraquezaResistenciaJogador()
+            desaplicarCriticoInimigo()
             verificarDebuffArmaInimigo()
-
         } else {
             inimigoGeral.manaCombate += inimigoGeral.manaRecuperacao;
 
@@ -173,7 +181,5 @@ function DragaoAtaque() {
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} focou<br>Mana recuperada: ${inimigoGeral.manaRecuperacao}`);
         }
     }
-
-    desaplicarFraquezaResistenciaJogador()
 }
 /*-----*/

@@ -1,6 +1,7 @@
 /*-ATAQUE ESPECIAL-*/
 function ataqueForteDano() {
     aplicarFraquezaResistenciaInimigo()
+    aplicarCriticoJogador()
 
     if (inimigoGeral.vidaCombate - parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2)) < 0) {
         inimigoGeral.vidaCombate = 0;
@@ -18,6 +19,9 @@ function ataqueForteDano() {
     }
 
     legendaView.insertAdjacentHTML('beforeend', `<br><br> ${jogador.nome} atacou com ${armaGeral.nome} com força<br>Dano causado: ${parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2))}<br>Energia gasta: ${parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2))}`);
+    if (criticoJogador == true) {
+        legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`)
+    }
 
     jogador.energiaCombate = jogador.energiaCombate - parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2));
 
@@ -35,6 +39,7 @@ function ataqueForteDano() {
     inimigoCombateHud();
 
     desaplicarFraquezaResistenciaInimigo()
+    desaplicarCriticoJogador()
 }
 
 function botaoAtaqueForteClick() {

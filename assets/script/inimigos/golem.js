@@ -10,8 +10,9 @@ var golem =
 
     danoBase: 15, danoCombate: 15,
 }
+/*-----*/
 
-
+/*-----*/
 var golpeMacico =
 {
     nome: 'Golpe maciço', val: 'golpeMacico',
@@ -31,6 +32,7 @@ var abaloSismico =
 
     energiaCusto: 15, energiaCustoCombate: 15, manaCusto: 0, manaCustoCombate: 0,
 }
+/*-----*/
 
 /*-GOLEM COMBATE-*/
 function iniciarGolemCombate() {
@@ -55,7 +57,6 @@ function iniciarGolemCombate() {
 
     definirMusica();
 }
-/*-----*/
 
 function definirEstatisticaGolem() {
     inimigoGeral = golem;
@@ -66,8 +67,6 @@ function definirEstatisticaGolem() {
 
 /*-----*/
 function GolemAtaque() {
-    aplicarFraquezaResistenciaJogador()
-
     let random = Math.floor(Math.random() * 100) + 0
 
     if (random <= 30) {
@@ -78,6 +77,8 @@ function GolemAtaque() {
     }
 
     if (inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCusto >= 0) {
+        aplicarFraquezaResistenciaJogador()
+        aplicarCriticoInimigo()
 
         if (jogador.vidaCombate - inimigoArmaGeral.danoCombate < 0) {
             jogador.vidaCombate = 0;
@@ -108,11 +109,15 @@ function GolemAtaque() {
         }
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou com ${inimigoArmaGeral.nome}<br>Dano causado: ${inimigoArmaGeral.danoCombate}<br>Energia usada: ${inimigoArmaGeral.energiaCusto}`);
+        if (criticoJogador == true) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`)
+        }
 
+        desaplicarFraquezaResistenciaJogador()
+        desaplicarCriticoInimigo()
         verificarDebuffArmaInimigo()
 
-    } else { 
-
+    } else {
         inimigoGeral.energiaCombate += inimigoGeral.energiaRecuperacao;
 
         inimigoGeral.porcentagem = 100 - ((inimigoGeral.energiaRecuperacao / inimigoGeral.energiaBase) * 100);
@@ -123,7 +128,5 @@ function GolemAtaque() {
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} descansou<br>Energia recuperada: ${inimigoGeral.energiaRecuperacao}`);
     }
-
-    desaplicarFraquezaResistenciaJogador()
 }
 /*-----*/

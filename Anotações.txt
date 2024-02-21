@@ -5,7 +5,6 @@ som de conquista do minecraft ao subir de nivel kk
 adicionar minigames nos golpes
 tentar colocar imagem nos  botões de ação
 mudar a cor dos botões caso sem mana ou energia
-Colocar chance de crítico
 organizar as ações em batalha
 
 Aumentar a quantidade de itens na loja e colocar sistema de vender itens

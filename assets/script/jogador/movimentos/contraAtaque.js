@@ -1,6 +1,7 @@
 /*-ATAQUE FRACO-*/
 function contraAtaqueDano() {
     aplicarFraquezaResistenciaInimigo()
+    aplicarCriticoJogador()
 
     armaGeral.danoCombate = armaGeral.danoCombate * 2
 
@@ -21,6 +22,9 @@ function contraAtaqueDano() {
     }
 
     legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} contra-atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}<br>Energia gasta: ${armaGeral.energiaCusto}`)
+    if (criticoJogador == true) {
+        legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`)
+    }
 
     jogador.energiaCombate = jogador.energiaCombate - armaGeral.energiaCusto
 
@@ -40,6 +44,7 @@ function contraAtaqueDano() {
     inimigoCombateHud()
 
     desaplicarFraquezaResistenciaInimigo()
+    desaplicarCriticoJogador()
 }
 
 function botaoContraAtaqueClick() {

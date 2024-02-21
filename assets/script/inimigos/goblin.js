@@ -8,6 +8,7 @@ var goblin =
 
     energiaRecuperacao: 10, manaRecuperacao: 0,
 }
+/*-----*/
 
 /*-GOBLIN COMBATE-*/
 function iniciarGoblinCombate() {
@@ -39,11 +40,13 @@ function definirEstatisticaGoblin() {
     inimigoArmaGeral = lancaEnvenenada
     funcaoInimigoAtaque = GoblinAtaque
 }
+/*-----*/
 
+/*-----*/
 function GoblinAtaque() {
-    aplicarFraquezaResistenciaJogador()
-
     if (inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCusto >= 0) {
+        aplicarFraquezaResistenciaJogador()
+        aplicarCriticoInimigo()
 
         if (jogador.vidaCombate - inimigoArmaGeral.danoCombate < 0) {
             jogador.vidaCombate = 0;
@@ -74,7 +77,12 @@ function GoblinAtaque() {
         }
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou com ${inimigoArmaGeral.nome}<br>Dano causado: ${inimigoArmaGeral.danoCombate}<br>Energia usada: ${inimigoArmaGeral.energiaCusto}`);
+        if (criticoJogador == true) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`)
+        }
 
+        desaplicarFraquezaResistenciaJogador()
+        desaplicarCriticoInimigo()
         verificarDebuffArmaInimigo()
 
     } else {
@@ -88,7 +96,5 @@ function GoblinAtaque() {
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} descansou<br>Energia recuperada: ${inimigoGeral.energiaRecuperacao}`);
     }
-
-    desaplicarFraquezaResistenciaJogador()
 }
 /*-----*/
