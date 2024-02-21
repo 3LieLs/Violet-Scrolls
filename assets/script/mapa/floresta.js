@@ -1,11 +1,15 @@
 /*-FLORESTA VARIÁVEIS-*/
-var botaoIniciarGoblinCombate = window.document.querySelector('input#botaoIniciarGoblinCombate');
-botaoIniciarGoblinCombate.addEventListener('click', botaoIniciarGoblinCombateClick);
+var botaoIniciarCombateFloresta = window.document.querySelector('input#botaoIniciarCombateFloresta');
+botaoIniciarCombateFloresta.addEventListener('click', botaoIniciarCombateFlorestaClick);
 /*-----*/
 
 /*-FLORESTA-*/
-function botaoIniciarGoblinCombateClick()
+function botaoIniciarCombateFlorestaClick()
 {
+    florestaDisplay.style.display = 'none';
+    botaoMapaDisplay.style.display = 'none';
+    mainBotaoMenu.style.display = 'none';
+
     iniciarGoblinCombate();
 }
 /*-----*/

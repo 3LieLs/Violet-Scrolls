@@ -3,14 +3,16 @@ armaduraGeral = panoSujo;
 var armaduraGeral =
 {
     nome: '', val: '', obtido: false, peso: 0, preco: 0, 
-    defesa: 0, defesaCombate: 0, tipoDefesa: '', buff: '',
+    defesa: 0, defesaCombate: 0, tipoDefesa: '',
+    buff: '',
     manaRecuperacao: 0, energiaRecuperacao: 0,
 }
 
 var panoSujo =
 {
     nome: 'Pano sujo', val: 'panoSujo', obtido: false, peso: 0, preco: 0, 
-    defesa: 0, defesaCombate: 0, tipoDefesa: 'Físico', buff: '',
+    defesa: 0, defesaCombate: 0, tipoDefesa: 'Físico',
+    buff: '',
     manaRecuperacao: 20, energiaRecuperacao: 20,
 }
 

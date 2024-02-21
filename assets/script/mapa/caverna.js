@@ -1,11 +1,14 @@
 /*-CAVERNA VARIÁVEIS-*/
-var botaoIniciarGolemCombate = window.document.querySelector('input#botaoIniciarGolemCombate');
-botaoIniciarGolemCombate.addEventListener('click', botaoIniciarGolemCombateClick);
+var botaoIniciarCombateCaverna = window.document.querySelector('input#botaoIniciarCombateCaverna');
+botaoIniciarCombateCaverna.addEventListener('click', botaoIniciarCombateCavernaClick);
 /*-----*/
 
 /*-CAVERNA-*/
-function botaoIniciarGolemCombateClick()
-{
+function botaoIniciarCombateCavernaClick() {
+    cavernaDisplay.style.display = 'none';
+    botaoMapaDisplay.style.display = 'none';
+    mainBotaoMenu.style.display = 'none';
+    
     iniciarGolemCombate();
 }
 /*-----*/

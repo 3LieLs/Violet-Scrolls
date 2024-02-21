@@ -23,6 +23,8 @@ function ataqueFracoDano() {
         legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`)
     }
 
+    verificarDebuffArmaJogador()
+
     jogador.energiaCombate = jogador.energiaCombate - armaGeral.energiaCusto
 
     jogador.porcentagem = 100 - ((armaGeral.energiaCusto / jogador.energiaBase) * 100)

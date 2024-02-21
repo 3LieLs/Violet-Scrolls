@@ -4,6 +4,7 @@ var
     rodadaBuffVidaRegenMax = { jogador: 0, inimigo: 0, },
     rodadaBuffDefesaMax = { jogador: 0, inimigo: 0, },
     rodadaBuffVidaMax = { jogador: 0, inimigo: 0, },
+    rodadaDebuffSangramentoMax = { jogador: 0, inimigo: 0, },
     rodadaDebuffVenenoMax = { jogador: 0, inimigo: 0, },
     rodadaDebuffChamasMax = { jogador: 0, inimigo: 0, },
     rodadaDebuffCongeladoMax = { jogador: 0, inimigo: 0, },
@@ -12,6 +13,7 @@ var
 var
     buffVidaRegen = { jogador: false, inimigo: false, },
     buffDano = { jogador: false, inimigo: false, },
+    debuffSangramento = { jogador: false, inimigo: false, },
     debuffVeneno = { jogador: false, inimigo: false, },
     debuffChamas = { jogador: false, inimigo: false, },
     debuffCongelado = { jogador: false, inimigo: false, },
@@ -20,7 +22,7 @@ var
 
 var magiaBuffGeral =
 {
-    nome: '', classe: '', ativo: false, obtido: false, val: '', preco: 0,
+    nome: '', ativo: false, obtido: false, val: '', preco: 0,
 
     buff: '', duracao: 0,
     danoBuff: 0, vidaBuff: 0, defesaBuff: 0,
@@ -33,7 +35,7 @@ var magiaBuffGeral =
 
 var furiaDeTouro =
 {
-    nome: 'Furia de Touro', classe: 'Mágico', obtido: false, val: 'furiaDeTouro', preco: 7,
+    nome: 'Furia de Touro', obtido: false, val: 'furiaDeTouro', preco: 7,
 
     buff: 'dano', duracao: 3,
     danoBuff: 0.10,
@@ -58,7 +60,7 @@ function adicionarFuriaDeTouro() {
 
 var esferasDaVida =
 {
-    nome: 'Esferas da vida', classe: 'Mágico', obtido: false, val: 'esferasDaVida', preco: 7,
+    nome: 'Esferas da vida', obtido: false, val: 'esferasDaVida', preco: 7,
 
     buff: 'vidaRegen', duracao: 5,
     vidaRegenBuff: 0.15,

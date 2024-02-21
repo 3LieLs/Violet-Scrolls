@@ -23,6 +23,8 @@ function ataqueForteDano() {
         legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`)
     }
 
+    verificarDebuffArmaJogador()
+
     jogador.energiaCombate = jogador.energiaCombate - parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2));
 
     jogador.porcentagem = 100 - ((parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2)) / jogador.energiaBase) * 100);

@@ -1,3 +1,5 @@
+var localMapa = '';
+
 /*-MAPA VARIÁVEIS-*/
 var botaoMapa = window.document.querySelector('input#botaoMapa');
 botaoMapa.addEventListener('click', botaoMapaClick);
@@ -26,16 +28,14 @@ mapaMontanha.addEventListener('click', mapaMontanhaClick);
 
 
 /*-MAPA BOTÕES-*/
-function mapaEscolhido()
-{
+function mapaEscolhido() {
     mapaDisplay.style.display = 'none';
     botaoMapaDisplay.style.display = 'contents';
     mainBotaoMenu.style.display = 'contents';
 }
 
-function botaoMapaClick()
-{
-    local = 'mapa';
+function botaoMapaClick() {
+    localMapa = 'mapa';
     mapaDisplay.style.display = 'contents';
     botaoMapaDisplay.style.display = 'none';
     mainBotaoMenu.style.display = 'none';
@@ -50,66 +50,46 @@ function botaoMapaClick()
 }
 
 
-
-function mapaTavernaClick()
-{
+function mapaTavernaClick() {
     mapaEscolhido();
-    local = 'taverna';
+    localMapa = 'taverna';
     taverna.style.display = 'contents';
 }
 
-
-
-function mapaVendedorClick()
-{
+function mapaVendedorClick() {
     mapaEscolhido();
-    local = 'vendedor';
+    localMapa = 'vendedor';
     vendedorDisplay.style.display = 'contents';
 }
 
-
-
-function mapaFerreiroClick()
-{
+function mapaFerreiroClick() {
     mapaEscolhido();
-    local = 'ferreiro';
+    localMapa = 'ferreiro';
     ferreiroDisplay.style.display = 'contents';
 }
 
-
-
-function mapaFeiticeiroClick()
-{
+function mapaFeiticeiroClick() {
     mapaEscolhido();
-    local = 'feiticeiro';
+    localMapa = 'feiticeiro';
     feiticeiroDisplay.style.display = 'contents';
 }
 
-
-
-function mapaFlorestaClick() 
-{
+function mapaFlorestaClick() {
     mapaEscolhido();
-    local = 'floresta';
+    localMapa = 'floresta';
     florestaDisplay.style.display = 'contents';
 
 }
 
-
-
-function mapaCavernaClick()
- {
+function mapaCavernaClick() {
     mapaEscolhido();
-    local = 'caverna';
+    localMapa = 'caverna';
     cavernaDisplay.style.display = 'contents';
 }
 
-
-
-function mapaMontanhaClick()
-{
+function mapaMontanhaClick() {
     mapaEscolhido();
-    local = 'montanha';
+    localMapa = 'montanha';
     montanhaDisplay.style.display = 'contents';
 }
 /*-----*/

@@ -22,12 +22,7 @@ function inimigoCombateHud() {
 /*-----*/
 
 
-/*-----*/
-var funcaoInimigoAtaque
-/*-----*/
-
-
-/*-----*/
+/*-INIMIGOS ARMA/GOLPE-*/
 var inimigoArmaGeral =
 {
     nome: '', val: '', obtido: false, peso: 0, preco: 0,
@@ -41,6 +36,8 @@ var inimigoArmaGeral =
 
 
 /*-INIMIGO ATAQUE-*/
+var funcaoInimigoAtaque
+
 function inimigoAtaque() {
     if (inimigoGeral.vidaCombate > 0) {
         funcaoInimigoAtaque()
@@ -49,7 +46,7 @@ function inimigoAtaque() {
 /*-----*/
 
 
-/*-----*/
+/*-VERIFICAR FRAQUEZA/RESISTENCIA DO JOGADOR-*/
 function aplicarFraquezaResistenciaJogador() {
     if (racaGeral.fraqueza == inimigoArmaGeral.tipoDano) {
         let aumentarDano = inimigoArmaGeral.danoBase * 0.15
@@ -106,8 +103,19 @@ function desaplicarFraquezaResistenciaJogador() {
 /*-----*/
 
 
-/*-----*/
+/*-VERIFICAR DEBUFF DA ARMA DO INIMIGO-*/
 function verificarDebuffArmaInimigo() {
+    if (inimigoArmaGeral.debuff == 'sangramento') {
+        let x = Math.floor(Math.random() * 100) + 0;
+
+        if (x < inimigoArmaGeral.chance && debuffSangramento.jogador == false) {
+            rodadaDebuffSangramentoMax.jogador = parseInt(rodada) + parseInt(inimigoArmaGeral.duracao)
+            debuffSangramento.jogador = true
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoArmaGeral.nome} cortou ${jogador.nome}`);
+        }
+    }
+
     if (inimigoArmaGeral.debuff == 'veneno') {
         let x = Math.floor(Math.random() * 100) + 0;
 

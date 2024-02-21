@@ -1,8 +1,9 @@
 var chicoteDeAco =
 {
-    nome: 'Chicote de aço', val: 'chicoteDeAco', obtido: false,  peso: 0, preco: 3,
+    nome: 'Chicote de aço', val: 'chicoteDeAco', obtido: false, peso: 0, preco: 3,
 
-    danoBase: 6, danoCombate: 6, tipoDano: 'Físico', debuff: 'Nenhum',
+    danoBase: 6, danoCombate: 6, tipoDano: 'Físico',
+    debuff: 'Nenhum', chance: 0, duracao: 0,
 
     energiaCusto: 3, energiaCustoCombate: 3, manaCusto: 0, manaCustoCombate: 0,
 }
@@ -26,8 +27,9 @@ function adicionarChicoteDeAco() {
 var lancaEnvenenada =
 {
     nome: 'Lança envenenada', val: 'lancaEnvenenada', obtido: false, peso: 0, preco: 5,
-    
-    danoBase: 5, danoCombate: 5, tipoDano: 'Físico', debuff: 'veneno', chance: 20, duracao: 2,
+
+    danoBase: 5, danoCombate: 5, tipoDano: 'Físico',
+    debuff: 'veneno', chance: 20, duracao: 2,
 
     energiaCusto: 5, energiaCustoCombate: 5, manaCusto: 0, manaCustoCombate: 0,
 }
@@ -53,7 +55,8 @@ var espadaDeAco =
 {
     nome: 'Espada de aço', val: 'espadaDeAco', obtido: false, peso: 0, preco: 5,
 
-    danoBase: 8, danoCombate: 8, tipoDano: 'Físico', debuff: 'Nenhum',
+    danoBase: 8, danoCombate: 8, tipoDano: 'Físico',
+    debuff: 'sangramento', chance: 15, duracao: 2,
 
     energiaCusto: 5, energiaCustoCombate: 5, manaCusto: 0, manaCustoCombate: 0,
 }

@@ -6,51 +6,43 @@ var musica = window.document.querySelector('audio#musica');
 /*-MÚSICA-*/
 musica.src = 'assets/content/audio/MúsicaPacífica/taverna.mp4';
 
-function definirMusica()
-{
-    if(fase == 'goblin')
-    {
+function definirMusica() {
+    if (inimigoCombatendo == 'goblin') {
         musica.src = 'assets/content/audio/MúsicaCombate/Combate1.mp3';
     }
 
-    if(fase == 'golem')
-    {
+    if (inimigoCombatendo == 'golem') {
         musica.src = 'assets/content/audio/MúsicaCombate/Combate2.mp3';
     }
 
-    if(fase == 'dragao')
-    {
+    if (inimigoCombatendo == 'dragao') {
         musica.src = 'assets/content/audio/MúsicaCombate/CombateBoss1.mp3';
     }
 
 
 
-    if(local == 'taverna')
-    {
+    if (localMapa == 'taverna') {
         taverna.style.display = 'contents';
         mainBotaoMenu.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
         musica.src = 'assets/content/audio/MúsicaPacífica/taverna.mp4';
     }
 
-    if(local == 'floresta')
-    {
+    if (localMapa == 'floresta') {
         florestaDisplay.style.display = 'contents';
         mainBotaoMenu.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
         musica.src = 'assets/content/audio/MúsicaPacífica/taverna.mp4';
     }
 
-    if(local == 'caverna')
-    {
+    if (localMapa == 'caverna') {
         cavernaDisplay.style.display = 'contents'
         mainBotaoMenu.style.display = 'contents'
         botaoMapaDisplay.style.display = 'contents'
         musica.src = 'assets/content/audio/MúsicaPacífica/taverna.mp4'
     }
 
-    if(local == 'montanha')
-    {
+    if (localMapa == 'montanha') {
         montanhaDisplay.style.display = 'contents';
         mainBotaoMenu.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';

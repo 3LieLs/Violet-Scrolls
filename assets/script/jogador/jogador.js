@@ -38,24 +38,17 @@ function jogadorDerrotado()
 {
     if (jogador.vidaCombate <= 0)
     {
-        local = 'taverna';
-
         mainHud.style.display = 'none';
         mainInimigoHud.style.display = 'none';
         florestaDisplay.style.display = 'none';
         cavernaDisplay.style.display = 'none';
         montanhaDisplay.style.display = 'none';
+        
+        localMapa = 'taverna';
 
         definirEstatisticaGeral();
         definirMusica();
     }
-}
-
-function derrota()
-{
-    mainJogadorDerrotado.style.display = 'contents';
-    mensagemJogadorDerrotadoVal.innerHTML = `${jogador.nome} foi derrotado`;
-    fase = 'taverna';
 }
 /*-----*/
 

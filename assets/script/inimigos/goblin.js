@@ -1,7 +1,8 @@
-/*-GOBLIN VARIÁVEIS-*/
+/*-GOBLIN STATUS-*/
 var goblin =
 {
-    nome: 'Goblin', classe: 'fisico', resistencia: 'Gelo', fraqueza: 'Físico', experiencia: 10,
+    nome: 'Goblin', resistencia: 'Nenhuma', fraqueza: 'Físico',
+    nivel: 1, experiencia: 10,
 
     vidaBase: 25, energiaBase: 15, manaBase: 0,
     vidaCombate: 25, energiaCombate: 15, manaCombate: 0,
@@ -10,23 +11,21 @@ var goblin =
 }
 /*-----*/
 
-/*-GOBLIN COMBATE-*/
+/*-GOBLIN INICIO COMBATE-*/
 function iniciarGoblinCombate() {
-    florestaDisplay.style.display = 'none';
-    botaoMapaDisplay.style.display = 'none';
-    mainBotaoMenu.style.display = 'none';
-
-    fase = 'goblin';
-    local = 'combate';
-
+    inimigoCombatendo = 'goblin';
+    localMapa = 'combate';
+    
     inimigoHudImagem.src = 'assets/content/img/Goblin.gif';
     inimigoHudImagem.style.width = '50%';
-
-    mainInimigoHud.style.display = 'contents';
+    
+    inimigoGeral = goblin;
+    inimigoArmaGeral = lancaEnvenenada
+    funcaoInimigoAtaque = GoblinAtaque
 
     mainHud.style.display = 'contents';
+    mainInimigoHud.style.display = 'contents';
 
-    definirEstatisticaGoblin();
     definirEstatisticaGeral();
 
     jogadorCombateHud();
@@ -34,15 +33,9 @@ function iniciarGoblinCombate() {
 
     definirMusica();
 }
-
-function definirEstatisticaGoblin() {
-    inimigoGeral = goblin;
-    inimigoArmaGeral = lancaEnvenenada
-    funcaoInimigoAtaque = GoblinAtaque
-}
 /*-----*/
 
-/*-----*/
+/*-GOBLIN ATAQUE-*/
 function GoblinAtaque() {
     if (inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCusto >= 0) {
         aplicarFraquezaResistenciaJogador()
@@ -77,7 +70,7 @@ function GoblinAtaque() {
         }
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou com ${inimigoArmaGeral.nome}<br>Dano causado: ${inimigoArmaGeral.danoCombate}<br>Energia usada: ${inimigoArmaGeral.energiaCusto}`);
-        if (criticoJogador == true) {
+        if (criticoInimigo == true) {
             legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`)
         }
 

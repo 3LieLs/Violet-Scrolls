@@ -14,73 +14,7 @@ var quartaEscolha = window.document.querySelector('input#movesetOutrosEscolha');
 quartaEscolha.addEventListener('click', movesetOutrosEscolhaClick);
 /*-----*/
 
-/*-----*/
-function aplicarFraquezaResistenciaInimigo() {
-    if (inimigoGeral.fraqueza == armaGeral.tipoDano) {
-        let aumentarDano = armaGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        armaGeral.danoCombate += aumentarDano
-    }
 
-    if (inimigoGeral.fraqueza == magiaDanoGeral.tipoDano) {
-        let aumentarDano = magiaDanoGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        magiaDanoGeral.danoCombate += aumentarDano
-    }
-
-
-    if (inimigoGeral.resistencia == armaGeral.tipoDano) {
-        let aumentarDano = armaGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        armaGeral.danoCombate -= aumentarDano
-    }
-
-    if (inimigoGeral.resistencia == magiaDanoGeral.tipoDano) {
-        let aumentarDano = magiaDanoGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        magiaDanoGeral.danoCombate -= aumentarDano
-    }
-}
-
-function desaplicarFraquezaResistenciaInimigo() {
-    if (inimigoGeral.fraqueza == armaGeral.tipoDano) {
-        let aumentarDano = armaGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        armaGeral.danoCombate -= aumentarDano
-    }
-
-    if (inimigoGeral.fraqueza == magiaDanoGeral.tipoDano) {
-        let aumentarDano = magiaDanoGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        magiaDanoGeral.danoCombate -= aumentarDano
-    }
-
-
-    if (inimigoGeral.resistencia == armaGeral.tipoDano) {
-        let aumentarDano = armaGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        armaGeral.danoCombate += aumentarDano
-    }
-
-    if (inimigoGeral.resistencia == magiaDanoGeral.tipoDano) {
-        let aumentarDano = magiaDanoGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        magiaDanoGeral.danoCombate += aumentarDano
-    }
-}
-/*-----*/
-
-/*-----*/
-function semEnergiaManaVisibilidade() {
-    semEnergiaManaDisplay.style.animation = 'semEnergiaManaMostrar 3s 0ms 1';
-
-    setTimeout(function () {
-        semEnergiaManaDisplay.style.animation = 'semEnergiaManaEsconder 1s 1s 1';
-    }, 2000)
-}
-/*-----*/
-
-/*-----*/
 /*-MOVESET ARMA-*/
 function movesetArmaEscolhaClick() {
 
@@ -351,5 +285,192 @@ function voltarMovesetInicio() {
 
     quartaEscolha = window.document.querySelector('input#movesetOutrosEscolha');
     quartaEscolha.addEventListener('click', movesetOutrosEscolhaClick);
+}
+/*-----*/
+
+
+
+/*-VERIFICAR DEBUFF DA ARMA DO JOGADOR-*/
+function verificarDebuffArmaJogador() {
+    if (armaGeral.debuff == 'sangramento') {
+        let x = Math.floor(Math.random() * 100) + 0;
+
+        if (x < armaGeral.chance && debuffSangramento.inimigo == false) {
+            rodadaDebuffSangramentoMax.inimigo = parseInt(rodada) + parseInt(armaGeral.duracao)
+            debuffSangramento.inimigo = true
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${armaGeral.nome} cortou ${inimigoGeral.nome}`);
+        }
+    }
+
+    if (armaGeral.debuff == 'veneno') {
+        let x = Math.floor(Math.random() * 100) + 0;
+
+        if (x < armaGeral.chance && debuffVeneno.inimigo == false) {
+            rodadaDebuffVenenoMax.inimigo = parseInt(rodada) + parseInt(armaGeral.duracao)
+            debuffVeneno.inimigo = true
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${armaGeral.nome} envenenou ${inimigoGeral.nome}`);
+        }
+    }
+
+    if (armaGeral.debuff == 'chamas') {
+        let x = Math.floor(Math.random() * 100) + 0;
+
+        if (x < armaGeral.chance && debuffChamas.inimigo == false) {
+            rodadaDebuffChamasMax.inimigo = parseInt(rodada) + parseInt(armaGeral.duracao)
+            debuffChamas.inimigo = true
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${armaGeral.nome} incendiou ${inimigoGeral.nome}`);
+        }
+    }
+
+    if (armaGeral.debuff == 'congelado') {
+        let x = Math.floor(Math.random() * 100) + 0;
+
+        if (x < armaGeral.chance && debuffCongelado.inimigo == false) {
+            rodadaDebuffCongeladoMax.inimigo = parseInt(rodada) + parseInt(armaGeral.duracao)
+            debuffCongelado.inimigo = true
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${armaGeral.nome} congelou ${inimigoGeral.nome}`);
+        }
+    }
+
+    if (armaGeral.debuff == 'eletricidade') {
+        let x = Math.floor(Math.random() * 100) + 0;
+
+        if (x < armaGeral.chance && debuffEletricidade.inimigo == false) {
+            rodadaDebuffEletricidadeMax.inimigo = parseInt(rodada) + parseInt(armaGeral.duracao)
+            debuffEletricidade.inimigo = true
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${armaGeral.nome} eletrizou ${inimigoGeral.nome}`);
+        }
+    }
+}
+/*-----*/
+
+/*-VERIFICAR DEBUFF DA MAGIA DO JOGADOR-*/
+function verificarDebuffMagiaJogador() {
+    if (magiaDanoGeral.debuff == 'sangramento') {
+        let x = Math.floor(Math.random() * 100) + 0;
+
+        if (x < magiaDanoGeral.chance && debuffSangramento.inimigo == false) {
+            rodadaDebuffSangramentoMax.inimigo = parseInt(rodada) + parseInt(magiaDanoGeral.duracao)
+            debuffSangramento.inimigo = true
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${magiaDanoGeral.nome} cortou ${inimigoGeral.nome}`);
+        }
+    }
+
+    if (magiaDanoGeral.debuff == 'veneno') {
+        let x = Math.floor(Math.random() * 100) + 0;
+
+        if (x < magiaDanoGeral.chance && debuffVeneno.inimigo == false) {
+            rodadaDebuffVenenoMax.inimigo = parseInt(rodada) + parseInt(magiaDanoGeral.duracao)
+            debuffVeneno.inimigo = true
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${magiaDanoGeral.nome} envenenou ${inimigoGeral.nome}`);
+        }
+    }
+
+    if (magiaDanoGeral.debuff == 'chamas') {
+        let x = Math.floor(Math.random() * 100) + 0;
+
+        if (x < magiaDanoGeral.chance && debuffChamas.inimigo == false) {
+            rodadaDebuffChamasMax.inimigo = parseInt(rodada) + parseInt(magiaDanoGeral.duracao)
+            debuffChamas.inimigo = true
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${magiaDanoGeral.nome} incendiou ${inimigoGeral.nome}`);
+        }
+    }
+
+    if (magiaDanoGeral.debuff == 'congelado') {
+        let x = Math.floor(Math.random() * 100) + 0;
+
+        if (x < magiaDanoGeral.chance && debuffCongelado.inimigo == false) {
+            rodadaDebuffCongeladoMax.inimigo = parseInt(rodada) + parseInt(magiaDanoGeral.duracao)
+            debuffCongelado.inimigo = true
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${magiaDanoGeral.nome} congelou ${inimigoGeral.nome}`);
+        }
+    }
+
+    if (magiaDanoGeral.debuff == 'eletricidade') {
+        let x = Math.floor(Math.random() * 100) + 0;
+
+        if (x < magiaDanoGeral.chance && debuffEletricidade.inimigo == false) {
+            rodadaDebuffEletricidadeMax.inimigo = parseInt(rodada) + parseInt(magiaDanoGeral.duracao)
+            debuffEletricidade.inimigo = true
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${magiaDanoGeral.nome} eletrizou ${inimigoGeral.nome}`);
+        }
+    }
+}
+/*-----*/
+
+
+/*-----*/
+function aplicarFraquezaResistenciaInimigo() {
+    if (inimigoGeral.fraqueza == armaGeral.tipoDano) {
+        let aumentarDano = armaGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        armaGeral.danoCombate += aumentarDano
+    }
+
+    if (inimigoGeral.fraqueza == magiaDanoGeral.tipoDano) {
+        let aumentarDano = magiaDanoGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        magiaDanoGeral.danoCombate += aumentarDano
+    }
+
+
+    if (inimigoGeral.resistencia == armaGeral.tipoDano) {
+        let aumentarDano = armaGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        armaGeral.danoCombate -= aumentarDano
+    }
+
+    if (inimigoGeral.resistencia == magiaDanoGeral.tipoDano) {
+        let aumentarDano = magiaDanoGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        magiaDanoGeral.danoCombate -= aumentarDano
+    }
+}
+
+function desaplicarFraquezaResistenciaInimigo() {
+    if (inimigoGeral.fraqueza == armaGeral.tipoDano) {
+        let aumentarDano = armaGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        armaGeral.danoCombate -= aumentarDano
+    }
+
+    if (inimigoGeral.fraqueza == magiaDanoGeral.tipoDano) {
+        let aumentarDano = magiaDanoGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        magiaDanoGeral.danoCombate -= aumentarDano
+    }
+
+
+    if (inimigoGeral.resistencia == armaGeral.tipoDano) {
+        let aumentarDano = armaGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        armaGeral.danoCombate += aumentarDano
+    }
+
+    if (inimigoGeral.resistencia == magiaDanoGeral.tipoDano) {
+        let aumentarDano = magiaDanoGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        magiaDanoGeral.danoCombate += aumentarDano
+    }
+}
+/*-----*/
+
+/*-----*/
+function semEnergiaManaVisibilidade() {
+    semEnergiaManaDisplay.style.animation = 'semEnergiaManaMostrar 3s 0ms 1';
+
+    setTimeout(function () {
+        semEnergiaManaDisplay.style.animation = 'semEnergiaManaEsconder 1s 1s 1';
+    }, 2000)
 }
 /*-----*/

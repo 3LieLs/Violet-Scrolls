@@ -2,7 +2,8 @@ var arcoSimples =
 {
     nome: 'Arco simples', val: 'arcoSimples', obtido: false, peso: 0, preco: 4,
 
-    danoBase: 6, danoCombate: 6, tipoDano: 'Físico', debuff: 'Nenhum',
+    danoBase: 6, danoCombate: 6, tipoDano: 'Físico',
+    debuff: 'Nenhum', chance: 0, duracao: 0,
     
     energiaCusto: 3, energiaCustoCombate: 3, manaCusto: 0, manaCustoCombate: 0,
 }
@@ -29,7 +30,8 @@ var arcoLongo =
 {
     nome: 'Arco longo', val: 'arcoLongo', obtido: false, peso: 0, preco: 3,
 
-    danoBase: 4, danoCombate: 4, tipoDano: 'Físico', debuff: 'Nenhum',
+    danoBase: 4, danoCombate: 4, tipoDano: 'Físico',
+    debuff: 'Nenhum', chance: 0, duracao: 0,
 
     energiaCusto: 1, energiaCustoCombate: 1, manaCusto: 0, manaCustoCombate: 0,
 }

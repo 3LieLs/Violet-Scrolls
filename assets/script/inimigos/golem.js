@@ -1,7 +1,8 @@
-/*-GOLEM HUD-*/
+/*-GOLEM STATUS-*/
 var golem =
 {
-    nome: 'Golem', classe: 'fisico', resistencia: 'Físico', fraqueza: 'Fogo', experiencia: 30,
+    nome: 'Golem', resistencia: 'Físico', fraqueza: 'Fogo',
+    nivel: 1, experiencia: 30,
 
     vidaBase: 50, energiaBase: 30, manaBase: 0,
     vidaCombate: 50, energiaCombate: 30,
@@ -12,10 +13,10 @@ var golem =
 }
 /*-----*/
 
-/*-----*/
+/*-GOLEM GOLPES-*/
 var golpeMacico =
 {
-    nome: 'Golpe maciço', val: 'golpeMacico',
+    nome: 'Golpe maciço',
 
     danoBase: 12, danoCombate: 12, tipoDano: 'Físico',
     debuff: '', chance: 0, duracao: 0,
@@ -25,7 +26,7 @@ var golpeMacico =
 
 var abaloSismico =
 {
-    nome: 'Abalo sísmico', val: 'abaloSismico',
+    nome: 'Abalo sísmico',
 
     danoBase: 20, danoCombate: 20, tipoDano: 'Físico',
     debuff: '', chance: 0, duracao: 0,
@@ -34,22 +35,21 @@ var abaloSismico =
 }
 /*-----*/
 
-/*-GOLEM COMBATE-*/
+/*-GOLEM INICIO COMBATE-*/
 function iniciarGolemCombate() {
-    cavernaDisplay.style.display = 'none';
-    botaoMapaDisplay.style.display = 'none';
-    mainBotaoMenu.style.display = 'none';
-
-    fase = 'golem';
-    local = 'combate';
+    inimigoCombatendo = 'golem';
+    localMapa = 'combate';
 
     inimigoHudImagem.src = 'assets/content/img/Golem.gif';
     inimigoHudImagem.style.width = '50%';
 
+    inimigoGeral = golem;
+    inimigoArmaGeral = golpeMacico;
+    funcaoInimigoAtaque = GolemAtaque;
+
     mainInimigoHud.style.display = 'contents';
     mainHud.style.display = 'contents';
 
-    definirEstatisticaGolem();
     definirEstatisticaGeral();
 
     jogadorCombateHud();
@@ -57,15 +57,9 @@ function iniciarGolemCombate() {
 
     definirMusica();
 }
-
-function definirEstatisticaGolem() {
-    inimigoGeral = golem;
-    inimigoArmaGeral = golpeMacico;
-    funcaoInimigoAtaque = GolemAtaque;
-}
 /*-----*/
 
-/*-----*/
+/*-GOLEM ATAQUE-*/
 function GolemAtaque() {
     let random = Math.floor(Math.random() * 100) + 0
 
@@ -109,7 +103,7 @@ function GolemAtaque() {
         }
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou com ${inimigoArmaGeral.nome}<br>Dano causado: ${inimigoArmaGeral.danoCombate}<br>Energia usada: ${inimigoArmaGeral.energiaCusto}`);
-        if (criticoJogador == true) {
+        if (criticoInimigo == true) {
             legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`)
         }
 

@@ -1,12 +1,15 @@
 /*-MONTANHA VARIÁVEIS-*/
-var botaoIniciarDragaoCombate = window.document.querySelector('input#botaoIniciarDragaoCombate');
-botaoIniciarDragaoCombate.addEventListener('click', botaoIniciarDragaoCombateClick);
+var botaoIniciarCombateMontanha = window.document.querySelector('input#botaoIniciarCombateMontanha');
+botaoIniciarCombateMontanha.addEventListener('click', botaoIniciarCombateMontanhaClick);
 /*-----*/
 
 
 /*-MONTANHA-*/
-function botaoIniciarDragaoCombateClick()
-{
+function botaoIniciarCombateMontanhaClick() {
+    montanhaDisplay.style.display = 'none';
+    botaoMapaDisplay.style.display = 'none';
+    mainBotaoMenu.style.display = 'none';
+
     iniciarDragaoCombate();
 }
 /*-----*/

@@ -1,4 +1,6 @@
 /*-MUDAR RODADA-*/
+var rodada = 0, vezUsuario = true;
+
 function inicioRodada() {
     vezUsuario = false;
     rodada += 1
@@ -13,8 +15,7 @@ function fimRodada() {
 /*-----*/
 
 
-
-/*-BUFF / DEBUFF-*/
+/*-BUFF E DEBUFF INIMIGO-*/
 function buff_debuff_jogador() {
     /*-BUFF DANO-*/
     if (rodada == rodadaBuffDanoMax.jogador && buffDano.jogador == true) {
@@ -47,7 +48,27 @@ function buff_debuff_jogador() {
     }
     /*-----*/
 
+    /*-DEBUFF SANGRAMENTO-*/
+    if (rodada < rodadaDebuffSangramentoMax.jogador && debuffSangramento.jogador == true) {
+        sangramentoDano = jogador.vidaBase * 0.15
+        sangramentoDano = Math.round(sangramentoDano)
 
+        jogador.vidaCombate -= sangramentoDano;
+
+        jogador.porcentagem = 100 - ((sangramentoDano / jogador.vidaBase) * 100)
+        jogador.porcentagem = 100 - jogador.porcentagem
+        jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+
+        jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) - parseInt(jogador.porcentagem)
+
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${sangramentoDano} de vida por causa do sangramento`);
+
+        jogadorCombateHud();
+        inimigoCombateHud();
+    } else {
+        debuffSangramento.jogador = false
+    }
+    /*-----*/
 
     /*-DEBUFF VENENO-*/
     if (rodada < rodadaDebuffVenenoMax.jogador && debuffVeneno.jogador == true) {
@@ -120,7 +141,6 @@ function buff_debuff_jogador() {
     }
     /*-----*/
 
-
     /*-DEBUFF ELETRICIDADE-*/
     if (rodada < rodadaDebuffEletricidadeMax.jogador && debuffEletricidade.jogador == true) {
         let w = armaGeral.manaCusto * 0.25
@@ -157,16 +177,19 @@ function buff_debuff_jogador() {
         magiaBuffGeral.manaCusto -= z
     }
     /*-----*/
+
+    /*-CASO O JOGADOR MORRA-*/
     if (jogador.vidaCombate <= 0) {
         jogador.vidaCombate = 0
         jogadorCombateHud()
         setTimeout(jogadorDerrotado, 1000)
     }
+    /*-----*/
 }
-
-
-
 /*-----*/
+
+
+/*-BUFF E DEBUFF INIMIGO-*/
 function buff_debuff_inimigo() {
     /*-BUFF DANO-*/
     if (rodada == rodadaBuffDanoMax.inimigo && buffDano.inimigo == true) {
@@ -200,6 +223,27 @@ function buff_debuff_inimigo() {
     /*-----*/
 
 
+    /*-DEBUFF SANGRAMENTO-*/
+    if (rodada < rodadaDebuffSangramentoMax.inimigo && debuffSangramento.inimigo == true) {
+        sangramentoDano = inimigoGeral.vidaBase * 0.15
+        sangramentoDano = Math.round(sangramentoDano)
+
+        inimigoGeral.vidaCombate -= sangramentoDano;
+
+        inimigoGeral.porcentagem = 100 - ((sangramentoDano / inimigoGeral.vidaBase) * 100)
+        inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
+        inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
+
+        inimigoGeral.vidaPorcentagem = parseInt(inimigoGeral.vidaPorcentagem) - parseInt(inimigoGeral.porcentagem)
+
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${sangramentoDano} de vida por causa do sangramento`);
+
+        jogadorCombateHud();
+        inimigoCombateHud();
+    } else {
+        debuffSangramento.inimigo = false
+    }
+    /*-----*/
 
     /*-DEBUFF VENENO-*/
     if (rodada < rodadaDebuffVenenoMax.inimigo && debuffVeneno.inimigo == true) {
@@ -308,17 +352,19 @@ function buff_debuff_inimigo() {
     }
     /*-----*/
 
+    /*-CASO O JOGADOR MORRA-*/
     if (inimigoGeral.vidaCombate <= 0) {
         inimigoGeral.vidaCombate = 0
         inimigoCombateHud()
         setTimeout(inimigoDerrotado, 1000)
     }
+    /*-----*/
 }
 /*-----*/
 
 
-/*-CRÍTICO-*/
-var danoCritico = 0, chanceCriticoJogador = 50, chanceCriticoInimigo = 10, criticoJogador = false, criticoInimigo = false;
+/*-CALCULO CRÍTICO-*/
+var danoCritico = 0, chanceCriticoJogador = 5, chanceCriticoInimigo = 5, criticoJogador = false, criticoInimigo = false;
 
 function aplicarCriticoJogador() {
     let x = Math.floor(Math.random() * 100) + 0;
@@ -359,7 +405,6 @@ function desaplicarCriticoInimigo() {
 /*-----*/
 
 
-
 /*-CALCULO DEFESA-*/
 function calculoDefesa() {
     armaduraGeral.defesaCombate = (armaduraGeral.defesaCombate / (100 + parseInt(armaduraGeral.defesaCombate))) * 150;
@@ -373,8 +418,7 @@ function calculoDefesa() {
 /*-----*/
 
 
-
-/*-DEFINIR ESTATISTICA-*/
+/*-RESETAR ESTATÍSTICAS-*/
 function definirEstatisticaGeral() {
     mainJogadorDerrotado.style.display = 'none';
     mainInimigoDerrotado.style.display = 'none';
@@ -400,6 +444,7 @@ function definirEstatisticaGeral() {
     rodadaBuffVidaRegenMax.jogador = 0, rodadaBuffVidaRegenMax.inimigo = 0
     rodadaBuffDefesaMax.jogador = 0, rodadaBuffDefesaMax.inimigo = 0
     rodadaBuffVidaMax.jogador = 0, rodadaBuffVidaMax.inimigo = 0
+    rodadaDebuffSangramentoMax.jogador = 0, rodadaDebuffSangramentoMax.inimigo = 0
     rodadaDebuffVenenoMax.jogador = 0, rodadaDebuffVenenoMax.inimigo = 0
     rodadaDebuffChamasMax.jogador = 0, rodadaDebuffChamasMax.inimigo = 0
     rodadaDebuffCongeladoMax.jogador = 0, rodadaDebuffCongeladoMax.inimigo = 0
@@ -407,9 +452,45 @@ function definirEstatisticaGeral() {
 
     buffVidaRegen.jogador = false, buffVidaRegen.inimigo = false
     buffDano.jogador = false, buffDano.inimigo = false
+    debuffSangramento.jogador = false, debuffSangramento.inimigo = false
     debuffVeneno.jogador = false, debuffVeneno.inimigo = false
     debuffChamas.jogador = false, debuffChamas.inimigo = false
     debuffCongelado.jogador = false, debuffCongelado.inimigo = false
     debuffEletricidade.jogador = false, debuffEletricidade.inimigo = false
+}
+/*-----*/
+
+
+/*-EXPERIÊNCIA GANHO-*/
+function experienciaGanha() {
+    mainInimigoDerrotado.style.display = 'contents';
+
+    jogador.porcentagem = ((jogadorNivel.experiencia / jogadorNivel.proximoNivel) * 100);
+    jogador.porcentagem = jogador.porcentagem.toPrecision(3);
+
+    jogadorNivel.experienciaPorcentagem = parseInt(jogador.porcentagem);
+
+    if (jogadorNivel.experienciaPorcentagem > 100) {
+        jogadorNivel.experienciaPorcentagem = 100;
+    }
+
+    mensagemInimigoDerrotadoVal.innerHTML = `${inimigoCombatendo} derrotado`;
+    experienciaGanhaVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
+    experienciaGanhaVal.style.backgroundSize = `${jogadorNivel.experienciaPorcentagem}% 100%`;
+}
+/*-----*/
+
+
+/*-MISSÃO CONCLUÍDA-*/
+function missaoProgresso() {
+    if (missao.ativo == true) {
+        missao.inimigosDerrotados++;
+
+        if (missao.inimigosDerrotados >= missao.inimigosDerrotadosMax) {
+            missao.ativo = false;
+            jogador.pecitas += missao.recompensa;
+            menuMissao.innerHTML = `Nenhuma missão iniciada`;
+        }
+    }
 }
 /*-----*/

@@ -1,7 +1,8 @@
-/*-DRAGÃO VARIÁVEIS-*/
+/*-DRAGÃO STATS-*/
 var dragao =
 {
-    nome: 'Dragão', classe: 'magico', resistencia: 'Fogo', fraqueza: 'Eletricidade', experiencia: 60,
+    nome: 'Dragão', resistencia: 'Fogo', fraqueza: 'Eletricidade',
+    nivel: 1, experiencia: 60,
 
     vidaBase: 80, energiaBase: 50, manaBase: 30,
     vidaCombate: 80, energiaCombate: 50, manaCombate: 30,
@@ -12,12 +13,12 @@ var dragao =
 }
 /*-----*/
 
-/*-----*/
+/*-DRAGÃO GOLPES-*/
 var mordidaCortante =
 {
-    nome: 'Mordida cortante', val: 'mordidaCortante',
+    nome: 'Mordida cortante',
 
-    danoBase: 16, danoCombate: 16, tipoDano: 'Fogo',
+    danoBase: 16, danoCombate: 16, tipoDano: 'Físico',
     debuff: 'sangramento', chance: 30, duracao: 2,
 
     energiaCusto: 12, energiaCustoCombate: 12, manaCusto: 0, manaCustoCombate: 0,
@@ -34,22 +35,21 @@ var soproFlamejante =
 }
 /*-----*/
 
-/*-DRAGÃO COMBATE-*/
+/*-DRAGÃO INICIO COMBATE-*/
 function iniciarDragaoCombate() {
-    montanhaDisplay.style.display = 'none';
-    botaoMapaDisplay.style.display = 'none';
-    mainBotaoMenu.style.display = 'none';
-
-    fase = 'dragao';
-    local = 'combate';
+    inimigoCombatendo = 'dragao';
+    localMapa = 'combate';
 
     inimigoHudImagem.src = 'assets/content/img/Dragão.gif';
     inimigoHudImagem.style.width = '50%';
 
+    inimigoGeral = dragao;
+    inimigoArmaGeral = soproFlamejante;
+    funcaoInimigoAtaque = DragaoAtaque;
+
     mainInimigoHud.style.display = 'contents';
     mainHud.style.display = 'contents';
 
-    definirEstatisticaDragao();
     definirEstatisticaGeral();
 
     jogadorCombateHud();
@@ -57,15 +57,9 @@ function iniciarDragaoCombate() {
 
     definirMusica();
 }
-
-function definirEstatisticaDragao() {
-    inimigoGeral = dragao;
-    inimigoArmaGeral = soproFlamejante;
-    funcaoInimigoAtaque = DragaoAtaque;
-}
 /*-----*/
 
-/*-----*/
+/*-DRAGÃO ATAQUE-*/
 function DragaoAtaque() {
     let random = Math.floor(Math.random() * 100) + 0
 
@@ -110,7 +104,7 @@ function DragaoAtaque() {
             }
 
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou com ${inimigoArmaGeral.nome}<br>Dano causado: ${inimigoArmaGeral.danoCombate}<br>Energia usada: ${inimigoArmaGeral.energiaCusto}`);
-            if (criticoJogador == true) {
+            if (criticoInimigo == true) {
                 legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`)
             }
 
