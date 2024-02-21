@@ -16,7 +16,8 @@ var inimigoGeral =
 
 var inimigoHudNome = window.document.querySelector('p#inimigoHudNome');
 var inimigoHudVida = window.document.querySelector('p#inimigoHudVida');
-var inimigoHudEnergiaMana = window.document.querySelector('p#inimigoHudEnergiaMana');
+var inimigoHudEnergia = window.document.querySelector('p#inimigoHudEnergia');
+var inimigoHudMana = window.document.querySelector('p#inimigoHudMana');
 var inimigoHudImagem = window.document.querySelector('img#inimigoHudImagem');
 
 var mensagemInimigoDerrotadoVal = window.document.querySelector('div#mensagemInimigoDerrotado');

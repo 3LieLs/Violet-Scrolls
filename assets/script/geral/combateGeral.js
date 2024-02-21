@@ -351,6 +351,9 @@ function definirEstatisticaGeral() {
     mainJogadorDerrotado.style.display = 'none';
     mainInimigoDerrotado.style.display = 'none';
 
+    inimigoHudEnergia.style.visibility = 'hidden'
+    inimigoHudMana.style.visibility = 'hidden'
+
     jogador.vidaCombate = jogador.vidaBase, jogador.energiaCombate = jogador.energiaBase, jogador.manaCombate = jogador.manaBase;
     jogador.vidaPorcentagem = 100, jogador.energiaPorcentagem = 100, jogador.manaPorcentagem = 100;
     armaGeral.danoCombate = armaGeral.danoBase;

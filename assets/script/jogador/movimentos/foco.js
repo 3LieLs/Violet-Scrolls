@@ -1,14 +1,10 @@
 /*-FOCAR-*/
-function focoUso()
-{
-    if (jogador.manaCombate + armaduraGeral.manaRecuperacao > jogador.manaBase)
-    {
+function focoUso() {
+    if (jogador.manaCombate + armaduraGeral.manaRecuperacao > jogador.manaBase) {
         jogador.manaCombate = jogador.manaBase;
         jogador.manaPorcentagem = 100;
 
-    }
-    else
-    {
+    } else {
         jogador.manaCombate = jogador.manaCombate + armaduraGeral.manaRecuperacao;
 
         jogador.porcentagem = 100 - ((armaduraGeral.manaRecuperacao / jogador.manaBase) * 100);
@@ -24,8 +20,7 @@ function focoUso()
     inimigoCombateHud();
 }
 
-function botaoFocoClick()
-{
+function botaoFocoClick() {
     inicioRodada();
 
     setTimeout(focoUso, 0);

@@ -6,9 +6,9 @@ var golem =
     vidaBase: 50, energiaBase: 30, manaBase: 0,
     vidaCombate: 50, energiaCombate: 30,
 
-    energiaGasto: 10, energiaRecuperacao: 20, manaGasto: 0, manaRecuperacao: 0,
+    energiaRecuperacao: 20, manaRecuperacao: 0,
 
-    danoBase: 15, danoCombate: 15, 
+    danoBase: 15, danoCombate: 15,
 }
 
 
@@ -16,15 +16,24 @@ var golpeMacico =
 {
     nome: 'Golpe maciço', val: 'golpeMacico',
 
-    danoBase: 12, danoCombate: 12, tipoDano: 'Físico', 
+    danoBase: 12, danoCombate: 12, tipoDano: 'Físico',
     debuff: '', chance: 0, duracao: 0,
 
     energiaCusto: 10, energiaCustoCombate: 10, manaCusto: 0, manaCustoCombate: 0,
 }
 
-/*-GOLEM COMBATE-*/
-function iniciarGolemCombate()
+var abaloSismico =
 {
+    nome: 'Abalo sísmico', val: 'abaloSismico',
+
+    danoBase: 20, danoCombate: 20, tipoDano: 'Físico',
+    debuff: '', chance: 0, duracao: 0,
+
+    energiaCusto: 15, energiaCustoCombate: 15, manaCusto: 0, manaCustoCombate: 0,
+}
+
+/*-GOLEM COMBATE-*/
+function iniciarGolemCombate() {
     cavernaDisplay.style.display = 'none';
     botaoMapaDisplay.style.display = 'none';
     mainBotaoMenu.style.display = 'none';
@@ -48,8 +57,7 @@ function iniciarGolemCombate()
 }
 /*-----*/
 
-function definirEstatisticaGolem()
-{
+function definirEstatisticaGolem() {
     inimigoGeral = golem;
     inimigoArmaGeral = golpeMacico;
     funcaoInimigoAtaque = GolemAtaque;
@@ -59,6 +67,15 @@ function definirEstatisticaGolem()
 /*-----*/
 function GolemAtaque() {
     aplicarFraquezaResistenciaJogador()
+
+    let random = Math.floor(Math.random() * 100) + 0
+
+    if (random <= 30) {
+        inimigoArmaGeral = abaloSismico;
+    }
+    if (random > 30) {
+        inimigoArmaGeral = golpeMacico;
+    }
 
     if (inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCusto >= 0) {
 
@@ -94,7 +111,8 @@ function GolemAtaque() {
 
         verificarDebuffArmaInimigo()
 
-    } else {
+    } else { 
+
         inimigoGeral.energiaCombate += inimigoGeral.energiaRecuperacao;
 
         inimigoGeral.porcentagem = 100 - ((inimigoGeral.energiaRecuperacao / inimigoGeral.energiaBase) * 100);

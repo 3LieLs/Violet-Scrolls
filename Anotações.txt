@@ -1,13 +1,12 @@
-Corrigir o bug da energia
+SONS
 Colocar sons nos botões, golpes, e sons dos inimigos atacando e levando golpes
+som de conquista do minecraft ao subir de nivel kk
+
 adicionar minigames nos golpes
 tentar colocar imagem nos  botões de ação
 mudar a cor dos botões caso sem mana ou energia
-Adicionar diferença entre dano Físico e Mágico (nos buffs também)
-Colocar diferentes ataques para os inimigos
-Substituir a classe das magias por tipo de dano
+Colocar chance de crítico
+organizar as ações em batalha
 
 Aumentar a quantidade de itens na loja e colocar sistema de vender itens
 Terminar as funcionalidades dos botões de comprar e vender
-
-som de conquista do minecraft ao subir de nivel kk

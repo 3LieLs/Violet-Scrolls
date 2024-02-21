@@ -1,14 +1,10 @@
 /*-DESCANSAR-*/
-function descansoUso()
-{
-    if (jogador.energiaCombate + armaduraGeral.energiaRecuperacao > jogador.energiaBase)
-    {
+function descansoUso() {
+    if (jogador.energiaCombate + armaduraGeral.energiaRecuperacao > jogador.energiaBase) {
         jogador.energiaCombate = jogador.energiaBase;
         jogador.energiaPorcentagem = 100;
 
-    } 
-    else 
-    {
+    } else {
         jogador.energiaCombate = jogador.energiaCombate + armaduraGeral.energiaRecuperacao;
 
         jogador.porcentagem = 100 - ((armaduraGeral.energiaRecuperacao / jogador.energiaBase) * 100);
@@ -25,8 +21,7 @@ function descansoUso()
 }
 
 
-function botaoDescansoClick()
-{
+function botaoDescansoClick() {
     inicioRodada();
 
     setTimeout(descansoUso, 0);
