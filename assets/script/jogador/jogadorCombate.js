@@ -14,24 +14,76 @@ var quartaEscolha = window.document.querySelector('input#movesetOutrosEscolha');
 quartaEscolha.addEventListener('click', movesetOutrosEscolhaClick);
 /*-----*/
 
+/*-----*/
+function aplicarFraquezaResistenciaInimigo() {
+    if (inimigoGeral.fraqueza == armaGeral.tipoDano) {
+        let aumentarDano = armaGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        armaGeral.danoCombate += aumentarDano
+    }
+
+    if (inimigoGeral.fraqueza == magiaDanoGeral.tipoDano) {
+        let aumentarDano = magiaDanoGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        magiaDanoGeral.danoCombate += aumentarDano
+    }
+
+
+    if (inimigoGeral.resistencia == armaGeral.tipoDano) {
+        let aumentarDano = armaGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        armaGeral.danoCombate -= aumentarDano
+    }
+
+    if (inimigoGeral.resistencia == magiaDanoGeral.tipoDano) {
+        let aumentarDano = magiaDanoGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        magiaDanoGeral.danoCombate -= aumentarDano
+    }
+}
+
+function desaplicarFraquezaResistenciaInimigo() {
+    if (inimigoGeral.fraqueza == armaGeral.tipoDano) {
+        let aumentarDano = armaGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        armaGeral.danoCombate -= aumentarDano
+    }
+
+    if (inimigoGeral.fraqueza == magiaDanoGeral.tipoDano) {
+        let aumentarDano = magiaDanoGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        magiaDanoGeral.danoCombate -= aumentarDano
+    }
+
+
+    if (inimigoGeral.resistencia == armaGeral.tipoDano) {
+        let aumentarDano = armaGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        armaGeral.danoCombate += aumentarDano
+    }
+
+    if (inimigoGeral.resistencia == magiaDanoGeral.tipoDano) {
+        let aumentarDano = magiaDanoGeral.danoBase * 0.15
+        aumentarDano = Math.round(aumentarDano)
+        magiaDanoGeral.danoCombate += aumentarDano
+    }
+}
+/*-----*/
 
 /*-----*/
-function semEnergiaManaVisibilidade()
-{
+function semEnergiaManaVisibilidade() {
     semEnergiaManaDisplay.style.animation = 'semEnergiaManaMostrar 3s 0ms 1';
 
-    setTimeout(function ()
-     {
+    setTimeout(function () {
         semEnergiaManaDisplay.style.animation = 'semEnergiaManaEsconder 1s 1s 1';
-      }, 2000)
+    }, 2000)
 }
 /*-----*/
 
 /*-----*/
 /*-MOVESET ARMA-*/
-function movesetArmaEscolhaClick()
-{
-   
+function movesetArmaEscolhaClick() {
+
     primeiraEscolha.removeEventListener('click', movesetArmaEscolhaClick);
     segundaEscolha.removeEventListener('click', movesetMagiaEscolhaClick);
     terceiraEscolha.removeEventListener('click', movesetArmaduraEscolhaClick);
@@ -63,8 +115,7 @@ function movesetArmaEscolhaClick()
     quartaEscolha.addEventListener('click', voltarArmaAcaoClick);
 }
 
-function ataqueFracoClick()
-{
+function ataqueFracoClick() {
     if (vezUsuario == false) {
         console.log(`Calma ${jogador.nome}, espere a sua vez ${vezUsuario}`)
     }
@@ -75,8 +126,7 @@ function ataqueFracoClick()
     }
 }
 
-function ataqueForteClick()
-{
+function ataqueForteClick() {
     if (vezUsuario == false) {
         console.log(`Calma ${jogador.nome}, espere a sua vez ${vezUsuario}`)
     }
@@ -87,8 +137,7 @@ function ataqueForteClick()
     }
 }
 
-function contraAtaqueClick()
-{
+function contraAtaqueClick() {
     if (vezUsuario == false) {
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
     }
@@ -99,15 +148,13 @@ function contraAtaqueClick()
     }
 }
 
-function voltarArmaAcaoClick()
-{
+function voltarArmaAcaoClick() {
     voltarMovesetInicio();
 }
 /*-----*/
 
 /*-MOVESET MAGIA-*/
-function movesetMagiaEscolhaClick()
-{
+function movesetMagiaEscolhaClick() {
     primeiraEscolha.removeEventListener('click', movesetArmaEscolhaClick);
     segundaEscolha.removeEventListener('click', movesetMagiaEscolhaClick);
     terceiraEscolha.removeEventListener('click', movesetArmaduraEscolhaClick);
@@ -138,8 +185,7 @@ function movesetMagiaEscolhaClick()
     quartaEscolha.addEventListener('click', voltarMagiaAcaoClick);
 }
 
-function magiaDanoClick()
-{
+function magiaDanoClick() {
     if (vezUsuario == false) {
         movesetMagiaEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
@@ -151,8 +197,7 @@ function magiaDanoClick()
     }
 }
 
-function magiaRecuperarClick()
-{
+function magiaRecuperarClick() {
     if (vezUsuario == false) {
         movesetMagiaEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
@@ -164,8 +209,7 @@ function magiaRecuperarClick()
     }
 }
 
-function magiaBuffClick()
-{
+function magiaBuffClick() {
     if (vezUsuario == false) {
         movesetMagiaEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
@@ -177,15 +221,13 @@ function magiaBuffClick()
     }
 }
 
-function voltarMagiaAcaoClick()
-{
+function voltarMagiaAcaoClick() {
     voltarMovesetInicio();
 }
 /*-----*/
 
 /*-MOVESET ARMADURA-*/
-function movesetArmaduraEscolhaClick()
-{
+function movesetArmaduraEscolhaClick() {
     primeiraEscolha.removeEventListener('click', movesetArmaEscolhaClick);
     segundaEscolha.removeEventListener('click', movesetMagiaEscolhaClick);
     terceiraEscolha.removeEventListener('click', movesetArmaduraEscolhaClick);
@@ -216,8 +258,7 @@ function movesetArmaduraEscolhaClick()
     quartaEscolha.addEventListener('click', voltarArmaduraAcaoClick);
 }
 
-function bloquearClick()
-{
+function bloquearClick() {
     if (vezUsuario == false) {
         movesetArmaduraEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
@@ -229,8 +270,7 @@ function bloquearClick()
     }
 }
 
-function descansoClick()
-{
+function descansoClick() {
     if (vezUsuario == false) {
         movesetArmaduraEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
@@ -242,8 +282,7 @@ function descansoClick()
     }
 }
 
-function focoClick()
-{
+function focoClick() {
     if (vezUsuario == false) {
         movesetArmaduraEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
@@ -255,23 +294,20 @@ function focoClick()
     }
 }
 
-function voltarArmaduraAcaoClick()
-{
+function voltarArmaduraAcaoClick() {
     voltarMovesetInicio();
 }
 /*-----*/
 
 /*-MOVESET OUTROS-*/
-function movesetOutrosEscolhaClick()
-{
-    
+function movesetOutrosEscolhaClick() {
+
 
 }
 /*-----*/
 
 /*-MOVESET RESET-*/
-function voltarMovesetInicio()
-{
+function voltarMovesetInicio() {
     primeiraEscolha.removeEventListener('click', ataqueFracoClick);
     primeiraEscolha.removeEventListener('click', magiaDanoClick);
     primeiraEscolha.removeEventListener('click', bloquearClick);

@@ -1,5 +1,7 @@
 /*-ATAQUE FRACO-*/
 function contraAtaqueDano() {
+    aplicarFraquezaResistenciaInimigo()
+
     armaGeral.danoCombate = armaGeral.danoCombate * 2
 
 
@@ -36,6 +38,8 @@ function contraAtaqueDano() {
 
     jogadorCombateHud()
     inimigoCombateHud()
+
+    desaplicarFraquezaResistenciaInimigo()
 }
 
 function botaoContraAtaqueClick() {
@@ -45,7 +49,7 @@ function botaoContraAtaqueClick() {
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} se preparou para um contra-ataque`);
 
         setTimeout(contraAtaqueDano, 4000);
-        setTimeout(inimigoDerrotado, 4000);
+        setTimeout(inimigoDerrotado, 5000);
 
         setTimeout(inimigoAtaque, 2000);
         setTimeout(jogadorCombateHud, 2000);
@@ -53,7 +57,7 @@ function botaoContraAtaqueClick() {
         setTimeout(jogadorDerrotado, 3000);
 
         setTimeout(buff_debuff_jogador, 5000)
-        setTimeout(buff_debuff_inimigo, 3500)
+        setTimeout(buff_debuff_inimigo, 5500)
 
         setTimeout(fimRodada, 6000);
     }

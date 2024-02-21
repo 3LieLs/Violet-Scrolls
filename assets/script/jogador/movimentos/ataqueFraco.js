@@ -1,5 +1,6 @@
 /*-ATAQUE FRACO-*/
 function ataqueFracoDano() {
+    aplicarFraquezaResistenciaInimigo()
 
     if (inimigoGeral.vidaCombate - armaGeral.danoCombate < 0) {
         inimigoGeral.vidaCombate = 0
@@ -32,6 +33,8 @@ function ataqueFracoDano() {
 
     jogadorCombateHud();
     inimigoCombateHud();
+
+    desaplicarFraquezaResistenciaInimigo()
 }
 
 function botaoAtaqueFracoClick() {

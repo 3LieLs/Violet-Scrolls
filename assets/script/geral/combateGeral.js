@@ -348,19 +348,37 @@ function calculoDefesa() {
 
 /*-DEFINIR ESTATISTICA-*/
 function definirEstatisticaGeral() {
-    legendaView.innerHTML = ``;
-    voltarMovesetInicio()
-
     mainJogadorDerrotado.style.display = 'none';
     mainInimigoDerrotado.style.display = 'none';
 
     jogador.vidaCombate = jogador.vidaBase, jogador.energiaCombate = jogador.energiaBase, jogador.manaCombate = jogador.manaBase;
     jogador.vidaPorcentagem = 100, jogador.energiaPorcentagem = 100, jogador.manaPorcentagem = 100;
-
     armaGeral.danoCombate = armaGeral.danoBase;
 
-    inimigoGeral.porcentagem = 0, inimigoGeral.vidaPorcentagem = 100, inimigoGeral.energiaPorcentagem = 100, inimigoGeral.manaPorcentagem = 100;
-
     inimigoGeral.vidaCombate = inimigoGeral.vidaBase, inimigoGeral.energiaCombate = inimigoGeral.energiaBase, inimigoGeral.manaCombate = inimigoGeral.manaBase;
+    inimigoGeral.porcentagem = 0, inimigoGeral.vidaPorcentagem = 100, inimigoGeral.energiaPorcentagem = 100, inimigoGeral.manaPorcentagem = 100;
+    inimigoArmaGeral.danoCombate = inimigoArmaGeral.danoBase
+
+
+
+    legendaView.innerHTML = ``;
+    voltarMovesetInicio()
+    rodada = 0;
+
+    rodadaBuffDanoMax.jogador = 0, rodadaBuffDanoMax.inimigo = 0
+    rodadaBuffVidaRegenMax.jogador = 0, rodadaBuffVidaRegenMax.inimigo = 0
+    rodadaBuffDefesaMax.jogador = 0, rodadaBuffDefesaMax.inimigo = 0
+    rodadaBuffVidaMax.jogador = 0, rodadaBuffVidaMax.inimigo = 0
+    rodadaDebuffVenenoMax.jogador = 0, rodadaDebuffVenenoMax.inimigo = 0
+    rodadaDebuffChamasMax.jogador = 0, rodadaDebuffChamasMax.inimigo = 0
+    rodadaDebuffCongeladoMax.jogador = 0, rodadaDebuffCongeladoMax.inimigo = 0
+    rodadaDebuffEletricidadeMax.jogador = 0, rodadaDebuffEletricidadeMax.inimigo = 0
+
+    buffVidaRegen.jogador = false, buffVidaRegen.inimigo = false
+    buffDano.jogador = false, buffDano.inimigo = false
+    debuffVeneno.jogador = false, debuffVeneno.inimigo = false
+    debuffChamas.jogador = false, debuffChamas.inimigo = false
+    debuffCongelado.jogador = false, debuffCongelado.inimigo = false
+    debuffEletricidade.jogador = false, debuffEletricidade.inimigo = false
 }
 /*-----*/

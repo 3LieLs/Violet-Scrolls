@@ -38,7 +38,6 @@ function jogadorDerrotado()
 {
     if (jogador.vidaCombate <= 0)
     {
-        rodada = 0;
         local = 'taverna';
 
         mainHud.style.display = 'none';

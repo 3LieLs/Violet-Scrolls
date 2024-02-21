@@ -1,3 +1,23 @@
+/*-----*/
+var
+    rodadaBuffDanoMax = { jogador: 0, inimigo: 0, },
+    rodadaBuffVidaRegenMax = { jogador: 0, inimigo: 0, },
+    rodadaBuffDefesaMax = { jogador: 0, inimigo: 0, },
+    rodadaBuffVidaMax = { jogador: 0, inimigo: 0, },
+    rodadaDebuffVenenoMax = { jogador: 0, inimigo: 0, },
+    rodadaDebuffChamasMax = { jogador: 0, inimigo: 0, },
+    rodadaDebuffCongeladoMax = { jogador: 0, inimigo: 0, },
+    rodadaDebuffEletricidadeMax = { jogador: 0, inimigo: 0, }
+
+var
+    buffVidaRegen = { jogador: false, inimigo: false, },
+    buffDano = { jogador: false, inimigo: false, },
+    debuffVeneno = { jogador: false, inimigo: false, },
+    debuffChamas = { jogador: false, inimigo: false, },
+    debuffCongelado = { jogador: false, inimigo: false, },
+    debuffEletricidade = { jogador: false, inimigo: false, }
+/*-----*/
+
 var magiaBuffGeral =
 {
     nome: '', classe: '', ativo: false, obtido: false, val: '', preco: 0,
@@ -14,7 +34,7 @@ var magiaBuffGeral =
 var furiaDeTouro =
 {
     nome: 'Furia de Touro', classe: 'Mágico', obtido: false, val: 'furiaDeTouro', preco: 7,
-    
+
     buff: 'dano', duracao: 3,
     danoBuff: 0.10,
 
@@ -39,10 +59,10 @@ function adicionarFuriaDeTouro() {
 var esferasDaVida =
 {
     nome: 'Esferas da vida', classe: 'Mágico', obtido: false, val: 'esferasDaVida', preco: 7,
-    
+
     buff: 'vidaRegen', duracao: 5,
     vidaRegenBuff: 0.15,
-    
+
     manaCusto: 15, manaCustoCombate: 15,
 }
 function equipEsferasDaVida() {

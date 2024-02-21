@@ -1,5 +1,7 @@
 /*-ATAQUE ESPECIAL-*/
 function ataqueForteDano() {
+    aplicarFraquezaResistenciaInimigo()
+
     if (inimigoGeral.vidaCombate - parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2)) < 0) {
         inimigoGeral.vidaCombate = 0;
         inimigoGeral.vidaPorcentagem = 0.1;
@@ -31,6 +33,8 @@ function ataqueForteDano() {
 
     jogadorCombateHud();
     inimigoCombateHud();
+
+    desaplicarFraquezaResistenciaInimigo()
 }
 
 function botaoAtaqueForteClick() {

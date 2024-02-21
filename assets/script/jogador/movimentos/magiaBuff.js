@@ -1,24 +1,3 @@
-/*-----*/
-var
-    rodadaBuffDanoMax = { jogador: 0, inimigo: 0, },
-    rodadaBuffVidaRegenMax = { jogador: 0, inimigo: 0, },
-    rodadaBuffDefesaMax = { jogador: 0, inimigo: 0, },
-    rodadaBuffVidaMax = { jogador: 0, inimigo: 0, },
-    rodadaDebuffVenenoMax = { jogador: 0, inimigo: 0, },
-    rodadaDebuffChamasMax = { jogador: 0, inimigo: 0, },
-    rodadaDebuffCongeladoMax = { jogador: 0, inimigo: 0, },
-    rodadaDebuffEletricidadeMax = { jogador: 0, inimigo: 0, }
-
-var
-    buffVidaRegen = { jogador: false, inimigo: false, },
-    buffDano = { jogador: false, inimigo: false, },
-    debuffVeneno = { jogador: false, inimigo: false, },
-    debuffChamas = { jogador: false, inimigo: false, },
-    debuffCongelado = { jogador: false, inimigo: false, },
-    debuffEletricidade = { jogador: false, inimigo: false, }
-/*-----*/
-
-
 /*-DESCANSAR-*/
 function magiaBuffUso() {
     legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaBuffGeral.nome}<br>Mana gasta: ${magiaBuffGeral.manaCusto}`)

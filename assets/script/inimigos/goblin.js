@@ -1,7 +1,7 @@
 /*-GOBLIN VARIÁVEIS-*/
 var goblin =
 {
-    nome: 'Goblin', classe: 'fisico', resistencia: '', fraqueza: '', experiencia: 10,
+    nome: 'Goblin', classe: 'fisico', resistencia: 'Gelo', fraqueza: 'Físico', experiencia: 10,
 
     vidaBase: 25, energiaBase: 15, manaBase: 0,
     vidaCombate: 25, energiaCombate: 15, manaCombate: 0,
@@ -41,6 +41,8 @@ function definirEstatisticaGoblin() {
 }
 
 function GoblinAtaque() {
+    aplicarFraquezaResistenciaJogador()
+
     if (inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCusto >= 0) {
 
         if (jogador.vidaCombate - inimigoArmaGeral.danoCombate < 0) {
@@ -49,7 +51,6 @@ function GoblinAtaque() {
             jogador.porcentagem = 0;
         }
         else {
-
             jogador.vidaCombate -= inimigoArmaGeral.danoCombate;
 
             jogador.porcentagem = 100 - ((inimigoArmaGeral.danoCombate / jogador.vidaBase) * 100);
@@ -74,16 +75,7 @@ function GoblinAtaque() {
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou com ${inimigoArmaGeral.nome}<br>Dano causado: ${inimigoArmaGeral.danoCombate}<br>Energia usada: ${inimigoArmaGeral.energiaCusto}`);
 
-        if (inimigoArmaGeral.debuff == 'veneno') {
-            let x = Math.floor(Math.random() * 100) + 0;
-
-            if (x < inimigoArmaGeral.chance && debuffVeneno.jogador == false) {
-                rodadaDebuffVenenoMax.jogador = parseInt(rodada) + parseInt(inimigoArmaGeral.duracao)
-                debuffVeneno.jogador = true
-
-                legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoArmaGeral.nome} envenenou ${jogador.nome}`);
-            }
-        }
+        verificarDebuffArmaInimigo()
 
     } else {
         inimigoGeral.energiaCombate += inimigoGeral.energiaRecuperacao;
@@ -96,5 +88,7 @@ function GoblinAtaque() {
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} descansou<br>Energia recuperada: ${inimigoGeral.energiaRecuperacao}`);
     }
+
+    desaplicarFraquezaResistenciaJogador()
 }
 /*-----*/

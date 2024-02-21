@@ -27,8 +27,6 @@ var experienciaGanhaVal = window.document.querySelector('p#experienciaGanha');
 /*-INIMIGO DERROTADO-*/
 function inimigoDerrotado() {
     if (inimigoGeral.vidaCombate <= 0) {
-        rodada = 0;
-
         mainHud.style.display = 'none';
         mainInimigoHud.style.display = 'none';
 

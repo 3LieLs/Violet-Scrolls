@@ -1,5 +1,6 @@
 /*-ATAQUE FRACO-*/
 function MagiaDanoUso() {
+    aplicarFraquezaResistenciaInimigo()
 
     if (inimigoGeral.vidaCombate - magiaDanoGeral.danoCombate < 0) {
         inimigoGeral.vidaCombate = 0
@@ -65,6 +66,8 @@ function MagiaDanoUso() {
 
     jogadorCombateHud()
     inimigoCombateHud()
+
+    desaplicarFraquezaResistenciaInimigo()
 }
 
 function botaoMagiaDanoClick() {
