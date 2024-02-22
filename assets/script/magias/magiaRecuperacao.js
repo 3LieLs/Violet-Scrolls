@@ -54,3 +54,28 @@ function adicionarRaiosRevigorantes()
     addItemNome = raiosRevigorantes.nome;
     funcaoEquip = equipRaiosRevigorantes;
 }
+
+
+
+var purificacaoAstral =
+{
+    nome: 'Purificacao astral', tipo: 'buff', obtido: false, val: 'purificacaoAstral', preco: 15,
+    vidaRecuperacao: 15, energiaRecuperacao: 0, manaRecuperacao: 0,
+    energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15,
+}
+function equipPurificacaoAstral()
+{
+    magiaRecuperacaoGeral = purificacaoAstral;
+
+    if (mudarMagiasRecuperacao == true) {
+        atualizarItensMagiasRecuperacao();
+    }
+}
+function adicionarPurificacaoAstral()
+{
+    purificacaoAstral.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = purificacaoAstral.val;
+    addItemNome = purificacaoAstral.nome;
+    funcaoEquip = equipPurificacaoAstral;
+}

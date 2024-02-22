@@ -106,33 +106,33 @@ function menuDisplay() {
 function menuDisplayAbrir() {
     menu.style.display = 'contents';
 
-    if (local == 'taverna') {
+    if (localMapa == 'taverna') {
         taverna.style.display = 'none';
     }
 
-    if (local == 'vendedor') {
+    if (localMapa == 'vendedor') {
         vendedorDisplay.style.display = 'none';
     }
 
-    if (local == 'ferreiro') {
+    if (localMapa == 'ferreiro') {
         ferreiroDisplay.style.display = 'none';
 
     }
 
-    if (local == 'feiticeiro') {
+    if (localMapa == 'feiticeiro') {
         feiticeiroDisplay.style.display = 'none';
 
     }
 
-    if (local == 'floresta') {
+    if (localMapa == 'floresta') {
         florestaDisplay.style.display = 'none';
     }
 
-    if (local == 'caverna') {
+    if (localMapa == 'caverna') {
         cavernaDisplay.style.display = 'none';
     }
 
-    if (local == 'montanha') {
+    if (localMapa == 'montanha') {
         montanhaDisplay.style.display = 'none';
     }
 
@@ -144,37 +144,37 @@ function menuDisplayAbrir() {
 /*-----*/
 function menuDisplayFechar() {
     menu.style.display = 'none';
-    if (local == 'taverna') {
+    if (localMapa == 'taverna') {
         taverna.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
     }
 
-    if (local == 'vendedor') {
+    if (localMapa == 'vendedor') {
         vendedorDisplay.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
     }
 
-    if (local == 'ferreiro') {
+    if (localMapa == 'ferreiro') {
         ferreiroDisplay.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
     }
 
-    if (local == 'feiticeiro') {
+    if (localMapa == 'feiticeiro') {
         feiticeiroDisplay.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
     }
 
-    if (local == 'floresta') {
+    if (localMapa == 'floresta') {
         florestaDisplay.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
     }
 
-    if (local == 'caverna') {
+    if (localMapa == 'caverna') {
         cavernaDisplay.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
     }
 
-    if (local == 'montanha') {
+    if (localMapa == 'montanha') {
         montanhaDisplay.style.display = 'contents';
         botaoMapaDisplay.style.display = 'contents';
     }

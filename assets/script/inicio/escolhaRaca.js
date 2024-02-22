@@ -192,7 +192,7 @@ function racaEscolhida()
     escolhaRaca.style.display = 'none';
 
     taverna.style.display = 'contents';
-    local = 'taverna';
+    localMapa = 'taverna';
 
     mainBotaoMenu.style.display = 'contents';
     botaoMapaDisplay.style.display = 'contents';

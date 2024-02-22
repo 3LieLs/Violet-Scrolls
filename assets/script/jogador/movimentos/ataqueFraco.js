@@ -45,7 +45,7 @@ function ataqueFracoDano() {
 }
 
 function botaoAtaqueFracoClick() {
-    if (armaGeral.tipoDano == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - armaGeral.energiaCusto >= 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - armaGeral.manaCusto >= 0) {
+    if (jogador.energiaCombate - armaGeral.energiaCusto >= 0 || jogador.manaCombate - armaGeral.manaCusto >= 0) {
         inicioRodada();
 
         setTimeout(ataqueFracoDano, 0);
@@ -62,14 +62,14 @@ function botaoAtaqueFracoClick() {
         setTimeout(fimRodada, 4000);
     }
 
-    if (armaGeral.tipoDano == 'Físico' && jogador.energiaCombate < 0 || armaGeral.classe == 'Físico' && jogador.energiaCombate - armaGeral.energiaCusto < 0) {
+    if (jogador.energiaCombate - armaGeral.energiaCusto < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
 
         semEnergiaManaVisibilidade();
     }
 
-    if (armaGeral.tipoDano == 'Mágico' && jogador.manaCombate < 0 || armaGeral.classe == 'Mágico' && jogador.manaCombate - armaGeral.manaCusto < 0) {
+    if (jogador.manaCombate - armaGeral.manaCusto < 0) {
         semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
         semEnergiaMana.style.color = 'blue';
 

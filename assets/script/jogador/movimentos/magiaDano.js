@@ -39,7 +39,7 @@ function MagiaDanoUso() {
 }
 
 function botaoMagiaDanoClick() {
-    if (magiaDanoGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - magiaDanoGeral.energiaCusto >= 0 || magiaDanoGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - magiaDanoGeral.manaCusto >= 0) {
+    if (jogador.energiaCombate - magiaDanoGeral.energiaCusto >= 0 || jogador.manaCombate - magiaDanoGeral.manaCusto >= 0) {
         inicioRodada();
 
         setTimeout(MagiaDanoUso, 0);
@@ -56,14 +56,14 @@ function botaoMagiaDanoClick() {
         setTimeout(fimRodada, 4000);
     }
 
-    if (magiaDanoGeral.classe == 'Físico' && jogador.energiaCombate <= 0 || jogador.energiaCombate - magiaDanoGeral.energiaCusto < 0) {
+    if (jogador.energiaCombate - magiaDanoGeral.energiaCusto < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
 
         semEnergiaManaVisibilidade();
     }
 
-    if (magiaDanoGeral.classe == 'Mágico' && jogador.manaCombate <= 0 || jogador.manaCombate - magiaDanoGeral.manaCusto < 0) {
+    if (jogador.manaCombate - magiaDanoGeral.manaCusto < 0) {
         semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
         semEnergiaMana.style.color = 'blue';
 

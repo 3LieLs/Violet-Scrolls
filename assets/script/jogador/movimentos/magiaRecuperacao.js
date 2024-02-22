@@ -1,21 +1,40 @@
 /*-DESCANSAR-*/
 function magiaRecuperacaoUso() {
 
-    legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCusto}`)
-    legendaView.insertAdjacentHTML('beforeend', `<br>${magiaRecuperacaoGeral.tipo} recuperado: ${magiaRecuperacaoGeral.vidaRecuperacao}`)
+    if (magiaRecuperacaoGeral.tipo == 'vida') {
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCusto}`)
+        legendaView.insertAdjacentHTML('beforeend', `<br>${magiaRecuperacaoGeral.tipo} recuperado: ${magiaRecuperacaoGeral.vidaRecuperacao}`)
 
-    if (jogador.vidaCombate + magiaRecuperacaoGeral.vidaRecuperacao > jogador.vidaBase) {
-        jogador.vidaCombate = jogador.vidaBase
-        jogador.vidaPorcentagem = 100
+        if (jogador.vidaCombate + magiaRecuperacaoGeral.vidaRecuperacao > jogador.vidaBase) {
+            jogador.vidaCombate = jogador.vidaBase
+            jogador.vidaPorcentagem = 100
 
-    } else {
-        jogador.vidaCombate += magiaRecuperacaoGeral.vidaRecuperacao
+        } else {
+            jogador.vidaCombate += magiaRecuperacaoGeral.vidaRecuperacao
 
-        jogador.porcentagem = 100 - ((magiaRecuperacaoGeral.vidaRecuperacao / jogador.vidaBase) * 100)
-        jogador.porcentagem = 100 - jogador.porcentagem
-        jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+            jogador.porcentagem = 100 - ((magiaRecuperacaoGeral.vidaRecuperacao / jogador.vidaBase) * 100)
+            jogador.porcentagem = 100 - jogador.porcentagem
+            jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
-        jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) + parseInt(jogador.porcentagem)
+            jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) + parseInt(jogador.porcentagem)
+        }
+    }
+
+    if (magiaRecuperacaoGeral.tipo == 'buff') {
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCusto}`)
+        legendaView.insertAdjacentHTML('beforeend', `<br>${magiaRecuperacaoGeral.nome} purificou ${jogador.nome} de todas os efeitos negativos`)
+
+        rodadaDebuffSangramentoMax.jogador = 0
+        rodadaDebuffVenenoMax.jogador = 0
+        rodadaDebuffChamasMax.jogador = 0
+        rodadaDebuffCongeladoMax.jogador = 0
+        rodadaDebuffEletricidadeMax.jogador = 0
+
+        debuffSangramento.jogador = false
+        debuffVeneno.jogador = false
+        debuffChamas.jogador = false
+        debuffCongelado.jogador = false
+        debuffEletricidade.jogador = false
     }
 
     jogador.manaCombate = jogador.manaCombate - magiaRecuperacaoGeral.manaCusto
@@ -36,7 +55,7 @@ function magiaRecuperacaoUso() {
 
 
 function botaoMagiaRecuperacaoClick() {
-    if (magiaRecuperacaoGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - magiaRecuperacaoGeral.energiaCusto >= 0 || magiaRecuperacaoGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - magiaRecuperacaoGeral.manaCusto >= 0) {
+    if (jogador.energiaCombate - magiaRecuperacaoGeral.energiaCusto >= 0 || jogador.manaCombate - magiaRecuperacaoGeral.manaCusto >= 0) {
         inicioRodada();
 
         setTimeout(magiaRecuperacaoUso, 0);
@@ -53,14 +72,14 @@ function botaoMagiaRecuperacaoClick() {
         setTimeout(fimRodada, 4000);
     }
 
-    if (magiaRecuperacaoGeral.classe == 'Físico' && jogador.energiaCombate <= 0 || jogador.energiaCombate - magiaRecuperacaoGeral.energiaCusto < 0) {
+    if (jogador.energiaCombate - magiaRecuperacaoGeral.energiaCusto < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
 
         semEnergiaManaVisibilidade();
     }
 
-    if (magiaRecuperacaoGeral.classe == 'Mágico' && jogador.manaCombate <= 0 || jogador.manaCombate - magiaRecuperacaoGeral.manaCusto < 0) {
+    if (jogador.manaCombate - magiaRecuperacaoGeral.manaCusto < 0) {
         semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
         semEnergiaMana.style.color = 'blue';
 

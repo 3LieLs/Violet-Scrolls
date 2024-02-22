@@ -44,7 +44,7 @@ function magiaBuffUso() {
 
 
 function botaoMagiaBuffClick() {
-    if (magiaBuffGeral.classe == 'Físico' && jogador.energiaCombate > 0 && jogador.energiaCombate - magiaBuffGeral.energiaCusto >= 0 || magiaBuffGeral.classe == 'Mágico' && jogador.manaCombate > 0 && jogador.manaCombate - magiaBuffGeral.manaCusto >= 0) {
+    if (jogador.energiaCombate - magiaBuffGeral.energiaCusto >= 0 || jogador.manaCombate - magiaBuffGeral.manaCusto >= 0) {
         vezUsuario = false;
 
         inicioRodada();
@@ -63,14 +63,14 @@ function botaoMagiaBuffClick() {
         setTimeout(fimRodada, 4000);
     }
 
-    if (magiaBuffGeral.classe == 'Físico' && jogador.energiaCombate <= 0 || jogador.energiaCombate - magiaBuffGeral.energiaCusto < 0) {
+    if (jogador.energiaCombate - magiaBuffGeral.energiaCusto < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
 
         semEnergiaManaVisibilidade();
     }
 
-    if (magiaBuffGeral.classe == 'Mágico' && jogador.manaCombate <= 0 || jogador.manaCombate - magiaBuffGeral.manaCusto < 0) {
+    if (jogador.manaCombate - magiaBuffGeral.manaCusto < 0) {
         semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
         semEnergiaMana.style.color = 'blue';
 

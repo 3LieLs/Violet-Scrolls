@@ -4,12 +4,12 @@ var danoBloqueado = 0;
 function bloquearUso() {
     legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} Assumiu uma postura defensiva`);
 
-    danoBloqueado = inimigoGeral.danoCombate;
-    inimigoGeral.danoCombate = inimigoGeral.danoCombate / 2;
-    inimigoGeral.danoCombate = Math.round(inimigoGeral.danoCombate)
+    danoBloqueado = inimigoArmaGeral.danoCombate * 0.25;
+    danoBloqueado = Math.round(danoBloqueado)
+    inimigoArmaGeral.danoCombate -= danoBloqueado;
 }
 function bloquearDesuso() {
-    inimigoGeral.danoCombate = danoBloqueado;
+    inimigoArmaGeral.danoCombate += danoBloqueado;
 }
 
 function botaoBloquearClick() {
