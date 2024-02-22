@@ -1,49 +1,49 @@
-/*-GOLEM STATUS-*/
-var golem =
+/*-GOLEM DE FOGO STATUS-*/
+var golemDeFogo =
 {
-    nome: 'Golem', resistencia: 'Físico', fraqueza: 'Nenhuma',
+    nome: 'Golem de fogo', resistencia: 'Fogo', fraqueza: 'Fogo',
     nivel: 1, experiencia: 30,
 
-    vidaBase: 65, energiaBase: 30, manaBase: 0,
-    vidaCombate: 65, energiaCombate: 30, manaCombate: 0,
+    vidaBase: 50, energiaBase: 0, manaBase: 40,
+    vidaCombate: 50, energiaCombate: 0, manaCombate: 40,
 
-    energiaRecuperacao: 15, manaRecuperacao: 0,
+    energiaRecuperacao: 0, manaRecuperacao: 30,
 }
 /*-----*/
 
-/*-GOLEM GOLPES-*/
-var golpeMacico =
+/*-GOLEM DE FOGO GOLPES-*/
+var esferaFlamejante =
 {
-    nome: 'Golpe maciço',
+    nome: 'Esfera flamejante',
 
-    danoBase: 12, danoCombate: 12, tipoDano: 'Físico',
-    debuff: '', chance: 0, duracao: 0,
+    danoBase: 15, danoCombate: 15, tipoDano: 'Fogo',
+    debuff: 'chamas', chance: 30, duracao: 2,
 
-    energiaCusto: 10, energiaCustoCombate: 10, manaCusto: 0, manaCustoCombate: 0,
+    energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 10, manaCustoCombate: 10,
 }
 
-var abaloSismico =
+var erupcao =
 {
-    nome: 'Abalo sísmico',
+    nome: 'Erupção',
 
-    danoBase: 20, danoCombate: 20, tipoDano: 'Físico',
-    debuff: '', chance: 0, duracao: 0,
+    danoBase: 20, danoCombate: 20, tipoDano: 'Fogo',
+    debuff: 'chamas', chance: 15, duracao: 4,
 
-    energiaCusto: 15, energiaCustoCombate: 15, manaCusto: 0, manaCustoCombate: 0,
+    energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 20, manaCustoCombate: 20,
 }
 /*-----*/
 
-/*-GOLEM INICIO COMBATE-*/
-function iniciarGolemCombate() {
-    inimigoCombatendo = 'golem';
+/*-GOLEM DE FOGO INICIO COMBATE-*/
+function iniciarGolemDeFogoCombate() {
+    inimigoCombatendo = 'Golem de fogo';
     localMapa = 'combate';
 
-    inimigoHudImagem.src = 'assets/content/img/Golem.gif';
+    inimigoHudImagem.src = 'assets/content/img/GolemDeFogo.webp';
     inimigoHudImagem.style.width = '50%';
 
-    inimigoGeral = golem;
+    inimigoGeral = golemDeFogo;
     inimigoArmaGeral = golpeMacico;
-    funcaoInimigoAtaque = GolemAtaque;
+    funcaoInimigoAtaque = GolemDeFogoAtaque;
 
     mainInimigoHud.style.display = 'contents';
     mainHud.style.display = 'contents';
@@ -57,15 +57,15 @@ function iniciarGolemCombate() {
 }
 /*-----*/
 
-/*-GOLEM ATAQUE-*/
-function GolemAtaque() {
+/*-GOLEM DE FOGO ATAQUE-*/
+function GolemDeFogoAtaque() {
     let random = Math.floor(Math.random() * 100) + 0
 
     if (random <= 30) {
-        inimigoArmaGeral = abaloSismico;
+        inimigoArmaGeral = erupcao;
     }
     if (random > 30) {
-        inimigoArmaGeral = golpeMacico;
+        inimigoArmaGeral = esferaFlamejante;
     }
 
     if (inimigoArmaGeral.energiaCusto > 0) {

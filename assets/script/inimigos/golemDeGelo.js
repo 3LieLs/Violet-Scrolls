@@ -1,49 +1,49 @@
-/*-GOLEM STATUS-*/
-var golem =
+/*-GOLEM DE GELO STATUS-*/
+var golemDeGelo =
 {
-    nome: 'Golem', resistencia: 'Físico', fraqueza: 'Nenhuma',
+    nome: 'Golem de gelo', resistencia: 'Gelo', fraqueza: 'Fogo',
     nivel: 1, experiencia: 30,
 
-    vidaBase: 65, energiaBase: 30, manaBase: 0,
-    vidaCombate: 65, energiaCombate: 30, manaCombate: 0,
+    vidaBase: 35, energiaBase: 40, manaBase: 20,
+    vidaCombate: 35, energiaCombate: 40, manaCombate: 20,
 
-    energiaRecuperacao: 15, manaRecuperacao: 0,
+    energiaRecuperacao: 25, manaRecuperacao: 20,
 }
 /*-----*/
 
-/*-GOLEM GOLPES-*/
-var golpeMacico =
+/*-GOLEM DE GELO GOLPES-*/
+var golpeGelido =
 {
-    nome: 'Golpe maciço',
+    nome: 'Golpe gélido',
 
-    danoBase: 12, danoCombate: 12, tipoDano: 'Físico',
-    debuff: '', chance: 0, duracao: 0,
+    danoBase: 10, danoCombate: 10, tipoDano: 'Gelo',
+    debuff: 'congelado', chance: 25, duracao: 2,
 
     energiaCusto: 10, energiaCustoCombate: 10, manaCusto: 0, manaCustoCombate: 0,
 }
 
-var abaloSismico =
+var espinhosGlacial =
 {
-    nome: 'Abalo sísmico',
+    nome: 'Espinhos glacial',
 
-    danoBase: 20, danoCombate: 20, tipoDano: 'Físico',
-    debuff: '', chance: 0, duracao: 0,
+    danoBase: 15, danoCombate: 15, tipoDano: 'Gelo',
+    debuff: 'congelado', chance: 40, duracao: 4,
 
-    energiaCusto: 15, energiaCustoCombate: 15, manaCusto: 0, manaCustoCombate: 0,
+    energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 10, manaCustoCombate: 10,
 }
 /*-----*/
 
-/*-GOLEM INICIO COMBATE-*/
-function iniciarGolemCombate() {
-    inimigoCombatendo = 'golem';
+/*-GOLEM DE GELO INICIO COMBATE-*/
+function iniciarGolemDeGeloCombate() {
+    inimigoCombatendo = 'Golem de gelo';
     localMapa = 'combate';
 
-    inimigoHudImagem.src = 'assets/content/img/Golem.gif';
+    inimigoHudImagem.src = 'assets/content/img/GolemDeGelo.gif';
     inimigoHudImagem.style.width = '50%';
 
-    inimigoGeral = golem;
+    inimigoGeral = golemDeGelo;
     inimigoArmaGeral = golpeMacico;
-    funcaoInimigoAtaque = GolemAtaque;
+    funcaoInimigoAtaque = GolemDeGeloAtaque;
 
     mainInimigoHud.style.display = 'contents';
     mainHud.style.display = 'contents';
@@ -57,15 +57,15 @@ function iniciarGolemCombate() {
 }
 /*-----*/
 
-/*-GOLEM ATAQUE-*/
-function GolemAtaque() {
+/*-GOLEM DE GELO ATAQUE-*/
+function GolemDeGeloAtaque() {
     let random = Math.floor(Math.random() * 100) + 0
 
-    if (random <= 30) {
-        inimigoArmaGeral = abaloSismico;
+    if (random <= 40) {
+        inimigoArmaGeral = espinhosGlacial;
     }
-    if (random > 30) {
-        inimigoArmaGeral = golpeMacico;
+    if (random > 40) {
+        inimigoArmaGeral = golpeGelido;
     }
 
     if (inimigoArmaGeral.energiaCusto > 0) {

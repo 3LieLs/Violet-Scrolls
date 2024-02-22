@@ -10,6 +10,13 @@ function botaoIniciarCombateFlorestaClick()
     botaoMapaDisplay.style.display = 'none';
     mainBotaoMenu.style.display = 'none';
 
-    iniciarGoblinCombate();
+    let x = Math.floor(Math.random() * 2) + 1
+    if (x == 1) {
+        iniciarGoblinCombate();
+    }
+
+    if (x == 2) {
+        iniciarBesouroGiganteCombate();
+    }
 }
 /*-----*/

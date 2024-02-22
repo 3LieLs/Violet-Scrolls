@@ -8,7 +8,19 @@ function botaoIniciarCombateCavernaClick() {
     cavernaDisplay.style.display = 'none';
     botaoMapaDisplay.style.display = 'none';
     mainBotaoMenu.style.display = 'none';
-    
-    iniciarGolemCombate();
+
+    let x = Math.floor(Math.random() * 3) + 1
+    if (x == 1) {
+        iniciarGolemCombate();
+    }
+
+    if (x == 2) {
+        iniciarGolemDeGeloCombate();
+    }
+
+    if (x == 3) {
+        iniciarGolemDeFogoCombate();
+    }
+
 }
 /*-----*/
