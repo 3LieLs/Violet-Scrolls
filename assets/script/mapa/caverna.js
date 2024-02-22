@@ -11,7 +11,7 @@ function botaoIniciarCombateCavernaClick() {
 
     let x = Math.floor(Math.random() * 3) + 1
     if (x == 1) {
-        iniciarGolemCombate();
+        iniciarGolemDePedraCombate();
     }
 
     if (x == 2) {

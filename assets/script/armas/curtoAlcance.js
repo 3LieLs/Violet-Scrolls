@@ -2,7 +2,7 @@ var chicoteDeAco =
 {
     nome: 'Chicote de aço', val: 'chicoteDeAco', obtido: false, peso: 0, preco: 3,
 
-    danoBase: 6, danoCombate: 6, tipoDano: 'Físico',
+    danoBase: 50, danoCombate: 50, tipoDano: 'Físico',
     debuff: 'Nenhum', chance: 0, duracao: 0,
 
     energiaCusto: 3, energiaCustoCombate: 3, manaCusto: 0, manaCustoCombate: 0,
