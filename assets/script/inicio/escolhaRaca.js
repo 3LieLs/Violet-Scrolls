@@ -73,7 +73,7 @@ function botaoElfoClick()
     adicionarBolaDeFogo();
     adicionarItem();
 
-    adicionarRaiosRevigorantes();
+    adicionarPurificacaoAstral()
     adicionarItem();
 
     adicionarEsferasDaVida();
@@ -137,7 +137,7 @@ function botaoDraconatoClick()
     adicionarEspinhoDeFogo();
     adicionarItem();
 
-    adicionarRaiosRevigorantes();
+    adicionarPurificacaoAstral()
     adicionarItem();
 
     adicionarFuriaDeTouro();

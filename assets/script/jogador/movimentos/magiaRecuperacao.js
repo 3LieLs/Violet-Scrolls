@@ -1,7 +1,6 @@
 /*-DESCANSAR-*/
 function magiaRecuperacaoUso() {
-
-    if (magiaRecuperacaoGeral.tipo == 'vida') {
+    if (magiaRecuperacaoGeral.tipo == 'Vida') {
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCusto}`)
         legendaView.insertAdjacentHTML('beforeend', `<br>${magiaRecuperacaoGeral.tipo} recuperado: ${magiaRecuperacaoGeral.vidaRecuperacao}`)
 
@@ -20,21 +19,28 @@ function magiaRecuperacaoUso() {
         }
     }
 
-    if (magiaRecuperacaoGeral.tipo == 'buff') {
+    if (magiaRecuperacaoGeral.tipo == 'Elementares') {
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCusto}`)
-        legendaView.insertAdjacentHTML('beforeend', `<br>${magiaRecuperacaoGeral.nome} purificou ${jogador.nome} de todas os efeitos negativos`)
+        legendaView.insertAdjacentHTML('beforeend', `<br>${magiaRecuperacaoGeral.nome} purificou ${jogador.nome} de todas os efeitos negativos ${magiaRecuperacaoGeral.tipo}`)
 
-        rodadaDebuffSangramentoMax.jogador = 0
-        rodadaDebuffVenenoMax.jogador = 0
         rodadaDebuffChamasMax.jogador = 0
         rodadaDebuffCongeladoMax.jogador = 0
         rodadaDebuffEletricidadeMax.jogador = 0
 
-        debuffSangramento.jogador = false
-        debuffVeneno.jogador = false
         debuffChamas.jogador = false
         debuffCongelado.jogador = false
         debuffEletricidade.jogador = false
+    }
+
+    if (magiaRecuperacaoGeral.tipo == 'Físico') {
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCusto}`)
+        legendaView.insertAdjacentHTML('beforeend', `<br>${magiaRecuperacaoGeral.nome} purificou ${jogador.nome} de todas os efeitos negativos ${magiaRecuperacaoGeral.tipo}`)
+
+        rodadaDebuffSangramentoMax.jogador = 0
+        rodadaDebuffVenenoMax.jogador = 0
+
+        debuffSangramento.jogador = false
+        debuffVeneno.jogador = false
     }
 
     jogador.manaCombate = jogador.manaCombate - magiaRecuperacaoGeral.manaCusto
