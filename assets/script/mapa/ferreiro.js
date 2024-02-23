@@ -1,5 +1,9 @@
 /*-FERREIRO VARIÁVEIS-*/
-var ferreiroPecitas = 20, LojaFerreiroAbertoFechado = false;
+var ferreiro = {
+    nome: '', pecitas: 50,
+},
+
+    LojaFerreiroAbertoFechado = false;
 
 var botaoAbrirFecharLojaFerreiro = window.document.querySelector('input#botaoAbrirFecharLojaFerreiro');
 botaoAbrirFecharLojaFerreiro.addEventListener('click', botaoAbrirFecharLojaFerreiroClick);
@@ -132,9 +136,13 @@ function mudarItensVenderFerreiro() {
 /*-VARIÁVEIS ATUALIZAR LOJA FERREIRO-*/
 var addItemFerreiro =
 {
-    nome: '', preco: 0, informacao: '', obtido: '', val: '', peso: '',
+    nome: '', preco: 0, informacao: '', obtido: '', val: '', peso: '', funcao: '',
 }
-var slotFerreiro = 1, addArmaFerreiro = false, addArmaduraFerreiro = false
+var slotFerreiro = 1, funcaoFerreiro = '', addArmaFerreiro = false, addArmaduraFerreiro = false
+
+function primeiraLetraMaiuscula(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 /*-----*/
 
 
@@ -142,7 +150,6 @@ var slotFerreiro = 1, addArmaFerreiro = false, addArmaduraFerreiro = false
 attLojaComprarFerreiro();
 
 function attLojaComprarFerreiro() {
-
     let adagaRepetido = false;
     let chicoteDeAcoRepetido = false;
     let espadaDeAcoRepetido = false;
@@ -161,40 +168,39 @@ function attLojaComprarFerreiro() {
 
         if (adagaRepetido == false) {
             addItemFerreiro = adaga
+            funcaoFerreiro = adagaComprar
             adagaRepetido = true
-
             addItemLojaComprarFerreiro()
         }
 
         if (chicoteDeAcoRepetido == false) {
             addItemFerreiro = chicoteDeAco
+            funcaoFerreiro = chicoteDeAcoComprar
             chicoteDeAcoRepetidoRepetido = true
-
             addItemLojaComprarFerreiro()
         }
 
         if (espadaDeAcoRepetido == false) {
             addItemFerreiro = espadaDeAco
+            funcaoFerreiro = espadaDeAcoComprar
             espadaDeAcoRepetido = true
-
             addItemLojaComprarFerreiro()
         }
 
         if (arcoSimplesRepetido == false) {
             addItemFerreiro = arcoSimples
+            funcaoFerreiro = arcoSimplesComprar
             arcoSimplesRepetido = true
-
             addItemLojaComprarFerreiro()
         }
 
         if (arcoLongoRepetido == false) {
             addItemFerreiro = arcoLongo
+            funcaoFerreiro = arcoLongoComprar
             arcoLongoRepetidoRepetido = true
-
             addItemLojaComprarFerreiro()
         }
     }
-
 
 
     for (let x = 0; x < 1; x++) {
@@ -203,36 +209,36 @@ function attLojaComprarFerreiro() {
 
         if (armaduraDePeleRepetido == false) {
             addItemFerreiro = armaduraDePele
+            funcaoFerreiro = armaduraDePeleComprar
             armaduraDePeleRepetido = true
-
             addItemLojaComprarFerreiro()
         }
 
         if (armaduraDeCouroRepetido == false) {
             addItemFerreiro = armaduraDeCouro
+            funcaoFerreiro = armaduraDeCouroComprar
             armaduraDeCouroRepetidoRepetido = true
-
             addItemLojaComprarFerreiro()
         }
 
         if (armaduraDeEscamasRepetido == false) {
             addItemFerreiro = armaduraDeEscamas
+            funcaoFerreiro = armaduraDeEscamasComprar
             armaduraDeEscamasRepetido = true
-
             addItemLojaComprarFerreiro()
         }
 
         if (armaduraDeFerroRepetido == false) {
             addItemFerreiro = armaduraDeFerro
+            funcaoFerreiro = armaduraDeFerroComprar
             armaduraDeFerroRepetido = true
-
             addItemLojaComprarFerreiro()
         }
 
         if (armaduraDeAcoRepetido == false) {
             addItemFerreiro = armaduraDeAco
+            funcaoFerreiro = armaduraDeAcoComprar
             armaduraDeAcoRepetidoRepetido = true
-
             addItemLojaComprarFerreiro()
         }
     }
@@ -241,21 +247,20 @@ function attLojaComprarFerreiro() {
 }
 /*-----*/
 
-
 /*-----*/
 function addItemLojaComprarFerreiro() {
     let add = '';
-    let Arma_Armadura = ''
-    let Arma_Armadura_Display = ''
+    let Arma_Armadura = '';
+    let Arma_Armadura_Display = '';
 
     if (addArmaFerreiro == true) {
-        Arma_Armadura = 'Arma'
-        Arma_Armadura_Display = itemComprarArmaFerreiroDisplay
+        Arma_Armadura = 'Arma';
+        Arma_Armadura_Display = itemComprarArmaFerreiroDisplay;
     }
 
     if (addArmaduraFerreiro == true) {
-        Arma_Armadura = 'Armadura'
-        Arma_Armadura_Display = itemComprarArmaduraFerreiroDisplay
+        Arma_Armadura = 'Armadura';
+        Arma_Armadura_Display = itemComprarArmaduraFerreiroDisplay;
     }
 
     add = document.createElement("div");
@@ -289,43 +294,19 @@ function addItemLojaComprarFerreiro() {
     add.setAttribute("type", `button`);
     add.setAttribute("value", `Comprar`);
 
-    add.addEventListener('click', function () {
-        if (addItemFerreiro.obtido == false) {
-            if (jogador.pecitas - addItemFerreiro.preco >= 0) {
-
-                jogador.peso += addItemFerreiro.peso
-                addItemFerreiro.obtido = true;
-                addItemTipo = 'equipamento';
-                addItemVal = addItemFerreiro.val;
-                addItemNome = addItemFerreiro.nome;
-                funcaoEquip = `equip${addItemFerreiro.nome}`;
-
-                adicionarItem();
-
-                jogador.pecitas -= addItemFerreiro.preco;
-            }
-            else {
-                alert('Dinheiro insuficiente');
-            }
-        }
-        else {
-            alert('Você já possui este item');
-        }
-    });
-
+    add.addEventListener('click', funcaoFerreiro);
 
     document.getElementById(`itemComprar${Arma_Armadura}Ferreiro${slotFerreiro}`).appendChild(add);
 
     slotFerreiro++;
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
 
 /*-ATUALIZAR ITENS DA LOJA VENDER FERREIRO-*/
 attLojaVenderFerreiro();
 
 function attLojaVenderFerreiro() {
-
     let adagaRepetido = false;
     let chicoteDeAcoRepetido = false;
     let espadaDeAcoRepetido = false;
@@ -342,44 +323,41 @@ function attLojaVenderFerreiro() {
         addArmaFerreiro = true;
         addArmaduraFerreiro = false;
 
-        let randomFerreiro = Math.floor(Math.random() * 5) + 1;
-
         if (adagaRepetido == false) {
             addItemFerreiro = adaga
+            funcaoFerreiro = adagaVender
             adagaRepetido = true
-
             addItemLojaVenderFerreiro()
         }
 
         if (chicoteDeAcoRepetido == false) {
             addItemFerreiro = chicoteDeAco
+            funcaoFerreiro = chicoteDeAcoVender
             chicoteDeAcoRepetidoRepetido = true
-
             addItemLojaVenderFerreiro()
         }
 
         if (espadaDeAcoRepetido == false) {
             addItemFerreiro = espadaDeAco
+            funcaoFerreiro = espadaDeAcoVender
             espadaDeAcoRepetido = true
-
             addItemLojaVenderFerreiro()
         }
 
         if (arcoSimplesRepetido == false) {
             addItemFerreiro = arcoSimples
+            funcaoFerreiro = arcoSimplesVender
             arcoSimplesRepetido = true
-
             addItemLojaVenderFerreiro()
         }
 
         if (arcoLongoRepetido == false) {
             addItemFerreiro = arcoLongo
+            funcaoFerreiro = arcoLongoVender
             arcoLongoRepetidoRepetido = true
-
             addItemLojaVenderFerreiro()
         }
     }
-
 
 
     for (let x = 0; x < 1; x++) {
@@ -390,36 +368,36 @@ function attLojaVenderFerreiro() {
 
         if (armaduraDePeleRepetido == false) {
             addItemFerreiro = armaduraDePele
+            funcaoFerreiro = armaduraDePeleVender
             armaduraDePeleRepetido = true
-
             addItemLojaVenderFerreiro()
         }
 
         if (armaduraDeCouroRepetido == false) {
             addItemFerreiro = armaduraDeCouro
+            funcaoFerreiro = armaduraDeCouroVender
             armaduraDeCouroRepetidoRepetido = true
-
             addItemLojaVenderFerreiro()
         }
 
         if (armaduraDeEscamasRepetido == false) {
             addItemFerreiro = armaduraDeEscamas
+            funcaoFerreiro = armaduraDeEscamasVender
             armaduraDeEscamasRepetido = true
-
             addItemLojaVenderFerreiro()
         }
 
         if (armaduraDeFerroRepetido == false) {
             addItemFerreiro = armaduraDeFerro
+            funcaoFerreiro = armaduraDeFerroVender
             armaduraDeFerroRepetido = true
-
             addItemLojaVenderFerreiro()
         }
 
         if (armaduraDeAcoRepetido == false) {
             addItemFerreiro = armaduraDeAco
+            funcaoFerreiro = armaduraDeAcoVender
             armaduraDeAcoRepetidoRepetido = true
-
             addItemLojaVenderFerreiro()
         }
     }
@@ -476,26 +454,10 @@ function addItemLojaVenderFerreiro() {
     add.setAttribute("value", `Vender`);
 
 
-    add.addEventListener('click', function (slotFerreiro) {
-        if (espadaDeAco.obtido == true) {
-            if (ferreiroPecitas - espadaDeAco.preco >= 0) {
-                removerEspadaDeAco();
-                removerItem();
-
-                jogador.pecitas += espadaDeAco.preco;
-                ferreiroPecitas -= espadaDeAco.preco;
-            }
-            else {
-                alert('O ferreiro não possui pecitas o suficiente');
-            }
-        }
-        else {
-            alert('Você não possui este item');
-        }
-    });
+    add.addEventListener('click', funcaoFerreiro);
 
     document.getElementById(`itemVender${Arma_Armadura}Ferreiro${slotFerreiro}`).appendChild(add);
 
     slotFerreiro++;
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
