@@ -405,6 +405,49 @@ function desaplicarCriticoInimigo() {
 /*-----*/
 
 
+/*-CALCULO ERRO GOLPE-*/
+var danoMiss = 0, danoMagiaMiss = 0, chanceMissJogador = 5, chanceMissInimigo = 5, missJogador = false, missInimigo = false;
+
+function aplicarMissJogador() {
+    let x = Math.floor(Math.random() * 100) + 0;
+
+    if (x <= chanceMissJogador) {
+        missJogador = true;
+        danoMiss = armaGeral.danoCombate;
+        armaGeral.danoCombate -= danoMiss;
+        danoMagiaMiss = magiaDanoGeral.danoCombate;
+        magiaDanoGeral.danoCombate -= danoMagiaMiss;
+    }
+}
+
+function desaplicarMissJogador() {
+    if (missJogador == true) {
+        missJogador = false;
+        armaGeral.danoCombate += danoMiss;
+        magiaDanoGeral.danoCombate += danoMagiaMiss;
+    }
+}
+
+
+function aplicarMissInimigo() {
+    let x = Math.floor(Math.random() * 100) + 0;
+
+    if (x <= chanceMissInimigo) {
+        missInimigo = true
+        danoMiss = inimigoArmaGeral.danoCombate;
+        inimigoArmaGeral.danoCombate -= danoMiss;
+    }
+}
+
+function desaplicarMissInimigo() {
+    if (missInimigo == true) {
+        missInimigo = false
+        inimigoArmaGeral.danoCombate += danoMiss;
+    }
+}
+/*-----*/
+
+
 /*-CALCULO DEFESA-*/
 function calculoDefesa() {
     armaduraGeral.defesaCombate = (armaduraGeral.defesaCombate / (100 + parseInt(armaduraGeral.defesaCombate))) * 150;

@@ -1,43 +1,86 @@
 /*-ATAQUE FRACO-*/
 function MagiaDanoUso() {
     aplicarFraquezaResistenciaInimigo()
+    aplicarMissJogador()
 
-    if (inimigoGeral.vidaCombate - magiaDanoGeral.danoCombate < 0) {
-        inimigoGeral.vidaCombate = 0
-        inimigoGeral.vidaPorcentagem = 0.1
-
-    } else {
-        inimigoGeral.vidaCombate = inimigoGeral.vidaCombate - magiaDanoGeral.danoCombate
-
-        inimigoGeral.porcentagem = 100 - ((magiaDanoGeral.danoCombate / inimigoGeral.vidaBase) * 100)
-        inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
-        inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
-
-        inimigoGeral.vidaPorcentagem = inimigoGeral.vidaPorcentagem - inimigoGeral.porcentagem
+    /*-APLICAR DANO CASO ACERTO-*/
+    if (missJogador == true) {
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} errou sua magia!`);
+        if (magiaDanoGeral.energiaCusto > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${magiaDanoGeral.energiaCusto}`);
+        }
+        if (magiaDanoGeral.manaCusto > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${magiaDanoGeral.manaCusto}`);
+        }
     }
 
-    legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaDanoGeral.nome}<br>Dano causado: ${magiaDanoGeral.danoCombate}<br>Mana gasta: ${magiaDanoGeral.manaCusto}`)
+    if (missJogador == false) {
+        if (inimigoGeral.vidaCombate - magiaDanoGeral.danoCombate < 0) {
+            inimigoGeral.vidaCombate = 0
+            inimigoGeral.vidaPorcentagem = 0.1
+        } else {
+            inimigoGeral.vidaCombate = inimigoGeral.vidaCombate - magiaDanoGeral.danoCombate
 
-    verificarDebuffMagiaJogador()
+            inimigoGeral.porcentagem = 100 - ((magiaDanoGeral.danoCombate / inimigoGeral.vidaBase) * 100)
+            inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
+            inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
 
-    jogador.manaCombate = jogador.manaCombate - magiaDanoGeral.manaCusto
+            inimigoGeral.vidaPorcentagem = inimigoGeral.vidaPorcentagem - inimigoGeral.porcentagem
+        }
 
-    jogador.porcentagem = 100 - ((magiaDanoGeral.manaCusto / jogador.manaBase) * 100)
-    jogador.porcentagem = 100 - jogador.porcentagem
-    jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaDanoGeral.nome}<br>Dano causado: ${magiaDanoGeral.danoCombate}`)
+        if (magiaDanoGeral.energiaCusto > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${magiaDanoGeral.energiaCusto}`);
+        }
+        if (magiaDanoGeral.manaCusto > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${magiaDanoGeral.manaCusto}`);
+        }
 
-    jogador.manaPorcentagem = jogador.manaPorcentagem - jogador.porcentagem
-
-    if (jogador.manaCombate < 0) {
-        jogador.manaCombate = 0
+        verificarDebuffMagiaJogador()
     }
+    /*-----*/
+
+    /*-DESCONTAR ENERGIA/MANA-*/
+    if (magiaDanoGeral.energiaCusto > 0) {
+        jogador.energiaCombate = jogador.energiaCombate - magiaDanoGeral.energiaCusto
+
+        jogador.porcentagem = 100 - ((magiaDanoGeral.energiaCusto / jogador.energiaBase) * 100)
+        jogador.porcentagem = 100 - jogador.porcentagem
+        jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+
+        jogador.energiaPorcentagem = jogador.energiaPorcentagem - jogador.porcentagem
+
+        if (jogador.energiaCombate < 0) {
+            jogador.energiaCombate = 0
+            jogador.energiaPorcentagem = 0.1;
+        }
+    }
+
+    if (magiaDanoGeral.manaCusto > 0) {
+        jogador.manaCombate = jogador.manaCombate - magiaDanoGeral.manaCusto
+
+        jogador.porcentagem = 100 - ((magiaDanoGeral.manaCusto / jogador.manaBase) * 100)
+        jogador.porcentagem = 100 - jogador.porcentagem
+        jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+
+        jogador.manaPorcentagem = jogador.manaPorcentagem - jogador.porcentagem
+
+        if (jogador.manaCombate < 0) {
+            jogador.manaCombate = 0
+            jogador.manaPorcentagem = 0.1;
+        }
+    }
+    /*-----*/
+
+    desaplicarFraquezaResistenciaInimigo()
+    desaplicarMissJogador()
 
     jogadorCombateHud()
     inimigoCombateHud()
-
-    desaplicarFraquezaResistenciaInimigo()
 }
+/*-----*/
 
+/*-----*/
 function botaoMagiaDanoClick() {
     if (jogador.energiaCombate - magiaDanoGeral.energiaCusto >= 0 || jogador.manaCombate - magiaDanoGeral.manaCusto >= 0) {
         inicioRodada();

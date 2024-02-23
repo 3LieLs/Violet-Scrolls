@@ -48,31 +48,54 @@ function inimigoAtaqueAto() {
     if (inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCusto >= 0 && inimigoGeral.manaCombate - inimigoArmaGeral.manaCusto >= 0) {
         aplicarFraquezaResistenciaJogador()
         aplicarCriticoInimigo()
+        aplicarMissInimigo()
 
-        if (jogador.vidaCombate - inimigoArmaGeral.danoCombate < 0) {
-            jogador.vidaCombate = 0;
-            jogador.vidaPorcentagem = 0.1;
-            jogador.porcentagem = 0;
-        } else {
-            jogador.vidaCombate -= inimigoArmaGeral.danoCombate;
-
-            jogador.porcentagem = 100 - ((inimigoArmaGeral.danoCombate / jogador.vidaBase) * 100);
-            jogador.porcentagem = 100 - jogador.porcentagem;
-            jogador.porcentagem = jogador.porcentagem.toPrecision(2);
-
-            jogador.vidaPorcentagem = jogador.vidaPorcentagem - jogador.porcentagem;
+        /*-APLICAR DANO CASO ACERTO-*/
+        if (missInimigo == true) {
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} errou seu ataque!`);
+            if (inimigoArmaGeral.energiaCusto > 0) {
+                legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${inimigoArmaGeral.energiaCusto}`);
+            }
+            if (inimigoArmaGeral.manaCusto > 0) {
+                legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${inimigoArmaGeral.manaCusto}`);
+            }
         }
 
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou com ${inimigoArmaGeral.nome}<br>Dano causado: ${inimigoArmaGeral.danoCombate}<br>Energia usada: ${inimigoArmaGeral.energiaCusto}`);
-        if (criticoInimigo == true) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`)
+        if (missInimigo == false) {
+            if (jogador.vidaCombate - inimigoArmaGeral.danoCombate < 0) {
+                jogador.vidaCombate = 0;
+                jogador.vidaPorcentagem = 0.1;
+                jogador.porcentagem = 0;
+            } else {
+                jogador.vidaCombate -= inimigoArmaGeral.danoCombate;
+
+                jogador.porcentagem = 100 - ((inimigoArmaGeral.danoCombate / jogador.vidaBase) * 100);
+                jogador.porcentagem = 100 - jogador.porcentagem;
+                jogador.porcentagem = jogador.porcentagem.toPrecision(2);
+
+                jogador.vidaPorcentagem = jogador.vidaPorcentagem - jogador.porcentagem;
+            }
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou com ${inimigoArmaGeral.nome}<br>Dano causado: ${inimigoArmaGeral.danoCombate}`);
+            if (inimigoArmaGeral.energiaCusto > 0) {
+                legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${inimigoArmaGeral.energiaCusto}`);
+            }
+            if (inimigoArmaGeral.manaCusto > 0) {
+                legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${inimigoArmaGeral.manaCusto}`);
+            }
+            if (criticoInimigo == true) {
+                legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`)
+            }
         }
+        /*-----*/
 
         desaplicarFraquezaResistenciaJogador()
         desaplicarCriticoInimigo()
+        desaplicarMissInimigo()
         verificarDebuffArmaInimigo()
 
 
+        /*-DESCONTAR ENERGIA/MANA-*/
         if (inimigoArmaGeral.energiaCusto > 0 && inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCusto >= 0) {
             inimigoGeral.energiaCombate = inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCusto;
 
@@ -102,6 +125,9 @@ function inimigoAtaqueAto() {
                 inimigoGeral.manaPorcentagem = 0.1;
             }
         }
+        /*-----*/
+
+        /*-RECUPERAR ENERGIA/MANA-*/
     } else {
         if (inimigoArmaGeral.energiaCusto > inimigoArmaGeral.manaCusto && inimigoGeral.energiaBase > 0) {
             inimigoGeral.energiaCombate += inimigoGeral.energiaRecuperacao;
@@ -127,6 +153,7 @@ function inimigoAtaqueAto() {
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} focou<br>Mana recuperada: ${inimigoGeral.manaRecuperacao}`);
         }
     }
+    /*-----*/
 }
 /*-----*/
 
