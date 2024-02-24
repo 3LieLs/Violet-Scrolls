@@ -13,7 +13,7 @@ var espinhoDeFogo =
     nome: 'Espinho de fogo', obtido: false, val: 'espinhoDeFogo', preco: 10,
     danoBase: 5, danoCombate: 5, tipoDano: 'Fogo',
     debuff: 'chamas', duracao: 1, chance: 40,
-    manaCusto: 3, manaCustoCombate: 3,
+    energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 3, manaCustoCombate: 3,
 }
 function equipEspinhoDeFogo() {
     magiaDanoGeral = espinhoDeFogo;
@@ -37,7 +37,7 @@ var bolaDeFogo =
     nome: 'Bola de fogo', obtido: false, val: 'bolaDeFogo', preco: 15,
     danoBase: 8, danoCombate: 8, tipoDano: 'Fogo',
     debuff: 'chamas', duracao: 3, chance: 25,
-    manaCusto: 5, manaCustoCombate: 5,
+    energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 5, manaCustoCombate: 5,
 }
 function equipBolaDeFogo() {
     magiaDanoGeral = bolaDeFogo;

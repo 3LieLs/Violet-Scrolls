@@ -3,21 +3,6 @@ var mudarItens = 1, mudarEquipamentos = 1, mudarMagias = 1, menuAbertoFechado = 
 var mudarEquipamentosArmaVal = true, mudarEquipamentosArmaduraVal = false, mudarMagiasDano = true, mudarMagiasRecuperacao = false, mudarMagiasBuff = false;
 
 
-var menuEquipamentosInfo1 = window.document.querySelector(`p#menuEquipamentosInfo1`);
-var menuEquipamentosInfo2 = window.document.querySelector(`p#menuEquipamentosInfo2`);
-var menuEquipamentosInfo3 = window.document.querySelector(`p#menuEquipamentosInfo3`);
-var menuEquipamentosInfo4 = window.document.querySelector(`p#menuEquipamentosInfo4`);
-var menuEquipamentosInfo5 = window.document.querySelector(`p#menuEquipamentosInfo5`);
-var menuEquipamentosInfo6 = window.document.querySelector(`p#menuEquipamentosInfo6`);
-
-var menuMagiasInfo1 = window.document.querySelector(`p#menuMagiasInfo1`);
-var menuMagiasInfo2 = window.document.querySelector(`p#menuMagiasInfo2`);
-var menuMagiasInfo3 = window.document.querySelector(`p#menuMagiasInfo3`);
-var menuMagiasInfo4 = window.document.querySelector(`p#menuMagiasInfo4`);
-var menuMagiasInfo5 = window.document.querySelector(`p#menuMagiasInfo5`);
-var menuMagiasInfo6 = window.document.querySelector(`p#menuMagiasInfo6`);
-
-
 var menuBotaoVal = window.document.querySelector(`input#botaoMenu`);
 menuBotaoVal.addEventListener('click', menuDisplay);
 
@@ -64,29 +49,23 @@ function menuDisplay() {
         menuRaca.innerHTML = `Raça: ${racaGeral.nome}`;
         menuPecitas.innerHTML = `Pecitas: ${jogador.pecitas}`;
 
-
         menuVida.innerHTML = `Vida: ${jogador.vidaBase}`;
         menuEnergia.innerHTML = `Energia: ${jogador.energiaBase}`;
         menuMana.innerHTML = `Mana: ${jogador.manaBase}`;
 
-
         atualizarItensEquipamentosArma()
         atualizarItensMagiasDano()
 
-
         menuPeso.innerHTML = `Peso: ${jogador.peso} / ${jogador.pesoMax}`
-
 
         nivelAtual.innerHTML = `Nível: ${jogadorNivel.nivel}`;
         experienciaAtual.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
-
 
         barraExperiencia();
 
         if (jogadorNivel.experiencia >= jogadorNivel.proximoNivel) {
             subirNivelDisplay.style.display = 'contents';
         }
-
 
         if (missao.ativo == true) {
             menuMissao.innerHTML = `${missao.inimigoDerrotar}:<br> ${missao.inimigosDerrotados}/${missao.inimigosDerrotadosMax}`;
@@ -238,7 +217,6 @@ function menuAnimacaoFechar() {
 /*-----*/
 
 
-
 /*-ADICIONAR ITEM NA MOCHILA-*/
 var addItemTipo, addItemVal, addItemNome, funcaoEquip;
 
@@ -249,7 +227,6 @@ function adicionarItem() {
     if (addItemTipo == 'equipamento') {
         menuItensDisplay = menuItensEquipamentosDisplay
     }
-
     if (addItemTipo == 'magia') {
         menuItensDisplay = menuItensMagiasDisplay
     }
@@ -284,11 +261,9 @@ var removItemTipo, removItemVal, addItemNome, funcaoEquip;
 
 function removerItem() {
     let remov = '';
-
     if (removItemTipo == 'equipamento') {
         remov = document.getElementById(`slot${removItemVal}`).remove();
     }
-
     if (removItemTipo == 'magia') {
         remov = document.getElementById(`slot${removItemVal}`).remove();
     }
@@ -300,21 +275,17 @@ function removerItem() {
 /*-BOTAO VOLTAR / PRÓXIMO ITENS-*/
 function voltarItensClick() {
     mudarItens--;
-
     if (mudarItens < 1) {
         mudarItens = 1;
     }
-
     mudarTipoItens();
 }
 
 function proximoItensClick() {
     mudarItens++;
-
     if (mudarItens > 3) {
         mudarItens = 3;
     }
-
     mudarTipoItens();
 }
 
@@ -322,7 +293,6 @@ function mudarTipoItens() {
     if (mudarItens == 1) {
         itensTipo.innerHTML = 'Equipamentos';
         itensTipo.style.color = 'red';
-
         menuItensEquipamentosDisplay.style.display = 'contents';
         menuItensMagiasDisplay.style.display = 'none';
         menuItensPocoesDisplay.style.display = 'none';
@@ -331,7 +301,6 @@ function mudarTipoItens() {
     if (mudarItens == 2) {
         itensTipo.innerHTML = 'Magias';
         itensTipo.style.color = 'blue';
-
         menuItensEquipamentosDisplay.style.display = 'none';
         menuItensMagiasDisplay.style.display = 'contents';
         menuItensPocoesDisplay.style.display = 'none';
@@ -340,7 +309,6 @@ function mudarTipoItens() {
     if (mudarItens == 3) {
         itensTipo.innerHTML = 'Poções';
         itensTipo.style.color = 'gray';
-
         menuItensEquipamentosDisplay.style.display = 'none';
         menuItensMagiasDisplay.style.display = 'none';
         menuItensPocoesDisplay.style.display = 'contents';
@@ -352,21 +320,17 @@ function mudarTipoItens() {
 /*-BOTÃO VOLTAR / PRÓXIMO EQUIPAMENTOS-*/
 function voltarEquipamentosClick() {
     mudarEquipamentos--;
-
     if (mudarEquipamentos < 1) {
         mudarEquipamentos = 1;
     }
-
     mudarTipoEquipamentos();
 }
 
 function proximoEquipamentosClick() {
     mudarEquipamentos++;
-
     if (mudarEquipamentos > 2) {
         mudarEquipamentos = 2;
     }
-
     mudarTipoEquipamentos();
 }
 
@@ -375,20 +339,16 @@ function mudarTipoEquipamentos() {
     if (mudarEquipamentos == 1) {
         mudarEquipamentosArmaVal = true
         mudarEquipamentosArmaduraVal = false
-
-        menuEquipamentosTipo.innerHTML = 'Arma';
-        menuEquipamentosTipo.style.color = 'red';
-
+        menuEquipamentosCategoria.innerHTML = 'Arma';
+        menuEquipamentosCategoria.style.color = 'red';
         atualizarItensEquipamentosArma()
     }
 
     if (mudarEquipamentos == 2) {
-        mudarEquipamentosArmaVal = true
+        mudarEquipamentosArmaVal = false
         mudarEquipamentosArmaduraVal = true
-
-        menuEquipamentosTipo.innerHTML = 'Armadura';
-        menuEquipamentosTipo.style.color = 'blue';
-
+        menuEquipamentosCategoria.innerHTML = 'Armadura';
+        menuEquipamentosCategoria.style.color = 'blue';
         atualizarItensEquipamentosArmadura()
     }
 }
@@ -398,21 +358,21 @@ function mudarTipoEquipamentos() {
 
 /*-ATUALIZAR EQUIPAMENTOS-*/
 function atualizarItensEquipamentosArma() {
-    menuEquipamentosInfo1.innerHTML = `Item equipado:<br>${armaGeral.nome}`;
-    menuEquipamentosInfo2.innerHTML = `Dano:<br>${armaGeral.danoBase}`;
-    menuEquipamentosInfo3.innerHTML = `Energia:<br>${armaGeral.energiaCusto}`;
-    menuEquipamentosInfo4.innerHTML = `Mana:<br>${armaGeral.manaCusto}`;
-    menuEquipamentosInfo5.innerHTML = `Tipo:<br>${armaGeral.classe}`;
-    menuEquipamentosInfo6.innerHTML = `Peso:<br>${armaGeral.peso}`;
+    menuEquipamentosNome.innerHTML = `Item equipado:<br>${armaGeral.nome}`;
+    menuEquipamentosDanoDefesa.innerHTML = `Dano:<br>${armaGeral.danoBase}`;
+    menuEquipamentosEnergia.innerHTML = `Energia-:<br>${armaGeral.energiaCusto}`;
+    menuEquipamentosMana.innerHTML = `Mana-:<br>${armaGeral.manaCusto}`;
+    menuEquipamentosTipo.innerHTML = `Tipo de dano:<br>${armaGeral.tipoDano}`;
+    menuEquipamentosPeso.innerHTML = `Peso:<br>${armaGeral.peso}`;
 }
 
 function atualizarItensEquipamentosArmadura() {
-    menuEquipamentosInfo1.innerHTML = `Item equipado:<br>${armaduraGeral.nome}`;
-    menuEquipamentosInfo2.innerHTML = `Defesa:<br>${armaduraGeral.defesa}`;
-    menuEquipamentosInfo3.innerHTML = `Energia:<br>${armaduraGeral.energiaRecuperacao}`;
-    menuEquipamentosInfo4.innerHTML = `Mana:<br>${armaduraGeral.manaRecuperacao}`;
-    menuEquipamentosInfo5.innerHTML = `Tipo:<br>${armaduraGeral.tipoDefesa}`;
-    menuEquipamentosInfo6.innerHTML = `Peso:<br>${armaduraGeral.peso}`;
+    menuEquipamentosNome.innerHTML = `Item equipado:<br>${armaduraGeral.nome}`;
+    menuEquipamentosDanoDefesa.innerHTML = `Defesa:<br>${armaduraGeral.defesaBase}`;
+    menuEquipamentosEnergia.innerHTML = `Energia+:<br>${armaduraGeral.energiaRecuperacao}`;
+    menuEquipamentosMana.innerHTML = `Mana+:<br>${armaduraGeral.manaRecuperacao}`;
+    menuEquipamentosTipo.innerHTML = `Tipo de defesa:<br>${armaduraGeral.tipoDefesa}`;
+    menuEquipamentosPeso.innerHTML = `Peso:<br>${armaduraGeral.peso}`;
 }
 /*-----*/
 
@@ -420,21 +380,17 @@ function atualizarItensEquipamentosArmadura() {
 /*-BOTÃO VOLTAR / PRÓXIMO MAGIAS-*/
 function voltarMagiasClick() {
     mudarMagias--;
-
     if (mudarMagias < 1) {
         mudarMagias = 1;
     }
-
     mudarTipoMagias();
 }
 
 function proximoMagiasClick() {
     mudarMagias++;
-
     if (mudarMagias > 3) {
         mudarMagias = 3;
     }
-
     mudarTipoMagias();
 }
 
@@ -443,10 +399,8 @@ function mudarTipoMagias() {
         mudarMagiasDano = true;
         mudarMagiasRecuperacao = false;
         mudarMagiasBuff = false;
-
-        menuMagiasTipo.innerHTML = 'Dano';
-        menuMagiasTipo.style.color = 'red';
-
+        menuMagiasCategoria.innerHTML = 'Dano';
+        menuMagiasCategoria.style.color = 'red';
         atualizarItensMagiasDano();
     }
 
@@ -454,10 +408,8 @@ function mudarTipoMagias() {
         mudarMagiasDano = false;
         mudarMagiasRecuperacao = true;
         mudarMagiasBuff = false;
-
-        menuMagiasTipo.innerHTML = 'Recuperação';
-        menuMagiasTipo.style.color = 'blue';
-
+        menuMagiasCategoria.innerHTML = 'Recuperação';
+        menuMagiasCategoria.style.color = 'blue';
         atualizarItensMagiasRecuperacao();
     }
 
@@ -465,10 +417,8 @@ function mudarTipoMagias() {
         mudarMagiasDano = false;
         mudarMagiasRecuperacao = false;
         mudarMagiasBuff = true;
-
-        menuMagiasTipo.innerHTML = 'Buff';
-        menuMagiasTipo.style.color = 'purple';
-
+        menuMagiasCategoria.innerHTML = 'Buff';
+        menuMagiasCategoria.style.color = 'purple';
         atualizarItensMagiasBuff();
     }
 }
@@ -476,30 +426,27 @@ function mudarTipoMagias() {
 
 /*-ATUALIZAR MAGIAS-*/
 function atualizarItensMagiasDano() {
-    menuMagiasInfo1.innerHTML = `Magia equipado:<br>${magiaDanoGeral.nome}`;
-    menuMagiasInfo2.innerHTML = `Dano:<br>${magiaDanoGeral.danoBase}`;
-    menuMagiasInfo3.innerHTML = `Energia:<br>${magiaDanoGeral.energiaCusto}`;
-    menuMagiasInfo4.innerHTML = `Mana:<br>${magiaDanoGeral.manaCusto}`;
-    menuMagiasInfo5.innerHTML = `Tipo:<br>${magiaDanoGeral.tipoDano}`;
-    menuMagiasInfo6.innerHTML = `Classe:<br>${magiaDanoGeral.classe}`;
+    menuMagiasNome.innerHTML = `Magia equipado:<br>${magiaDanoGeral.nome}`;
+    menuMagiasDanoRecuperacaoBuff.innerHTML = `Dano:<br>${magiaDanoGeral.danoBase}`;
+    menuMagiasEnergia.innerHTML = `Energia-:<br>${magiaDanoGeral.energiaCusto}`;
+    menuMagiasMana.innerHTML = `Mana-:<br>${magiaDanoGeral.manaCusto}`;
+    menuMagiasTipo.innerHTML = `Tipo de dano:<br>${magiaDanoGeral.tipoDano}`;
 }
 
 function atualizarItensMagiasRecuperacao() {
-    menuMagiasInfo1.innerHTML = `Magia equipado:<br>${magiaRecuperacaoGeral.nome}`;
-    menuMagiasInfo2.innerHTML = `Vida:<br>${magiaRecuperacaoGeral.vidaRecuperacao}`;
-    menuMagiasInfo3.innerHTML = `Energia:<br>${magiaRecuperacaoGeral.energiaRecuperacao}`;
-    menuMagiasInfo4.innerHTML = `Mana:<br>${magiaRecuperacaoGeral.manaRecuperacao}`;
-    menuMagiasInfo5.innerHTML = `Tipo:<br>${magiaRecuperacaoGeral.tipo}`;
-    menuMagiasInfo6.innerHTML = `Recuperação:<br>${magiaRecuperacaoGeral.classe}`;
+    menuMagiasNome.innerHTML = `Magia equipado:<br>${magiaRecuperacaoGeral.nome}`;
+    menuMagiasDanoRecuperacaoBuff.innerHTML = `Vida+:<br>${magiaRecuperacaoGeral.vidaRecuperacao}`;
+    menuMagiasEnergia.innerHTML = `Energia-:<br>${magiaRecuperacaoGeral.energiaCusto}`;
+    menuMagiasMana.innerHTML = `Mana-:<br>${magiaRecuperacaoGeral.manaCusto}`;
+    menuMagiasTipo.innerHTML = `Tipo de regen:<br>${magiaRecuperacaoGeral.tipo}`;
 }
 
 function atualizarItensMagiasBuff() {
-    menuMagiasInfo1.innerHTML = `Magia equipado:<br>${magiaBuffGeral.nome}`;
-    menuMagiasInfo2.innerHTML = `Classe:<br>${magiaBuffGeral.classe}`;
-    menuMagiasInfo3.innerHTML = `Energia:<br>${magiaBuffGeral.energiaCusto}`;
-    menuMagiasInfo4.innerHTML = `Mana:<br>${magiaBuffGeral.manaCusto}`;
-    menuMagiasInfo5.innerHTML = `Tipo:<br>${magiaBuffGeral.buff}`;
-    menuMagiasInfo6.innerHTML = `Duração:<br>${magiaBuffGeral.duracao}`;
+    menuMagiasNome.innerHTML = `Magia equipado:<br>${magiaBuffGeral.nome}`;
+    menuMagiasDanoRecuperacaoBuff.innerHTML = `Duração:<br>${magiaBuffGeral.duracao}`;
+    menuMagiasEnergia.innerHTML = `Energia-:<br>${magiaBuffGeral.energiaCusto}`;
+    menuMagiasMana.innerHTML = `Mana-:<br>${magiaBuffGeral.manaCusto}`;
+    menuMagiasTipo.innerHTML = `Tipo de buff:<br>${magiaBuffGeral.buff}`;
 }
 /*-----*/
 
@@ -515,7 +462,6 @@ function atualizarHorario() {
         horarioMinuto = 0;
         horarioHora++;
     }
-
     if (horarioHora >= 23) {
         horarioHora = 0;
     }

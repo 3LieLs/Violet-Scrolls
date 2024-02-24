@@ -40,7 +40,7 @@ var furiaDeTouro =
     buff: 'dano', duracao: 3,
     danoBuff: 0.10,
 
-    manaCusto: 15, manaCustoCombate: 15,
+    energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15,
 }
 function equipFuriaDeTouro() {
     magiaBuffGeral = furiaDeTouro;
@@ -65,7 +65,7 @@ var esferasDaVida =
     buff: 'vidaRegen', duracao: 5,
     vidaRegenBuff: 0.15,
 
-    manaCusto: 15, manaCustoCombate: 15,
+    energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15,
 }
 function equipEsferasDaVida() {
     magiaBuffGeral = esferasDaVida;
