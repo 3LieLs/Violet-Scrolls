@@ -2,7 +2,7 @@
 var goblin =
 {
     nome: 'Goblin', val: 'goblin', resistencia: 'Gelo', fraqueza: 'Físico',
-    nivel: 1, experiencia: 10,
+    nivel: 1, experiencia: 10, missaoMax: 8, recompensa: 5,
 
     vidaBase: 25, energiaBase: 20, manaBase: 0,
     vidaCombate: 25, energiaCombate: 20, manaCombate: 0,

@@ -2,7 +2,7 @@
 var dragao =
 {
     nome: 'Dragão', val: 'dragao', resistencia: 'Fogo', fraqueza: 'Elétrico',
-    nivel: 1, experiencia: 60,
+    nivel: 1, experiencia: 60, missaoMax: 2, recompensa: 20,
 
     vidaBase: 150, energiaBase: 70, manaBase: 50,
     vidaCombate: 150, energiaCombate: 70, manaCombate: 50,

@@ -2,7 +2,7 @@
 var besouroGigante =
 {
     nome: 'Besouro gigante', val: 'besouroGigante', resistencia: 'Nenhuma', fraqueza: 'Fogo',
-    nivel: 1, experiencia: 5,
+    nivel: 1, experiencia: 5, missaoMax: 10, recompensa: 3,
 
     vidaBase: 15, energiaBase: 30, manaBase: 0,
     vidaCombate: 15, energiaCombate: 30, manaCombate: 0,

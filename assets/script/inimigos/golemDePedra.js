@@ -2,7 +2,7 @@
 var golemDePedra =
 {
     nome: 'Golem de pedra', val: 'golemDePedra', resistencia: 'Físico', fraqueza: 'Nenhuma',
-    nivel: 1, experiencia: 30,
+    nivel: 1, experiencia: 30, missaoMax: 5, recompensa: 11,
 
     vidaBase: 75, energiaBase: 30, manaBase: 0,
     vidaCombate: 75, energiaCombate: 30, manaCombate: 0,

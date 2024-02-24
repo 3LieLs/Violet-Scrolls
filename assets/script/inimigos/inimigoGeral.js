@@ -15,7 +15,7 @@ var experienciaGanhaVal = window.document.querySelector('p#experienciaGanha');
 var inimigoGeral =
 {
     nome: '', val: '', resistencia: '', fraqueza: '',
-    nivel: 0, experiencia: 0,
+    nivel: 0, experiencia: 0, missaoMax: 0, recompensa: 0,
 
     vidaBase: 0, manaBase: 0, energiaBase: 0,
     vidaCombate: 0, energiaCombate: 0, manaCombate: 0,

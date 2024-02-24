@@ -2,7 +2,7 @@
 var golemDeGelo =
 {
     nome: 'Golem de gelo', val: 'golemDeGelo', resistencia: 'Gelo', fraqueza: 'Fogo',
-    nivel: 1, experiencia: 30,
+    nivel: 1, experiencia: 30, missaoMax: 5, recompensa: 8,
 
     vidaBase: 55, energiaBase: 40, manaBase: 25,
     vidaCombate: 55, energiaCombate: 40, manaCombate: 25,
