@@ -1,12 +1,12 @@
 /*-----*/
-#feiticeiroDisplay
-{
+#feiticeiroDisplay {
     display: none;
 }
+
 /*-----*/
 
 /*-----*/
-#mensagemFeiticeiro{
+#mensagemFeiticeiro {
     position: absolute;
     top: -4%;
     left: 50%;
@@ -21,54 +21,39 @@
     text-align: center;
     font-size: 15pt;
 }
-/*-----*/
 
 /*-----*/
-#botaoAbrirLojaFeiticeiro{
-    position: absolute;
-    top: 35%;
-    right: -0.1%;
-    width: 5%;
-    height: 25%;
-    background-color: black;
-    color: orangered;
-    border-top-left-radius: 20%;
-    border-bottom-left-radius: 20%;
-    font-size: 12pt;
-    transition: 0.5s all 0s;
-    z-index: 9999;
-}
 
-#botaoAbrirLojaFeiticeiro:hover{
-    background-color: rgb(30, 30, 30);
-    cursor: pointer;
-}
-
-#botaoFecharLojaFeiticeiro{
+/*-----*/
+#botaoAbrirFecharLojaFeiticeiro {
     position: absolute;
-    top: -3%;
+    bottom: 0%;
     left: 50%;
     transform: translate(-50%);
-    width: 25%;
+    width: 15%;
     height: 5%;
     background-color: black;
     color: orangered;
     border-top-left-radius: 20%;
     border-top-right-radius: 20%;
+    font-size: 12pt;
+    transition: 0.5s all 0s;
+    z-index: 9999;
 }
 
-#botaoFecharLojaFeiticeiro:hover{
+#botaoAbrirFecharLojaFeiticeiro:hover {
     background-color: rgb(30, 30, 30);
     cursor: pointer;
 }
+
 /*-----*/
 
 /*-----*/
-#lojaFeiticeiro{
+#lojaComprarFeiticeiro {
     position: absolute;
-    top: 15%;
-    right: -5%;
-    padding: 0% 1% 0% 1%;
+    bottom: 3%;
+    left: -6%;
+    padding: 0.5% 1% 1% 1%;
     width: 25%;
     height: 80%;
     background-color: rgb(30, 30, 30);
@@ -77,9 +62,50 @@
     border-radius: 5%;
     transition: 0.5s all 0s;
     opacity: 0;
+    overflow: auto;
 }
 
-#itemFeiticeiro1, #itemFeiticeiro2, #itemFeiticeiro3{
+/*-----*/
+#botaoVoltarComprarFeiticeiro, #botaoVoltarVenderFeiticeiro {
+    position: absolute;
+    left: 5%;
+    width: 10%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+}
+
+#botaoProximoComprarFeiticeiro, #botaoProximoVenderFeiticeiro {
+    position: absolute;
+    right: 5%;
+    width: 10%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+}
+
+/*-----*/
+
+#arma_armadura_comprar, #arma_armadura_vender {
+    width: 50%;
+    margin: auto;
+    padding: 1% 5% 1% 5%;
+    background-color: black;
+    color: orangered;
+    border-radius: 5%;
+    text-align: center;
+    font-size: 20pt;
+}
+
+#itemComprarArmaFeiticeiroDisplay {
+    display: contents;
+}
+
+#itemComprarArmaduraFeiticeiroDisplay {
+    display: none;
+}
+
+.itemComprarFeiticeiro {
     width: 100%;
     height: 25%;
     margin: 10% 0% 0% 0%;
@@ -89,26 +115,25 @@
     text-align: center;
 }
 
-#nomeItemFeiticeiro1, #nomeItemFeiticeiro2, #nomeItemFeiticeiro3{
+.nomeItemComprarFeiticeiro{
     margin: 0% 0% 0% 0%;
     padding: 3% 0% 0% 0%;
     font-size: 15pt;
 }
 
-#informacaoItemFeiticeiro1, #informacaoItemFeiticeiro2, #informacaoItemFeiticeiro3{
+.informacaoItemComprarFeiticeiro{
     margin: 0% 0% 0% 0%;
     padding: 0% 0% 0% 0%;
     font-size: 12pt;
 }
 
-#custoItemFeiticeiro1, #custoItemFeiticeiro2, #custoItemFeiticeiro3
-{
+.precoItemComprarFeiticeiro {
     margin: 5% 0% 0% 0%;
     padding: 0% 0% 0% 0%;
     font-size: 12pt;
 }
 
-#comprarItemFeiticeiro1, #comprarItemFeiticeiro2, #comprarItemFeiticeiro3{
+.comprarItemFeiticeiro{
     position: absolute;
     right: 5%;
     margin: 5% 0% 0% 0%;
@@ -119,8 +144,81 @@
     font-size: 10pt;
 }
 
-#comprarItemFeiticeiro1:hover, #comprarItemFeiticeiro2:hover, #comprarItemFeiticeiro3:hover{
+.comprarItemFeiticeiro:hover{
     background-color: gray;
     cursor: pointer;
 }
+
+/*-----*/
+
+/*-----*/
+#lojaVenderFeiticeiro {
+    position: absolute;
+    bottom: 3%;
+    right: -6%;
+    padding: 0% 1% 1% 1%;
+    width: 25%;
+    height: 80%;
+    background-color: rgb(30, 30, 30);
+    color: orangered;
+    border: solid 5px black;
+    border-radius: 5%;
+    transition: 0.5s all 0s;
+    opacity: 0;
+    overflow: auto;
+}
+
+#itemVenderArmaFeiticeiroDisplay {
+    display: contents;
+}
+
+#itemVenderArmaduraFeiticeiroDisplay {
+    display: none;
+}
+
+
+.itemVenderFeiticeiro{
+    width: 100%;
+    height: 25%;
+    margin: 10% 0% 0% 0%;
+    padding: 0% 0.1% 0% 5%;
+    background-color: black;
+    border-radius: 5%;
+    text-align: center;
+}
+
+.nomeItemVenderFeiticeiro {
+    margin: 0% 0% 0% 0%;
+    padding: 3% 0% 0% 0%;
+    font-size: 15pt;
+}
+
+.informacaoItemVenderFeiticeiro {
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    font-size: 12pt;
+}
+
+.precoItemVenderFeiticeiro{
+    margin: 5% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    font-size: 12pt;
+}
+
+.venderItemFeiticeiro {
+    position: absolute;
+    right: 5%;
+    margin: 5% 0% 0% 0%;
+    padding: 0%;
+    background-color: rgb(30, 30, 30);
+    color: orangered;
+    border-radius: 5%;
+    font-size: 10pt;
+}
+
+.venderItemFeiticeiro:hover {
+    background-color: gray;
+    cursor: pointer;
+}
+
 /*-----*/

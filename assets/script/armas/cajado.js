@@ -141,7 +141,7 @@ var cajadoEletrico =
 {
     nome: 'Cajado elétrico', val: 'cajadoEletrico', obtido: false, peso: 0, preco: 10,
 
-    danoBase: 10, danoCombate: 10, tipoDano: 'eletricidade',
+    danoBase: 10, danoCombate: 10, tipoDano: 'Elétrico',
     debuff: 'eletricidade', chance: 20, duracao: 3,
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 7, manaCustoCombate: 7,

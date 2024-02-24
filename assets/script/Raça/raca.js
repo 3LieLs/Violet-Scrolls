@@ -14,7 +14,7 @@ var racaHumano =
 
 var racaElfo =
 {
-    nome: 'Elfo', buff: '', poder: '', fraqueza: 'Físico', resistencia: 'Eletricidade',
+    nome: 'Elfo', buff: '', poder: '', fraqueza: 'Físico', resistencia: 'Elétrico',
     vidaBase: 20, manaBase: 30, energiaBase: 10,
     vidaCombate: 20, manaCombate: 30, energiaCombate: 10,
 }
@@ -28,7 +28,7 @@ var racaOrc =
 
 var racaDraconato =
 {
-    nome: 'Draconato', buff: '', poder: '', fraqueza: 'Eletricidade', resistencia: 'Fogo',
+    nome: 'Draconato', buff: '', poder: '', fraqueza: 'Elétrico', resistencia: 'Fogo',
     vidaBase: 25, manaBase: 15, energiaBase: 20,
     vidaCombate: 25, manaCombate: 15, energiaCombate: 20,
 }

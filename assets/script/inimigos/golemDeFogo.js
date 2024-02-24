@@ -1,7 +1,7 @@
 /*-GOLEM DE FOGO STATUS-*/
 var golemDeFogo =
 {
-    nome: 'Golem de fogo', resistencia: 'Fogo', fraqueza: 'Fogo',
+    nome: 'Golem de fogo', resistencia: 'Fogo', fraqueza: 'Físico',
     nivel: 1, experiencia: 30,
 
     vidaBase: 35, energiaBase: 0, manaBase: 60,

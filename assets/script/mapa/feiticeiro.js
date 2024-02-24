@@ -1,136 +1,355 @@
-/*-FEITICEIRO VAIRÁVEIS-*/
-var botaoAbrirLojaFeiticeiro = window.document.querySelector('input#botaoAbrirLojaFeiticeiro');
-botaoAbrirLojaFeiticeiro.addEventListener('click', botaoAbrirLojaFeiticeiroClick);
+/*-FERREIRO VARIÁVEIS-*/
+var feiticeiro = {
+    nome: '', pecitas: 50,
+},
+    LojaFeiticeiroAbertoFechado = false;
 
-var botaoFecharLojaFeiticeiro = window.document.querySelector('input#botaoFecharLojaFeiticeiro');
-botaoFecharLojaFeiticeiro.addEventListener('click', botaoFecharLojaFeiticeiroClick);
+var botaoAbrirFecharLojaFeiticeiro = window.document.querySelector('input#botaoAbrirFecharLojaFeiticeiro');
+botaoAbrirFecharLojaFeiticeiro.addEventListener('click', botaoAbrirFecharLojaFeiticeiroClick);
 
 
-var nomeItemFeiticeiro1 = window.document.querySelector('h1#nomeItemFeiticeiro1');
-var informacaoItemFeiticeiro1 = window.document.querySelector('p#informacaoItemFeiticeiro1');
-var custoItemFeiticeiro3 = window.document.querySelector('p#custoItemFeiticeiro1');
-var comprarItemFeiticeiro1 = window.document.querySelector('input#comprarItemFeiticeiro1');
-comprarItemFeiticeiro1.addEventListener('click', comprarItemFeiticeiro1Click);
+var botaoVoltarComprarFeiticeiro = window.document.querySelector('input#botaoVoltarComprarFeiticeiro');
+botaoVoltarComprarFeiticeiro.addEventListener('click', botaoVoltarComprarFeiticeiroClick)
 
-var nomeItemFeiticeiro2 = window.document.querySelector('h1#nomeItemFeiticeiro2');
-var informacaoItemFeiticeiro2 = window.document.querySelector('p#informacaoItemFeiticeiro2');
-var custoItemFeiticeiro3 = window.document.querySelector('p#custoItemFeiticeiro2');
-var comprarItemFeiticeiro2 = window.document.querySelector('input#comprarItemFeiticeiro2');
-comprarItemFeiticeiro2.addEventListener('click', comprarItemFeiticeiro2Click);
+var botaoProximoComprarFeiticeiro = window.document.querySelector('input#botaoProximoComprarFeiticeiro');
+botaoProximoComprarFeiticeiro.addEventListener('click', botaoProximoComprarFeiticeiroClick)
 
-var nomeItemFeiticeiro3 = window.document.querySelector('h1#nomeItemFeiticeiro3');
-var informacaoItemFeiticeiro3 = window.document.querySelector('p#informacaoItemFeiticeiro3');
-var custoItemFeiticeiro3 = window.document.querySelector('p#custoItemFeiticeiro3');
-var comprarItemFeiticeiro3 = window.document.querySelector('input#comprarItemFeiticeiro3');
-comprarItemFeiticeiro3.addEventListener('click', comprarItemFeiticeiro3Click);
+var botaoVoltarVenderFeiticeiro = window.document.querySelector('input#botaoVoltarVenderFeiticeiro');
+botaoVoltarVenderFeiticeiro.addEventListener('click', botaoVoltarVenderFeiticeiroClick)
+
+var botaoProximoVenderFeiticeiro = window.document.querySelector('input#botaoProximoVenderFeiticeiro');
+botaoProximoVenderFeiticeiro.addEventListener('click', botaoProximoVenderFeiticeiroClick)
 /*-----*/
 
-/*-ABRIR/FECHAR FEITICEIRO LOJA-*/
-function botaoAbrirLojaFeiticeiroClick()
-{
-    lojaFeiticeiro.style.right = '1%';
-    lojaFeiticeiro.style.opacity = '1';
-    lojaFeiticeiro.style.zIndex = '9999';
+/*-ABRIR/FECHAR FERREIRO LOJA-*/
+function botaoAbrirFecharLojaFeiticeiroClick() {
+    if (LojaFeiticeiroAbertoFechado == false) {
+        LojaFeiticeiroAbertoFechado = true
 
-    botaoAbrirLojaFeiticeiro.style.opacity = '0';
-    botaoAbrirLojaFeiticeiro.style.zIndex = '-9999';
-}
+        lojaComprarFeiticeiro.style.left = '15%';
+        lojaComprarFeiticeiro.style.opacity = '1';
 
-function botaoFecharLojaFeiticeiroClick()
-{
-    lojaFeiticeiro.style.right = '-5%';
-    lojaFeiticeiro.style.opacity = '0';
-    lojaFeiticeiro.style.zIndex = '-9999';
+        lojaVenderFeiticeiro.style.right = '15%';
+        lojaVenderFeiticeiro.style.opacity = '1';
 
-    botaoAbrirLojaFeiticeiro.style.opacity = '1';
-    botaoAbrirLojaFeiticeiro.style.zIndex = '9999';
-}
-/*-----*/
+        botaoAbrirFecharLojaFeiticeiro.value = 'Fechar loja';
+    }
+    else {
+        LojaFeiticeiroAbertoFechado = false
 
-/*-----*/
-function comprarItemFeiticeiro1Click()
-{
-    if (cajadoDeFogo.obtido == false)
-    {
-        if (jogador.pecitas - cajadoDeFogo.preco >= 0)
-        {
-            adicionarCajadoDeFogo();
-            adicionarItem();
-    
-            jogador.pecitas -= cajadoDeFogo.preco;
-        }
-        else
-        {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else
-    {
-        alert('Você já possui este item');
-    }
-}
+        lojaComprarFeiticeiro.style.left = '-6%';
+        lojaComprarFeiticeiro.style.opacity = '0';
 
-function comprarItemFeiticeiro2Click()
-{
-    if (cajadoEletrico.obtido == false)
-    {
-        if (jogador.pecitas - cajadoEletrico.preco >= 0)
-        {
-            adicionarCajadoEletrico();
-            adicionarItem();
-    
-            jogador.pecitas -= cajadoEletrico.preco;
-        }
-        else
-        {
-            alert('Dinheiro insuficiente');
-        }
+        lojaVenderFeiticeiro.style.right = '-6%';
+        lojaVenderFeiticeiro.style.opacity = '0';
+        
+        botaoAbrirFecharLojaFeiticeiro.value = 'Abrir loja';
     }
-    else
-    {
-        alert('Você já possui este item');
-    }
-}
 
-function comprarItemFeiticeiro3Click()
-{
-    if (tunicaEspecialista.obtido == false)
-    {
-        if (jogador.pecitas - tunicaEspecialista.preco >= 0)
-        {
-            adicionarTunicaEspecialista();
-            adicionarItem();
-    
-            jogador.pecitas -= tunicaEspecialista.preco;
-        }
-        else
-        {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else
-    {
-        alert('Você já possui este item');
-    }
 }
 /*-----*/
 
 
-/*-----*/
-attLojaFeiticeiro();
+/*-MUDAR ARMA/ARMADURA FERREIRO COMPRAR LOJA-*/
+var mudarComprarArmaArmadura = 1;
 
-function attLojaFeiticeiro()
-{
-    nomeItemFeiticeiro1.innerHTML = `${cajadoDeFogo.nome}`;
-    informacaoItemFeiticeiro1.innerHTML = `Teste Teste Teste Teste Teste`;
-    custoItemFeiticeiro1.innerHTML = `Preço: ${cajadoDeFogo.preco} Pecitas`;
+function botaoVoltarComprarFeiticeiroClick() {
+    mudarComprarArmaArmadura--;
+    if (mudarComprarArmaArmadura < 1) {
+        mudarComprarArmaArmadura = 1;
+    }
+    mudarItensComprarFeiticeiro();
+}
 
-    nomeItemFeiticeiro2.innerHTML = `${cajadoEletrico.nome}`;
-    informacaoItemFeiticeiro2.innerHTML = `Teste Teste Teste Teste Teste`;
-    custoItemFeiticeiro2.innerHTML = `Preço: ${cajadoEletrico.preco} Pecitas`;
+function botaoProximoComprarFeiticeiroClick() {
+    mudarComprarArmaArmadura++;
+    if (mudarComprarArmaArmadura > 2) {
+        mudarComprarArmaArmadura = 2;
+    }
+    mudarItensComprarFeiticeiro();
+}
 
-    nomeItemFeiticeiro3.innerHTML = `${tunicaEspecialista.nome}`;
-    informacaoItemFeiticeiro3.innerHTML = `Teste Teste Teste Teste Teste`;
-    custoItemFeiticeiro3.innerHTML = `Preço: ${tunicaEspecialista.preco} Pecitas`;
+function mudarItensComprarFeiticeiro() {
+    if (mudarComprarArmaArmadura == 1) {
+        arma_armadura_comprar.innerHTML = 'Arma';
+        itemComprarArmaFeiticeiroDisplay.style.display = 'contents';
+        itemComprarArmaduraFeiticeiroDisplay.style.display = 'none';
+    }
+
+    if (mudarComprarArmaArmadura == 2) {
+        arma_armadura_comprar.innerHTML = 'Armadura';
+        itemComprarArmaFeiticeiroDisplay.style.display = 'none';
+        itemComprarArmaduraFeiticeiroDisplay.style.display = 'contents';
+    }
 }
 /*-----*/
+
+/*-MUDAR ARMA/ARMADURA FERREIRO VENDER LOJA-*/
+var mudarVenderArmaArmadura = 1;
+
+function botaoVoltarVenderFeiticeiroClick() {
+    mudarVenderArmaArmadura--;
+    if (mudarVenderArmaArmadura < 1) {
+        mudarVenderArmaArmadura = 1;
+    }
+    mudarItensVenderFeiticeiro();
+}
+
+function botaoProximoVenderFeiticeiroClick() {
+    mudarVenderArmaArmadura++;
+    if (mudarVenderArmaArmadura > 2) {
+        mudarVenderArmaArmadura = 2;
+    }
+    mudarItensVenderFeiticeiro();
+}
+
+function mudarItensVenderFeiticeiro() {
+    if (mudarVenderArmaArmadura == 1) {
+        arma_armadura_vender.innerHTML = 'Arma';
+        itemVenderArmaFeiticeiroDisplay.style.display = 'contents';
+        itemVenderArmaduraFeiticeiroDisplay.style.display = 'none';
+    }
+
+    if (mudarVenderArmaArmadura == 2) {
+        arma_armadura_vender.innerHTML = 'Armadura';
+        itemVenderArmaFeiticeiroDisplay.style.display = 'none';
+        itemVenderArmaduraFeiticeiroDisplay.style.display = 'contents';
+    }
+}
+/*-----*/
+
+
+/*-VARIÁVEIS ATUALIZAR LOJA FERREIRO-*/
+var addItemFeiticeiro =
+{
+    nome: '', preco: 0, informacao: '', obtido: '', val: '', peso: '', funcao: '',
+}
+var slotFeiticeiro = 1, funcaoFeiticeiro = '', addArmaFeiticeiro = false, addArmaduraFeiticeiro = false
+/*-----*/
+
+/*-ATUALIZAR ITENS DA LOJA COMPRAR FERREIRO-*/
+attLojaComprarFeiticeiro();
+
+function attLojaComprarFeiticeiro() {
+    let cajadoDeFogoRepetido = false;
+    let cajadoDeGeloRepetido = false;
+    let cajadoEletricoRepetido = false;
+    /*-----*/
+    let tunicaBasicaRepetido = false;
+    let tunicaEspecialistaRepetido = false;
+
+    for (let x = 0; x < 1; x++) {
+        addArmaFeiticeiro = true;
+        addArmaduraFeiticeiro = false;
+        /*-----*/
+        if (cajadoDeFogoRepetido == false) {
+            addItemFeiticeiro = cajadoDeFogo
+            funcaoFeiticeiro = cajadoDeFogoComprar
+            cajadoDeFogoRepetido = true
+            addItemLojaComprarFeiticeiro()
+        }
+        /*-----*/
+        if (cajadoDeGeloRepetido == false) {
+            addItemFeiticeiro = cajadoDeGelo
+            funcaoFeiticeiro = cajadoDeGeloComprar
+            cajadoDeGeloRepetido = true
+            addItemLojaComprarFeiticeiro()
+        }
+        /*-----*/
+        if (cajadoEletricoRepetido == false) {
+            addItemFeiticeiro = cajadoEletrico
+            funcaoFeiticeiro = cajadoEletricoComprar
+            cajadoEletricoRepetido = true
+            addItemLojaComprarFeiticeiro()
+        }
+        /*-----*/
+    }
+
+    for (let x = 0; x < 1; x++) {
+        addArmaFeiticeiro = false;
+        addArmaduraFeiticeiro = true;
+        /*-----*/
+        if (tunicaBasicaRepetido == false) {
+            addItemFeiticeiro = tunicaBasica
+            funcaoFeiticeiro = tunicaBasicaComprar
+            tunicaBasicaRepetido = true
+            addItemLojaComprarFeiticeiro()
+        }
+        /*-----*/
+        if (tunicaEspecialistaRepetido == false) {
+            addItemFeiticeiro = tunicaEspecialista
+            funcaoFeiticeiro = tunicaEspecialistaComprar
+            tunicaEspecialistaRepetido = true
+            addItemLojaComprarFeiticeiro()
+        }
+        /*-----*/
+    }
+
+    slotFeiticeiro = 1;
+}
+/*-----*/
+
+/*-----*/
+function addItemLojaComprarFeiticeiro() {
+    let add = '';
+    let Arma_Armadura = '';
+    let Arma_Armadura_Display = '';
+    /*-----*/
+    if (addArmaFeiticeiro == true) {
+        Arma_Armadura = 'Arma';
+        Arma_Armadura_Display = itemComprarArmaFeiticeiroDisplay;
+    }
+    if (addArmaduraFeiticeiro == true) {
+        Arma_Armadura = 'Armadura';
+        Arma_Armadura_Display = itemComprarArmaduraFeiticeiroDisplay;
+    }
+    /*-----*/
+    add = document.createElement("div");
+    add.setAttribute("id", `itemComprar${Arma_Armadura}Feiticeiro${slotFeiticeiro}`);
+    add.setAttribute("class", `itemComprarFeiticeiro`);
+    add.innerText = ``;
+    Arma_Armadura_Display.appendChild(add);
+    /*-----*/
+    add = document.createElement("h1");
+    add.setAttribute("id", `nomeItemComprar${Arma_Armadura}Feiticeiro${slotFeiticeiro}`);
+    add.setAttribute("class", `nomeItemComprarFeiticeiro`);
+    add.innerText = `${addItemFeiticeiro.nome}`;
+    document.getElementById(`itemComprar${Arma_Armadura}Feiticeiro${slotFeiticeiro}`).appendChild(add);
+    /*-----*/
+    add = document.createElement("p");
+    add.setAttribute("id", `informacaoItemComprar${Arma_Armadura}Feiticeiro${slotFeiticeiro}`);
+    add.setAttribute("class", `informacaoItemComprarFeiticeiro`);
+    add.innerText = `teste teste teste teste teste teste`;
+    document.getElementById(`itemComprar${Arma_Armadura}Feiticeiro${slotFeiticeiro}`).appendChild(add);
+    /*-----*/
+    add = document.createElement("p");
+    add.setAttribute("id", `precoItemComprar${Arma_Armadura}Feiticeiro${slotFeiticeiro}`);
+    add.setAttribute("class", `precoItemComprarFeiticeiro`);
+    add.innerText = `Preço: ${addItemFeiticeiro.preco}`;
+    document.getElementById(`itemComprar${Arma_Armadura}Feiticeiro${slotFeiticeiro}`).appendChild(add);
+    /*-----*/
+    add = document.createElement("input");
+    add.setAttribute("id", `comprarItem${Arma_Armadura}Feiticeiro${slotFeiticeiro}`);
+    add.setAttribute("class", `comprarItemFeiticeiro`);
+    add.setAttribute("type", `button`);
+    add.setAttribute("value", `Comprar`);
+    add.addEventListener('click', funcaoFeiticeiro);
+    document.getElementById(`itemComprar${Arma_Armadura}Feiticeiro${slotFeiticeiro}`).appendChild(add);
+    /*-----*/
+    slotFeiticeiro++;
+}
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+
+
+/*-ATUALIZAR ITENS DA LOJA VENDER FERREIRO-*/
+attLojaVenderFeiticeiro();
+
+function attLojaVenderFeiticeiro() {
+    let cajadoDeFogoRepetido = false;
+    let cajadoDeGeloRepetido = false;
+    let cajadoEletricoRepetido = false;
+    /*-----*/
+    let tunicaBasicaRepetido = false;
+    let tunicaEspecialistaRepetido = false;
+
+    for (let x = 0; x < 1; x++) {
+        addArmaFeiticeiro = true;
+        addArmaduraFeiticeiro = false;
+        /*-----*/
+        if (cajadoDeFogoRepetido == false) {
+            addItemFeiticeiro = cajadoDeFogo
+            funcaoFeiticeiro = cajadoDeFogoVender
+            cajadoDeFogoRepetido = true
+            addItemLojaVenderFeiticeiro()
+        }
+        /*-----*/
+        if (cajadoDeGeloRepetido == false) {
+            addItemFeiticeiro = cajadoDeGelo
+            funcaoFeiticeiro = cajadoDeGeloVender
+            cajadoDeGeloRepetido = true
+            addItemLojaVenderFeiticeiro()
+        }
+        /*-----*/
+        if (cajadoEletricoRepetido == false) {
+            addItemFeiticeiro = cajadoEletrico
+            funcaoFeiticeiro = cajadoEletricoVender
+            cajadoEletricoRepetido = true
+            addItemLojaVenderFeiticeiro()
+        }
+        /*-----*/
+    }
+
+    for (let x = 0; x < 1; x++) {
+        addArmaFeiticeiro = false;
+        addArmaduraFeiticeiro = true;
+        /*-----*/
+        if (tunicaBasicaRepetido == false) {
+            addItemFeiticeiro = tunicaBasica
+            funcaoFeiticeiro = tunicaBasicaVender
+            tunicaBasicaRepetido = true
+            addItemLojaVenderFeiticeiro()
+        }
+        /*-----*/
+        if (tunicaEspecialistaRepetido == false) {
+            addItemFeiticeiro = tunicaEspecialista
+            funcaoFeiticeiro = tunicaEspecialistaVender
+            tunicaEspecialistaRepetido = true
+            addItemLojaVenderFeiticeiro()
+        }
+        /*-----*/
+    }
+
+    slotFeiticeiro = 1;
+}
+/*-----*/
+
+/*-----*/
+function addItemLojaVenderFeiticeiro() {
+    let add = '';
+    let Arma_Armadura = ''
+    let Arma_Armadura_Display = ''
+    /*-----*/
+    if (addArmaFeiticeiro == true) {
+        Arma_Armadura = 'Arma'
+        Arma_Armadura_Display = itemVenderArmaFeiticeiroDisplay
+    }
+    if (addArmaduraFeiticeiro == true) {
+        Arma_Armadura = 'Armadura'
+        Arma_Armadura_Display = itemVenderArmaduraFeiticeiroDisplay
+    }
+    /*-----*/
+    add = document.createElement("div");
+    add.setAttribute("id", `itemVender${Arma_Armadura}Feiticeiro${slotFeiticeiro}`);
+    add.setAttribute("class", `itemVenderFeiticeiro`);
+    add.innerText = ``;
+    Arma_Armadura_Display.appendChild(add);
+    /*-----*/
+    add = document.createElement("h1");
+    add.setAttribute("id", `nomeItemVender${Arma_Armadura}Feiticeiro${slotFeiticeiro}`);
+    add.setAttribute("class", `nomeItemVenderFeiticeiro`);
+    add.innerText = `${addItemFeiticeiro.nome}`;
+    document.getElementById(`itemVender${Arma_Armadura}Feiticeiro${slotFeiticeiro}`).appendChild(add);
+    /*-----*/
+    add = document.createElement("p");
+    add.setAttribute("id", `informacaoItemVender${Arma_Armadura}Feiticeiro${slotFeiticeiro}`);
+    add.setAttribute("class", `informacaoItemVenderFeiticeiro`);
+    add.innerText = `teste teste teste teste teste teste`;
+    document.getElementById(`itemVender${Arma_Armadura}Feiticeiro${slotFeiticeiro}`).appendChild(add);
+    /*-----*/
+    add = document.createElement("p");
+    add.setAttribute("id", `precoItemVender${Arma_Armadura}Feiticeiro${slotFeiticeiro}`);
+    add.setAttribute("class", `precoItemVenderFeiticeiro`);
+    add.innerText = `Preço: ${addItemFeiticeiro.preco}`;
+    document.getElementById(`itemVender${Arma_Armadura}Feiticeiro${slotFeiticeiro}`).appendChild(add);
+    /*-----*/
+    add = document.createElement("input");
+    add.setAttribute("id", `venderItem${Arma_Armadura}Feiticeiro${slotFeiticeiro}`);
+    add.setAttribute("class", `venderItemFeiticeiro`);
+    add.setAttribute("type", `button`);
+    add.setAttribute("value", `Vender`);
+    add.addEventListener('click', funcaoFeiticeiro);
+    document.getElementById(`itemVender${Arma_Armadura}Feiticeiro${slotFeiticeiro}`).appendChild(add);
+    /*-----*/
+    slotFeiticeiro++;
+}
+/*-----*//*-----*//*-----*//*-----*//*-----*/
