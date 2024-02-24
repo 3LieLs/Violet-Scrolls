@@ -30,37 +30,19 @@ function removerTunicaBasica() {
 }
 /*-----*/
 function tunicaBasicaComprar() {
-    if (tunicaBasica.obtido == false) {
-        if (jogador.pecitas - tunicaBasica.preco >= 0) {
-            adicionarTunicaBasica()
-            adicionarItem()
+    geralObtido = tunicaBasica.obtido
+    geralPreco = tunicaBasica.preco
+    geralAdicionar = adicionarTunicaBasica
 
-            jogador.pecitas -= tunicaBasica.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }
+    geralComprar()
 }
 /*-----*/
 function tunicaBasicaVender() {
-    if (tunicaBasica.obtido == true) {
-        if (ferreiro.pecitas - tunicaBasica.preco >= 0) {
-            removerTunicaBasica()
-            removerItem()
+    geralObtido = tunicaBasica.obtido
+    geralPreco = tunicaBasica.preco
+    geralRemover = removerTunicaBasica
 
-            jogador.pecitas += tunicaBasica.preco;
-        }
-        else {
-            alert('O ferreiro não possui dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
+    geralVender()
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
@@ -96,36 +78,18 @@ function removerTunicaEspecialista() {
 }
 /*-----*/
 function tunicaEspecialistaComprar() {
-    if (tunicaEspecialista.obtido == false) {
-        if (jogador.pecitas - tunicaEspecialista.preco >= 0) {
-            adicionarTunicaEspecialista()
-            adicionarItem()
+    geralObtido = tunicaEspecialista.obtido
+    geralPreco = tunicaEspecialista.preco
+    geralAdicionar = adicionarTunicaEspecialista
 
-            jogador.pecitas -= tunicaEspecialista.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }
+    geralComprar()
 }
 /*-----*/
 function tunicaEspecialistaVender() {
-    if (tunicaEspecialista.obtido == true) {
-        if (ferreiro.pecitas - tunicaEspecialista.preco >= 0) {
-            removerTunicaEspecialista()
-            removerItem()
+    geralObtido = tunicaEspecialista.obtido
+    geralPreco = tunicaEspecialista.preco
+    geralRemover = removerTunicaEspecialista
 
-            jogador.pecitas += tunicaEspecialista.preco;
-        }
-        else {
-            alert('O ferreiro não possui dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
+    geralVender()
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/

@@ -29,37 +29,19 @@ function removerArmaduraDeCouro() {
 }
 /*-----*/
 function armaduraDeCouroComprar() {
-    if (armaduraDeCouro.obtido == false) {
-        if (jogador.pecitas - armaduraDeCouro.preco >= 0) {
-            adicionarArmaduraDeCouro()
-            adicionarItem()
+    geralObtido = armaduraDeCouro.obtido
+    geralPreco = armaduraDeCouro.preco
+    geralAdicionar = adicionarArmaduraDeCouro
 
-            jogador.pecitas -= armaduraDeCouro.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }
+    geralComprar()
 }
 /*-----*/
 function armaduraDeCouroVender() {
-    if (armaduraDeCouro.obtido == true) {
-        if (ferreiro.pecitas - armaduraDeCouro.preco >= 0) {
-            removerArmaduraDeCouro()
-            removerItem()
+    geralObtido = armaduraDeCouro.obtido
+    geralPreco = armaduraDeCouro.preco
+    geralRemover = removerArmaduraDeCouro
 
-            jogador.pecitas += armaduraDeCouro.preco;
-        }
-        else {
-            alert('O ferreiro não possui dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
+    geralVender()
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
@@ -95,36 +77,18 @@ function removerArmaduraDeEscamas() {
 }
 /*-----*/
 function armaduraDeEscamasComprar() {
-    if (armaduraDeEscamas.obtido == false) {
-        if (jogador.pecitas - armaduraDeEscamas.preco >= 0) {
-            adicionarArmaduraDeEscamas()
-            adicionarItem()
+    geralObtido = armaduraDeEscamas.obtido
+    geralPreco = armaduraDeEscamas.preco
+    geralAdicionar = adicionarArmaduraDeEscamas
 
-            jogador.pecitas -= armaduraDeEscamas.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }
+    geralComprar()
 }
 /*-----*/
 function armaduraDeEscamasVender() {
-    if (armaduraDeEscamas.obtido == true) {
-        if (ferreiro.pecitas - armaduraDeEscamas.preco >= 0) {
-            removerArmaduraDeEscamas()
-            removerItem()
+    geralObtido = armaduraDeEscamas.obtido
+    geralPreco = armaduraDeEscamas.preco
+    geralRemover = removerArmaduraDeEscamas
 
-            jogador.pecitas += armaduraDeEscamas.preco;
-        }
-        else {
-            alert('O ferreiro não possui dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
+    geralVender()
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/

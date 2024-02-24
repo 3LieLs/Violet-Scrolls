@@ -1,4 +1,56 @@
 /*-----*//*-----*//*-----*//*-----*//*-----*/
+var adaga =
+{
+    nome: 'Adaga', val: 'adaga', obtido: false, peso: 0, preco: 3,
+
+    danoBase: 3, danoCombate: 3, tipoDano: 'Físico',
+    debuff: 'sangramento', chance: 5, duracao: 2,
+
+    energiaCusto: 2, energiaCustoCombate: 2, manaCusto: 0, manaCustoCombate: 0,
+}
+/*-----*/
+function equipAdaga() {
+    armaGeral = adaga;
+
+    if (mudarEquipamentosArmaVal == true) {
+        atualizarItensEquipamentosArma();
+    }
+}
+/*-----*/
+function adicionarAdaga() {
+    jogador.peso += adaga.peso
+    adaga.obtido = true;
+    addItemTipo = 'equipamento';
+    addItemVal = adaga.val;
+    addItemNome = adaga.nome;
+    funcaoEquip = equipAdaga;
+}
+/*-----*/
+function removerAdaga() {
+    adaga.obtido = false;
+    removItemTipo = 'equipamento';
+    removItemVal = adaga.val;
+    removItemNome = adaga.nome;
+}
+/*-----*/
+function adagaComprar() {
+    geralObtido = adaga.obtido
+    geralPreco = adaga.preco
+    geralAdicionar = adicionarAdaga
+
+    geralComprar()
+}
+/*-----*/
+function adagaVender() {
+    geralObtido = adaga.obtido
+    geralPreco = adaga.preco
+    geralRemover = removerAdaga
+
+    geralVender()
+}
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 var chicoteDeAco =
 {
     nome: 'Chicote de aço', val: 'chicoteDeAco', obtido: false, peso: 0, preco: 3,
@@ -33,37 +85,19 @@ function removerChicoteDeAco() {
 }
 /*-----*/
 function chicoteDeAcoComprar() {
-    if (chicoteDeAco.obtido == false) {
-        if (jogador.pecitas - chicoteDeAco.preco >= 0) {
-            adicionarChicoteDeAco()
-            adicionarItem()
+    geralObtido = chicoteDeAco.obtido
+    geralPreco = chicoteDeAco.preco
+    geralAdicionar = adicionarChicoteDeAco
 
-            jogador.pecitas -= chicoteDeAco.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }
+    geralComprar()
 }
 /*-----*/
 function chicoteDeAcoVender() {
-    if (chicoteDeAco.obtido == true) {
-        if (ferreiro.pecitas - chicoteDeAco.preco >= 0) {
-            removerChicoteDeAco()
-            removerItem()
+    geralObtido = chicoteDeAco.obtido
+    geralPreco = chicoteDeAco.preco
+    geralRemover = removerChicoteDeAco
 
-            jogador.pecitas += chicoteDeAco.preco;
-        }
-        else {
-            alert('O ferreiro não possui dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
+    geralVender()
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
@@ -102,37 +136,19 @@ function removerEspadaDeAco() {
 }
 /*-----*/
 function espadaDeAcoComprar() {
-    if (espadaDeAco.obtido == false) {
-        if (jogador.pecitas - espadaDeAco.preco >= 0) {
-            adicionarEspadaDeAco()
-            adicionarItem()
+    geralObtido = espadaDeAco.obtido
+    geralPreco = espadaDeAco.preco
+    geralAdicionar = adicionarEspadaDeAco
 
-            jogador.pecitas -= espadaDeAco.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }
+    geralComprar()
 }
 /*-----*/
 function espadaDeAcoVender() {
-    if (espadaDeAco.obtido == true) {
-        if (ferreiro.pecitas - espadaDeAco.preco >= 0) {
-            removerEspadaDeAco()
-            removerItem()
+    geralObtido = espadaDeAco.obtido
+    geralPreco = espadaDeAco.preco
+    geralRemover = removerEspadaDeAco
 
-            jogador.pecitas += espadaDeAco.preco;
-        }
-        else {
-            alert('O ferreiro não possui dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
+    geralVender()
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
@@ -161,5 +177,28 @@ function adicionarLancaEnvenenada() {
     addItemVal = lancaEnvenenada.val;
     addItemNome = lancaEnvenenada.nome;
     funcaoEquip = equipEspadaDeAco;
+}
+/*-----*/
+function removerLancaEnvenenada() {
+    lancaEnvenenada.obtido = false;
+    removItemTipo = 'equipamento';
+    removItemVal = lancaEnvenenada.val;
+    removItemNome = lancaEnvenenada.nome;
+}
+/*-----*/
+function lancaEnvenenadaComprar() {
+    geralObtido = lancaEnvenenada.obtido
+    geralPreco = lancaEnvenenada.preco
+    geralAdicionar = adicionarLancaEnvenenada
+
+    geralComprar()
+}
+/*-----*/
+function lancaEnvenenadaVender() {
+    geralObtido = lancaEnvenenada.obtido
+    geralPreco = lancaEnvenenada.preco
+    geralRemover = removerLancaEnvenenada
+
+    geralVender()
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/

@@ -287,22 +287,10 @@ function removerItem() {
 
     if (removItemTipo == 'equipamento') {
         remov = document.getElementById(`slot${removItemVal}`).remove();
-
-        remov = document.getElementById(`nomeSlot${removItemVal}`).remove();
-
-        remov = document.getElementById(`informacaoItemSlot${removItemVal}`).remove();
-
-        remov = document.getElementById(`equiparItemSlot${removItemVal}`).remove();
     }
 
     if (removItemTipo == 'magia') {
         remov = document.getElementById(`slot${removItemVal}`).remove();
-
-        remov = document.getElementById(`nomeSlot${removItemVal}`).remove();
-
-        remov = document.getElementById(`informacaoItemSlot${removItemVal}`).remove();
-
-        remov = document.getElementById(`equiparItemSlot${removItemVal}`).remove();
     }
 }
 /*-----*/

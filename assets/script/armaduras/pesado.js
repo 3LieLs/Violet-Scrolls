@@ -30,37 +30,19 @@ function removerArmaduraDeFerro() {
 }
 /*-----*/
 function armaduraDeFerroComprar() {
-    if (armaduraDeFerro.obtido == false) {
-        if (jogador.pecitas - armaduraDeFerro.preco >= 0) {
-            adicionarArmaduraDeFerro()
-            adicionarItem()
+    geralObtido = armaduraDeFerro.obtido
+    geralPreco = armaduraDeFerro.preco
+    geralAdicionar = adicionarArmaduraDeFerro
 
-            jogador.pecitas -= armaduraDeFerro.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }
+    geralComprar()
 }
 /*-----*/
 function armaduraDeFerroVender() {
-    if (armaduraDeFerro.obtido == true) {
-        if (ferreiro.pecitas - armaduraDeFerro.preco >= 0) {
-            removerArmaduraDeFerro()
-            removerItem()
+    geralObtido = armaduraDeFerro.obtido
+    geralPreco = armaduraDeFerro.preco
+    geralRemover = removerArmaduraDeFerro
 
-            jogador.pecitas += armaduraDeFerro.preco;
-        }
-        else {
-            alert('O ferreiro não possui dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
+    geralVender()
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
@@ -96,36 +78,18 @@ function removerArmaduraDeAco() {
 }
 /*-----*/
 function armaduraDeAcoComprar() {
-    if (armaduraDeAco.obtido == false) {
-        if (jogador.pecitas - armaduraDeAco.preco >= 0) {
-            adicionarArmaduraDeAco()
-            adicionarItem()
+    geralObtido = armaduraDeAco.obtido
+    geralPreco = armaduraDeAco.preco
+    geralAdicionar = adicionarArmaduraDeAco
 
-            jogador.pecitas -= armaduraDeAco.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }
+    geralComprar()
 }
 /*-----*/
 function armaduraDeAcoVender() {
-    if (armaduraDeAco.obtido == true) {
-        if (ferreiro.pecitas - armaduraDeAco.preco >= 0) {
-            removerArmaduraDeAco()
-            removerItem()
+    geralObtido = armaduraDeAco.obtido
+    geralPreco = armaduraDeAco.preco
+    geralRemover = removerArmaduraDeAco
 
-            jogador.pecitas += armaduraDeAco.preco;
-        }
-        else {
-            alert('O ferreiro não possui dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
+    geralVender()
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/

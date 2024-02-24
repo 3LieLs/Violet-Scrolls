@@ -1,4 +1,90 @@
 /*-----*//*-----*//*-----*//*-----*//*-----*/
+var geralObtido, geralPreco, geralRemover, geralAdicionar, lojistaPecitas, lojista
+
+function geralComprar() {
+    if (geralObtido == false) {
+        if (localMapa == 'vendedor') {
+            lojista = `${vendedor.nome}`
+            lojistaPecitas = `${vendedor.pecitas}`
+        }
+        if (localMapa == 'ferreiro') {
+            lojista = `${ferreiro.nome}`
+            lojistaPecitas = `${ferreiro.pecitas}`
+        }
+        if (localMapa == 'feiticeiro') {
+            lojista = `${feiticeiro.nome}`
+            lojistaPecitas = `${feiticeiro.pecitas}`
+        }
+
+        if (jogador.pecitas - geralPreco >= 0) {
+            geralAdicionar()
+            adicionarItem()
+
+            jogador.pecitas -= geralPreco;
+            lojistaPecitas += geralPreco
+
+            if (localMapa == 'vendedor') {
+                vendedor.pecitas = lojistaPecitas
+            }
+            if (localMapa == 'ferreiro') {
+                ferreiro.pecitas = lojistaPecitas
+            }
+            if (localMapa == 'feiticeiro') {
+                feiticeiro.pecitas = lojistaPecitas
+            }
+        }
+        else {
+            alert(`Você não possui pecitas suficiente`);
+        }
+    }
+    else {
+        alert('Você já possui este item');
+    }
+}
+/*-----*/
+function geralVender() {
+    if (geralObtido == true) {
+        if (localMapa == 'vendedor') {
+            lojista = `${vendedor.nome}`
+            lojistaPecitas = `${vendedor.pecitas}`
+        }
+        if (localMapa == 'ferreiro') {
+            lojista = `${ferreiro.nome}`
+            lojistaPecitas = `${ferreiro.pecitas}`
+        }
+        if (localMapa == 'feiticeiro') {
+            lojista = `${feiticeiro.nome}`
+            lojistaPecitas = `${feiticeiro.pecitas}`
+        }
+
+        if (lojistaPecitas - geralPreco >= 0) {
+            geralRemover()
+            removerItem()
+
+            jogador.pecitas += geralPreco;
+            lojistaPecitas -= geralPreco
+
+            if (localMapa == 'vendedor') {
+                vendedor.pecitas = lojistaPecitas
+            }
+            if (localMapa == 'ferreiro') {
+                ferreiro.pecitas = lojistaPecitas
+            }
+            if (localMapa == 'feiticeiro') {
+                feiticeiro.pecitas = lojistaPecitas
+            }
+        }
+        else {
+            alert(`${lojista} não possui pecitas suficiente`);
+        }
+    }
+    else {
+        alert('Você não possui este item');
+    }
+}
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 var armaGeral =
 {
     nome: '', val: '', obtido: false, peso: 0, preco: 0,
@@ -19,75 +105,5 @@ var soco =
     debuff: 'Nenhum', chance: 0, duracao: 0,
 
     energiaCusto: 1, energiaCustoCombate: 1, manaCusto: 0, manaCustoCombate: 0,
-}
-/*-----*//*-----*//*-----*//*-----*//*-----*/
-
-/*-----*//*-----*//*-----*//*-----*//*-----*/
-var adaga =
-{
-    nome: 'Adaga', val: 'adaga', obtido: false, peso: 0, preco: 3,
-
-    danoBase: 3, danoCombate: 3, tipoDano: 'Físico',
-    debuff: 'sangramento', chance: 5, duracao: 2,
-
-    energiaCusto: 2, energiaCustoCombate: 2, manaCusto: 0, manaCustoCombate: 0,
-}
-/*-----*/
-function equipAdaga() {
-    armaGeral = adaga;
-
-    if (mudarEquipamentosArmaVal == true) {
-        atualizarItensEquipamentosArma();
-    }
-}
-/*-----*/
-function adicionarAdaga() {
-    jogador.peso += adaga.peso
-    adaga.obtido = true;
-    addItemTipo = 'equipamento';
-    addItemVal = adaga.val;
-    addItemNome = adaga.nome;
-    funcaoEquip = equipAdaga;
-}
-/*-----*/
-function removerAdaga() {
-    adaga.obtido = false;
-    removItemTipo = 'equipamento';
-    removItemVal = adaga.val;
-    removItemNome = adaga.nome;
-}
-/*-----*/
-function adagaComprar() {
-    if (adaga.obtido == false) {
-        if (jogador.pecitas - adaga.preco >= 0) {
-            adicionarAdaga()
-            adicionarItem()
-
-            jogador.pecitas -= adaga.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }
-}
-/*-----*/
-function adagaVender() {
-    if (adaga.obtido == true) {
-        if (ferreiro.pecitas - adaga.preco >= 0) {
-            removerAdaga()
-            removerItem()
-
-            jogador.pecitas += adaga.preco;
-        }
-        else {
-            alert('O ferreiro não possui dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/

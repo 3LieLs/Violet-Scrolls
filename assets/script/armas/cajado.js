@@ -33,37 +33,19 @@ function removerCajadoDeFogo() {
 }
 /*-----*/
 function cajadoDeFogoComprar() {
-    if (cajadoDeFogo.obtido == false) {
-        if (jogador.pecitas - cajadoDeFogo.preco >= 0) {
-            adicionarCajadoDeFogo()
-            adicionarItem()
+    geralObtido = cajadoDeFogo.obtido
+    geralPreco = cajadoDeFogo.preco
+    geralAdicionar = adicionarCajadoDeFogo
 
-            jogador.pecitas -= cajadoDeFogo.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }
+    geralComprar()
 }
 /*-----*/
 function cajadoDeFogoVender() {
-    if (cajadoDeFogo.obtido == true) {
-        if (feiticeiro.pecitas - cajadoDeFogo.preco >= 0) {
-            removerCajadoDeFogo()
-            removerItem()
+    geralObtido = cajadoDeFogo.obtido
+    geralPreco = cajadoDeFogo.preco
+    geralRemover = removerCajadoDeFogo
 
-            jogador.pecitas += cajadoDeFogo.preco;
-        }
-        else {
-            alert('O feiticeiro não possui dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
+    geralVender()
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
@@ -102,37 +84,19 @@ function removerCajadoDeGelo() {
 }
 /*-----*/
 function cajadoDeGeloComprar() {
-    if (cajadoDeGelo.obtido == false) {
-        if (jogador.pecitas - cajadoDeGelo.preco >= 0) {
-            adicionarCajadoDeGelo()
-            adicionarItem()
+    geralObtido = cajadoDeGelo.obtido
+    geralPreco = cajadoDeGelo.preco
+    geralAdicionar = adicionarCajadoDeGelo
 
-            jogador.pecitas -= cajadoDeGelo.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }
+    geralComprar()
 }
 /*-----*/
 function cajadoDeGeloVender() {
-    if (cajadoDeGelo.obtido == true) {
-        if (feiticeiro.pecitas - cajadoDeGelo.preco >= 0) {
-            removerCajadoDeGelo()
-            removerItem()
+    geralObtido = cajadoDeGelo.obtido
+    geralPreco = cajadoDeGelo.preco
+    geralRemover = removerCajadoDeGelo
 
-            jogador.pecitas += cajadoDeGelo.preco;
-        }
-        else {
-            alert('O feiticeiro não possui dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
+    geralVender()
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
@@ -171,36 +135,18 @@ function removerCajadoEletrico() {
 }
 /*-----*/
 function cajadoEletricoComprar() {
-    if (cajadoEletrico.obtido == false) {
-        if (jogador.pecitas - cajadoEletrico.preco >= 0) {
-            adicionarCajadoEletrico()
-            adicionarItem()
+    geralObtido = cajadoEletrico.obtido
+    geralPreco = cajadoEletrico.preco
+    geralAdicionar = adicionarCajadoEletrico
 
-            jogador.pecitas -= cajadoEletrico.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }
+    geralComprar()
 }
 /*-----*/
 function cajadoEletricoVender() {
-    if (cajadoEletrico.obtido == true) {
-        if (feiticeiro.pecitas - cajadoEletrico.preco >= 0) {
-            removerCajadoEletrico()
-            removerItem()
+    geralObtido = cajadoEletrico.obtido
+    geralPreco = cajadoEletrico.preco
+    geralRemover = removerCajadoEletrico
 
-            jogador.pecitas += cajadoEletrico.preco;
-        }
-        else {
-            alert('O feiticeiro não possui dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
+    geralVender()
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/

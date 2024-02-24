@@ -33,37 +33,19 @@ function removerArcoSimples() {
 }
 /*-----*/
 function arcoSimplesComprar() {
-    if (arcoSimples.obtido == false) {
-        if (jogador.pecitas - arcoSimples.preco >= 0) {
-            adicionarArcoSimples()
-            adicionarItem()
+    geralObtido = arcoSimples.obtido
+    geralPreco = arcoSimples.preco
+    geralAdicionar = adicionarArcoSimples
 
-            jogador.pecitas -= arcoSimples.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }
+    geralComprar()
 }
 /*-----*/
 function arcoSimplesVender() {
-    if (arcoSimples.obtido == true) {
-        if (ferreiro.pecitas - arcoSimples.preco >= 0) {
-            removerArcoSimples()
-            removerItem()
+    geralObtido = arcoSimples.obtido
+    geralPreco = arcoSimples.preco
+    geralRemover = removerArcoSimples
 
-            jogador.pecitas += arcoSimples.preco;
-        }
-        else {
-            alert('O ferreiro não possui dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
+    geralVender()
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
@@ -102,36 +84,18 @@ function removerArcoLongo() {
 }
 /*-----*/
 function arcoLongoComprar() {
-    if (arcoLongo.obtido == false) {
-        if (jogador.pecitas - arcoLongo.preco >= 0) {
-            adicionarArcoLongo()
-            adicionarItem()
+    geralObtido = arcoLongo.obtido
+    geralPreco = arcoLongo.preco
+    geralAdicionar = adicionarArcoLongo
 
-            jogador.pecitas -= arcoLongo.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }
+    geralComprar()
 }
 /*-----*/
 function arcoLongoVender() {
-    if (arcoLongo.obtido == true) {
-        if (ferreiro.pecitas - arcoLongo.preco >= 0) {
-            removerArcoLongo()
-            removerItem()
+    geralObtido = arcoLongo.obtido
+    geralPreco = arcoLongo.preco
+    geralRemover = removerArcoLongo
 
-            jogador.pecitas += arcoLongo.preco;
-        }
-        else {
-            alert('O ferreiro não possui dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
+    geralVender()
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/

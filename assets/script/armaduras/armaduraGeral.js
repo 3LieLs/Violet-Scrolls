@@ -51,36 +51,18 @@ function removerArmaduraDePele() {
 }
 /*-----*/
 function armaduraDePeleComprar() {
-    if (armaduraDePele.obtido == false) {
-        if (jogador.pecitas - armaduraDePele.preco >= 0) {
-            adicionarArmaduraDePele()
-            adicionarItem()
+    geralObtido = armaduraDePele.obtido
+    geralPreco = armaduraDePele.preco
+    geralAdicionar = adicionarArmaduraDePele
 
-            jogador.pecitas -= armaduraDePele.preco;
-        }
-        else {
-            alert('Dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você já possui este item');
-    }
+    geralComprar()
 }
 /*-----*/
 function armaduraDePeleVender() {
-    if (armaduraDePele.obtido == true) {
-        if (ferreiro.pecitas - armaduraDePele.preco >= 0) {
-            removerArmaduraDePele()
-            removerItem()
+    geralObtido = armaduraDePele.obtido
+    geralPreco = armaduraDePele.preco
+    geralRemover = removerArmaduraDePele
 
-            jogador.pecitas += armaduraDePele.preco;
-        }
-        else {
-            alert('O ferreiro não possui dinheiro insuficiente');
-        }
-    }
-    else {
-        alert('Você não possui este item');
-    }
+    geralVender()
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
