@@ -1,7 +1,7 @@
 /*-DRAGÃO STATS-*/
 var dragao =
 {
-    nome: 'Dragão', resistencia: 'Fogo', fraqueza: 'Elétrico',
+    nome: 'Dragão', val: 'dragao', resistencia: 'Fogo', fraqueza: 'Elétrico',
     nivel: 1, experiencia: 60,
 
     vidaBase: 150, energiaBase: 70, manaBase: 50,

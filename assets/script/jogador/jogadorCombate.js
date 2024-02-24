@@ -235,8 +235,74 @@ function voltarArmaduraAcaoClick() {
 
 /*-MOVESET OUTROS-*/
 function movesetOutrosEscolhaClick() {
+    primeiraEscolha.removeEventListener('click', movesetArmaEscolhaClick);
+    segundaEscolha.removeEventListener('click', movesetMagiaEscolhaClick);
+    terceiraEscolha.removeEventListener('click', movesetArmaduraEscolhaClick);
+    quartaEscolha.removeEventListener('click', movesetOutrosEscolhaClick);
 
+    primeiraEscolha.value = 'Teste';
+    primeiraEscolha.id = 'aaa';
 
+    primeiraEscolha = window.document.querySelector('input#aaa');
+    primeiraEscolha.addEventListener('click', aaaClick);
+
+    segundaEscolha.value = 'Poções';
+    segundaEscolha.id = 'pocoes';
+
+    segundaEscolha = window.document.querySelector('input#pocoes');
+    segundaEscolha.addEventListener('click', pocoesClick);
+
+    terceiraEscolha.value = 'Fugir';
+    terceiraEscolha.id = 'fugir';
+
+    terceiraEscolha = window.document.querySelector('input#fugir');
+    terceiraEscolha.addEventListener('click', fugirClick);
+
+    quartaEscolha.value = 'Voltar';
+    quartaEscolha.id = 'voltarOutrosAcao';
+
+    quartaEscolha = window.document.querySelector('input#voltarOutrosAcao');
+    quartaEscolha.addEventListener('click', voltarOutrosAcaoClick);
+}
+
+function aaaClick() {
+    if (vezUsuario == false) {
+        movesetOutrosEscolhaClick()
+        console.log(`Calma ${jogador.nome}, espere a sua vez`)
+    }
+
+    if (vezUsuario == true) {
+        botaoTesteClick();
+        voltarMovesetInicio();
+    }
+}
+
+function pocoesClick() {
+    if (vezUsuario == false) {
+        movesetOutrosEscolhaClick()
+        console.log(`Calma ${jogador.nome}, espere a sua vez`)
+    }
+
+    if (vezUsuario == true) {
+        botaoPocoesClick();
+        voltarMovesetInicio();
+    }
+}
+
+function fugirClick() {
+    if (vezUsuario == false) {
+        movesetOutrosEscolhaClick()
+        console.log(`Calma ${jogador.nome}, espere a sua vez`)
+    }
+
+    if (vezUsuario == true) {
+        botaoFugirClick();
+        voltarMovesetInicio();
+    }
+}
+
+function voltarOutrosAcaoClick() {
+    voltarMovesetInicio();
 }
 /*-----*/
 
@@ -245,21 +311,25 @@ function voltarMovesetInicio() {
     primeiraEscolha.removeEventListener('click', ataqueFracoClick);
     primeiraEscolha.removeEventListener('click', magiaDanoClick);
     primeiraEscolha.removeEventListener('click', bloquearClick);
+    terceiraEscolha.removeEventListener('click', aaaClick);
 
 
     segundaEscolha.removeEventListener('click', ataqueForteClick);
     segundaEscolha.removeEventListener('click', magiaRecuperarClick);
     segundaEscolha.removeEventListener('click', descansoClick);
+    terceiraEscolha.removeEventListener('click', pocoesClick);
 
 
     terceiraEscolha.removeEventListener('click', contraAtaqueClick);
     terceiraEscolha.removeEventListener('click', magiaBuffClick);
     terceiraEscolha.removeEventListener('click', focoClick);
+    terceiraEscolha.removeEventListener('click', fugirClick);
 
 
     quartaEscolha.removeEventListener('click', voltarArmaAcaoClick);
     quartaEscolha.removeEventListener('click', voltarMagiaAcaoClick);
     quartaEscolha.removeEventListener('click', voltarArmaduraAcaoClick);
+    terceiraEscolha.removeEventListener('click', voltarOutrosAcaoClick);
 
 
     primeiraEscolha.value = 'Atacar';

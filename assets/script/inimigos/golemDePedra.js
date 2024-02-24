@@ -1,7 +1,7 @@
 /*-GOLEM DE PEDRA STATUS-*/
 var golemDePedra =
 {
-    nome: 'Golem de pedra', resistencia: 'Físico', fraqueza: 'Nenhuma',
+    nome: 'Golem de pedra', val: 'golemDePedra', resistencia: 'Físico', fraqueza: 'Nenhuma',
     nivel: 1, experiencia: 30,
 
     vidaBase: 75, energiaBase: 30, manaBase: 0,

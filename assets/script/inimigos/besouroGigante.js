@@ -1,7 +1,7 @@
 /*-BESOURO GIGANTE STATUS-*/
 var besouroGigante =
 {
-    nome: 'Besouro gigante', resistencia: 'Nenhuma', fraqueza: 'Fogo',
+    nome: 'Besouro gigante', val: 'besouroGigante', resistencia: 'Nenhuma', fraqueza: 'Fogo',
     nivel: 1, experiencia: 5,
 
     vidaBase: 15, energiaBase: 30, manaBase: 0,

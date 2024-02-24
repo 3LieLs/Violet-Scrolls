@@ -1,7 +1,7 @@
 /*-GOBLIN STATUS-*/
 var goblin =
 {
-    nome: 'Goblin', resistencia: 'Gelo', fraqueza: 'Físico',
+    nome: 'Goblin', val: 'goblin', resistencia: 'Gelo', fraqueza: 'Físico',
     nivel: 1, experiencia: 10,
 
     vidaBase: 25, energiaBase: 20, manaBase: 0,

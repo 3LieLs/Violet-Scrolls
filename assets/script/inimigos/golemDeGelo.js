@@ -1,7 +1,7 @@
 /*-GOLEM DE GELO STATUS-*/
 var golemDeGelo =
 {
-    nome: 'Golem de gelo', resistencia: 'Gelo', fraqueza: 'Fogo',
+    nome: 'Golem de gelo', val: 'golemDeGelo', resistencia: 'Gelo', fraqueza: 'Fogo',
     nivel: 1, experiencia: 30,
 
     vidaBase: 55, energiaBase: 40, manaBase: 25,

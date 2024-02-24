@@ -1,12 +1,11 @@
 /*-----*/
-#mainHud
-{
+#mainHud {
     display: none;
 }
+
 /*-----*/
 
-#semEnergiaManaDisplay
-{
+#semEnergiaManaDisplay {
     position: absolute;
     bottom: 3%;
     left: 50%;
@@ -22,23 +21,36 @@
     opacity: 0;
 }
 
-@keyframes semEnergiaManaMostrar
-{
-    0%   {}
-    25%  {opacity: 1;}
-    50%  {}
-    100% {visibility: visible;}
+@keyframes semEnergiaManaMostrar {
+    0% {}
+
+    25% {
+        opacity: 1;
+    }
+
+    50% {}
+
+    100% {
+        visibility: visible;
+    }
 }
 
-@keyframes semEnergiaManaEsconder
-{
-    0%   {}
-    25%  {opacity: 0;}
-    50%  {}
-    100% {visibility: hidden;}
+@keyframes semEnergiaManaEsconder {
+    0% {}
+
+    25% {
+        opacity: 0;
+    }
+
+    50% {}
+
+    100% {
+        visibility: hidden;
+    }
 }
+
 /*-----*/
-#movesetEscolha{
+#movesetEscolha {
     position: absolute;
     bottom: 5%;
     right: 3%;
@@ -70,8 +82,12 @@
 #bloquear,
 #descanso,
 #foco,
-#voltarArmaduraAcao
-{
+#voltarArmaduraAcao,
+
+#aaa,
+#pocoes,
+#fugir,
+#voltarOutrosAcao {
     width: 45%;
     height: 40%;
     padding: 0% 0% 0% 0%;
@@ -87,28 +103,32 @@
 #movesetArmaEscolha,
 #ataqueFraco,
 #magiaDano,
-#bloquear{
+#bloquear,
+#aaa {
     margin: 5% 0% 0% 4%;
 }
 
 #movesetMagiaEscolha,
 #ataqueForte,
 #magiaRecuperar,
-#descanso{
+#descanso,
+#pocoes {
     margin: 0% 0% 0% 0%;
 }
 
 #movesetArmaduraEscolha,
 #contraAtaque,
 #magiaBuff,
-#foco{
+#foco,
+#fugir {
     margin: 3% 0% 0% 4%;
 }
 
 #movesetOutrosEscolha,
 #voltarArmaAcao,
 #voltarMagiaAcao,
-#voltarArmaduraAcao{
+#voltarArmaduraAcao,
+#voltarOutrosAcao {
     margin: 3% 0% 0% 0%;
 }
 
@@ -117,6 +137,7 @@
     background-color: red;
     cursor: pointer;
 }
+
 #movesetMagiaEscolha:hover {
     background-color: blue;
     cursor: pointer;
@@ -135,15 +156,15 @@
 #ataqueFraco:hover,
 #ataqueForte:hover,
 #contraAtaque:hover,
-#voltarArmaAcao:hover{
+#voltarArmaAcao:hover {
     background-color: red;
     cursor: pointer;
-} 
+}
 
 #magiaDano:hover,
 #magiaRecuperar:hover,
 #magiaBuff:hover,
-#voltarMagiaAcao:hover{
+#voltarMagiaAcao:hover {
     background-color: blue;
     cursor: pointer;
 }
@@ -151,17 +172,25 @@
 #bloquear:hover,
 #descanso:hover,
 #foco:hover,
-#voltarArmaduraAcao:hover{
+#voltarArmaduraAcao:hover {
     background-color: green;
     cursor: pointer;
 }
+
+#aaa:hover,
+#pocoes:hover,
+#fugir:hover,
+#voltarOutrosAcao:hover {
+    background-color: wheat;
+    cursor: pointer;
+}
+
 /*-----*/
 
 
 
 /*-----*/
-#miniGameDisplay
-{
+#miniGameDisplay {
     display: none;
 }
 
@@ -177,13 +206,13 @@
     text-align: center;
     z-index: 9999;
 }
-/*-----*/
-
-
 
 /*-----*/
-#mainJogadorDerrotado
-{
+
+
+
+/*-----*/
+#mainJogadorDerrotado {
     display: none;
 }
 
@@ -192,12 +221,13 @@
     text-align: center;
     font-size: 50pt;
 }
-/*-----*/
-
-
 
 /*-----*/
-#mensagemSemEnergia{
+
+
+
+/*-----*/
+#mensagemSemEnergia {
     position: absolute;
     bottom: 10%;
     left: 50%;
@@ -216,7 +246,7 @@
     z-index: 9999;
 }
 
-#mensagemSemMana{
+#mensagemSemMana {
     position: absolute;
     bottom: 10%;
     left: 50%;
@@ -234,4 +264,5 @@
     opacity: 1;
     z-index: 9999;
 }
+
 /*-----*/

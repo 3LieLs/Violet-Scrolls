@@ -14,7 +14,7 @@ var experienciaGanhaVal = window.document.querySelector('p#experienciaGanha');
 /*-STATUS INIMIGOS-*/
 var inimigoGeral =
 {
-    nome: '', resistencia: '', fraqueza: '',
+    nome: '', val: '', resistencia: '', fraqueza: '',
     nivel: 0, experiencia: 0,
 
     vidaBase: 0, manaBase: 0, energiaBase: 0,
