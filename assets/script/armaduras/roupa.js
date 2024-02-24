@@ -7,11 +7,27 @@ var tunicaBasica =
 }
 /*-----*/
 function equipTunicaBasica() {
-    armaduraGeral = tunicaBasica;
+    if (armaduraGeral == trajeSimples) {
+        armaduraGeral = tunicaBasica;
+        equiparItemSlottunicaBasica.value = 'Desequip'
+        equiparItemSlottunicaBasica.removeEventListener('click', equipTunicaBasica)
+        equiparItemSlottunicaBasica.addEventListener('click', desequipTunicaBasica)
+    }
 
     if (mudarEquipamentosArmaduraVal == true) {
         atualizarItensEquipamentosArmadura();
     }
+}
+function desequipTunicaBasica() {
+    armaduraGeral = trajeSimples;
+
+    if (mudarEquipamentosArmaduraVal == true) {
+        atualizarItensEquipamentosArmadura();
+    }
+
+    equiparItemSlottunicaBasica.value = 'Equip'
+    equiparItemSlottunicaBasica.removeEventListener('click', desequipTunicaBasica)
+    equiparItemSlottunicaBasica.addEventListener('click', equipTunicaBasica)
 }
 /*-----*/
 function adicionarTunicaBasica() {
@@ -55,11 +71,27 @@ var tunicaEspecialista =
 }
 /*-----*/
 function equipTunicaEspecialista() {
-    armaduraGeral = tunicaEspecialista;
+    if (armaduraGeral == trajeSimples) {
+        armaduraGeral = tunicaEspecialista;
+        equiparItemSlottunicaEspecialista.value = 'Desequip'
+        equiparItemSlottunicaEspecialista.removeEventListener('click', equipTunicaEspecialista)
+        equiparItemSlottunicaEspecialista.addEventListener('click', desequipTunicaEspecialista)
+    }
 
     if (mudarEquipamentosArmaduraVal == true) {
         atualizarItensEquipamentosArmadura();
     }
+}
+function desequipTunicaEspecialista() {
+    armaduraGeral = trajeSimples;
+
+    if (mudarEquipamentosArmaduraVal == true) {
+        atualizarItensEquipamentosArmadura();
+    }
+
+    equiparItemSlottunicaEspecialista.value = 'Equip'
+    equiparItemSlottunicaEspecialista.removeEventListener('click', desequipTunicaEspecialista)
+    equiparItemSlottunicaEspecialista.addEventListener('click', equipTunicaEspecialista)
 }
 /*-----*/
 function adicionarTunicaEspecialista() {

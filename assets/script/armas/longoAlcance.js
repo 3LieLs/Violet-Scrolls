@@ -10,11 +10,27 @@ var arcoSimples =
 }
 /*-----*/
 function equipArcoSimples() {
-    armaGeral = arcoSimples;
+    if (armaGeral == soco) {
+        armaGeral = arcoSimples;
+        equiparItemSlotarcoSimples.value = 'Desequip'
+        equiparItemSlotarcoSimples.removeEventListener('click', equipArcoSimples)
+        equiparItemSlotarcoSimples.addEventListener('click', desequipArcoSimples)
+    }
 
     if (mudarEquipamentosArmaVal == true) {
         atualizarItensEquipamentosArma();
     }
+}
+function desequipArcoSimples() {
+    armaGeral = soco;
+
+    if (mudarEquipamentosArmaVal == true) {
+        atualizarItensEquipamentosArma();
+    }
+
+    equiparItemSlotarcoSimples.value = 'Equip'
+    equiparItemSlotarcoSimples.removeEventListener('click', desequipArcoSimples)
+    equiparItemSlotarcoSimples.addEventListener('click', equipArcoSimples)
 }
 /*-----*/
 function adicionarArcoSimples() {
@@ -61,11 +77,27 @@ var arcoLongo =
 }
 /*-----*/
 function equipArcoLongo() {
-    armaGeral = arcoLongo;
+    if (armaGeral == soco) {
+        armaGeral = arcoLongo;
+        equiparItemSlotarcoLongo.value = 'Desequip'
+        equiparItemSlotarcoLongo.removeEventListener('click', equipArcoLongo)
+        equiparItemSlotarcoLongo.addEventListener('click', desequipArcoLongo)
+    }
 
     if (mudarEquipamentosArmaVal == true) {
         atualizarItensEquipamentosArma();
     }
+}
+function desequipArcoLongo() {
+    armaGeral = soco;
+
+    if (mudarEquipamentosArmaVal == true) {
+        atualizarItensEquipamentosArma();
+    }
+
+    equiparItemSlotarcoLongo.value = 'Equip'
+    equiparItemSlotarcoLongo.removeEventListener('click', desequipArcoLongo)
+    equiparItemSlotarcoLongo.addEventListener('click', equipArcoLongo)
 }
 /*-----*/
 function adicionarArcoLongo() {

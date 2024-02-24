@@ -10,11 +10,27 @@ var adaga =
 }
 /*-----*/
 function equipAdaga() {
-    armaGeral = adaga;
+    if (armaGeral == soco) {
+        armaGeral = adaga;
+        equiparItemSlotadaga.value = 'Desequip'
+        equiparItemSlotadaga.removeEventListener('click', equipAdaga)
+        equiparItemSlotadaga.addEventListener('click', desequipAdaga)
+    }
 
     if (mudarEquipamentosArmaVal == true) {
         atualizarItensEquipamentosArma();
     }
+}
+function desequipAdaga() {
+    armaGeral = soco;
+
+    if (mudarEquipamentosArmaVal == true) {
+        atualizarItensEquipamentosArma();
+    }
+
+    equiparItemSlotadaga.value = 'Equip'
+    equiparItemSlotadaga.removeEventListener('click', desequipAdaga)
+    equiparItemSlotadaga.addEventListener('click', equipAdaga)
 }
 /*-----*/
 function adicionarAdaga() {
@@ -62,11 +78,27 @@ var chicoteDeAco =
 }
 /*-----*/
 function equipChicoteDeAco() {
-    armaGeral = chicoteDeAco;
+    if (armaGeral == soco) {
+        armaGeral = chicoteDeAco;
+        equiparItemSlotchicoteDeAco.value = 'Desequip'
+        equiparItemSlotchicoteDeAco.removeEventListener('click', equipChicoteDeAco)
+        equiparItemSlotchicoteDeAco.addEventListener('click', desequipChicoteDeAco)
+    }
 
     if (mudarEquipamentosArmaVal == true) {
         atualizarItensEquipamentosArma();
     }
+}
+function desequipChicoteDeAco() {
+    armaGeral = soco;
+
+    if (mudarEquipamentosArmaVal == true) {
+        atualizarItensEquipamentosArma();
+    }
+
+    equiparItemSlotchicoteDeAco.value = 'Equip'
+    equiparItemSlotchicoteDeAco.removeEventListener('click', desequipChicoteDeAco)
+    equiparItemSlotchicoteDeAco.addEventListener('click', equipChicoteDeAco)
 }
 /*-----*/
 function adicionarChicoteDeAco() {
@@ -113,11 +145,27 @@ var espadaDeAco =
 }
 /*-----*/
 function equipEspadaDeAco() {
-    armaGeral = espadaDeAco;
+    if (armaGeral == soco) {
+        armaGeral = espadaDeAco;
+        equiparItemSlotespadaDeAco.value = 'Desequip'
+        equiparItemSlotespadaDeAco.removeEventListener('click', equipEspadaDeAco)
+        equiparItemSlotespadaDeAco.addEventListener('click', desequipEspadaDeAco)
+    }
 
     if (mudarEquipamentosArmaVal == true) {
         atualizarItensEquipamentosArma();
     }
+}
+function desequipEspadaDeAco() {
+    armaGeral = soco;
+
+    if (mudarEquipamentosArmaVal == true) {
+        atualizarItensEquipamentosArma();
+    }
+
+    equiparItemSlotespadaDeAco.value = 'Equip'
+    equiparItemSlotespadaDeAco.removeEventListener('click', desequipEspadaDeAco)
+    equiparItemSlotespadaDeAco.addEventListener('click', equipEspadaDeAco)
 }
 /*-----*/
 function adicionarEspadaDeAco() {
@@ -169,6 +217,21 @@ function equipLancaEnvenenada() {
     if (mudarEquipamentosArmaVal == true) {
         atualizarItensEquipamentosArma();
     }
+
+    equiparItemSlotlancaEnvenenada.value = 'Desequip'
+    equiparItemSlotlancaEnvenenada.removeEventListener('click', equipLancaEnvenenada)
+    equiparItemSlotlancaEnvenenada.addEventListener('click', desequipLancaEnvenenada)
+}
+function desequipLancaEnvenenada() {
+    armaGeral = soco;
+
+    if (mudarEquipamentosArmaVal == true) {
+        atualizarItensEquipamentosArma();
+    }
+
+    equiparItemSlotlancaEnvenenada.value = 'Equip'
+    equiparItemSlotlancaEnvenenada.removeEventListener('click', desequipLancaEnvenenada)
+    equiparItemSlotlancaEnvenenada.addEventListener('click', equipLancaEnvenenada)
 }
 /*-----*/
 function adicionarLancaEnvenenada() {

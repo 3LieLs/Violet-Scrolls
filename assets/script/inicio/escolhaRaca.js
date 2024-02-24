@@ -189,6 +189,9 @@ function botaoVampiroClick()
 
 function racaEscolhida()
 {
+    armaGeral = soco;
+    armaduraGeral = trajeSimples;
+
     escolhaRaca.style.display = 'none';
 
     taverna.style.display = 'contents';

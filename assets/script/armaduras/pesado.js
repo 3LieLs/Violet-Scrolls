@@ -7,11 +7,27 @@ var armaduraDeFerro =
 }
 /*-----*/
 function equipArmaduraDeFerro() {
-    armaduraGeral = armaduraDeFerro;
+    if (armaduraGeral == trajeSimples) {
+        armaduraGeral = armaduraDeFerro;
+        equiparItemSlotarmaduraDeFerro.value = 'Desequip'
+        equiparItemSlotarmaduraDeFerro.removeEventListener('click', equipArmaduraDeFerro)
+        equiparItemSlotarmaduraDeFerro.addEventListener('click', desequipArmaduraDeFerro)
+    }
 
     if (mudarEquipamentosArmaduraVal == true) {
         atualizarItensEquipamentosArmadura();
     }
+}
+function desequipArmaduraDeFerro() {
+    armaduraGeral = trajeSimples;
+
+    if (mudarEquipamentosArmaduraVal == true) {
+        atualizarItensEquipamentosArmadura();
+    }
+
+    equiparItemSlotarmaduraDeFerro.value = 'Equip'
+    equiparItemSlotarmaduraDeFerro.removeEventListener('click', desequipArmaduraDeFerro)
+    equiparItemSlotarmaduraDeFerro.addEventListener('click', equipArmaduraDeFerro)
 }
 /*-----*/
 function adicionarArmaduraDeFerro() {
@@ -55,11 +71,27 @@ var armaduraDeAco =
 }
 /*-----*/
 function equipArmaduraDeAco() {
-    armaduraGeral = armaduraDeAco;
+    if (armaduraGeral == trajeSimples) {
+        armaduraGeral = armaduraDeAco;
+        equiparItemSlotarmaduraDeAco.value = 'Desequip'
+        equiparItemSlotarmaduraDeAco.removeEventListener('click', equipArmaduraDeAco)
+        equiparItemSlotarmaduraDeAco.addEventListener('click', desequipArmaduraDeAco)
+    }
 
     if (mudarEquipamentosArmaduraVal == true) {
         atualizarItensEquipamentosArmadura();
     }
+}
+function desequipArmaduraDeAco() {
+    armaduraGeral = trajeSimples;
+
+    if (mudarEquipamentosArmaduraVal == true) {
+        atualizarItensEquipamentosArmadura();
+    }
+
+    equiparItemSlotarmaduraDeAco.value = 'Equip'
+    equiparItemSlotarmaduraDeAco.removeEventListener('click', desequipArmaduraDeAco)
+    equiparItemSlotarmaduraDeAco.addEventListener('click', equipArmaduraDeAco)
 }
 /*-----*/
 function adicionarArmaduraDeAco() {

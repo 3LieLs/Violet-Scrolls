@@ -10,11 +10,27 @@ var cajadoDeFogo =
 }
 /*-----*/
 function equipCajadoDeFogo() {
-    armaGeral = cajadoDeFogo;
+    if (armaGeral == soco) {
+        armaGeral = cajadoDeFogo;
+        equiparItemSlotcajadoDeFogo.value = 'Desequip';
+        equiparItemSlotcajadoDeFogo.removeEventListener('click', equipCajadoDeFogo);
+        equiparItemSlotcajadoDeFogo.addEventListener('click', desequipCajadoDeFogo);
+    }
 
     if (mudarEquipamentosArmaVal == true) {
         atualizarItensEquipamentosArma();
     }
+}
+function desequipCajadoDeFogo() {
+    armaGeral = soco;
+
+    if (mudarEquipamentosArmaVal == true) {
+        atualizarItensEquipamentosArma();
+    }
+
+    equiparItemSlotcajadoDeFogo.value = 'Equip'
+    equiparItemSlotcajadoDeFogo.removeEventListener('click', desequipCajadoDeFogo)
+    equiparItemSlotcajadoDeFogo.addEventListener('click', equipCajadoDeFogo)
 }
 /*-----*/
 function adicionarCajadoDeFogo() {
@@ -61,11 +77,27 @@ var cajadoDeGelo =
 }
 /*-----*/
 function equipCajadoDeGelo() {
-    armaGeral = cajadoDeGelo;
+    if (armaGeral == soco) {
+        armaGeral = cajadoDeGelo;
+        equiparItemSlotcajadoDeGelo.value = 'Desequip'
+        equiparItemSlotcajadoDeGelo.removeEventListener('click', equipCajadoDeGelo)
+        equiparItemSlotcajadoDeGelo.addEventListener('click', desequipCajadoDeGelo)
+    }
 
     if (mudarEquipamentosArmaVal == true) {
         atualizarItensEquipamentosArma();
     }
+}
+function desequipCajadoDeGelo() {
+    armaGeral = soco;
+
+    if (mudarEquipamentosArmaVal == true) {
+        atualizarItensEquipamentosArma();
+    }
+
+    equiparItemSlotcajadoDeGelo.value = 'Equip'
+    equiparItemSlotcajadoDeGelo.removeEventListener('click', desequipCajadoDeGelo)
+    equiparItemSlotcajadoDeGelo.addEventListener('click', equipCajadoDeGelo)
 }
 /*-----*/
 function adicionarCajadoDeGelo() {
@@ -112,11 +144,27 @@ var cajadoEletrico =
 }
 /*-----*/
 function equipCajadoEletrico() {
-    armaGeral = cajadoEletrico;
+    if (armaGeral == soco) {
+        armaGeral = cajadoEletrico;
+        equiparItemSlotcajadoEletrico.value = 'Desequip'
+        equiparItemSlotcajadoEletrico.removeEventListener('click', equipCajadoEletrico)
+        equiparItemSlotcajadoEletrico.addEventListener('click', desequipCajadoEletrico)
+    }
 
     if (mudarEquipamentosArmaVal == true) {
         atualizarItensEquipamentosArma();
     }
+}
+function desequipCajadoEletrico() {
+    armaGeral = soco;
+
+    if (mudarEquipamentosArmaVal == true) {
+        atualizarItensEquipamentosArma();
+    }
+
+    equiparItemSlotcajadoEletrico.value = 'Equip'
+    equiparItemSlotcajadoEletrico.removeEventListener('click', desequipCajadoEletrico)
+    equiparItemSlotcajadoEletrico.addEventListener('click', equipCajadoEletrico)
 }
 /*-----*/
 function adicionarCajadoEletrico() {
