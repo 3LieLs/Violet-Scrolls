@@ -1,41 +1,18 @@
 /*-SELEÇÃO GÊNERO-*/
-#escolhaGenero
-{
+/*-----*/
+#escolhaGenero {
     display: none;
 }
 
-#mensagemEscolhaGenero
-{
+#mensagemEscolhaGenero {
     padding-top: 10%;
     text-align: center;
     font-size: 25pt;
     font-weight: bold;
 }
 
-
-#botaoMasculino
-{
-    display: block;
-    margin: auto;
-    margin-top: 5%;
-    width: 20%;
-    height: 50px;   
-    background-color: black;
-    color: orangered;
-    border: solid;
-    border-radius: 20%;
-    font-size: 25pt;
-    transition: 0.5s all 0s;
-}
-#botaoMasculino:hover
-{
-    background-color: blue;
-    cursor: pointer;
-}
-
-
-#botaoFeminino
-{
+/*-----*/
+#botaoMasculino {
     display: block;
     margin: auto;
     margin-top: 5%;
@@ -48,16 +25,37 @@
     font-size: 25pt;
     transition: 0.5s all 0s;
 }
-#botaoFeminino:hover
-{
+
+#botaoMasculino:hover {
+    background-color: blue;
+    cursor: pointer;
+}
+
+/*-----*/
+#botaoFeminino {
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+    width: 20%;
+    height: 50px;
+    background-color: black;
+    color: orangered;
+    border: solid;
+    border-radius: 20%;
+    font-size: 25pt;
+    transition: 0.5s all 0s;
+}
+
+#botaoFeminino:hover {
     background-color: #F005D0;
     cursor: pointer;
 }
+
 /*-----*/
 
 /*-SELEÇÃO NOME-*/
-#escolhaNome
-{
+/*-----*/
+#escolhaNome {
     display: none;
 }
 
@@ -68,20 +66,23 @@
     font-size: 25pt;
     font-weight: bold;
 }
-
-#nomeJogador{
+/*-----*/
+#nomeJogador {
     display: block;
     margin: auto;
     width: 40%;
     height: 100px;
     background-color: black;
     color: orangered;
-    border: solid 5px gray;
+    border: solid 5px black;
+    border-radius: 25px;
     text-align: center;
     font-size: 50pt;
+    box-shadow: 0px 30px 70px black;
+    outline: none;
 }
 
-#enviarNomeJogador{
+#enviarNomeJogador {
     display: block;
     margin: auto;
     margin-top: 5%;
@@ -89,14 +90,16 @@
     height: 50px;
     background-color: black;
     color: orangered;
-    border: solid 3px gray;
-    border-radius: 0%;
+    border: solid 3px black;
+    border-radius: 5px;
     font-size: 25pt;
+    transition: 0.5s;
 }
 
-@keyframes botaoAnimacaoUsuario {
-    0% {background-color: black;}
-    50% {background-color: gray;}
-    100% {background-color: black;}
+#enviarNomeJogador:hover {
+    background-color: gray;
+    color: black;
+    border: solid 3px gray;
+    cursor: pointer;
 }
 /*-----*/

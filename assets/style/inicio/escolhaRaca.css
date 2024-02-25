@@ -1,9 +1,7 @@
 /*-ESCOLHA RAÇA-*/
-#escolhaRaca
-{
+#escolhaRaca {
     display: none;
 }
-
 
 #voltarRaca {
     position: absolute;
@@ -14,10 +12,13 @@
     border: solid 3px black;
     border-radius: 15%;
     font-size: 15pt;
+    transition: 0.5s;
 }
 
 #voltarRaca:hover {
     background-color: gray;
+    color: black;
+    border: solid 3px gray;
     cursor: pointer;
 }
 
@@ -72,6 +73,7 @@
     left: 55%;
 }
 
+/*-----*/
 #humano,
 #elfo,
 #orc,
@@ -79,10 +81,12 @@
 #vampiro {
     margin: 0%;
     width: 50%;
-    height: 6vh;
     background-color: black;
     color: orangered;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     font-size: 20pt;
+    transition: 0.5s;
 }
 
 #humano:hover {
@@ -110,22 +114,52 @@
     cursor: pointer;
 }
 
+/*-----*/
 #humanoCaracteristica,
 #elfoCaracteristica,
 #orcCaracteristica,
 #draconatoCaracteristica,
 #vampiroCaracteristica {
-    margin: 1% 0% 0% 0%;
-    padding: 5%;
+    margin: 0% 0% 0% 0%;
+    padding: 3%;
     width: 75%;
-    height: 20vh;
+    height: 24vh;
     background-color: black;
     color: orangered;
+    border-left: solid 7px gray;
+    border-right: solid 7px gray;
+    border-radius: 5px;
     text-align: justify;
     font-size: 15pt;
     overflow: auto;
 }
 
+#humanoCaracteristica {
+    border-left: solid 7px wheat;
+    border-right: solid 7px wheat;
+}
+
+#elfoCaracteristica {
+    border-left: solid 7px green;
+    border-right: solid 7px green;
+}
+
+#orcCaracteristica {
+    border-left: solid 7px red;
+    border-right: solid 7px red;
+}
+
+#draconatoCaracteristica {
+    border-left: solid 7px blue;
+    border-right: solid 7px blue;
+}
+
+#vampiroCaracteristica {
+    border-left: solid 7px purple;
+    border-right: solid 7px purple;
+}
+
+/*-----*/
 #humanoStats,
 #elfoStats,
 #orcStats,
@@ -137,8 +171,34 @@
     height: 4vh;
     background-color: black;
     color: orangered;
+    border-radius: 5px;
     text-align: center;
     font-size: 11pt;
+}
+
+#humanoStats {
+    border-left: solid 7px wheat;
+    border-right: solid 7px wheat;
+}
+
+#elfoStats {
+    border-left: solid 7px green;
+    border-right: solid 7px green;
+}
+
+#orcStats {
+    border-left: solid 7px red;
+    border-right: solid 7px red;
+}
+
+#draconatoStats {
+    border-left: solid 7px blue;
+    border-right: solid 7px blue;
+}
+
+#vampiroStats {
+    border-left: solid 7px purple;
+    border-right: solid 7px purple;
 }
 
 /*-----*/
