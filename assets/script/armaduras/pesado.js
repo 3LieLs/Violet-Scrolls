@@ -37,7 +37,6 @@ function adicionarArmaduraDeFerro() {
     addItemNome = armaduraDeFerro.nome;
     funcaoEquip = equipArmaduraDeFerro;
 }
-/*-----*/
 function removerArmaduraDeFerro() {
     armaduraDeFerro.obtido = false;
     removItemTipo = 'equipamento';
@@ -52,7 +51,6 @@ function armaduraDeFerroComprar() {
 
     geralComprar()
 }
-/*-----*/
 function armaduraDeFerroVender() {
     geralObtido = armaduraDeFerro.obtido
     geralPreco = armaduraDeFerro.preco
@@ -101,7 +99,6 @@ function adicionarArmaduraDeAco() {
     addItemNome = armaduraDeAco.nome;
     funcaoEquip = equipArmaduraDeAco;
 }
-/*-----*/
 function removerArmaduraDeAco() {
     armaduraDeAco.obtido = false;
     removItemTipo = 'equipamento';
@@ -116,7 +113,6 @@ function armaduraDeAcoComprar() {
 
     geralComprar()
 }
-/*-----*/
 function armaduraDeAcoVender() {
     geralObtido = armaduraDeAco.obtido
     geralPreco = armaduraDeAco.preco

@@ -1,3 +1,4 @@
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-MENU VARIÁVEIS-*/
 var mudarItens = 1, mudarEquipamentos = 1, mudarMagias = 1, menuAbertoFechado = false;
 var mudarEquipamentosArmaVal = true, mudarEquipamentosArmaduraVal = false, mudarMagiasDano = true, mudarMagiasRecuperacao = false, mudarMagiasBuff = false;
@@ -36,8 +37,9 @@ var menuMissao = window.document.querySelector('div#menuMissao');
 
 var horario = window.document.querySelector('div#horario');
 var horarioHora = 12, horarioMinuto = 0
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-ABRIR/FECHAR MENU-*/
 function menuDisplay() {
     if (menuAbertoFechado == false) {
@@ -80,8 +82,6 @@ function menuDisplay() {
     }
 }
 /*-----*/
-
-/*-----*/
 function menuDisplayAbrir() {
     menu.style.display = 'contents';
 
@@ -118,8 +118,6 @@ function menuDisplayAbrir() {
     botaoMapaDisplay.style.display = 'none';
     menuAbertoFechado = true;
 }
-/*-----*/
-
 /*-----*/
 function menuDisplayFechar() {
     menu.style.display = 'none';
@@ -161,8 +159,6 @@ function menuDisplayFechar() {
     menuAbertoFechado = false;
 }
 /*-----*/
-
-/*-----*/
 function menuAnimacaoAbrir() {
     nivel.style.opacity = '1';
     nivel.style.top = '5%';
@@ -188,8 +184,6 @@ function menuAnimacaoAbrir() {
     horario.style.bottom = '3%';
 }
 /*-----*/
-
-/*-----*/
 function menuAnimacaoFechar() {
     nivel.style.opacity = '0';
     nivel.style.top = '-15%';
@@ -214,9 +208,9 @@ function menuAnimacaoFechar() {
     horario.style.opacity = '0';
     horario.style.bottom = '-5%';
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-ADICIONAR ITEM NA MOCHILA-*/
 var addItemTipo, addItemVal, addItemNome, funcaoEquip;
 
@@ -268,10 +262,9 @@ function removerItem() {
         remov = document.getElementById(`slot${removItemVal}`).remove();
     }
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-BOTAO VOLTAR / PRÓXIMO ITENS-*/
 function voltarItensClick() {
     mudarItens--;
@@ -314,9 +307,9 @@ function mudarTipoItens() {
         menuItensPocoesDisplay.style.display = 'contents';
     }
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-BOTÃO VOLTAR / PRÓXIMO EQUIPAMENTOS-*/
 function voltarEquipamentosClick() {
     mudarEquipamentos--;
@@ -352,10 +345,9 @@ function mudarTipoEquipamentos() {
         atualizarItensEquipamentosArmadura()
     }
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-ATUALIZAR EQUIPAMENTOS-*/
 function atualizarItensEquipamentosArma() {
     menuEquipamentosNome.innerHTML = `Item equipado:<br>${armaGeral.nome}`;
@@ -374,9 +366,9 @@ function atualizarItensEquipamentosArmadura() {
     menuEquipamentosTipo.innerHTML = `Tipo de defesa:<br>${armaduraGeral.tipoDefesa}`;
     menuEquipamentosPeso.innerHTML = `Peso:<br>${armaduraGeral.peso}`;
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-BOTÃO VOLTAR / PRÓXIMO MAGIAS-*/
 function voltarMagiasClick() {
     mudarMagias--;
@@ -422,8 +414,9 @@ function mudarTipoMagias() {
         atualizarItensMagiasBuff();
     }
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-ATUALIZAR MAGIAS-*/
 function atualizarItensMagiasDano() {
     menuMagiasNome.innerHTML = `Magia equipado:<br>${magiaDanoGeral.nome}`;
@@ -448,9 +441,9 @@ function atualizarItensMagiasBuff() {
     menuMagiasMana.innerHTML = `Mana-:<br>${magiaBuffGeral.manaCusto}`;
     menuMagiasTipo.innerHTML = `Tipo de buff:<br>${magiaBuffGeral.buff}`;
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-HORÁRIO-*/
 setInterval(atualizarHorario, 500)
 
@@ -466,4 +459,4 @@ function atualizarHorario() {
         horarioHora = 0;
     }
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/

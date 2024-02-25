@@ -37,7 +37,6 @@ function adicionarTunicaBasica() {
     addItemNome = tunicaBasica.nome;
     funcaoEquip = equipTunicaBasica;
 }
-/*-----*/
 function removerTunicaBasica() {
     tunicaBasica.obtido = false;
     removItemTipo = 'equipamento';
@@ -52,7 +51,6 @@ function tunicaBasicaComprar() {
 
     geralComprar()
 }
-/*-----*/
 function tunicaBasicaVender() {
     geralObtido = tunicaBasica.obtido
     geralPreco = tunicaBasica.preco
@@ -101,7 +99,6 @@ function adicionarTunicaEspecialista() {
     addItemNome = tunicaEspecialista.nome;
     funcaoEquip = equipTunicaEspecialista;
 }
-/*-----*/
 function removerTunicaEspecialista() {
     tunicaEspecialista.obtido = false;
     removItemTipo = 'equipamento';
@@ -116,7 +113,6 @@ function tunicaEspecialistaComprar() {
 
     geralComprar()
 }
-/*-----*/
 function tunicaEspecialistaVender() {
     geralObtido = tunicaEspecialista.obtido
     geralPreco = tunicaEspecialista.preco

@@ -1,11 +1,10 @@
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-SELEÇÃO DE GÊNERO VARIÁVEIS-*/
 var botaoMasculino = window.document.querySelector('input#botaoMasculino');
 botaoMasculino.addEventListener('click', botaoMasculinoClick);
 
 var botaoFeminino = window.document.querySelector('input#botaoFeminino');
 botaoFeminino.addEventListener('click', botaoFemininoClick);
-/*-----*/
-
 /*-SELEÇÃO DE GÊNERO ESCOLHA-*/
 function botaoMasculinoClick()
 {
@@ -22,17 +21,14 @@ function botaoFemininoClick()
     escolhaGenero.style.display = 'none';
     escolhaNome.style.display = 'contents';
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-SELEÇÃO DE NOME VARIÁVEIS-*/
 var enviarNomeJogador = window.document.querySelector('input#enviarNomeJogador');
 enviarNomeJogador.addEventListener('click', enviarNomeJogadorClick);
 enviarNomeJogador.addEventListener('mouseover', enviarNomeJogadorHover);
 enviarNomeJogador.addEventListener('mouseout', enviarNomeJogadorOut);
-/*-----*/
-
 /*-SELEÇÃO DE NOME ESCOLHA-*/
 function enviarNomeJogadorClick()
 {
@@ -53,4 +49,4 @@ function enviarNomeJogadorOut()
     enviarNomeJogador.style.transform = 'scale(1.0)';
     enviarNomeJogador.style.animation = 'paused';
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/

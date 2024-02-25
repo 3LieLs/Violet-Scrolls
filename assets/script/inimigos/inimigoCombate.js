@@ -1,3 +1,4 @@
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-INIMIGO HUD-*/
 function inimigoCombateHud() {
     inimigoHudNome.innerHTML = `${inimigoGeral.nome}`;
@@ -19,9 +20,9 @@ function inimigoCombateHud() {
         inimigoHudMana.style.backgroundSize = `${inimigoGeral.manaPorcentagem}% 100%`;
     }
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-INIMIGOS ARMA/GOLPE-*/
 var inimigoArmaGeral =
 {
@@ -32,9 +33,9 @@ var inimigoArmaGeral =
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 0, manaCustoCombate: 0,
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-INIMIGO ATAQUE-*/
 var funcaoInimigoAtaque
 
@@ -155,9 +156,9 @@ function inimigoAtaqueAto() {
     }
     /*-----*/
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-VERIFICAR FRAQUEZA/RESISTENCIA DO JOGADOR-*/
 function aplicarFraquezaResistenciaJogador() {
     if (racaGeral.fraqueza == inimigoArmaGeral.tipoDano) {
@@ -165,58 +166,56 @@ function aplicarFraquezaResistenciaJogador() {
         aumentarDano = Math.round(aumentarDano)
         inimigoArmaGeral.danoCombate += aumentarDano
     }
-
     if (racaGeral.fraqueza == magiaDanoGeral.tipoDano) {
         let aumentarDano = magiaDanoGeral.danoBase * 0.15
         aumentarDano = Math.round(aumentarDano)
         magiaDanoGeral.danoCombate += aumentarDano
     }
-
-
     if (racaGeral.resistencia == inimigoArmaGeral.tipoDano) {
         let aumentarDano = inimigoArmaGeral.danoBase * 0.15
         aumentarDano = Math.round(aumentarDano)
         inimigoArmaGeral.danoCombate -= aumentarDano
     }
-
     if (racaGeral.resistencia == magiaDanoGeral.tipoDano) {
         let aumentarDano = magiaDanoGeral.danoBase * 0.15
         aumentarDano = Math.round(aumentarDano)
         magiaDanoGeral.danoCombate -= aumentarDano
     }
 }
-
+/*-----*/
 function desaplicarFraquezaResistenciaJogador() {
+    /*-----*/
     if (racaGeral.fraqueza == inimigoArmaGeral.tipoDano) {
         let aumentarDano = inimigoArmaGeral.danoBase * 0.15
         aumentarDano = Math.round(aumentarDano)
         inimigoArmaGeral.danoCombate -= aumentarDano
     }
-
+    /*-----*/
     if (racaGeral.fraqueza == magiaDanoGeral.tipoDano) {
         let aumentarDano = magiaDanoGeral.danoBase * 0.15
         aumentarDano = Math.round(aumentarDano)
         magiaDanoGeral.danoCombate -= aumentarDano
     }
-
-
+    /*-----*/
     if (racaGeral.resistencia == inimigoArmaGeral.tipoDano) {
         let aumentarDano = inimigoArmaGeral.danoBase * 0.15
         aumentarDano = Math.round(aumentarDano)
         inimigoArmaGeral.danoCombate += aumentarDano
     }
-
+    /*-----*/
     if (racaGeral.resistencia == magiaDanoGeral.tipoDano) {
         let aumentarDano = magiaDanoGeral.danoBase * 0.15
         aumentarDano = Math.round(aumentarDano)
         magiaDanoGeral.danoCombate += aumentarDano
     }
+    /*-----*/
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-VERIFICAR DEBUFF DA ARMA DO INIMIGO-*/
 function verificarDebuffArmaInimigo() {
+    /*-----*/
     if (inimigoArmaGeral.debuff == 'sangramento') {
         let x = Math.floor(Math.random() * 100) + 0;
 
@@ -227,7 +226,7 @@ function verificarDebuffArmaInimigo() {
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoArmaGeral.nome} cortou ${jogador.nome}`);
         }
     }
-
+    /*-----*/
     if (inimigoArmaGeral.debuff == 'veneno') {
         let x = Math.floor(Math.random() * 100) + 0;
 
@@ -238,7 +237,7 @@ function verificarDebuffArmaInimigo() {
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoArmaGeral.nome} envenenou ${jogador.nome}`);
         }
     }
-
+    /*-----*/
     if (inimigoArmaGeral.debuff == 'chamas') {
         let x = Math.floor(Math.random() * 100) + 0;
 
@@ -249,7 +248,7 @@ function verificarDebuffArmaInimigo() {
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoArmaGeral.nome} incendiou ${jogador.nome}`);
         }
     }
-
+    /*-----*/
     if (inimigoArmaGeral.debuff == 'congelado') {
         let x = Math.floor(Math.random() * 100) + 0;
 
@@ -260,7 +259,7 @@ function verificarDebuffArmaInimigo() {
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoArmaGeral.nome} congelou ${jogador.nome}`);
         }
     }
-
+    /*-----*/
     if (inimigoArmaGeral.debuff == 'eletricidade') {
         let x = Math.floor(Math.random() * 100) + 0;
 
@@ -271,5 +270,6 @@ function verificarDebuffArmaInimigo() {
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoArmaGeral.nome} eletrizou ${jogador.nome}`);
         }
     }
+    /*-----*/
 }
 /*-----*/

@@ -83,9 +83,9 @@ function ataqueForteDano() {
     jogadorCombateHud();
     inimigoCombateHud();
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 function botaoAtaqueForteClick() {
     if (jogador.energiaCombate - armaGeral.energiaCusto >= 0 || jogador.manaCombate - armaGeral.manaCusto >= 0) {
         inicioRodada();
@@ -103,14 +103,14 @@ function botaoAtaqueForteClick() {
 
         setTimeout(fimRodada, 4000);
     }
-
+/*-----*/
     if (jogador.energiaCombate - armaGeral.energiaCusto < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
 
         semEnergiaManaVisibilidade();
     }
-
+/*-----*/
     if (jogador.manaCombate - armaGeral.manaCusto < 0) {
         semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
         semEnergiaMana.style.color = 'blue';
@@ -118,4 +118,4 @@ function botaoAtaqueForteClick() {
         semEnergiaManaVisibilidade();
     }
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/

@@ -1,4 +1,4 @@
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 var inimigoCombatendo = ''
 
 var inimigoHudNome = window.document.querySelector('p#inimigoHudNome');
@@ -26,8 +26,9 @@ var inimigoGeral =
 
     danoBase: 0, danoCombate: 0,
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-INIMIGO DERROTADO-*/
 function inimigoDerrotado() {
     if (inimigoGeral.vidaCombate <= 0) {
@@ -67,4 +68,4 @@ function inimigoDerrotado() {
         setTimeout(definirMusica, 2000);
     }
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/

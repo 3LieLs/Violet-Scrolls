@@ -41,7 +41,6 @@ function adicionarAdaga() {
     addItemNome = adaga.nome;
     funcaoEquip = equipAdaga;
 }
-/*-----*/
 function removerAdaga() {
     adaga.obtido = false;
     removItemTipo = 'equipamento';
@@ -56,7 +55,6 @@ function adagaComprar() {
 
     geralComprar()
 }
-/*-----*/
 function adagaVender() {
     geralObtido = adaga.obtido
     geralPreco = adaga.preco
@@ -108,7 +106,6 @@ function adicionarChicoteDeAco() {
     addItemNome = chicoteDeAco.nome;
     funcaoEquip = equipChicoteDeAco;
 }
-/*-----*/
 function removerChicoteDeAco() {
     chicoteDeAco.obtido = false;
     removItemTipo = 'equipamento';
@@ -123,7 +120,6 @@ function chicoteDeAcoComprar() {
 
     geralComprar()
 }
-/*-----*/
 function chicoteDeAcoVender() {
     geralObtido = chicoteDeAco.obtido
     geralPreco = chicoteDeAco.preco
@@ -175,7 +171,6 @@ function adicionarEspadaDeAco() {
     addItemNome = espadaDeAco.nome;
     funcaoEquip = equipEspadaDeAco;
 }
-/*-----*/
 function removerEspadaDeAco() {
     espadaDeAco.obtido = false;
     removItemTipo = 'equipamento';
@@ -190,7 +185,6 @@ function espadaDeAcoComprar() {
 
     geralComprar()
 }
-/*-----*/
 function espadaDeAcoVender() {
     geralObtido = espadaDeAco.obtido
     geralPreco = espadaDeAco.preco
@@ -241,7 +235,6 @@ function adicionarLancaEnvenenada() {
     addItemNome = lancaEnvenenada.nome;
     funcaoEquip = equipEspadaDeAco;
 }
-/*-----*/
 function removerLancaEnvenenada() {
     lancaEnvenenada.obtido = false;
     removItemTipo = 'equipamento';
@@ -256,7 +249,6 @@ function lancaEnvenenadaComprar() {
 
     geralComprar()
 }
-/*-----*/
 function lancaEnvenenadaVender() {
     geralObtido = lancaEnvenenada.obtido
     geralPreco = lancaEnvenenada.preco

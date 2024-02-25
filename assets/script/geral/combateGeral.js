@@ -1,3 +1,4 @@
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-MUDAR RODADA-*/
 var rodada = 0, vezUsuario = true;
 
@@ -12,9 +13,9 @@ function fimRodada() {
     vezUsuario = true;
     legendaView.insertAdjacentHTML('beforeend', `<br>--------------------------------<br><br>`)
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-BUFF E DEBUFF INIMIGO-*/
 function buff_debuff_jogador() {
     /*-BUFF DANO-*/
@@ -25,8 +26,6 @@ function buff_debuff_jogador() {
         x = Math.round(x)
         armaGeral.danoCombate -= x
     }
-    /*-----*/
-
     /*-BUFF VIDA REGEN-*/
     if (rodada < rodadaBuffVidaRegenMax.jogador && buffVidaRegen.jogador == true) {
         if (vidaGanha > 0) {
@@ -46,8 +45,6 @@ function buff_debuff_jogador() {
     } else {
         buffVidaRegen.jogador = false
     }
-    /*-----*/
-
     /*-DEBUFF SANGRAMENTO-*/
     if (rodada < rodadaDebuffSangramentoMax.jogador && debuffSangramento.jogador == true) {
         sangramentoDano = jogador.vidaBase * 0.15
@@ -68,8 +65,6 @@ function buff_debuff_jogador() {
     } else {
         debuffSangramento.jogador = false
     }
-    /*-----*/
-
     /*-DEBUFF VENENO-*/
     if (rodada < rodadaDebuffVenenoMax.jogador && debuffVeneno.jogador == true) {
         venenoDano = jogador.vidaBase * 0.15
@@ -90,8 +85,6 @@ function buff_debuff_jogador() {
     } else {
         debuffVeneno.jogador = false
     }
-    /*-----*/
-
     /*-DEBUFF CHAMAS-*/
     if (rodada < rodadaDebuffChamasMax.jogador && debuffChamas.jogador == true) {
         let x = armaGeral.danoCombate * 0.10
@@ -122,8 +115,6 @@ function buff_debuff_jogador() {
         Math.round(x)
         armaGeral.danoCombate += x
     }
-    /*-----*/
-
     /*-DEBUFF CONGELADO-*/
     if (rodada < rodadaDebuffCongeladoMax.jogador && debuffCongelado.jogador == true) {
         let x = armaGeral.energiaCusto * 0.25
@@ -139,8 +130,6 @@ function buff_debuff_jogador() {
         Math.round(x)
         armaGeral.energiaCusto -= x
     }
-    /*-----*/
-
     /*-DEBUFF ELETRICIDADE-*/
     if (rodada < rodadaDebuffEletricidadeMax.jogador && debuffEletricidade.jogador == true) {
         let w = armaGeral.manaCusto * 0.25
@@ -176,8 +165,6 @@ function buff_debuff_jogador() {
         magiaRecuperacaoGeral.manaCusto -= y
         magiaBuffGeral.manaCusto -= z
     }
-    /*-----*/
-
     /*-CASO O JOGADOR MORRA-*/
     if (jogador.vidaCombate <= 0) {
         jogador.vidaCombate = 0
@@ -186,9 +173,9 @@ function buff_debuff_jogador() {
     }
     /*-----*/
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-BUFF E DEBUFF INIMIGO-*/
 function buff_debuff_inimigo() {
     /*-BUFF DANO-*/
@@ -199,8 +186,6 @@ function buff_debuff_inimigo() {
         Math.round(x)
         inimigoArmaGeral.danoCombate -= x
     }
-    /*-----*/
-
     /*-BUFF VIDA REGEN-*/
     if (rodada < rodadaBuffVidaRegenMax.inimigo && buffVidaRegen.inimigo == true) {
         if (vidaGanha > 0) {
@@ -220,9 +205,6 @@ function buff_debuff_inimigo() {
     } else {
         buffVidaRegen.inimigo = false
     }
-    /*-----*/
-
-
     /*-DEBUFF SANGRAMENTO-*/
     if (rodada < rodadaDebuffSangramentoMax.inimigo && debuffSangramento.inimigo == true) {
         sangramentoDano = inimigoGeral.vidaBase * 0.15
@@ -243,8 +225,6 @@ function buff_debuff_inimigo() {
     } else {
         debuffSangramento.inimigo = false
     }
-    /*-----*/
-
     /*-DEBUFF VENENO-*/
     if (rodada < rodadaDebuffVenenoMax.inimigo && debuffVeneno.inimigo == true) {
         venenoDano = inimigoGeral.vidaBase * 0.15
@@ -265,8 +245,6 @@ function buff_debuff_inimigo() {
     } else {
         debuffVeneno.inimigo = false
     }
-    /*-----*/
-
     /*-DEBUFF CHAMAS-*/
     if (rodada < rodadaDebuffChamasMax.inimigo && debuffChamas.inimigo == true) {
         let x = inimigoArmaGeral.danoCombate * 0.10
@@ -296,8 +274,6 @@ function buff_debuff_inimigo() {
         x = Math.round(x)
         inimigoArmaGeral.danoCombate += x
     }
-    /*-----*/
-
     /*-DEBUFF CONGELADO-*/
     if (rodada < rodadaDebuffCongeladoMax.inimigo && debuffCongelado.inimigo == true) {
         let x = inimigoArmaGeral.energiaCusto * 0.25
@@ -313,8 +289,6 @@ function buff_debuff_inimigo() {
         x = Math.round(x)
         inimigoArmaGeral.energiaCusto -= x
     }
-    /*-----*/
-
     /*-DEBUFF ELETRICIDADE-*/
     if (rodada < rodadaDebuffEletricidadeMax.inimigo && debuffEletricidade.inimigo == true) {
         let w = inimigoArmaGeral.manaCusto * 0.25
@@ -350,8 +324,6 @@ function buff_debuff_inimigo() {
         magiaRecuperacaoGeral.manaCusto -= y
         magiaBuffGeral.manaCusto -= z
     }
-    /*-----*/
-
     /*-CASO O JOGADOR MORRA-*/
     if (inimigoGeral.vidaCombate <= 0) {
         inimigoGeral.vidaCombate = 0
@@ -360,12 +332,12 @@ function buff_debuff_inimigo() {
     }
     /*-----*/
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-CALCULO CRÍTICO-*/
 var danoCritico = 0, chanceCriticoJogador = 5, chanceCriticoInimigo = 5, criticoJogador = false, criticoInimigo = false;
-
+/*-JOGADOR-*/
 function aplicarCriticoJogador() {
     let x = Math.floor(Math.random() * 100) + 0;
 
@@ -376,15 +348,13 @@ function aplicarCriticoJogador() {
         armaGeral.danoCombate += danoCritico;
     }
 }
-
 function desaplicarCriticoJogador() {
     if (criticoJogador == true) {
         criticoJogador = false;
         armaGeral.danoCombate -= danoCritico;
     }
 }
-
-
+/*-INIMIGO-*/
 function aplicarCriticoInimigo() {
     let x = Math.floor(Math.random() * 100) + 0;
 
@@ -395,22 +365,20 @@ function aplicarCriticoInimigo() {
         inimigoArmaGeral.danoCombate += danoCritico;
     }
 }
-
 function desaplicarCriticoInimigo() {
     if (criticoInimigo == true) {
         criticoInimigo = false
         inimigoArmaGeral.danoCombate -= danoCritico;
     }
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-CALCULO ERRO GOLPE-*/
 var danoMiss = 0, danoMagiaMiss = 0, chanceMissJogador = 5, chanceMissInimigo = 5, missJogador = false, missInimigo = false;
-
+/*-JOGADOR-*/
 function aplicarMissJogador() {
     let x = Math.floor(Math.random() * 100) + 0;
-
     if (x <= chanceMissJogador) {
         missJogador = true;
         danoMiss = armaGeral.danoCombate;
@@ -419,7 +387,6 @@ function aplicarMissJogador() {
         magiaDanoGeral.danoCombate -= danoMagiaMiss;
     }
 }
-
 function desaplicarMissJogador() {
     if (missJogador == true) {
         missJogador = false;
@@ -427,8 +394,7 @@ function desaplicarMissJogador() {
         magiaDanoGeral.danoCombate += danoMagiaMiss;
     }
 }
-
-
+/*-INIMIGO-*/
 function aplicarMissInimigo() {
     let x = Math.floor(Math.random() * 100) + 0;
 
@@ -438,16 +404,15 @@ function aplicarMissInimigo() {
         inimigoArmaGeral.danoCombate -= danoMiss;
     }
 }
-
 function desaplicarMissInimigo() {
     if (missInimigo == true) {
         missInimigo = false
         inimigoArmaGeral.danoCombate += danoMiss;
     }
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-CALCULO DEFESA-*/
 function calculoDefesa() {
     armaduraGeral.defesaCombate = (armaduraGeral.defesaCombate / (100 + parseInt(armaduraGeral.defesaCombate))) * 150;
@@ -458,9 +423,9 @@ function calculoDefesa() {
 
     inimigoGeral.danoCombate = Math.trunc(inimigoGeral.danoCombate);
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-RESETAR ESTATÍSTICAS-*/
 function definirEstatisticaGeral() {
     mainJogadorDerrotado.style.display = 'none';
@@ -501,9 +466,9 @@ function definirEstatisticaGeral() {
     debuffCongelado.jogador = false, debuffCongelado.inimigo = false
     debuffEletricidade.jogador = false, debuffEletricidade.inimigo = false
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-EXPERIÊNCIA GANHO-*/
 function experienciaGanha() {
     mainInimigoDerrotado.style.display = 'contents';
@@ -521,9 +486,9 @@ function experienciaGanha() {
     experienciaGanhaVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
     experienciaGanhaVal.style.backgroundSize = `${jogadorNivel.experienciaPorcentagem}% 100%`;
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-MISSÃO CONCLUÍDA-*/
 function missaoProgresso() {
     if (missao.ativo == true) {
@@ -536,4 +501,4 @@ function missaoProgresso() {
         }
     }
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/

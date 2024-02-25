@@ -1,8 +1,9 @@
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-MÚSICA VARIÁVEIS-*/
 var musica = window.document.querySelector('audio#musica');
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-MÚSICA-*/
 musica.src = 'assets/content/audio/MúsicaPacífica/taverna.mp4';
 
@@ -49,4 +50,4 @@ function definirMusica() {
         musica.src = 'assets/content/audio/MúsicaPacífica/taverna.mp4';
     }
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/

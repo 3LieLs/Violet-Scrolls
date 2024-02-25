@@ -40,7 +40,6 @@ function adicionarArcoSimples() {
     addItemNome = arcoSimples.nome;
     funcaoEquip = equipArcoSimples;
 }
-/*-----*/
 function removerArcoSimples() {
     arcoSimples.obtido = false;
     removItemTipo = 'equipamento';
@@ -55,7 +54,6 @@ function arcoSimplesComprar() {
 
     geralComprar()
 }
-/*-----*/
 function arcoSimplesVender() {
     geralObtido = arcoSimples.obtido
     geralPreco = arcoSimples.preco
@@ -107,7 +105,6 @@ function adicionarArcoLongo() {
     addItemNome = arcoLongo.nome;
     funcaoEquip = equipArcoLongo;
 }
-/*-----*/
 function removerArcoLongo() {
     arcoLongo.obtido = false;
     removItemTipo = 'equipamento';
@@ -122,7 +119,6 @@ function arcoLongoComprar() {
 
     geralComprar()
 }
-/*-----*/
 function arcoLongoVender() {
     geralObtido = arcoLongo.obtido
     geralPreco = arcoLongo.preco

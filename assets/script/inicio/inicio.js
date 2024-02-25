@@ -1,10 +1,9 @@
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-INICIO VARIÁVEIS-*/
 var botaoInicioVal = window.document.querySelector('input#botaoInicio');
 botaoInicioVal.addEventListener('click', botaoInicioClick);
 botaoInicioVal.addEventListener('mouseover', botaoInicioHover);
 botaoInicioVal.addEventListener('mouseout', botaoInicioOut);
-/*-----*/
-
 /*-INICIO-*/
 function botaoInicioClick()
 {
@@ -25,4 +24,4 @@ function botaoInicioOut()
     botaoInicioVal.style.transform = 'scale(1.0)';
     botaoInicioVal.style.animation = 'paused';
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/

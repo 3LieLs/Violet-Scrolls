@@ -40,7 +40,6 @@ function adicionarCajadoDeFogo() {
     addItemNome = cajadoDeFogo.nome;
     funcaoEquip = equipCajadoDeFogo;
 }
-/*-----*/
 function removerCajadoDeFogo() {
     cajadoDeFogo.obtido = false;
     removItemTipo = 'equipamento';
@@ -55,7 +54,6 @@ function cajadoDeFogoComprar() {
 
     geralComprar()
 }
-/*-----*/
 function cajadoDeFogoVender() {
     geralObtido = cajadoDeFogo.obtido
     geralPreco = cajadoDeFogo.preco
@@ -107,7 +105,6 @@ function adicionarCajadoDeGelo() {
     addItemNome = cajadoDeGelo.nome;
     funcaoEquip = equipCajadoDeGelo;
 }
-/*-----*/
 function removerCajadoDeGelo() {
     cajadoDeGelo.obtido = false;
     removItemTipo = 'equipamento';
@@ -122,7 +119,6 @@ function cajadoDeGeloComprar() {
 
     geralComprar()
 }
-/*-----*/
 function cajadoDeGeloVender() {
     geralObtido = cajadoDeGelo.obtido
     geralPreco = cajadoDeGelo.preco
@@ -174,7 +170,6 @@ function adicionarCajadoEletrico() {
     addItemNome = cajadoEletrico.nome;
     funcaoEquip = equipCajadoEletrico;
 }
-/*-----*/
 function removerCajadoEletrico() {
     cajadoEletrico.obtido = false;
     removItemTipo = 'equipamento';
@@ -189,7 +184,6 @@ function cajadoEletricoComprar() {
 
     geralComprar()
 }
-/*-----*/
 function cajadoEletricoVender() {
     geralObtido = cajadoEletrico.obtido
     geralPreco = cajadoEletrico.preco

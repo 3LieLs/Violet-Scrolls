@@ -1,3 +1,4 @@
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-VOLTAR RAÇA-*/
 var botaoVoltarRaca = window.document.querySelector('input#voltarRaca');
 botaoVoltarRaca.addEventListener('click', voltarRacaClick);
@@ -7,8 +8,9 @@ function voltarRacaClick()
     escolhaNome.style.display = 'contents';
     escolhaRaca.style.display = 'none';
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-ESCOLHA RAÇA VARIÁVEIS-*/
 var botaoHumano = window.document.querySelector('input#humano');
 botaoHumano.addEventListener('click', botaoHumanoClick);
@@ -24,8 +26,6 @@ botaoDraconato.addEventListener('click', botaoDraconatoClick);
 
 var botaoVampiro = window.document.querySelector('input#vampiro');
 botaoVampiro.addEventListener('click', botaoVampiroClick);
-/*-----*/
-
 /*-HUMANO-*/
 function botaoHumanoClick()
 {
@@ -57,8 +57,6 @@ function botaoHumanoClick()
 
     racaEscolhida();
 }
-/*-----*/
-
 /*-Elfo-*/
 function botaoElfoClick()
 {
@@ -89,9 +87,7 @@ function botaoElfoClick()
 
     racaEscolhida();
 }
-/*-----*/
-
-/*-orc-*/
+/*-ORC-*/
 function botaoOrcClick()
 {
     racaGeral = racaOrc;
@@ -121,9 +117,7 @@ function botaoOrcClick()
 
     racaEscolhida();
 }
-/*-----*/
-
-/*-Draconato-*/
+/*-DRACONATO-*/
 function botaoDraconatoClick()
 {
     racaGeral = racaDraconato;
@@ -153,8 +147,6 @@ function botaoDraconatoClick()
 
     racaEscolhida();
 }
-/*-----*/
-
 /*-VAMPIRO-*/
 function botaoVampiroClick()
 {
@@ -185,8 +177,9 @@ function botaoVampiroClick()
 
     racaEscolhida();
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 function racaEscolhida()
 {
     armaGeral = soco;
@@ -200,3 +193,4 @@ function racaEscolhida()
     mainBotaoMenu.style.display = 'contents';
     botaoMapaDisplay.style.display = 'contents';
 }
+/*-----*//*-----*//*-----*//*-----*//*-----*/

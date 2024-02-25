@@ -37,7 +37,6 @@ function adicionarArmaduraDePele() {
     addItemNome = armaduraDePele.nome;
     funcaoEquip = equipArmaduraDePele;
 }
-/*-----*/
 function removerArmaduraDePele() {
     armaduraDePele.obtido = false;
     removItemTipo = 'equipamento';
@@ -52,7 +51,6 @@ function armaduraDePeleComprar() {
 
     geralComprar()
 }
-/*-----*/
 function armaduraDePeleVender() {
     geralObtido = armaduraDePele.obtido
     geralPreco = armaduraDePele.preco
@@ -101,7 +99,6 @@ function adicionarArmaduraDeCouro() {
     addItemNome = armaduraDeCouro.nome;
     funcaoEquip = equipArmaduraDeCouro;
 }
-/*-----*/
 function removerArmaduraDeCouro() {
     armaduraDeCouro.obtido = false;
     removItemTipo = 'equipamento';
@@ -116,7 +113,6 @@ function armaduraDeCouroComprar() {
 
     geralComprar()
 }
-/*-----*/
 function armaduraDeCouroVender() {
     geralObtido = armaduraDeCouro.obtido
     geralPreco = armaduraDeCouro.preco
@@ -165,7 +161,6 @@ function adicionarArmaduraDeEscamas() {
     addItemNome = armaduraDeEscamas.nome;
     funcaoEquip = equipArmaduraDeEscamas;
 }
-/*-----*/
 function removerArmaduraDeEscamas() {
     armaduraDeEscamas.obtido = false;
     removItemTipo = 'equipamento';
@@ -180,7 +175,6 @@ function armaduraDeEscamasComprar() {
 
     geralComprar()
 }
-/*-----*/
 function armaduraDeEscamasVender() {
     geralObtido = armaduraDeEscamas.obtido
     geralPreco = armaduraDeEscamas.preco
