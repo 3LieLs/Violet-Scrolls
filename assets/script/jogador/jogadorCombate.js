@@ -357,9 +357,32 @@ function voltarMovesetInicio() {
     quartaEscolha.addEventListener('click', movesetOutrosEscolhaClick);
 }
 /*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+/*-INIMIGOS ATINGIDO DANO-*/
+var danoJogadorGeral = 0
 
+function jogadorAtingidoDano() {
+    if (jogador.vidaCombate - danoJogadorGeral < 0) {
+        jogador.vidaCombate = 0;
+        jogador.vidaPorcentagem = 0.1;
+        jogador.porcentagem = 0;
+    } else {
+        jogador.vidaCombate -= danoJogadorGeral;
 
+        jogador.porcentagem = 100 - ((danoJogadorGeral / jogador.vidaBase) * 100);
+        jogador.porcentagem = 100 - jogador.porcentagem;
+        jogador.porcentagem = jogador.porcentagem.toPrecision(2);
+
+        jogador.vidaPorcentagem = jogador.vidaPorcentagem - jogador.porcentagem;
+    }
+
+    danoJogadorGeral = 0
+}
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-VERIFICAR DEBUFF DA ARMA DO JOGADOR-*/
 function verificarDebuffArmaJogador() {
     if (armaGeral.debuff == 'sangramento') {
@@ -477,8 +500,9 @@ function verificarDebuffMagiaJogador() {
     }
 }
 /*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-----*/
 function aplicarFraquezaResistenciaInimigo() {
     if (inimigoGeral.fraqueza == armaGeral.tipoDano) {
@@ -534,7 +558,9 @@ function desaplicarFraquezaResistenciaInimigo() {
     }
 }
 /*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-----*/
 function semEnergiaManaVisibilidade() {
     semEnergiaManaDisplay.style.animation = 'semEnergiaManaMostrar 3s 0ms 1';
@@ -544,3 +570,4 @@ function semEnergiaManaVisibilidade() {
     }, 2000)
 }
 /*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/

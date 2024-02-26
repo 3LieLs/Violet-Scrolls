@@ -15,20 +15,9 @@ function MagiaDanoUso() {
     }
 
     if (missJogador == false) {
-        if (inimigoGeral.vidaCombate - magiaDanoGeral.danoCombate < 0) {
-            inimigoGeral.vidaCombate = 0
-            inimigoGeral.vidaPorcentagem = 0.1
-        } else {
-            inimigoGeral.vidaCombate = inimigoGeral.vidaCombate - magiaDanoGeral.danoCombate
+        danoInimigoGeral = magiaDanoGeral.danoCombate
+        inimigoAtingidoDano()
 
-            inimigoGeral.porcentagem = 100 - ((magiaDanoGeral.danoCombate / inimigoGeral.vidaBase) * 100)
-            inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
-            inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
-
-            inimigoGeral.vidaPorcentagem = inimigoGeral.vidaPorcentagem - inimigoGeral.porcentagem
-        }
-
-        inimigoAtingido()
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaDanoGeral.nome}<br>Dano causado: ${magiaDanoGeral.danoCombate}`)
         if (magiaDanoGeral.energiaCusto > 0) {
             legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${magiaDanoGeral.energiaCusto}`);

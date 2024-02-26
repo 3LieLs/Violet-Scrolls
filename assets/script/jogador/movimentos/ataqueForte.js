@@ -16,20 +16,9 @@ function ataqueForteDano() {
     }
 
     if (missJogador == false) {
-        if (inimigoGeral.vidaCombate - parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2)) < 0) {
-            inimigoGeral.vidaCombate = 0;
-            inimigoGeral.vidaPorcentagem = 0.1;
-        } else {
-            inimigoGeral.vidaCombate = inimigoGeral.vidaCombate - parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2));
+        danoInimigoGeral = parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2))
+        inimigoAtingidoDano()
 
-            inimigoGeral.porcentagem = 100 - ((parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2)) / inimigoGeral.vidaBase) * 100);
-            inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem;
-            inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2);
-
-            inimigoGeral.vidaPorcentagem = inimigoGeral.vidaPorcentagem - inimigoGeral.porcentagem;
-        }
-
-        inimigoAtingido()
         legendaView.insertAdjacentHTML('beforeend', `<br><br> ${jogador.nome} atacou com ${armaGeral.nome} com força<br>Dano causado: ${parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2))}`);
         if (armaGeral.energiaCusto > 0) {
             legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2))}`);
@@ -88,7 +77,7 @@ function ataqueForteDano() {
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 function botaoAtaqueForteClick() {
-    if (jogador.energiaCombate - armaGeral.energiaCusto >= 0 || jogador.manaCombate - armaGeral.manaCusto >= 0) {
+    if (jogador.energiaCombate - armaGeral.energiaCusto >= 0 && jogador.manaCombate - armaGeral.manaCusto >= 0) {
         inicioRodada();
 
         setTimeout(ataqueForteDano, 0);
@@ -104,14 +93,14 @@ function botaoAtaqueForteClick() {
 
         setTimeout(fimRodada, 4000);
     }
-/*-----*/
+    /*-----*/
     if (jogador.energiaCombate - armaGeral.energiaCusto < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
 
         semEnergiaManaVisibilidade();
     }
-/*-----*/
+    /*-----*/
     if (jogador.manaCombate - armaGeral.manaCusto < 0) {
         semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
         semEnergiaMana.style.color = 'blue';

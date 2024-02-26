@@ -16,20 +16,9 @@ function ataqueFracoDano() {
     }
 
     if (missJogador == false) {
-        if (inimigoGeral.vidaCombate - armaGeral.danoCombate < 0) {
-            inimigoGeral.vidaCombate = 0;
-            inimigoGeral.vidaPorcentagem = 0.1;
-        } else {
-            inimigoGeral.vidaCombate = inimigoGeral.vidaCombate - armaGeral.danoCombate;
+        danoInimigoGeral = armaGeral.danoCombate
+        inimigoAtingidoDano()
 
-            inimigoGeral.porcentagem = 100 - ((armaGeral.danoCombate / inimigoGeral.vidaBase) * 100);
-            inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem;
-            inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2);
-
-            inimigoGeral.vidaPorcentagem = inimigoGeral.vidaPorcentagem - inimigoGeral.porcentagem;
-        }
-
-        inimigoAtingido()
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}`)
         if (armaGeral.energiaCusto > 0) {
             legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${armaGeral.energiaCusto}`);

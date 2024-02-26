@@ -23,8 +23,32 @@ function inimigoCombateHud() {
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
-/*-INIMIGOS ATINGIDO-*/
-function inimigoAtingido() {
+/*-INIMIGOS ATINGIDO DANO-*/
+var danoInimigoGeral = 0
+
+function inimigoAtingidoDano() {
+    inimigoAtingidoEfeito()
+
+    if (inimigoGeral.vidaCombate - danoInimigoGeral < 0) {
+        inimigoGeral.vidaCombate = 0;
+        inimigoGeral.vidaPorcentagem = 0.1;
+    } else {
+        inimigoGeral.vidaCombate = inimigoGeral.vidaCombate - danoInimigoGeral;
+
+        inimigoGeral.porcentagem = 100 - ((danoInimigoGeral / inimigoGeral.vidaBase) * 100);
+        inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem;
+        inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2);
+
+        inimigoGeral.vidaPorcentagem = inimigoGeral.vidaPorcentagem - inimigoGeral.porcentagem;
+    }
+
+    danoInimigoGeral = 0
+}
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+/*-INIMIGOS ATINGIDO EFEITO-*/
+function inimigoAtingidoEfeito() {
     setTimeout(function () {
         inimigoHudImagem.style.opacity = '0.5'
     }, 0);
@@ -81,19 +105,8 @@ function inimigoAtaqueAto() {
         }
 
         if (missInimigo == false) {
-            if (jogador.vidaCombate - inimigoArmaGeral.danoCombate < 0) {
-                jogador.vidaCombate = 0;
-                jogador.vidaPorcentagem = 0.1;
-                jogador.porcentagem = 0;
-            } else {
-                jogador.vidaCombate -= inimigoArmaGeral.danoCombate;
-
-                jogador.porcentagem = 100 - ((inimigoArmaGeral.danoCombate / jogador.vidaBase) * 100);
-                jogador.porcentagem = 100 - jogador.porcentagem;
-                jogador.porcentagem = jogador.porcentagem.toPrecision(2);
-
-                jogador.vidaPorcentagem = jogador.vidaPorcentagem - jogador.porcentagem;
-            }
+            danoJogadorGeral = inimigoArmaGeral.danoCombate
+            jogadorAtingidoDano()
 
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou com ${inimigoArmaGeral.nome}<br>Dano causado: ${inimigoArmaGeral.danoCombate}`);
             if (inimigoArmaGeral.energiaCusto > 0) {

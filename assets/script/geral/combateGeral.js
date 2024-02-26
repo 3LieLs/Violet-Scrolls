@@ -50,13 +50,8 @@ function buff_debuff_jogador() {
         sangramentoDano = jogador.vidaBase * 0.15
         sangramentoDano = Math.round(sangramentoDano)
 
-        jogador.vidaCombate -= sangramentoDano;
-
-        jogador.porcentagem = 100 - ((sangramentoDano / jogador.vidaBase) * 100)
-        jogador.porcentagem = 100 - jogador.porcentagem
-        jogador.porcentagem = jogador.porcentagem.toPrecision(2)
-
-        jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) - parseInt(jogador.porcentagem)
+        danoJogadorGeral = sangramentoDano
+        jogadorAtingidoDano()
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${sangramentoDano} de vida por causa do sangramento`);
 
@@ -70,13 +65,8 @@ function buff_debuff_jogador() {
         venenoDano = jogador.vidaBase * 0.15
         venenoDano = Math.round(venenoDano)
 
-        jogador.vidaCombate -= venenoDano;
-
-        jogador.porcentagem = 100 - ((venenoDano / jogador.vidaBase) * 100)
-        jogador.porcentagem = 100 - jogador.porcentagem
-        jogador.porcentagem = jogador.porcentagem.toPrecision(2)
-
-        jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) - parseInt(jogador.porcentagem)
+        danoJogadorGeral = venenoDano
+        jogadorAtingidoDano()
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${venenoDano} de vida por causa do veneno`);
 
@@ -87,21 +77,11 @@ function buff_debuff_jogador() {
     }
     /*-DEBUFF CHAMAS-*/
     if (rodada < rodadaDebuffChamasMax.jogador && debuffChamas.jogador == true) {
-        let x = armaGeral.danoCombate * 0.10
-        x = Math.round(x)
-        armaGeral.danoCombate -= x
-
-
         chamasDano = jogador.vidaBase * 0.10
         chamasDano = Math.round(chamasDano)
 
-        jogador.vidaCombate -= chamasDano;
-
-        jogador.porcentagem = 100 - ((chamasDano / jogador.vidaBase) * 100)
-        jogador.porcentagem = 100 - jogador.porcentagem
-        jogador.porcentagem = jogador.porcentagem.toPrecision(2)
-
-        jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) - parseInt(jogador.porcentagem)
+        danoJogadorGeral = chamasDano
+        jogadorAtingidoDano()
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${chamasDano} de vida por causa das chamas`);
 
@@ -210,15 +190,9 @@ function buff_debuff_inimigo() {
         sangramentoDano = inimigoGeral.vidaBase * 0.15
         sangramentoDano = Math.round(sangramentoDano)
 
-        inimigoGeral.vidaCombate -= sangramentoDano;
+        danoInimigoGeral = sangramentoDano
+        inimigoAtingidoDano()
 
-        inimigoGeral.porcentagem = 100 - ((sangramentoDano / inimigoGeral.vidaBase) * 100)
-        inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
-        inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
-
-        inimigoGeral.vidaPorcentagem = parseInt(inimigoGeral.vidaPorcentagem) - parseInt(inimigoGeral.porcentagem)
-
-        inimigoAtingido()
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${sangramentoDano} de vida por causa do sangramento`);
 
         jogadorCombateHud();
@@ -231,15 +205,9 @@ function buff_debuff_inimigo() {
         venenoDano = inimigoGeral.vidaBase * 0.15
         venenoDano = Math.round(venenoDano)
 
-        inimigoGeral.vidaCombate -= venenoDano;
+        danoInimigoGeral = venenoDano
+        inimigoAtingidoDano()
 
-        inimigoGeral.porcentagem = 100 - ((venenoDano / inimigoGeral.vidaBase) * 100)
-        inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
-        inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
-
-        inimigoGeral.vidaPorcentagem = parseInt(inimigoGeral.vidaPorcentagem) - parseInt(inimigoGeral.porcentagem)
-
-        inimigoAtingido()
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${venenoDano} de vida por causa do veneno`);
 
         jogadorCombateHud();
@@ -256,15 +224,9 @@ function buff_debuff_inimigo() {
         chamasDano = inimigoGeral.vidaBase * 0.10
         chamasDano = Math.round(chamasDano)
 
-        inimigoGeral.vidaCombate -= chamasDano;
+        danoInimigoGeral = chamasDano
+        inimigoAtingidoDano()
 
-        inimigoGeral.porcentagem = 100 - ((chamasDano / inimigoGeral.vidaBase) * 100)
-        inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
-        inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
-
-        inimigoGeral.vidaPorcentagem = parseInt(inimigoGeral.vidaPorcentagem) - parseInt(inimigoGeral.porcentagem)
-
-        inimigoAtingido()
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${chamasDano} de vida por causa das chamas`);
 
         jogadorCombateHud();
