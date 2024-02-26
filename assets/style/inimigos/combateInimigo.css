@@ -20,10 +20,18 @@
 }
 
 #inimigoHudImagemDisplay{
-    margin-top: 20%;
-    margin-left: 5%;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 50%;
+    margin: 0%;
+    padding: 0%;
+    text-align: center;
 }
-
+#inimigoHudImagem{
+   opacity: 1;
+}
 
 #inimigoHudNome{
     width: 100%;

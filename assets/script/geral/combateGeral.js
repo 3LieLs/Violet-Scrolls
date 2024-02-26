@@ -218,6 +218,7 @@ function buff_debuff_inimigo() {
 
         inimigoGeral.vidaPorcentagem = parseInt(inimigoGeral.vidaPorcentagem) - parseInt(inimigoGeral.porcentagem)
 
+        inimigoAtingido()
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${sangramentoDano} de vida por causa do sangramento`);
 
         jogadorCombateHud();
@@ -238,6 +239,7 @@ function buff_debuff_inimigo() {
 
         inimigoGeral.vidaPorcentagem = parseInt(inimigoGeral.vidaPorcentagem) - parseInt(inimigoGeral.porcentagem)
 
+        inimigoAtingido()
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${venenoDano} de vida por causa do veneno`);
 
         jogadorCombateHud();
@@ -262,6 +264,7 @@ function buff_debuff_inimigo() {
 
         inimigoGeral.vidaPorcentagem = parseInt(inimigoGeral.vidaPorcentagem) - parseInt(inimigoGeral.porcentagem)
 
+        inimigoAtingido()
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${chamasDano} de vida por causa das chamas`);
 
         jogadorCombateHud();

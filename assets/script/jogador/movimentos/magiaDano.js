@@ -28,6 +28,7 @@ function MagiaDanoUso() {
             inimigoGeral.vidaPorcentagem = inimigoGeral.vidaPorcentagem - inimigoGeral.porcentagem
         }
 
+        inimigoAtingido()
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaDanoGeral.nome}<br>Dano causado: ${magiaDanoGeral.danoCombate}`)
         if (magiaDanoGeral.energiaCusto > 0) {
             legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${magiaDanoGeral.energiaCusto}`);

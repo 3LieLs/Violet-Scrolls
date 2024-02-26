@@ -23,6 +23,24 @@ function inimigoCombateHud() {
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
+/*-INIMIGOS ATINGIDO-*/
+function inimigoAtingido() {
+    setTimeout(function () {
+        inimigoHudImagem.style.opacity = '0.5'
+    }, 0);
+    setTimeout(function () {
+        inimigoHudImagem.style.opacity = '1'
+    }, 250);
+    setTimeout(function () {
+        inimigoHudImagem.style.opacity = '0.5'
+    }, 500);
+    setTimeout(function () {
+        inimigoHudImagem.style.opacity = '1'
+    }, 750);
+}
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-INIMIGOS ARMA/GOLPE-*/
 var inimigoArmaGeral =
 {

@@ -29,6 +29,7 @@ function ataqueForteDano() {
             inimigoGeral.vidaPorcentagem = inimigoGeral.vidaPorcentagem - inimigoGeral.porcentagem;
         }
 
+        inimigoAtingido()
         legendaView.insertAdjacentHTML('beforeend', `<br><br> ${jogador.nome} atacou com ${armaGeral.nome} com força<br>Dano causado: ${parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2))}`);
         if (armaGeral.energiaCusto > 0) {
             legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2))}`);
