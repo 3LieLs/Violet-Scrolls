@@ -71,13 +71,13 @@ function botaoProximoComprarFerreiroClick() {
 
 function mudarItensComprarFerreiro() {
     if (mudarComprarArmaArmadura == 1) {
-        arma_armadura_comprar.innerHTML = 'Arma';
+        comprarCategoriaFerreiro.innerHTML = 'Armas';
         itemComprarArmaFerreiroDisplay.style.display = 'contents';
         itemComprarArmaduraFerreiroDisplay.style.display = 'none';
     }
 
     if (mudarComprarArmaArmadura == 2) {
-        arma_armadura_comprar.innerHTML = 'Armadura';
+        comprarCategoriaFerreiro.innerHTML = 'Armaduras';
         itemComprarArmaFerreiroDisplay.style.display = 'none';
         itemComprarArmaduraFerreiroDisplay.style.display = 'contents';
     }
@@ -105,13 +105,13 @@ function botaoProximoVenderFerreiroClick() {
 
 function mudarItensVenderFerreiro() {
     if (mudarVenderArmaArmadura == 1) {
-        arma_armadura_vender.innerHTML = 'Arma';
+        venderCategoriaFerreiro.innerHTML = 'Armas';
         itemVenderArmaFerreiroDisplay.style.display = 'contents';
         itemVenderArmaduraFerreiroDisplay.style.display = 'none';
     }
 
     if (mudarVenderArmaArmadura == 2) {
-        arma_armadura_vender.innerHTML = 'Armadura';
+        venderCategoriaFerreiro.innerHTML = 'Armaduras';
         itemVenderArmaFerreiroDisplay.style.display = 'none';
         itemVenderArmaduraFerreiroDisplay.style.display = 'contents';
     }

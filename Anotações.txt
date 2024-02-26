@@ -6,5 +6,5 @@ adicionar minigames nos golpes
 tentar colocar imagem nos  botões de ação
 mudar a cor dos botões caso sem mana ou energia
 
-Aumentar a quantidade de itens na loja e colocar sistema de vender itens
-Terminar as funcionalidades dos botões de comprar e vender
+Colocar poções para comprar e suas funcionalidades
+Organizar o sistema de experiência

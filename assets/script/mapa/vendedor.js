@@ -71,13 +71,13 @@ function botaoProximoComprarVendedorClick() {
 
 function mudarItensComprarVendedor() {
     if (mudarComprarArmaArmadura == 1) {
-        arma_armadura_comprar.innerHTML = 'Arma';
+        comprarCategoriaVendedor.innerHTML = 'Arma';
         itemComprarArmaVendedorDisplay.style.display = 'contents';
         itemComprarArmaduraVendedorDisplay.style.display = 'none';
     }
 
     if (mudarComprarArmaArmadura == 2) {
-        arma_armadura_comprar.innerHTML = 'Armadura';
+        comprarCategoriaVendedor.innerHTML = 'Armadura';
         itemComprarArmaVendedorDisplay.style.display = 'none';
         itemComprarArmaduraVendedorDisplay.style.display = 'contents';
     }
@@ -105,13 +105,13 @@ function botaoProximoVenderVendedorClick() {
 
 function mudarItensVenderVendedor() {
     if (mudarVenderArmaArmadura == 1) {
-        arma_armadura_vender.innerHTML = 'Arma';
+        venderCategoriaVendedor.innerHTML = 'Arma';
         itemVenderArmaVendedorDisplay.style.display = 'contents';
         itemVenderArmaduraVendedorDisplay.style.display = 'none';
     }
 
     if (mudarVenderArmaArmadura == 2) {
-        arma_armadura_vender.innerHTML = 'Armadura';
+        venderCategoriaVendedor.innerHTML = 'Armadura';
         itemVenderArmaVendedorDisplay.style.display = 'none';
         itemVenderArmaduraVendedorDisplay.style.display = 'contents';
     }

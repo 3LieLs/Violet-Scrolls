@@ -87,13 +87,14 @@ function inimigoAtaqueAto() {
             if (criticoInimigo == true) {
                 legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`)
             }
+
+            verificarDebuffArmaInimigo()
         }
         /*-----*/
 
         desaplicarFraquezaResistenciaJogador()
         desaplicarCriticoInimigo()
         desaplicarMissInimigo()
-        verificarDebuffArmaInimigo()
 
 
         /*-DESCONTAR ENERGIA/MANA-*/

@@ -15,9 +15,9 @@
     height: 15%;
     padding: 0.5%;
     background-color: black;
-    color: orangered;
-    border-bottom-left-radius: 20%;
-    border-bottom-right-radius: 20%;
+    color: gray;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     text-align: center;
     font-size: 15pt;
 }
@@ -33,7 +33,7 @@
     width: 15%;
     height: 5%;
     background-color: black;
-    color: orangered;
+    color: gray;
     border-top-left-radius: 20%;
     border-top-right-radius: 20%;
     font-size: 12pt;
@@ -57,165 +57,136 @@
     width: 25%;
     height: 80%;
     background-color: rgb(30, 30, 30);
-    color: orangered;
+    color: gray;
     border: solid 5px black;
     border-radius: 5%;
     transition: 0.5s all 0s;
     opacity: 0;
     overflow: auto;
+    box-shadow: 0px 20px 30px -10px black;
+}
+
+#lojaVenderFerreiro {
+    position: absolute;
+    bottom: 3%;
+    right: -6%;
+    padding: 0.5% 1% 1% 1%;
+    width: 25%;
+    height: 80%;
+    background-color: rgb(30, 30, 30);
+    color: gray;
+    border: solid 5px black;
+    border-radius: 5%;
+    transition: 0.5s all 0s;
+    opacity: 0;
+    overflow: auto;
+    box-shadow: 0px 20px 30px -10px black;
 }
 
 /*-----*/
-#botaoVoltarComprarFerreiro, #botaoVoltarVenderFerreiro {
+#botaoVoltarComprarFerreiro,
+#botaoVoltarVenderFerreiro {
     position: absolute;
     left: 5%;
     width: 10%;
     background-color: black;
-    color: orangered;
-    border-radius: 5%;
+    color: gray;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
-#botaoProximoComprarFerreiro, #botaoProximoVenderFerreiro {
+#botaoProximoComprarFerreiro,
+#botaoProximoVenderFerreiro {
     position: absolute;
     right: 5%;
     width: 10%;
     background-color: black;
-    color: orangered;
-    border-radius: 5%;
+    color: gray;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
-/*-----*/
-
-#arma_armadura_comprar, #arma_armadura_vender {
-    width: 50%;
-    margin: auto;
-    padding: 1% 5% 1% 5%;
-    background-color: black;
-    color: orangered;
-    border-radius: 5%;
-    text-align: center;
-    font-size: 20pt;
-}
-
-#itemComprarArmaFerreiroDisplay {
-    display: contents;
-}
-
-#itemComprarArmaduraFerreiroDisplay {
-    display: none;
-}
-
-.itemComprarFerreiro {
-    width: 100%;
-    height: 25%;
-    margin: 10% 0% 0% 0%;
-    padding: 0% 0.1% 0% 5%;
-    background-color: black;
-    border-radius: 5%;
-    text-align: center;
-}
-
-.nomeItemComprarFerreiro{
-    margin: 0% 0% 0% 0%;
-    padding: 3% 0% 0% 0%;
-    font-size: 15pt;
-}
-
-.informacaoItemComprarFerreiro{
-    margin: 0% 0% 0% 0%;
-    padding: 0% 0% 0% 0%;
-    font-size: 12pt;
-}
-
-.precoItemComprarFerreiro {
-    margin: 5% 0% 0% 0%;
-    padding: 0% 0% 0% 0%;
-    font-size: 12pt;
-}
-
-.comprarItemFerreiro{
-    position: absolute;
-    right: 5%;
-    margin: 5% 0% 0% 0%;
-    padding: 0%;
+#botaoVoltarComprarFerreiro:hover,
+#botaoVoltarVenderFerreiro:hover,
+#botaoProximoComprarFerreiro:hover,
+#botaoProximoVenderFerreiro:hover {
     background-color: rgb(30, 30, 30);
-    color: orangered;
-    border-radius: 5%;
-    font-size: 10pt;
-}
-
-.comprarItemFerreiro:hover{
-    background-color: gray;
     cursor: pointer;
 }
 
 /*-----*/
 
-/*-----*/
-#lojaVenderFerreiro {
-    position: absolute;
-    bottom: 3%;
-    right: -6%;
-    padding: 0% 1% 1% 1%;
-    width: 25%;
-    height: 80%;
-    background-color: rgb(30, 30, 30);
-    color: orangered;
-    border: solid 5px black;
-    border-radius: 5%;
-    transition: 0.5s all 0s;
-    opacity: 0;
-    overflow: auto;
+#comprarCategoriaFerreiro,
+#venderCategoriaFerreiro {
+    width: 70%;
+    margin: auto;
+    padding: 1% 5% 1% 5%;
+    background-color: black;
+    color: gray;
+    border-radius: 0px;
+    text-align: center;
+    font-size: 20pt;
+    box-shadow: 0px 20px 30px -10px black;
 }
 
+
+#itemComprarArmaFerreiroDisplay,
 #itemVenderArmaFerreiroDisplay {
     display: contents;
 }
 
+#itemComprarArmaduraFerreiroDisplay,
 #itemVenderArmaduraFerreiroDisplay {
     display: none;
 }
 
 
-.itemVenderFerreiro{
+.itemComprarFerreiro,
+.itemVenderFerreiro {
     width: 100%;
     height: 25%;
     margin: 10% 0% 0% 0%;
     padding: 0% 0.1% 0% 5%;
     background-color: black;
-    border-radius: 5%;
+    border-radius: 10px;
     text-align: center;
+    box-shadow: 0px 20px 30px -10px black;
 }
 
+.nomeItemComprarFerreiro,
 .nomeItemVenderFerreiro {
     margin: 0% 0% 0% 0%;
     padding: 3% 0% 0% 0%;
     font-size: 15pt;
 }
 
+.informacaoItemComprarFerreiro,
 .informacaoItemVenderFerreiro {
     margin: 0% 0% 0% 0%;
     padding: 0% 0% 0% 0%;
     font-size: 12pt;
 }
 
-.precoItemVenderFerreiro{
+.precoItemComprarFerreiro,
+.precoItemVenderFerreiro {
     margin: 5% 0% 0% 0%;
     padding: 0% 0% 0% 0%;
     font-size: 12pt;
 }
 
+.comprarItemFerreiro,
 .venderItemFerreiro {
-    position: absolute;
-    right: 5%;
+    width: 25%;
     margin: 5% 0% 0% 0%;
     padding: 0%;
     background-color: rgb(30, 30, 30);
-    color: orangered;
-    border-radius: 5%;
+    color: gray;
+    border-radius: 50px;
     font-size: 10pt;
+    transition: 0.3s;
 }
 
+.comprarItemFerreiro:hover,
 .venderItemFerreiro:hover {
     background-color: gray;
     cursor: pointer;

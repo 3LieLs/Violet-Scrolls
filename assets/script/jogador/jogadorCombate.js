@@ -311,13 +311,13 @@ function voltarMovesetInicio() {
     primeiraEscolha.removeEventListener('click', ataqueFracoClick);
     primeiraEscolha.removeEventListener('click', magiaDanoClick);
     primeiraEscolha.removeEventListener('click', bloquearClick);
-    terceiraEscolha.removeEventListener('click', aaaClick);
+    primeiraEscolha.removeEventListener('click', aaaClick);
 
 
     segundaEscolha.removeEventListener('click', ataqueForteClick);
     segundaEscolha.removeEventListener('click', magiaRecuperarClick);
     segundaEscolha.removeEventListener('click', descansoClick);
-    terceiraEscolha.removeEventListener('click', pocoesClick);
+    segundaEscolha.removeEventListener('click', pocoesClick);
 
 
     terceiraEscolha.removeEventListener('click', contraAtaqueClick);
@@ -329,7 +329,7 @@ function voltarMovesetInicio() {
     quartaEscolha.removeEventListener('click', voltarArmaAcaoClick);
     quartaEscolha.removeEventListener('click', voltarMagiaAcaoClick);
     quartaEscolha.removeEventListener('click', voltarArmaduraAcaoClick);
-    terceiraEscolha.removeEventListener('click', voltarOutrosAcaoClick);
+    quartaEscolha.removeEventListener('click', voltarOutrosAcaoClick);
 
 
     primeiraEscolha.value = 'Atacar';

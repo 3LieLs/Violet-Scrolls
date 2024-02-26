@@ -10,20 +10,6 @@ botaoAbrirMissoes.addEventListener('click', botaoAbrirMissoesClick);
 var botaoFecharMissoes = window.document.querySelector('input#botaoFecharMissoes');
 botaoFecharMissoes.addEventListener('click', botaoFecharMissoesClick);
 
-
-var nomeMissao1 = window.document.querySelector('h1#nomeMissao1');
-var informacaoMissao1 = window.document.querySelector('p#informacaoMissao1');
-var recompensaMissao1 = window.document.querySelector('p#recompensaMissao1');
-
-var nomeMissao2 = window.document.querySelector('h1#nomeMissao2');
-var informacaoMissao2 = window.document.querySelector('p#informacaoMissao2');
-var recompensaMissao2 = window.document.querySelector('p#recompensaMissao2');
-
-var nomeMissao3 = window.document.querySelector('h1#nomeMissao3');
-var informacaoMissao3 = window.document.querySelector('p#informacaoMissao3');
-var recompensaMissao3 = window.document.querySelector('p#recompensaMissao3');
-
-
 var aceitarMissao1 = window.document.querySelector('input#aceitarMissao1');
 aceitarMissao1.addEventListener('click', aceitarMissao1Click);
 
@@ -87,7 +73,6 @@ setInterval(attMissoes, 15000);
 var aleat = 0, inimigoDerrotar = [], inimigoDerrotados = [], inimigoDerrotadosMin = [], inimigoDerrotadosMax = [], inimigoRecompensa = []
 
 function attMissoes() {
-
     aleatoriarMissao()
     nomeMissao1.innerHTML = `Derrotar ${inimigoDerrotar[0]}`;
     informacaoMissao1.innerHTML = `Preciso que alguém derrote ${inimigoDerrotados[0]} ${inimigoDerrotar[0]}`;
