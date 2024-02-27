@@ -360,7 +360,7 @@ function voltarMovesetInicio() {
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
-/*-INIMIGOS ATINGIDO DANO-*/
+/*-JOGADOR ATINGIDO DANO-*/
 var danoJogadorGeral = 0
 
 function jogadorAtingidoDano() {

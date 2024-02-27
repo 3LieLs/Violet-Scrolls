@@ -1,3 +1,4 @@
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-STATUS JOGADOR VARIÁVEIS-*/
 var jogador =
 {
@@ -15,45 +16,52 @@ var estatisticaEnergia = window.document.querySelector('p#estatisticaEnergia');
 var estatisticaMana = window.document.querySelector('p#estatisticaMana');
 
 var mensagemInimigoJogadorVal = window.document.querySelector('div#mensagemJogadorDerrotado');
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-JOGADOR HUD-*/
-function jogadorCombateHud()
-{
+function jogadorCombateHud() {
     estatisticaVida.innerHTML = `Vida: ${jogador.vidaCombate}`;
     estatisticaVida.style.backgroundSize = `${jogador.vidaPorcentagem}% 100%`;
-    
+
     estatisticaEnergia.innerHTML = `Energia: ${jogador.energiaCombate}`;
     estatisticaEnergia.style.backgroundSize = `${jogador.energiaPorcentagem}% 100%`;
 
     estatisticaMana.innerHTML = `Mana: ${jogador.manaCombate}`;
     estatisticaMana.style.backgroundSize = `${jogador.manaPorcentagem}% 100%`;
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-JOGADOR DERROTADO-*/
-function jogadorDerrotado()
-{
-    if (jogador.vidaCombate <= 0)
-    {
+function jogadorDerrotado() {
+    if (jogador.vidaCombate <= 0) {
+        definirEstatisticaGeral();
+
         mainHud.style.display = 'none';
         mainInimigoHud.style.display = 'none';
         florestaDisplay.style.display = 'none';
         cavernaDisplay.style.display = 'none';
         montanhaDisplay.style.display = 'none';
-        
-        localMapa = 'taverna';
 
-        definirEstatisticaGeral();
-        definirMusica();
+        mainJogadorDerrotado.style.display = 'contents';
+        rpgGeral.style.backgroundColor = 'black';
+        mensagemJogadorDerrotado.innerHTML = 'Você foi derrotado'
+
+        setTimeout(function () {
+            mensagemJogadorDerrotado.insertAdjacentHTML('beforeend', `<br>Um camponês te encontrou desacordado e te levou para a taverna`);
+        }, 2000)
+
+        setTimeout(function () {
+            mainJogadorDerrotado.style.display = 'none';
+            localMapa = 'taverna';
+            definirMusica();
+        }, 5000)
     }
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-NÍVEL DE JOGADOR VARIÁVEIS-*/
 var jogadorNivel =
 {
@@ -70,18 +78,16 @@ var botaoSubirMana = window.document.querySelector('input#subirMana');
 botaoSubirVida.addEventListener('click', upVida);
 botaoSubirEnergia.addEventListener('click', upEnergia);
 botaoSubirMana.addEventListener('click', upMana);
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-EXPERIÊNCIA / SUBIR NÍVEL-*/
-function mostrarStats() 
-{
+function mostrarStats() {
     subirNivel.style.display = 'none';
     upStatus.style.display = 'contents';
 }
 
-function upVida()
-{
+function upVida() {
     jogador.vidaBase = jogador.vidaBase + 5
     jogadorNivel.nivel = jogadorNivel.nivel + 1
     jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel;
@@ -93,12 +99,11 @@ function upVida()
     menuVida.innerHTML = `Vida: ${jogador.vidaBase}`;
     nivelAtual.innerHTML = `Nível: ${jogadorNivel.nivel}`;
     experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
-    
+
     upStatus.style.display = 'none';
 }
 
-function upEnergia()
-{
+function upEnergia() {
     jogador.energiaBase = jogador.energiaBase + 5;
     jogador.pesoMax += 5
     jogadorNivel.nivel = jogadorNivel.nivel + 1;
@@ -115,8 +120,7 @@ function upEnergia()
     upStatus.style.display = 'none';
 }
 
-function upMana()
-{
+function upMana() {
     jogador.manaBase = jogador.manaBase + 5;
     jogadorNivel.nivel = jogadorNivel.nivel + 1;
     jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel;
@@ -124,7 +128,7 @@ function upMana()
 
     barraExperiencia();
     jogadorNivel.experienciaPorcentagem = 0;
-    
+
     menuMana.innerHTML = `Mana: ${jogador.manaBase}`;
     nivelAtual.innerHTML = `Nível: ${jogadorNivel.nivel}`;
     experienciaAtualVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
@@ -132,18 +136,16 @@ function upMana()
     upStatus.style.display = 'none';
 }
 
-function barraExperiencia()
-{
+function barraExperiencia() {
     jogador.porcentagem = ((jogadorNivel.experiencia / jogadorNivel.proximoNivel) * 100);
-        jogador.porcentagem = jogador.porcentagem.toPrecision(3);
+    jogador.porcentagem = jogador.porcentagem.toPrecision(3);
 
-        jogadorNivel.experienciaPorcentagem = parseInt(jogador.porcentagem);
+    jogadorNivel.experienciaPorcentagem = parseInt(jogador.porcentagem);
 
-        if (jogadorNivel.experienciaPorcentagem > 100)
-        {
-            jogadorNivel.experienciaPorcentagem = 100;
-        }
+    if (jogadorNivel.experienciaPorcentagem > 100) {
+        jogadorNivel.experienciaPorcentagem = 100;
+    }
 
-        experienciaAtualVal.style.backgroundSize = `${jogadorNivel.experienciaPorcentagem}% 100%`;
+    experienciaAtualVal.style.backgroundSize = `${jogadorNivel.experienciaPorcentagem}% 100%`;
 }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/

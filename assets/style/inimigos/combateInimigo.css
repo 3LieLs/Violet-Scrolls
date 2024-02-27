@@ -100,6 +100,7 @@
 
 #mensagemInimigoDerrotado {
     margin-top: 15%;
+    color: white;
     text-align: center;
     font-size: 50pt;
 }
@@ -120,6 +121,7 @@
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEWAgICQdD0xAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=);
     background-repeat: no-repeat;
     background-size: 0% 100%;
+    color: white;
     border: solid 3px black;
     border-radius: 5%;
     text-align: center;

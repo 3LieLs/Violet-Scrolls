@@ -188,29 +188,6 @@
 /*-----*/
 
 
-
-/*-----*/
-#miniGameDisplay {
-    display: none;
-}
-
-#minigame {
-    position: absolute;
-    top: 50%;
-    left: 35%;
-    width: 3%;
-    height: 6%;
-    background-color: purple;
-    border: solid 3px black;
-    border-radius: 100%;
-    text-align: center;
-    z-index: 9999;
-}
-
-/*-----*/
-
-
-
 /*-----*/
 #mainJogadorDerrotado {
     display: none;
@@ -218,12 +195,12 @@
 
 #mensagemJogadorDerrotado {
     margin-top: 15%;
+    color: white;
     text-align: center;
     font-size: 50pt;
 }
 
 /*-----*/
-
 
 
 /*-----*/

@@ -30,66 +30,54 @@ mapaMontanha.addEventListener('click', mapaMontanhaClick);
 /*-MAPA BOTÕES-*/
 function mapaEscolhido() {
     mapaDisplay.style.display = 'none';
-    botaoMapaDisplay.style.display = 'contents';
-    mainBotaoMenu.style.display = 'contents';
 }
 
 function botaoMapaClick() {
     localMapa = 'mapa';
-    mapaDisplay.style.display = 'contents';
-    botaoMapaDisplay.style.display = 'none';
-    mainBotaoMenu.style.display = 'none';
-
-    taverna.style.display = 'none';
-    vendedorDisplay.style.display = 'none';
-    ferreiroDisplay.style.display = 'none';
-    feiticeiroDisplay.style.display = 'none';
-    florestaDisplay.style.display = 'none';
-    cavernaDisplay.style.display = 'none';
-    montanhaDisplay.style.display = 'none';
+    definirMusica();
 }
 
 
 function mapaTavernaClick() {
     mapaEscolhido();
     localMapa = 'taverna';
-    taverna.style.display = 'contents';
+    definirMusica();
 }
 
 function mapaVendedorClick() {
     mapaEscolhido();
     localMapa = 'vendedor';
-    vendedorDisplay.style.display = 'contents';
+    definirMusica();
 }
 
 function mapaFerreiroClick() {
     mapaEscolhido();
     localMapa = 'ferreiro';
-    ferreiroDisplay.style.display = 'contents';
+    definirMusica();
 }
 
 function mapaFeiticeiroClick() {
     mapaEscolhido();
     localMapa = 'feiticeiro';
-    feiticeiroDisplay.style.display = 'contents';
+    definirMusica();
 }
 
 function mapaFlorestaClick() {
     mapaEscolhido();
     localMapa = 'floresta';
-    florestaDisplay.style.display = 'contents';
+    definirMusica();
 
 }
 
 function mapaCavernaClick() {
     mapaEscolhido();
     localMapa = 'caverna';
-    cavernaDisplay.style.display = 'contents';
+    definirMusica();
 }
 
 function mapaMontanhaClick() {
     mapaEscolhido();
     localMapa = 'montanha';
-    montanhaDisplay.style.display = 'contents';
+    definirMusica();
 }
 /*-----*/

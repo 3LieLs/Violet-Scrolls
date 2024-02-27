@@ -437,6 +437,7 @@ function definirEstatisticaGeral() {
 /*-EXPERIÊNCIA GANHO-*/
 function experienciaGanha() {
     mainInimigoDerrotado.style.display = 'contents';
+    rpgGeral.style.backgroundColor = 'black';
 
     jogador.porcentagem = ((jogadorNivel.experiencia / jogadorNivel.proximoNivel) * 100);
     jogador.porcentagem = jogador.porcentagem.toPrecision(3);

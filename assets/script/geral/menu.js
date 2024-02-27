@@ -84,78 +84,23 @@ function menuDisplay() {
 /*-----*/
 function menuDisplayAbrir() {
     menu.style.display = 'contents';
-
-    if (localMapa == 'taverna') {
-        taverna.style.display = 'none';
-    }
-
-    if (localMapa == 'vendedor') {
-        vendedorDisplay.style.display = 'none';
-    }
-
-    if (localMapa == 'ferreiro') {
-        ferreiroDisplay.style.display = 'none';
-
-    }
-
-    if (localMapa == 'feiticeiro') {
-        feiticeiroDisplay.style.display = 'none';
-
-    }
-
-    if (localMapa == 'floresta') {
-        florestaDisplay.style.display = 'none';
-    }
-
-    if (localMapa == 'caverna') {
-        cavernaDisplay.style.display = 'none';
-    }
-
-    if (localMapa == 'montanha') {
-        montanhaDisplay.style.display = 'none';
-    }
-
+    rpgGeral.style.backgroundColor = 'darkgray';
     botaoMapaDisplay.style.display = 'none';
+
+    taverna.style.display = 'none';
+    vendedorDisplay.style.display = 'none';
+    ferreiroDisplay.style.display = 'none';
+    feiticeiroDisplay.style.display = 'none';
+    florestaDisplay.style.display = 'none';
+    cavernaDisplay.style.display = 'none';
+    montanhaDisplay.style.display = 'none';
+    
     menuAbertoFechado = true;
 }
 /*-----*/
 function menuDisplayFechar() {
     menu.style.display = 'none';
-    if (localMapa == 'taverna') {
-        taverna.style.display = 'contents';
-        botaoMapaDisplay.style.display = 'contents';
-    }
-
-    if (localMapa == 'vendedor') {
-        vendedorDisplay.style.display = 'contents';
-        botaoMapaDisplay.style.display = 'contents';
-    }
-
-    if (localMapa == 'ferreiro') {
-        ferreiroDisplay.style.display = 'contents';
-        botaoMapaDisplay.style.display = 'contents';
-    }
-
-    if (localMapa == 'feiticeiro') {
-        feiticeiroDisplay.style.display = 'contents';
-        botaoMapaDisplay.style.display = 'contents';
-    }
-
-    if (localMapa == 'floresta') {
-        florestaDisplay.style.display = 'contents';
-        botaoMapaDisplay.style.display = 'contents';
-    }
-
-    if (localMapa == 'caverna') {
-        cavernaDisplay.style.display = 'contents';
-        botaoMapaDisplay.style.display = 'contents';
-    }
-
-    if (localMapa == 'montanha') {
-        montanhaDisplay.style.display = 'contents';
-        botaoMapaDisplay.style.display = 'contents';
-    }
-
+    definirMusica()
     menuAbertoFechado = false;
 }
 /*-----*/
