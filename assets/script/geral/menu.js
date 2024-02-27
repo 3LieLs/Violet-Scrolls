@@ -94,7 +94,7 @@ function menuDisplayAbrir() {
     florestaDisplay.style.display = 'none';
     cavernaDisplay.style.display = 'none';
     montanhaDisplay.style.display = 'none';
-    
+
     menuAbertoFechado = true;
 }
 /*-----*/

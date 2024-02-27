@@ -38,7 +38,7 @@ function botaoHumanoClick()
     adicionarItem();
     
 
-    adicionarEspinhoDeFogo();
+    adicionarEspinhoDeGelo();
     adicionarItem();
 
     adicionarLuzDaVida();
@@ -98,7 +98,7 @@ function botaoOrcClick()
     adicionarArmaduraDeFerro()
     adicionarItem()
 
-    adicionarEspinhoDeFogo();
+    adicionarEspinhoDeGelo();
     adicionarItem();
 
     adicionarLuzDaVida();
@@ -128,7 +128,7 @@ function botaoDraconatoClick()
     adicionarArmaduraDeEscamas()
     adicionarItem()
 
-    adicionarEspinhoDeFogo();
+    adicionarEspinhoDeGelo();
     adicionarItem();
 
     adicionarPurificacaoAstral()
@@ -184,6 +184,9 @@ function racaEscolhida()
 {
     armaGeral = soco;
     armaduraGeral = trajeSimples;
+    magiaDanoGeral = 'Nenhuma'
+    magiaRecuperacaoGeral = 'Nenhuma'
+    magiaBuffGeral = 'Nenhuma'
 
     escolhaRaca.style.display = 'none';
 

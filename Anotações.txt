@@ -9,7 +9,6 @@ mudar a cor dos botões caso sem mana ou energia
 Colocar poções para comprar e suas funcionalidades
 Organizar o sistema de experiência
 Colocar sistema de Equip e Desequip nas magias
-Fazer tela de jogador derrotado e melhorar a tela de inimigo derrotado e qunado o inimigo morrer também
 Fazer efeito de jogador atingido
 
 Fazer a recuperacao de vida energia e mana universal igual o dano

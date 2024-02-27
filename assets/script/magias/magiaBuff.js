@@ -1,4 +1,4 @@
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 var
     rodadaBuffDanoMax = { jogador: 0, inimigo: 0, },
     rodadaBuffVidaRegenMax = { jogador: 0, inimigo: 0, },
@@ -18,8 +18,9 @@ var
     debuffChamas = { jogador: false, inimigo: false, },
     debuffCongelado = { jogador: false, inimigo: false, },
     debuffEletricidade = { jogador: false, inimigo: false, }
-/*-----*/
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 var magiaBuffGeral =
 {
     nome: '', ativo: false, obtido: false, val: '', preco: 0,
@@ -30,9 +31,9 @@ var magiaBuffGeral =
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 0, manaCustoCombate: 0,
 }
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 var furiaDeTouro =
 {
     nome: 'Furia de Touro', obtido: false, val: 'furiaDeTouro', preco: 7,
@@ -42,13 +43,31 @@ var furiaDeTouro =
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15,
 }
+/*-----*/
 function equipFuriaDeTouro() {
-    magiaBuffGeral = furiaDeTouro;
+    if (magiaBuffGeral == 'Nenhuma') {
+        magiaBuffGeral = furiaDeTouro;
+        equiparItemSlotfuriaDeTouro.value = 'Desequip'
+        equiparItemSlotfuriaDeTouro.removeEventListener('click', equipFuriaDeTouro)
+        equiparItemSlotfuriaDeTouro.addEventListener('click', desequipFuriaDeTouro)
+    }
 
     if (mudarMagiasBuff == true) {
         atualizarItensMagiasBuff();
     }
 }
+function desequipFuriaDeTouro() {
+    magiaBuffGeral = 'Nenhuma';
+
+    if (mudarMagiasBuff == true) {
+        atualizarItensMagiasBuff();
+    }
+
+    equiparItemSlotfuriaDeTouro.value = 'Equip'
+    equiparItemSlotfuriaDeTouro.removeEventListener('click', desequipFuriaDeTouro)
+    equiparItemSlotfuriaDeTouro.addEventListener('click', equipFuriaDeTouro)
+}
+/*-----*/
 function adicionarFuriaDeTouro() {
     furiaDeTouro.obtido = true;
     addItemTipo = 'magia';
@@ -56,8 +75,9 @@ function adicionarFuriaDeTouro() {
     addItemNome = furiaDeTouro.nome;
     funcaoEquip = equipFuriaDeTouro;
 }
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 var esferasDaVida =
 {
     nome: 'Esferas da vida', obtido: false, val: 'esferasDaVida', preco: 7,
@@ -67,13 +87,31 @@ var esferasDaVida =
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15,
 }
+/*-----*/
 function equipEsferasDaVida() {
-    magiaBuffGeral = esferasDaVida;
+    if (magiaBuffGeral == 'Nenhuma') {
+        magiaBuffGeral = esferasDaVida;
+        equiparItemSlotesferasDaVida.value = 'Desequip'
+        equiparItemSlotesferasDaVida.removeEventListener('click', equipEsferasDaVida)
+        equiparItemSlotesferasDaVida.addEventListener('click', desequipEsferasDaVida)
+    }
 
     if (mudarMagiasBuff == true) {
         atualizarItensMagiasBuff();
     }
 }
+function desequipEsferasDaVida() {
+    magiaBuffGeral = 'Nenhuma';
+
+    if (mudarMagiasBuff == true) {
+        atualizarItensMagiasBuff();
+    }
+
+    equiparItemSlotesferasDaVida.value = 'Equip'
+    equiparItemSlotesferasDaVida.removeEventListener('click', desequipEsferasDaVida)
+    equiparItemSlotesferasDaVida.addEventListener('click', equipEsferasDaVida)
+}
+/*-----*/
 function adicionarEsferasDaVida() {
     esferasDaVida.obtido = true;
     addItemTipo = 'magia';
@@ -81,3 +119,4 @@ function adicionarEsferasDaVida() {
     addItemNome = esferasDaVida.nome;
     funcaoEquip = equipEsferasDaVida;
 }
+/*-----*//*-----*//*-----*//*-----*//*-----*/
