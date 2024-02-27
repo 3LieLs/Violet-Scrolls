@@ -17,6 +17,7 @@ function botaoFugirClick() {
         }, 2000)
     } else {
         inicioRodada();
+        inicioBuffDebuffJogador();
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} não conseguiu fugir`);
 
         setTimeout(inimigoAtaque, 2000);
@@ -24,8 +25,7 @@ function botaoFugirClick() {
         setTimeout(inimigoCombateHud, 2000);
         setTimeout(jogadorDerrotado, 3000);
 
-        setTimeout(buff_debuff_jogador, 3000)
-        setTimeout(buff_debuff_inimigo, 3500)
+        setTimeout(fimBuffDebuffJogador, 3000);
 
         setTimeout(fimRodada, 4000);
     }

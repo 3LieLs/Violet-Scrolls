@@ -17,14 +17,14 @@ var golpeGelido =
     nome: 'Golpe gélido',
 
     danoBase: 12, danoCombate: 12, tipoDano: 'Gelo',
-    debuff: 'congelado', chance: 25, duracao: 2,
+    debuff: 'congelamento', chance: 25, duracao: 3,
 
     energiaCusto: 10, energiaCustoCombate: 10, manaCusto: 0, manaCustoCombate: 0,
 }
 
-var espinhosGlacial =
+var espinhoGlacial =
 {
-    nome: 'Espinhos glacial',
+    nome: 'Espinho glacial',
 
     danoBase: 18, danoCombate: 18, tipoDano: 'Gelo',
     debuff: 'congelado', chance: 40, duracao: 4,
@@ -59,10 +59,11 @@ function iniciarGolemDeGeloCombate() {
 
 /*-GOLEM DE GELO ATAQUE-*/
 function GolemDeGeloAtaque() {
-    let random = Math.floor(Math.random() * 100) + 0
+    let random = Math.floor(Math.random() * 100) + 1
 
+    
     if (random <= 40) {
-        inimigoArmaGeral = espinhosGlacial;
+        inimigoArmaGeral = espinhoGlacial;
     }
     if (random > 40) {
         inimigoArmaGeral = golpeGelido;

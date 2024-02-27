@@ -36,29 +36,23 @@ function inimigoDerrotado() {
         mainInimigoHud.style.display = 'none';
 
         if (inimigoCombatendo == 'Goblin') {
-            jogadorNivel.experiencia += inimigoGeral.experiencia;
             localMapa = 'floresta';
         }
         if (inimigoCombatendo == 'Besouro gigante') {
-            jogadorNivel.experiencia += inimigoGeral.experiencia;
             localMapa = 'floresta';
         }
 
         if (inimigoCombatendo == 'Golem de pedra') {
-            jogadorNivel.experiencia += inimigoGeral.experiencia;
             localMapa = 'caverna';
         }
         if (inimigoCombatendo == 'Golem de gelo') {
-            jogadorNivel.experiencia += inimigoGeral.experiencia;
             localMapa = 'caverna';
         }
         if (inimigoCombatendo == 'Golem de fogo') {
-            jogadorNivel.experiencia += inimigoGeral.experiencia;
             localMapa = 'caverna';
         }
 
         if (inimigoCombatendo == 'Dragão') {
-            jogadorNivel.experiencia += inimigoGeral.experiencia;
             localMapa = 'montanha';
         }
 

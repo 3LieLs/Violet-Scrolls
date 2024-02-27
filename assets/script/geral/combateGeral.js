@@ -16,102 +16,84 @@ function fimRodada() {
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
-/*-BUFF E DEBUFF INIMIGO-*/
-function buff_debuff_jogador() {
+/*-BUFF E DEBUFF INIMIGO/JOGADOR-*/
+var danoGanho = 0, buffDanoTrueFalse = false;
+
+var debuffSangramentoVal = 0, debuffChamasVal = 0, debuffCongelamentoVal = 0, debuffEletricidadeVal = 0,
+    debuffSangramentoTrueFalse = {
+        jogador: false, inimigo: false,
+    },
+    debuffChamasTrueFalse = {
+        jogador: false, inimigo: false,
+    },
+    debuffCongelamentoTrueFalse = {
+        jogador: false, inimigo: false,
+    },
+    debuffEletricidadeTrueFalse = {
+        jogador: false, inimigo: false,
+    };
+
+function inicioBuffDebuffJogador() {
+    /*-JOGADOR-*//*-JOGADOR-*//*-JOGADOR-*/
     /*-BUFF DANO-*/
-    if (rodada == rodadaBuffDanoMax.jogador && buffDano.jogador == true) {
-        buffDano.jogador = false
-
-        let x = armaGeral.danoCombate * magiaBuffGeral.danoBuff
-        x = Math.round(x)
-        armaGeral.danoCombate -= x
+    if (rodada == rodadaBuffDanoMax.jogador) {
+        buffDano.jogador = false;
     }
+    if (buffDano.jogador == true) {
+        danoGanho = armaGeral.danoCombate * magiaBuffGeral.danoBuff;
+        danoGanho = Math.round(danoGanho);
+        armaGeral.danoCombate += danoGanho;
+    }
+    /*-----*/
     /*-BUFF VIDA REGEN-*/
-    if (rodada < rodadaBuffVidaRegenMax.jogador && buffVidaRegen.jogador == true) {
-        if (vidaGanha > 0) {
-            jogador.vidaCombate += vidaGanha;
-
-            jogador.porcentagem = 100 - ((vidaGanha / jogador.vidaBase) * 100)
-            jogador.porcentagem = 100 - jogador.porcentagem
-            jogador.porcentagem = jogador.porcentagem.toPrecision(2)
-
-            jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) + parseInt(jogador.porcentagem)
-
-            legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${vidaGanha} de vida`);
-        }
-
-        jogadorCombateHud();
-        inimigoCombateHud();
-    } else {
-        buffVidaRegen.jogador = false
+    if (rodada == rodadaBuffVidaRegenMax.jogador && buffVidaRegen.jogador == true) {
+        buffVidaRegen.jogador = false;
     }
+    /*-----*/
     /*-DEBUFF SANGRAMENTO-*/
-    if (rodada < rodadaDebuffSangramentoMax.jogador && debuffSangramento.jogador == true) {
-        sangramentoDano = jogador.vidaBase * 0.15
-        sangramentoDano = Math.round(sangramentoDano)
-
-        danoJogadorGeral = sangramentoDano
-        jogadorAtingidoDano()
-
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${sangramentoDano} de vida por causa do sangramento`);
-
-        jogadorCombateHud();
-        inimigoCombateHud();
-    } else {
-        debuffSangramento.jogador = false
+    if (rodada == rodadaDebuffSangramentoMax.jogador) {
+        debuffSangramento.jogador = false;
     }
+    if (debuffSangramento.jogador == true) {
+        debuffSangramentoVal = inimigoArmaGeral.danoBase * 0.15;
+        debuffSangramentoVal = Math.round(debuffSangramentoVal);
+        inimigoArmaGeral.danoCombate += debuffSangramentoVal;
+        debuffSangramentoTrueFalse.jogador = true;
+    }
+    /*-----*/
     /*-DEBUFF VENENO-*/
-    if (rodada < rodadaDebuffVenenoMax.jogador && debuffVeneno.jogador == true) {
-        venenoDano = jogador.vidaBase * 0.15
-        venenoDano = Math.round(venenoDano)
-
-        danoJogadorGeral = venenoDano
-        jogadorAtingidoDano()
-
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${venenoDano} de vida por causa do veneno`);
-
-        jogadorCombateHud();
-        inimigoCombateHud();
-    } else {
-        debuffVeneno.jogador = false
+    if (rodada == rodadaDebuffVenenoMax.jogador) {
+        debuffVeneno.jogador = false;
     }
+    /*-----*/
     /*-DEBUFF CHAMAS-*/
-    if (rodada < rodadaDebuffChamasMax.jogador && debuffChamas.jogador == true) {
-        chamasDano = jogador.vidaBase * 0.10
-        chamasDano = Math.round(chamasDano)
-
-        danoJogadorGeral = chamasDano
-        jogadorAtingidoDano()
-
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${chamasDano} de vida por causa das chamas`);
-
-        jogadorCombateHud();
-        inimigoCombateHud();
+    if (rodada == rodadaDebuffChamasMax.jogador) {
+        debuffChamas.jogador = false;
     }
-    if (rodada == rodadaDebuffChamasMax.jogador && debuffChamas.jogador == true) {
-        debuffChamas.jogador = false
-
-        let x = armaGeral.danoCombate * 0.10
-        Math.round(x)
-        armaGeral.danoCombate += x
+    if (debuffChamas.jogador == true) {
+        debuffChamasVal = armaGeral.danoBase * 0.15;
+        debuffChamasVal = Math.round(debuffChamasVal);
+        armaGeral.danoCombate -= debuffChamasVal;
+        debuffChamasTrueFalse.jogador = true;
     }
+    /*-----*/
     /*-DEBUFF CONGELADO-*/
-    if (rodada < rodadaDebuffCongeladoMax.jogador && debuffCongelado.jogador == true) {
-        let x = armaGeral.energiaCusto * 0.25
-        x = Math.round(x)
-        armaGeral.energiaCusto += x
-
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} se sente mais pesado devido ao congelamento`);
+    if (rodada == rodadaDebuffCongelamentoMax.jogador) {
+        debuffCongelamento.jogador = false
     }
-    if (rodada == rodadaDebuffCongeladoMax && debuffCongelado == true) {
-        debuffCongelado.jogador = false
-
-        let x = armaGeral.energiaCusto * 0.25
-        Math.round(x)
-        armaGeral.energiaCusto -= x
+    if (debuffCongelamento.jogador == true) {
+        debuffCongelamentoVal = armaGeral.energiaCusto * 0.25;
+        debuffCongelamentoVal = Math.round(debuffCongelamentoVal);
+        armaGeral.energiaCustoCombate += debuffCongelamentoVal;
+        debuffCongelamentoTrueFalse.jogador = true;
     }
+
+    /*-----*/
     /*-DEBUFF ELETRICIDADE-*/
-    if (rodada < rodadaDebuffEletricidadeMax.jogador && debuffEletricidade.jogador == true) {
+    if (rodada == rodadaDebuffEletricidadeMax.jogador) {
+        debuffEletricidade.jogador = false
+    }
+    if (debuffEletricidade.jogador == true) {
         let w = armaGeral.manaCusto * 0.25
         let x = magiaDanoGeral.manaCusto * 0.25
         let y = magiaRecuperacaoGeral.manaCusto * 0.25
@@ -126,174 +108,249 @@ function buff_debuff_jogador() {
         magiaRecuperacaoGeral.manaCusto += y
         magiaBuffGeral.manaCusto += z
 
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} não consegue se concentrar direito devido a eletricidade`);
+        debuffEletricidadeTrueFalse.jogador = true;
     }
-    if (rodada == rodadaDebuffEletricidadeMax.jogador && debuffEletricidade.jogador == true) {
-        debuffEletricidade.jogador = false
+    /*-----*//*-----*//*-----*//*-----*/
 
-        let w = armaGeral.manaCusto * 0.25
-        let x = magiaDanoGeral.manaCusto * 0.25
-        let y = magiaRecuperacaoGeral.manaCusto * 0.25
-        let z = magiaBuffGeral.manaCusto * 0.25
-        Math.round(w)
-        Math.round(x)
-        Math.round(y)
-        Math.round(z)
-
-        armaGeral.manaCusto -= w
-        magiaDanoGeral.manaCusto -= x
-        magiaRecuperacaoGeral.manaCusto -= y
-        magiaBuffGeral.manaCusto -= z
+    /*-INIMIGO-*//*-INIMIGO-*//*-INIMIGO-*/
+    /*-DEBUFF SANGRAMENTO-*/
+    if (rodada == rodadaDebuffSangramentoMax.inimigo) {
+        debuffSangramento.inimigo = false;
     }
-    /*-CASO O JOGADOR MORRA-*/
-    if (jogador.vidaCombate <= 0) {
-        jogador.vidaCombate = 0
-        jogadorCombateHud()
-        setTimeout(jogadorDerrotado, 1000)
+    if (debuffSangramento.inimigo == true) {
+        debuffSangramentoVal = armaGeral.danoBase * 0.15;
+        debuffSangramentoVal = Math.round(debuffSangramentoVal);
+        armaGeral.danoCombate += debuffSangramentoVal;
+        debuffSangramentoTrueFalse.inimigo = true;
+    }
+    /*-----*/
+    /*-DEBUFF VENENO-*/
+    if (rodada == rodadaDebuffVenenoMax.inimigo) {
+        debuffVeneno.inimigo = false;
+    }
+    /*-----*/
+    /*-DEBUFF CHAMAS-*/
+    if (rodada == rodadaDebuffChamasMax.inimigo) {
+        debuffChamas.inimigo = false;
+    }
+    if (debuffChamas.inimigo == true) {
+        debuffChamasVal = inimigoArmaGeral.danoBase * 0.15;
+        debuffChamasVal = Math.round(debuffChamasVal);
+        inimigoArmaGeral.danoCombate -= debuffChamasVal;
+        debuffChamasTrueFalse.inimigo = true;
+    }
+    /*-----*/
+    /*-DEBUFF CONGELADO-*/
+    if (rodada == rodadaDebuffCongelamentoMax.inimigo) {
+        debuffCongelamento.inimigo = false
+    }
+    if (debuffCongelamento.inimigo == true) {
+        debuffCongelamentoVal = inimigoArmaGeral.energiaCusto * 0.25;
+        debuffCongelamentoVal = Math.round(debuffCongelamentoVal);
+        inimigoArmaGeral.energiaCustoCombate += debuffCongelamentoVal;
+        debuffCongelamentoTrueFalse.inimigo = true;
+    }
+    /*-----*/
+    /*-DEBUFF ELETRICIDADE-*/
+    if (rodada == rodadaDebuffEletricidadeMax.inimigo) {
+        debuffEletricidade.inimigo = false
+    }
+    if (debuffEletricidade.inimigo == true) {
+        let w = inimigoArmaGeral.manaCusto * 0.25
+        w = Math.round(w)
+        inimigoArmaGeral.manaCustoCombate += w
+        debuffEletricidadeTrueFalse.inimigo = true;
     }
     /*-----*/
 }
-/*-----*//*-----*//*-----*//*-----*//*-----*/
-
-/*-----*//*-----*//*-----*//*-----*//*-----*/
-/*-BUFF E DEBUFF INIMIGO-*/
-function buff_debuff_inimigo() {
+/*-----*/
+function fimBuffDebuffJogador() {
+    /*-JOGADOR-*//*-JOGADOR-*//*-JOGADOR-*/
     /*-BUFF DANO-*/
-    if (rodada == rodadaBuffDanoMax.inimigo && buffDano.inimigo == true) {
-        buffDano.inimigo = false
-
-        let x = inimigoArmaGeral.danoCombate * magiaBuffGeral.danoBuff
-        Math.round(x)
-        inimigoArmaGeral.danoCombate -= x
+    if (buffDano.jogador == true) {
+        if (buffDanoTrueFalse.jogador == true) {
+            armaGeral.danoCombate -= danoGanho;
+            buffDanoTrueFalse.jogador = false
+        }
     }
+    /*-----*/
     /*-BUFF VIDA REGEN-*/
-    if (rodada < rodadaBuffVidaRegenMax.inimigo && buffVidaRegen.inimigo == true) {
+    if (buffVidaRegen.jogador == true) {
         if (vidaGanha > 0) {
-            inimigoGeral.vidaCombate += vidaGanha;
+            jogador.vidaCombate += vidaGanha;
 
-            inimigoGeral.porcentagem = 100 - ((vidaGanha / inimigoGeral.vidaBase) * 100)
-            inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem
-            inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2)
+            jogador.porcentagem = 100 - ((vidaGanha / jogador.vidaBase) * 100)
+            jogador.porcentagem = 100 - jogador.porcentagem
+            jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
-            inimigoGeral.vidaPorcentagem = parseInt(inimigoGeral.vidaPorcentagem) + parseInt(inimigoGeral.porcentagem)
+            jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) + parseInt(jogador.porcentagem)
 
-            legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} recuperou ${vidaGanha} de vida`);
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${vidaGanha} de vida`);
         }
 
         jogadorCombateHud();
         inimigoCombateHud();
-    } else {
-        buffVidaRegen.inimigo = false
     }
+    /*-----*/
     /*-DEBUFF SANGRAMENTO-*/
-    if (rodada < rodadaDebuffSangramentoMax.inimigo && debuffSangramento.inimigo == true) {
-        sangramentoDano = inimigoGeral.vidaBase * 0.15
-        sangramentoDano = Math.round(sangramentoDano)
+    if (debuffSangramento.jogador == true) {
+        sangramentoDano = jogador.vidaBase * 0.10;
+        sangramentoDano = Math.round(sangramentoDano);
+        jogadorAtingidoDano(sangramentoDano);
 
-        danoInimigoGeral = sangramentoDano
-        inimigoAtingidoDano()
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${sangramentoDano} de vida por causa do sangramento`);
+
+        jogadorCombateHud();
+        inimigoCombateHud();
+
+        if (debuffSangramentoTrueFalse.jogador == true) {
+            inimigoArmaGeral.danoCombate -= debuffSangramentoVal;
+            debuffSangramentoTrueFalse.jogador = false;
+        }
+    }
+    /*-----*/
+    /*-DEBUFF VENENO-*/
+    if (debuffVeneno.jogador == true) {
+        venenoDano = jogador.vidaBase * 0.20;
+        venenoDano = Math.round(venenoDano);
+        jogadorAtingidoDano(venenoDano);
+
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${venenoDano} de vida por causa do veneno`);
+
+        jogadorCombateHud();
+        inimigoCombateHud();
+    }
+    /*-----*/
+    /*-DEBUFF CHAMAS-*/
+    if (debuffChamas.jogador == true) {
+        chamasDano = jogador.vidaBase * 0.10;
+        chamasDano = Math.round(chamasDano);
+        jogadorAtingidoDano(chamasDano);
+
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${chamasDano} de vida por causa das chamas`);
+
+        jogadorCombateHud();
+        inimigoCombateHud();
+
+        if (debuffChamasTrueFalse.jogador == true) {
+            armaGeral.danoCombate += debuffChamasVal;
+            debuffChamasTrueFalse.jogador = false
+        }
+    }
+    /*-----*/
+    /*-DEBUFF CONGELADO-*/
+    if (debuffCongelamento.jogador == true) {
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} se sente mais pesado devido ao congelamento`);
+        if (debuffCongelamentoTrueFalse.jogador == true) {
+            armaGeral.energiaCustoCombate -= debuffCongelamentoVal;
+            debuffCongelamentoTrueFalse.jogador = false;
+        }
+    }
+    /*-----*/
+    /*-DEBUFF ELETRICIDADE-*/
+    if (debuffEletricidade.jogador == true) {
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} não consegue se concentrar direito devido a eletricidade`);
+
+        if (debuffEletricidadeTrueFalse.jogador == true) {
+            let w = armaGeral.manaCusto * 0.25;
+            let x = magiaDanoGeral.manaCusto * 0.25;
+            let y = magiaRecuperacaoGeral.manaCusto * 0.25;
+            let z = magiaBuffGeral.manaCusto * 0.25;
+            w = Math.round(w);
+            x = Math.round(x);
+            y = Math.round(y);
+            z = Math.round(z);
+
+            armaGeral.manaCusto -= w;
+            magiaDanoGeral.manaCusto -= x;
+            magiaRecuperacaoGeral.manaCusto -= y;
+            magiaBuffGeral.manaCusto -= z;
+            debuffEletricidadeTrueFalse.jogador = false;
+        }
+    }
+    /*-----*/
+    /*-CASO O JOGADOR PERCA-*/
+    if (jogador.vidaCombate <= 0) {
+        jogador.vidaCombate = 0;
+        jogadorCombateHud();
+        setTimeout(jogadorDerrotado, 1000);
+    }
+    /*-----*/
+
+    /*-INIMIGO-*//*-INIMIGO-*//*-INIMIGO-*/
+    /*-DEBUFF SANGRAMENTO-*/
+    if (debuffSangramento.inimigo == true) {
+        sangramentoDano = inimigoGeral.vidaBase * 0.10;
+        sangramentoDano = Math.round(sangramentoDano);
+        inimigoAtingidoDano(sangramentoDano);
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${sangramentoDano} de vida por causa do sangramento`);
 
         jogadorCombateHud();
         inimigoCombateHud();
-    } else {
-        debuffSangramento.inimigo = false
-    }
-    /*-DEBUFF VENENO-*/
-    if (rodada < rodadaDebuffVenenoMax.inimigo && debuffVeneno.inimigo == true) {
-        venenoDano = inimigoGeral.vidaBase * 0.15
-        venenoDano = Math.round(venenoDano)
 
-        danoInimigoGeral = venenoDano
-        inimigoAtingidoDano()
+        if (debuffSangramentoTrueFalse.inimigo == true) {
+            armaGeral.danoCombate -= debuffSangramentoVal;
+            debuffSangramentoTrueFalse.inimigo = false;
+        }
+    }
+    /*-----*/
+    /*-DEBUFF VENENO-*/
+    if (debuffVeneno.inimigo == true) {
+        venenoDano = inimigoGeral.vidaBase * 0.20;
+        venenoDano = Math.round(venenoDano);
+        inimigoAtingidoDano(venenoDano);
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${venenoDano} de vida por causa do veneno`);
 
         jogadorCombateHud();
         inimigoCombateHud();
-    } else {
-        debuffVeneno.inimigo = false
     }
+    /*-----*/
     /*-DEBUFF CHAMAS-*/
-    if (rodada < rodadaDebuffChamasMax.inimigo && debuffChamas.inimigo == true) {
-        let x = inimigoArmaGeral.danoCombate * 0.10
-        x = Math.round(x)
-        inimigoArmaGeral.danoCombate -= x
-
-        chamasDano = inimigoGeral.vidaBase * 0.10
-        chamasDano = Math.round(chamasDano)
-
-        danoInimigoGeral = chamasDano
-        inimigoAtingidoDano()
+    if (debuffChamas.inimigo == true) {
+        chamasDano = inimigoGeral.vidaBase * 0.10;
+        chamasDano = Math.round(chamasDano);
+        inimigoAtingidoDano(chamasDano);
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${chamasDano} de vida por causa das chamas`);
 
         jogadorCombateHud();
         inimigoCombateHud();
-    }
-    if (rodada == rodadaDebuffChamasMax.inimigo && debuffChamas.inimigo == true) {
-        debuffChamas.inimigo = false
 
-        let x = inimigoArmaGeral.danoCombate * 0.10
-        x = Math.round(x)
-        inimigoArmaGeral.danoCombate += x
+        if (debuffChamasTrueFalse.inimigo == true) {
+            inimigoArmaGeral.danoCombate += debuffChamasVal;
+            debuffChamasTrueFalse.inimigo = false
+        }
     }
+    /*-----*/
     /*-DEBUFF CONGELADO-*/
-    if (rodada < rodadaDebuffCongeladoMax.inimigo && debuffCongelado.inimigo == true) {
-        let x = inimigoArmaGeral.energiaCusto * 0.25
-        x = Math.round(x)
-        inimigoArmaGeral.energiaCusto += x
-
+    if (debuffCongelamento.inimigo == true) {
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} se sente mais pesado devido ao congelamento`);
+        if (debuffCongelamentoTrueFalse.inimigo == true) {
+            inimigoArmaGeral.energiaCustoCombate -= debuffCongelamentoVal;
+            debuffCongelamentoTrueFalse.inimigo = false;
+        }
     }
-    if (rodada == rodadaDebuffCongeladoMax && debuffCongelado == true) {
-        debuffCongelado.inimigo = false
-
-        let x = inimigoArmaGeral.energiaCusto * 0.25
-        x = Math.round(x)
-        inimigoArmaGeral.energiaCusto -= x
-    }
+    /*-----*/
     /*-DEBUFF ELETRICIDADE-*/
-    if (rodada < rodadaDebuffEletricidadeMax.inimigo && debuffEletricidade.inimigo == true) {
-        let w = inimigoArmaGeral.manaCusto * 0.25
-        let x = magiaDanoGeral.manaCusto * 0.25
-        let y = magiaRecuperacaoGeral.manaCusto * 0.25
-        let z = magiaBuffGeral.manaCusto * 0.25
-        w = Math.round(w)
-        x = Math.round(x)
-        y = Math.round(y)
-        z = Math.round(z)
-
-        inimigoArmaGeral.manaCusto += w
-        magiaDanoGeral.manaCusto += x
-        magiaRecuperacaoGeral.manaCusto += y
-        magiaBuffGeral.manaCusto += z
-
+    if (debuffEletricidade.inimigo == true) {
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} não consegue se concentrar direito devido a eletricidade`);
-    }
-    if (rodada == rodadaDebuffEletricidadeMax.inimigo && debuffEletricidade.inimigo == true) {
-        debuffEletricidade.inimigo = false
 
-        let w = inimigoArmaGeral.manaCusto * 0.25
-        let x = magiaDanoGeral.manaCusto * 0.25
-        let y = magiaRecuperacaoGeral.manaCusto * 0.25
-        let z = magiaBuffGeral.manaCusto * 0.25
-        w = Math.round(w)
-        x = Math.round(x)
-        y = Math.round(y)
-        z = Math.round(z)
+        if (debuffEletricidadeTrueFalse.inimigo == true) {
+            let w = inimigoArmaGeral.manaCusto * 0.25;
+            w = Math.round(w);
+            inimigoArmaGeral.manaCustoCombate -= w;
 
-        inimigoArmaGeral.manaCusto -= w
-        magiaDanoGeral.manaCusto -= x
-        magiaRecuperacaoGeral.manaCusto -= y
-        magiaBuffGeral.manaCusto -= z
+            debuffEletricidadeTrueFalse.inimigo = false;
+        }
     }
-    /*-CASO O JOGADOR MORRA-*/
+    /*-----*/
+    /*-CASO O INIMIGO PERCA-*/
     if (inimigoGeral.vidaCombate <= 0) {
-        inimigoGeral.vidaCombate = 0
-        inimigoCombateHud()
-        setTimeout(inimigoDerrotado, 1000)
+        inimigoGeral.vidaCombate = 0;
+        inimigoCombateHud();
+        setTimeout(inimigoDerrotado, 1000);
     }
     /*-----*/
 }
@@ -420,7 +477,7 @@ function definirEstatisticaGeral() {
     rodadaDebuffSangramentoMax.jogador = 0, rodadaDebuffSangramentoMax.inimigo = 0
     rodadaDebuffVenenoMax.jogador = 0, rodadaDebuffVenenoMax.inimigo = 0
     rodadaDebuffChamasMax.jogador = 0, rodadaDebuffChamasMax.inimigo = 0
-    rodadaDebuffCongeladoMax.jogador = 0, rodadaDebuffCongeladoMax.inimigo = 0
+    rodadaDebuffCongelamentoMax.jogador = 0, rodadaDebuffCongelamentoMax.inimigo = 0
     rodadaDebuffEletricidadeMax.jogador = 0, rodadaDebuffEletricidadeMax.inimigo = 0
 
     buffVidaRegen.jogador = false, buffVidaRegen.inimigo = false
@@ -428,8 +485,10 @@ function definirEstatisticaGeral() {
     debuffSangramento.jogador = false, debuffSangramento.inimigo = false
     debuffVeneno.jogador = false, debuffVeneno.inimigo = false
     debuffChamas.jogador = false, debuffChamas.inimigo = false
-    debuffCongelado.jogador = false, debuffCongelado.inimigo = false
+    debuffCongelamento.jogador = false, debuffCongelamento.inimigo = false
     debuffEletricidade.jogador = false, debuffEletricidade.inimigo = false
+
+
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 

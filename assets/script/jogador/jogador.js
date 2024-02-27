@@ -88,10 +88,14 @@ function mostrarStats() {
 }
 
 function upVida() {
-    jogador.vidaBase = jogador.vidaBase + 5
-    jogadorNivel.nivel = jogadorNivel.nivel + 1
+    let xpNext
+
+    jogador.vidaBase += 5
+    jogadorNivel.nivel += 1
     jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel;
-    jogadorNivel.proximoNivel = parseInt(jogadorNivel.proximoNivel) + parseInt(jogadorNivel.proximoNivel);
+    xpNext = jogadorNivel.proximoNivel * 0.25
+    xpNext = Math.round(xpNext)
+    jogadorNivel.proximoNivel += 
 
     barraExperiencia()
     jogadorNivel.experienciaPorcentagem = 0;

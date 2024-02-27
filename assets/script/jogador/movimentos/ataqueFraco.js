@@ -7,24 +7,23 @@ function ataqueFracoDano() {
     /*-APLICAR DANO CASO ACERTO-*/
     if (missJogador == true) {
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} errou seu ataque!`);
-        if (armaGeral.energiaCusto > 0) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${armaGeral.energiaCusto}`);
+        if (armaGeral.energiaCustoCombate > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${armaGeral.energiaCustoCombate}`);
         }
-        if (armaGeral.manaCusto > 0) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${armaGeral.manaCusto}`);
+        if (armaGeral.manaCustoCombate > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${armaGeral.manaCustoCombate}`);
         }
     }
 
     if (missJogador == false) {
-        danoInimigoGeral = armaGeral.danoCombate
-        inimigoAtingidoDano()
+        inimigoAtingidoDano(armaGeral.danoCombate)
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}`)
-        if (armaGeral.energiaCusto > 0) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${armaGeral.energiaCusto}`);
+        if (armaGeral.energiaCustoCombate > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${armaGeral.energiaCustoCombate}`);
         }
-        if (armaGeral.manaCusto > 0) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${armaGeral.manaCusto}`);
+        if (armaGeral.manaCustoCombate > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${armaGeral.manaCustoCombate}`);
         }
         if (criticoJogador == true) {
             legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`);
@@ -35,10 +34,10 @@ function ataqueFracoDano() {
     /*-----*/
 
     /*-DESCONTAR ENERGIA/MANA-*/
-    if (armaGeral.energiaCusto > 0) {
-        jogador.energiaCombate = jogador.energiaCombate - armaGeral.energiaCusto;
+    if (armaGeral.energiaCustoCombate > 0) {
+        jogador.energiaCombate = jogador.energiaCombate - armaGeral.energiaCustoCombate;
 
-        jogador.porcentagem = 100 - ((armaGeral.energiaCusto / jogador.energiaBase) * 100)
+        jogador.porcentagem = 100 - ((armaGeral.energiaCustoCombate / jogador.energiaBase) * 100)
         jogador.porcentagem = 100 - jogador.porcentagem;
         jogador.porcentagem = jogador.porcentagem.toPrecision(2);
 
@@ -50,10 +49,10 @@ function ataqueFracoDano() {
         }
     }
 
-    if (armaGeral.manaCusto > 0) {
-        jogador.manaCombate = jogador.manaCombate - armaGeral.manaCusto;
+    if (armaGeral.manaCustoCombate > 0) {
+        jogador.manaCombate = jogador.manaCombate - armaGeral.manaCustoCombate;
 
-        jogador.porcentagem = 100 - ((armaGeral.manaCusto / jogador.manaBase) * 100);
+        jogador.porcentagem = 100 - ((armaGeral.manaCustoCombate / jogador.manaBase) * 100);
         jogador.porcentagem = 100 - jogador.porcentagem;
         jogador.porcentagem = jogador.porcentagem.toPrecision(2);
 
@@ -77,8 +76,9 @@ function ataqueFracoDano() {
 
 /*-----*/
 function botaoAtaqueFracoClick() {
-    if (jogador.energiaCombate - armaGeral.energiaCusto >= 0 && jogador.manaCombate - armaGeral.manaCusto >= 0) {
+    if (jogador.energiaCombate - armaGeral.energiaCustoCombate >= 0 && jogador.manaCombate - armaGeral.manaCustoCombate >= 0) {
         inicioRodada();
+        inicioBuffDebuffJogador();
 
         setTimeout(ataqueFracoDano, 0);
         setTimeout(inimigoDerrotado, 2000);
@@ -88,20 +88,20 @@ function botaoAtaqueFracoClick() {
         setTimeout(inimigoCombateHud, 2000);
         setTimeout(jogadorDerrotado, 3000);
 
-        setTimeout(buff_debuff_jogador, 3000)
-        setTimeout(buff_debuff_inimigo, 3500)
+        setTimeout(fimBuffDebuffJogador, 3000);
+        
 
         setTimeout(fimRodada, 4000);
     }
 
-    if (jogador.energiaCombate - armaGeral.energiaCusto < 0) {
+    if (jogador.energiaCombate - armaGeral.energiaCustoCombate < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
 
         semEnergiaManaVisibilidade();
     }
 
-    if (jogador.manaCombate - armaGeral.manaCusto < 0) {
+    if (jogador.manaCombate - armaGeral.manaCustoCombate < 0) {
         semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
         semEnergiaMana.style.color = 'blue';
 

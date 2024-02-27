@@ -14,6 +14,7 @@ function bloquearDesuso() {
 
 function botaoBloquearClick() {
     inicioRodada();
+    inicioBuffDebuffJogador();
 
     setTimeout(bloquearUso, 0);
     setTimeout(bloquearDesuso, 3000);
@@ -23,8 +24,7 @@ function botaoBloquearClick() {
     setTimeout(inimigoCombateHud, 2000);
     setTimeout(jogadorDerrotado, 3000);
 
-    setTimeout(buff_debuff_jogador, 3000)
-    setTimeout(buff_debuff_inimigo, 3500)
+    setTimeout(fimBuffDebuffJogador, 3000);
 
     setTimeout(fimRodada, 4000);
 }

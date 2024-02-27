@@ -23,10 +23,8 @@ function inimigoCombateHud() {
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
-/*-INIMIGOS ATINGIDO DANO-*/
-var danoInimigoGeral = 0
-
-function inimigoAtingidoDano() {
+/*-INIMIGOS ATINGIDO DANO/EFEITO-*/
+function inimigoAtingidoDano(danoInimigoGeral) {
     inimigoAtingidoEfeito()
 
     if (inimigoGeral.vidaCombate - danoInimigoGeral < 0) {
@@ -44,10 +42,7 @@ function inimigoAtingidoDano() {
 
     danoInimigoGeral = 0
 }
-/*-----*//*-----*//*-----*//*-----*//*-----*/
 
-/*-----*//*-----*//*-----*//*-----*//*-----*/
-/*-INIMIGOS ATINGIDO EFEITO-*/
 function inimigoAtingidoEfeito() {
     setTimeout(function () {
         inimigoHudImagem.style.opacity = '0.5'
@@ -88,51 +83,50 @@ function inimigoAtaque() {
 }
 
 function inimigoAtaqueAto() {
-    if (inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCusto >= 0 && inimigoGeral.manaCombate - inimigoArmaGeral.manaCusto >= 0) {
-        aplicarFraquezaResistenciaJogador()
-        aplicarCriticoInimigo()
-        aplicarMissInimigo()
+    if (inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCustoCombate >= 0 && inimigoGeral.manaCombate - inimigoArmaGeral.manaCustoCombate >= 0) {
+        aplicarFraquezaResistenciaJogador();
+        aplicarCriticoInimigo();
+        aplicarMissInimigo();
 
         /*-APLICAR DANO CASO ACERTO-*/
         if (missInimigo == true) {
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} errou seu ataque!`);
-            if (inimigoArmaGeral.energiaCusto > 0) {
-                legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${inimigoArmaGeral.energiaCusto}`);
+            if (inimigoArmaGeral.energiaCustoCombate > 0) {
+                legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${inimigoArmaGeral.energiaCustoCombate}`);
             }
-            if (inimigoArmaGeral.manaCusto > 0) {
-                legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${inimigoArmaGeral.manaCusto}`);
+            if (inimigoArmaGeral.manaCustoCombate > 0) {
+                legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${inimigoArmaGeral.manaCustoCombate}`);
             }
         }
 
         if (missInimigo == false) {
-            danoJogadorGeral = inimigoArmaGeral.danoCombate
-            jogadorAtingidoDano()
+            jogadorAtingidoDano(inimigoArmaGeral.danoCombate);
 
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou com ${inimigoArmaGeral.nome}<br>Dano causado: ${inimigoArmaGeral.danoCombate}`);
-            if (inimigoArmaGeral.energiaCusto > 0) {
-                legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${inimigoArmaGeral.energiaCusto}`);
+            if (inimigoArmaGeral.energiaCustoCombate > 0) {
+                legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${inimigoArmaGeral.energiaCustoCombate}`);
             }
-            if (inimigoArmaGeral.manaCusto > 0) {
-                legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${inimigoArmaGeral.manaCusto}`);
+            if (inimigoArmaGeral.manaCustoCombate > 0) {
+                legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${inimigoArmaGeral.manaCustoCombate}`);
             }
             if (criticoInimigo == true) {
-                legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`)
+                legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`);
             }
 
-            verificarDebuffArmaInimigo()
+            verificarDebuffArmaInimigo();
         }
         /*-----*/
 
-        desaplicarFraquezaResistenciaJogador()
-        desaplicarCriticoInimigo()
-        desaplicarMissInimigo()
+        desaplicarFraquezaResistenciaJogador();
+        desaplicarCriticoInimigo();
+        desaplicarMissInimigo();
 
 
         /*-DESCONTAR ENERGIA/MANA-*/
-        if (inimigoArmaGeral.energiaCusto > 0 && inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCusto >= 0) {
-            inimigoGeral.energiaCombate = inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCusto;
+        if (inimigoArmaGeral.energiaCustoCombate > 0 && inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCustoCombate >= 0) {
+            inimigoGeral.energiaCombate = inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCustoCombate;
 
-            inimigoGeral.porcentagem = 100 - ((inimigoArmaGeral.energiaCusto / inimigoGeral.energiaBase) * 100);
+            inimigoGeral.porcentagem = 100 - ((inimigoArmaGeral.energiaCustoCombate / inimigoGeral.energiaBase) * 100);
             inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem;
             inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2);
 
@@ -144,10 +138,10 @@ function inimigoAtaqueAto() {
             }
         }
 
-        if (inimigoArmaGeral.manaCusto > 0 && inimigoGeral.manaCombate - inimigoArmaGeral.manaCusto >= 0) {
-            inimigoGeral.manaCombate = inimigoGeral.manaCombate - inimigoArmaGeral.manaCusto;
+        if (inimigoArmaGeral.manaCustoCombate > 0 && inimigoGeral.manaCombate - inimigoArmaGeral.manaCustoCombate >= 0) {
+            inimigoGeral.manaCombate = inimigoGeral.manaCombate - inimigoArmaGeral.manaCustoCombate;
 
-            inimigoGeral.porcentagem = 100 - ((inimigoArmaGeral.manaCusto / inimigoGeral.manaBase) * 100);
+            inimigoGeral.porcentagem = 100 - ((inimigoArmaGeral.manaCustoCombate / inimigoGeral.manaBase) * 100);
             inimigoGeral.porcentagem = 100 - inimigoGeral.porcentagem;
             inimigoGeral.porcentagem = inimigoGeral.porcentagem.toPrecision(2);
 
@@ -162,7 +156,7 @@ function inimigoAtaqueAto() {
 
         /*-RECUPERAR ENERGIA/MANA-*/
     } else {
-        if (inimigoArmaGeral.energiaCusto > inimigoArmaGeral.manaCusto && inimigoGeral.energiaBase > 0) {
+        if (inimigoArmaGeral.energiaCustoCombate > inimigoArmaGeral.manaCustoCombate && inimigoGeral.energiaBase > 0) {
             inimigoGeral.energiaCombate += inimigoGeral.energiaRecuperacao;
 
             inimigoGeral.porcentagem = 100 - ((inimigoGeral.energiaRecuperacao / inimigoGeral.energiaBase) * 100);
@@ -174,7 +168,7 @@ function inimigoAtaqueAto() {
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} descansou<br>Energia recuperada: ${inimigoGeral.energiaRecuperacao}`);
         }
 
-        if (inimigoArmaGeral.energiaCusto < inimigoArmaGeral.manaCusto && inimigoGeral.manaBase > 0) {
+        if (inimigoArmaGeral.energiaCustoCombate < inimigoArmaGeral.manaCustoCombate && inimigoGeral.manaBase > 0) {
             inimigoGeral.manaCombate += inimigoGeral.manaRecuperacao;
 
             inimigoGeral.porcentagem = 100 - ((inimigoGeral.manaRecuperacao / inimigoGeral.manaBase) * 100);
@@ -281,12 +275,12 @@ function verificarDebuffArmaInimigo() {
         }
     }
     /*-----*/
-    if (inimigoArmaGeral.debuff == 'congelado') {
+    if (inimigoArmaGeral.debuff == 'congelamento') {
         let x = Math.floor(Math.random() * 100) + 0;
 
-        if (x < inimigoArmaGeral.chance && debuffCongelado.jogador == false) {
-            rodadaDebuffCongeladoMax.jogador = parseInt(rodada) + parseInt(inimigoArmaGeral.duracao)
-            debuffCongelado.jogador = true
+        if (x < inimigoArmaGeral.chance && debuffCongelamento.jogador == false) {
+            rodadaDebuffCongelamentoMax.jogador = parseInt(rodada) + parseInt(inimigoArmaGeral.duracao)
+            debuffCongelamento.jogador = true
 
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoArmaGeral.nome} congelou ${jogador.nome}`);
         }

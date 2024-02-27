@@ -6,24 +6,23 @@ function MagiaDanoUso() {
     /*-APLICAR DANO CASO ACERTO-*/
     if (missJogador == true) {
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} errou sua magia!`);
-        if (magiaDanoGeral.energiaCusto > 0) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${magiaDanoGeral.energiaCusto}`);
+        if (magiaDanoGeral.energiaCustoCombate > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${magiaDanoGeral.energiaCustoCombate}`);
         }
-        if (magiaDanoGeral.manaCusto > 0) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${magiaDanoGeral.manaCusto}`);
+        if (magiaDanoGeral.manaCustoCombate > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${magiaDanoGeral.manaCustoCombate}`);
         }
     }
 
     if (missJogador == false) {
-        danoInimigoGeral = magiaDanoGeral.danoCombate
-        inimigoAtingidoDano()
+        inimigoAtingidoDano(magiaDanoGeral.danoCombate)
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaDanoGeral.nome}<br>Dano causado: ${magiaDanoGeral.danoCombate}`)
-        if (magiaDanoGeral.energiaCusto > 0) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${magiaDanoGeral.energiaCusto}`);
+        if (magiaDanoGeral.energiaCustoCombate > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${magiaDanoGeral.energiaCustoCombate}`);
         }
-        if (magiaDanoGeral.manaCusto > 0) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${magiaDanoGeral.manaCusto}`);
+        if (magiaDanoGeral.manaCustoCombate > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${magiaDanoGeral.manaCustoCombate}`);
         }
 
         verificarDebuffMagiaJogador()
@@ -31,10 +30,10 @@ function MagiaDanoUso() {
     /*-----*/
 
     /*-DESCONTAR ENERGIA/MANA-*/
-    if (magiaDanoGeral.energiaCusto > 0) {
-        jogador.energiaCombate = jogador.energiaCombate - magiaDanoGeral.energiaCusto
+    if (magiaDanoGeral.energiaCustoCombate > 0) {
+        jogador.energiaCombate = jogador.energiaCombate - magiaDanoGeral.energiaCustoCombate
 
-        jogador.porcentagem = 100 - ((magiaDanoGeral.energiaCusto / jogador.energiaBase) * 100)
+        jogador.porcentagem = 100 - ((magiaDanoGeral.energiaCustoCombate / jogador.energiaBase) * 100)
         jogador.porcentagem = 100 - jogador.porcentagem
         jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
@@ -46,10 +45,10 @@ function MagiaDanoUso() {
         }
     }
 
-    if (magiaDanoGeral.manaCusto > 0) {
-        jogador.manaCombate = jogador.manaCombate - magiaDanoGeral.manaCusto
+    if (magiaDanoGeral.manaCustoCombate > 0) {
+        jogador.manaCombate = jogador.manaCombate - magiaDanoGeral.manaCustoCombate
 
-        jogador.porcentagem = 100 - ((magiaDanoGeral.manaCusto / jogador.manaBase) * 100)
+        jogador.porcentagem = 100 - ((magiaDanoGeral.manaCustoCombate / jogador.manaBase) * 100)
         jogador.porcentagem = 100 - jogador.porcentagem
         jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
@@ -72,8 +71,9 @@ function MagiaDanoUso() {
 
 /*-----*/
 function botaoMagiaDanoClick() {
-    if (jogador.energiaCombate - magiaDanoGeral.energiaCusto >= 0 || jogador.manaCombate - magiaDanoGeral.manaCusto >= 0) {
+    if (jogador.energiaCombate - magiaDanoGeral.energiaCustoCombate >= 0 && jogador.manaCombate - magiaDanoGeral.manaCustoCombate >= 0) {
         inicioRodada();
+        inicioBuffDebuffJogador();
 
         setTimeout(MagiaDanoUso, 0);
         setTimeout(inimigoDerrotado, 2000);
@@ -83,20 +83,19 @@ function botaoMagiaDanoClick() {
         setTimeout(inimigoCombateHud, 2000);
         setTimeout(jogadorDerrotado, 3000);
 
-        setTimeout(buff_debuff_jogador, 3000)
-        setTimeout(buff_debuff_inimigo, 3500)
+        setTimeout(fimBuffDebuffJogador, 3000);
 
         setTimeout(fimRodada, 4000);
     }
 
-    if (jogador.energiaCombate - magiaDanoGeral.energiaCusto < 0) {
+    if (jogador.energiaCombate - magiaDanoGeral.energiaCustoCombate < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
 
         semEnergiaManaVisibilidade();
     }
 
-    if (jogador.manaCombate - magiaDanoGeral.manaCusto < 0) {
+    if (jogador.manaCombate - magiaDanoGeral.manaCustoCombate < 0) {
         semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
         semEnergiaMana.style.color = 'blue';
 

@@ -17,7 +17,7 @@ var esferaFlamejante =
     nome: 'Esfera flamejante',
 
     danoBase: 25, danoCombate: 25, tipoDano: 'Fogo',
-    debuff: 'chamas', chance: 30, duracao: 2,
+    debuff: 'chamas', chance: 40, duracao: 2,
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 12, manaCustoCombate: 12,
 }
@@ -59,12 +59,12 @@ function iniciarGolemDeFogoCombate() {
 
 /*-GOLEM DE FOGO ATAQUE-*/
 function GolemDeFogoAtaque() {
-    let random = Math.floor(Math.random() * 100) + 0
+    let random = Math.floor(Math.random() * 100) + 1
 
-    if (random <= 20) {
+    if (random <= 30) {
         inimigoArmaGeral = erupcao;
     }
-    if (random > 20) {
+    if (random > 30) {
         inimigoArmaGeral = esferaFlamejante;
     }
 

@@ -3,8 +3,8 @@ var adaga =
 {
     nome: 'Adaga', val: 'adaga', obtido: false, peso: 0, preco: 3,
 
-    danoBase: 3, danoCombate: 3, tipoDano: 'Físico',
-    debuff: 'sangramento', chance: 5, duracao: 2,
+    danoBase: 4, danoCombate: 4, tipoDano: 'Físico',
+    debuff: 'sangramento', chance: 25, duracao: 3,
 
     energiaCusto: 2, energiaCustoCombate: 2, manaCusto: 0, manaCustoCombate: 0,
 }
@@ -69,7 +69,7 @@ var chicoteDeAco =
 {
     nome: 'Chicote de aço', val: 'chicoteDeAco', obtido: false, peso: 0, preco: 3,
 
-    danoBase: 50, danoCombate: 50, tipoDano: 'Físico',
+    danoBase: 6, danoCombate: 6, tipoDano: 'Físico',
     debuff: 'Nenhum', chance: 0, duracao: 0,
 
     energiaCusto: 3, energiaCustoCombate: 3, manaCusto: 0, manaCustoCombate: 0,
@@ -200,9 +200,9 @@ var lancaEnvenenada =
     nome: 'Lança envenenada', val: 'lancaEnvenenada', obtido: false, peso: 0, preco: 5,
 
     danoBase: 5, danoCombate: 5, tipoDano: 'Físico',
-    debuff: 'veneno', chance: 20, duracao: 2,
+    debuff: 'veneno', chance: 30, duracao: 3,
 
-    energiaCusto: 5, energiaCustoCombate: 5, manaCusto: 0, manaCustoCombate: 0,
+    energiaCusto: 4, energiaCustoCombate: 4, manaCusto: 0, manaCustoCombate: 0,
 }
 /*-----*/
 function equipLancaEnvenenada() {

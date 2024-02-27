@@ -1,14 +1,10 @@
 /*-DESCANSAR-*/
 function magiaBuffUso() {
-    legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaBuffGeral.nome}<br>Mana gasta: ${magiaBuffGeral.manaCusto}`)
+    legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaBuffGeral.nome}<br>Mana gasta: ${magiaBuffGeral.manaCustoCombate}`)
 
     if (magiaBuffGeral.buff == 'dano') {
         buffDano.jogador = true
         rodadaBuffDanoMax.jogador = parseInt(rodada) + parseInt(magiaBuffGeral.duracao)
-
-        danoGanho = armaGeral.danoCombate * magiaBuffGeral.danoBuff
-        danoGanho = Math.round(danoGanho)
-        armaGeral.danoCombate += danoGanho
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${magiaBuffGeral.nome} aumentou o dano de ${jogador.nome} em ${danoGanho}`)
     }
@@ -26,9 +22,9 @@ function magiaBuffUso() {
 
 
 
-    jogador.manaCombate = jogador.manaCombate - magiaBuffGeral.manaCusto
+    jogador.manaCombate = jogador.manaCombate - magiaBuffGeral.manaCustoCombate
 
-    jogador.porcentagem = 100 - ((magiaBuffGeral.manaCusto / jogador.manaBase) * 100)
+    jogador.porcentagem = 100 - ((magiaBuffGeral.manaCustoCombate / jogador.manaBase) * 100)
     jogador.porcentagem = 100 - jogador.porcentagem
     jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
@@ -44,10 +40,9 @@ function magiaBuffUso() {
 
 
 function botaoMagiaBuffClick() {
-    if (jogador.energiaCombate - magiaBuffGeral.energiaCusto >= 0 || jogador.manaCombate - magiaBuffGeral.manaCusto >= 0) {
-        vezUsuario = false;
-
+    if (jogador.energiaCombate - magiaBuffGeral.energiaCustoCombate >= 0 && jogador.manaCombate - magiaBuffGeral.manaCustoCombate >= 0) {
         inicioRodada();
+        inicioBuffDebuffJogador();
 
         setTimeout(magiaBuffUso, 0);
         setTimeout(inimigoDerrotado, 2000);
@@ -57,20 +52,19 @@ function botaoMagiaBuffClick() {
         setTimeout(inimigoCombateHud, 2000);
         setTimeout(jogadorDerrotado, 3000);
 
-        setTimeout(buff_debuff_jogador, 3000)
-        setTimeout(buff_debuff_inimigo, 3500)
+        setTimeout(fimBuffDebuffJogador, 3000);
 
         setTimeout(fimRodada, 4000);
     }
 
-    if (jogador.energiaCombate - magiaBuffGeral.energiaCusto < 0) {
+    if (jogador.energiaCombate - magiaBuffGeral.energiaCustoCombate < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
 
         semEnergiaManaVisibilidade();
     }
 
-    if (jogador.manaCombate - magiaBuffGeral.manaCusto < 0) {
+    if (jogador.manaCombate - magiaBuffGeral.manaCustoCombate < 0) {
         semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
         semEnergiaMana.style.color = 'blue';
 

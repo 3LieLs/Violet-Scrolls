@@ -84,7 +84,7 @@
 #foco,
 #voltarArmaduraAcao,
 
-#aaa,
+#poder,
 #pocoes,
 #fugir,
 #voltarOutrosAcao {
@@ -104,7 +104,7 @@
 #ataqueFraco,
 #magiaDano,
 #bloquear,
-#aaa {
+#poder {
     margin: 5% 0% 0% 4%;
 }
 
@@ -177,7 +177,7 @@
     cursor: pointer;
 }
 
-#aaa:hover,
+#poder:hover,
 #pocoes:hover,
 #fugir:hover,
 #voltarOutrosAcao:hover {

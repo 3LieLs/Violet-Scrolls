@@ -22,6 +22,7 @@ function focoUso() {
 
 function botaoFocoClick() {
     inicioRodada();
+    inicioBuffDebuffJogador();
 
     setTimeout(focoUso, 0);
 
@@ -30,8 +31,7 @@ function botaoFocoClick() {
     setTimeout(inimigoCombateHud, 2000);
     setTimeout(jogadorDerrotado, 3000);
 
-    setTimeout(buff_debuff_jogador, 3000)
-    setTimeout(buff_debuff_inimigo, 3500)
+    setTimeout(fimBuffDebuffJogador, 3000);
 
     setTimeout(fimRodada, 4000);
 }

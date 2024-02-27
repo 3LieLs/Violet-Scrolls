@@ -7,24 +7,23 @@ function ataqueForteDano() {
     /*-APLICAR DANO CASO ACERTO-*/
     if (missJogador == true) {
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} errou seu ataque!`);
-        if (armaGeral.energiaCusto > 0) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2))}`);
+        if (armaGeral.energiaCustoCombate > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${parseInt(armaGeral.energiaCustoCombate + (armaGeral.energiaCustoCombate / 2))}`);
         }
-        if (armaGeral.manaCusto > 0) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${parseInt(armaGeral.manaCusto + (armaGeral.manaCusto / 2))}`);
+        if (armaGeral.manaCustoCombate > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${parseInt(armaGeral.manaCustoCombate + (armaGeral.manaCustoCombate / 2))}`);
         }
     }
 
     if (missJogador == false) {
-        danoInimigoGeral = parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2))
-        inimigoAtingidoDano()
+        inimigoAtingidoDano(parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2)))
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br> ${jogador.nome} atacou com ${armaGeral.nome} com força<br>Dano causado: ${parseInt(armaGeral.danoCombate + (armaGeral.danoCombate / 2))}`);
-        if (armaGeral.energiaCusto > 0) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2))}`);
+        if (armaGeral.energiaCustoCombate > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Energia usada: ${parseInt(armaGeral.energiaCustoCombate + (armaGeral.energiaCustoCombate / 2))}`);
         }
-        if (armaGeral.manaCusto > 0) {
-            legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${parseInt(armaGeral.manaCusto + (armaGeral.manaCusto / 2))}`);
+        if (armaGeral.manaCustoCombate > 0) {
+            legendaView.insertAdjacentHTML('beforeend', `<br>Mana usada: ${parseInt(armaGeral.manaCustoCombate + (armaGeral.manaCustoCombate / 2))}`);
         }
         if (criticoJogador == true) {
             legendaView.insertAdjacentHTML('beforeend', `<br>Acerto crítico!`)
@@ -35,10 +34,10 @@ function ataqueForteDano() {
     /*-----*/
 
     /*-DESCONTAR ENERGIA/MANA-*/
-    if (armaGeral.energiaCusto > 0) {
-        jogador.energiaCombate = jogador.energiaCombate - parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2));
+    if (armaGeral.energiaCustoCombate > 0) {
+        jogador.energiaCombate = jogador.energiaCombate - parseInt(armaGeral.energiaCustoCombate + (armaGeral.energiaCustoCombate / 2));
 
-        jogador.porcentagem = 100 - ((parseInt(armaGeral.energiaCusto + (armaGeral.energiaCusto / 2)) / jogador.energiaBase) * 100);
+        jogador.porcentagem = 100 - ((parseInt(armaGeral.energiaCustoCombate + (armaGeral.energiaCustoCombate / 2)) / jogador.energiaBase) * 100);
         jogador.porcentagem = 100 - jogador.porcentagem;
         jogador.porcentagem = jogador.porcentagem.toPrecision(2);
 
@@ -50,10 +49,10 @@ function ataqueForteDano() {
         }
     }
 
-    if (armaGeral.manaCusto > 0) {
-        jogador.manaCombate = jogador.manaCombate - parseInt(armaGeral.manaCusto + (armaGeral.manaCusto / 2));
+    if (armaGeral.manaCustoCombate > 0) {
+        jogador.manaCombate = jogador.manaCombate - parseInt(armaGeral.manaCustoCombate + (armaGeral.manaCustoCombate / 2));
 
-        jogador.porcentagem = 100 - ((parseInt(armaGeral.manaCusto + (armaGeral.manaCusto / 2)) / jogador.manaBase) * 100);
+        jogador.porcentagem = 100 - ((parseInt(armaGeral.manaCustoCombate + (armaGeral.manaCustoCombate / 2)) / jogador.manaBase) * 100);
         jogador.porcentagem = 100 - jogador.porcentagem;
         jogador.porcentagem = jogador.porcentagem.toPrecision(2);
 
@@ -77,8 +76,9 @@ function ataqueForteDano() {
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 function botaoAtaqueForteClick() {
-    if (jogador.energiaCombate - armaGeral.energiaCusto >= 0 && jogador.manaCombate - armaGeral.manaCusto >= 0) {
+    if (jogador.energiaCombate - armaGeral.energiaCustoCombate >= 0 && jogador.manaCombate - armaGeral.manaCustoCombate >= 0) {
         inicioRodada();
+        inicioBuffDebuffJogador();
 
         setTimeout(ataqueForteDano, 0);
         setTimeout(inimigoDerrotado, 2000);
@@ -88,20 +88,19 @@ function botaoAtaqueForteClick() {
         setTimeout(inimigoCombateHud, 2000);
         setTimeout(jogadorDerrotado, 3000);
 
-        setTimeout(buff_debuff_jogador, 3000)
-        setTimeout(buff_debuff_inimigo, 3500)
+        setTimeout(fimBuffDebuffJogador, 3000);
 
         setTimeout(fimRodada, 4000);
     }
     /*-----*/
-    if (jogador.energiaCombate - armaGeral.energiaCusto < 0) {
+    if (jogador.energiaCombate - armaGeral.energiaCustoCombate < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
 
         semEnergiaManaVisibilidade();
     }
     /*-----*/
-    if (jogador.manaCombate - armaGeral.manaCusto < 0) {
+    if (jogador.manaCombate - armaGeral.manaCustoCombate < 0) {
         semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
         semEnergiaMana.style.color = 'blue';
 

@@ -1,7 +1,7 @@
 /*-DESCANSAR-*/
 function magiaRecuperacaoUso() {
     if (magiaRecuperacaoGeral.tipo == 'Vida') {
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCusto}`)
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCustoCombate}`)
         legendaView.insertAdjacentHTML('beforeend', `<br>${magiaRecuperacaoGeral.tipo} recuperado: ${magiaRecuperacaoGeral.vidaRecuperacao}`)
 
         if (jogador.vidaCombate + magiaRecuperacaoGeral.vidaRecuperacao > jogador.vidaBase) {
@@ -20,7 +20,7 @@ function magiaRecuperacaoUso() {
     }
 
     if (magiaRecuperacaoGeral.tipo == 'Elementares') {
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCusto}`)
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCustoCombate}`)
         legendaView.insertAdjacentHTML('beforeend', `<br>${magiaRecuperacaoGeral.nome} purificou ${jogador.nome} de todas os efeitos negativos ${magiaRecuperacaoGeral.tipo}`)
 
         rodadaDebuffChamasMax.jogador = 0
@@ -33,7 +33,7 @@ function magiaRecuperacaoUso() {
     }
 
     if (magiaRecuperacaoGeral.tipo == 'Físico') {
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCusto}`)
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${magiaRecuperacaoGeral.nome}<br>Mana gasta: ${magiaRecuperacaoGeral.manaCustoCombate}`)
         legendaView.insertAdjacentHTML('beforeend', `<br>${magiaRecuperacaoGeral.nome} purificou ${jogador.nome} de todas os efeitos negativos ${magiaRecuperacaoGeral.tipo}`)
 
         rodadaDebuffSangramentoMax.jogador = 0
@@ -43,9 +43,9 @@ function magiaRecuperacaoUso() {
         debuffVeneno.jogador = false
     }
 
-    jogador.manaCombate = jogador.manaCombate - magiaRecuperacaoGeral.manaCusto
+    jogador.manaCombate = jogador.manaCombate - magiaRecuperacaoGeral.manaCustoCombate
 
-    jogador.porcentagem = 100 - ((magiaRecuperacaoGeral.manaCusto / jogador.manaBase) * 100)
+    jogador.porcentagem = 100 - ((magiaRecuperacaoGeral.manaCustoCombate / jogador.manaBase) * 100)
     jogador.porcentagem = 100 - jogador.porcentagem
     jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
@@ -61,8 +61,9 @@ function magiaRecuperacaoUso() {
 
 
 function botaoMagiaRecuperacaoClick() {
-    if (jogador.energiaCombate - magiaRecuperacaoGeral.energiaCusto >= 0 || jogador.manaCombate - magiaRecuperacaoGeral.manaCusto >= 0) {
+    if (jogador.energiaCombate - magiaRecuperacaoGeral.energiaCustoCombate >= 0 && jogador.manaCombate - magiaRecuperacaoGeral.manaCustoCombate >= 0) {
         inicioRodada();
+        inicioBuffDebuffJogador();
 
         setTimeout(magiaRecuperacaoUso, 0);
         setTimeout(inimigoDerrotado, 2000);
@@ -72,20 +73,19 @@ function botaoMagiaRecuperacaoClick() {
         setTimeout(inimigoCombateHud, 2000);
         setTimeout(jogadorDerrotado, 3000);
 
-        setTimeout(buff_debuff_jogador, 3000)
-        setTimeout(buff_debuff_inimigo, 3500)
+        setTimeout(fimBuffDebuffJogador, 3000);
 
         setTimeout(fimRodada, 4000);
     }
 
-    if (jogador.energiaCombate - magiaRecuperacaoGeral.energiaCusto < 0) {
+    if (jogador.energiaCombate - magiaRecuperacaoGeral.energiaCustoCombate < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
 
         semEnergiaManaVisibilidade();
     }
 
-    if (jogador.manaCombate - magiaRecuperacaoGeral.manaCusto < 0) {
+    if (jogador.manaCombate - magiaRecuperacaoGeral.manaCustoCombate < 0) {
         semEnergiaMana.innerHTML = 'Você está sem mana suficiente para esta ação';
         semEnergiaMana.style.color = 'blue';
 

@@ -7,7 +7,7 @@ var
     rodadaDebuffSangramentoMax = { jogador: 0, inimigo: 0, },
     rodadaDebuffVenenoMax = { jogador: 0, inimigo: 0, },
     rodadaDebuffChamasMax = { jogador: 0, inimigo: 0, },
-    rodadaDebuffCongeladoMax = { jogador: 0, inimigo: 0, },
+    rodadaDebuffCongelamentoMax = { jogador: 0, inimigo: 0, },
     rodadaDebuffEletricidadeMax = { jogador: 0, inimigo: 0, }
 
 var
@@ -16,7 +16,7 @@ var
     debuffSangramento = { jogador: false, inimigo: false, },
     debuffVeneno = { jogador: false, inimigo: false, },
     debuffChamas = { jogador: false, inimigo: false, },
-    debuffCongelado = { jogador: false, inimigo: false, },
+    debuffCongelamento = { jogador: false, inimigo: false, },
     debuffEletricidade = { jogador: false, inimigo: false, }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 

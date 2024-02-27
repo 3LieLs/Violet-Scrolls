@@ -17,7 +17,7 @@ var golpeMacico =
     nome: 'Golpe maciço',
 
     danoBase: 20, danoCombate: 20, tipoDano: 'Físico',
-    debuff: '', chance: 0, duracao: 0,
+    debuff: 'Nenhum', chance: 0, duracao: 0,
 
     energiaCusto: 20, energiaCustoCombate: 20, manaCusto: 0, manaCustoCombate: 0,
 }
@@ -59,12 +59,12 @@ function iniciarGolemDePedraCombate() {
 
 /*-GOLEM DE PEDRA ATAQUE-*/
 function GolemDePedraAtaque() {
-    let random = Math.floor(Math.random() * 100) + 0
+    let random = Math.floor(Math.random() * 100) + 1
 
-    if (random <= 30) {
+    if (random <= 40) {
         inimigoArmaGeral = abaloSismico;
     }
-    if (random > 30) {
+    if (random > 40) {
         inimigoArmaGeral = golpeMacico;
     }
 
