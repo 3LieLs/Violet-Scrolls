@@ -2,12 +2,13 @@
 /*-STATUS JOGADOR VARIÁVEIS-*/
 var jogador =
 {
-    nome: '', genero: '', raca: '',
+    nome: '', genero: '', raca: '', derrotado: false,
     pecitas: 100, peso: 0, pesoMax: 20,
     vidaBase: 0, manaBase: 0, energiaBase: 0,
     vidaCombate: 0, manaCombate: 0, energiaCombate: 0,
     porcentagem: 0, vidaPorcentagem: 100, manaPorcentagem: 100, energiaPorcentagem: 100,
 }
+var jogadorGeralDerrotado = false
 
 var legendaView = window.document.querySelector('p#mensagemLegenda');
 
@@ -36,27 +37,30 @@ function jogadorCombateHud() {
 /*-JOGADOR DERROTADO-*/
 function jogadorDerrotado() {
     if (jogador.vidaCombate <= 0) {
-        definirEstatisticaGeral();
+        jogadorGeralDerrotado = true
+        setTimeout(() => {
+            definirEstatisticaGeral();
 
-        mainHud.style.display = 'none';
-        mainInimigoHud.style.display = 'none';
-        florestaDisplay.style.display = 'none';
-        cavernaDisplay.style.display = 'none';
-        montanhaDisplay.style.display = 'none';
+            mainHud.style.display = 'none';
+            mainInimigoHud.style.display = 'none';
+            florestaDisplay.style.display = 'none';
+            cavernaDisplay.style.display = 'none';
+            montanhaDisplay.style.display = 'none';
 
-        mainJogadorDerrotado.style.display = 'contents';
-        rpgGeral.style.backgroundColor = 'black';
-        mensagemJogadorDerrotado.innerHTML = 'Você foi derrotado'
+            mainJogadorDerrotado.style.display = 'contents';
+            rpgGeral.style.backgroundColor = 'black';
+            mensagemJogadorDerrotado.innerHTML = 'Você foi derrotado'
 
-        setTimeout(function () {
-            mensagemJogadorDerrotado.insertAdjacentHTML('beforeend', `<br>Um camponês te encontrou desacordado e te levou para a taverna`);
+            setTimeout(() => {
+                mensagemJogadorDerrotado.insertAdjacentHTML('beforeend', `<br>Um camponês te encontrou desacordado e te levou para a taverna`);
+            }, 2000)
+
+            setTimeout(() => {
+                mainJogadorDerrotado.style.display = 'none';
+                localMapa = 'taverna';
+                definirMusica();
+            }, 5000)
         }, 2000)
-
-        setTimeout(function () {
-            mainJogadorDerrotado.style.display = 'none';
-            localMapa = 'taverna';
-            definirMusica();
-        }, 5000)
     }
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
@@ -83,19 +87,16 @@ botaoSubirMana.addEventListener('click', upMana);
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-EXPERIÊNCIA / SUBIR NÍVEL-*/
 function mostrarStats() {
-    subirNivel.style.display = 'none';
+    subirNivelDisplay.style.display = 'none';
     upStatus.style.display = 'contents';
 }
 
 function upVida() {
-    let xpNext
-
     jogador.vidaBase += 5
     jogadorNivel.nivel += 1
-    jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel;
-    xpNext = jogadorNivel.proximoNivel * 0.25
-    xpNext = Math.round(xpNext)
-    jogadorNivel.proximoNivel += 
+    jogadorNivel.experiencia -= jogadorNivel.proximoNivel;
+    jogadorNivel.proximoNivel *= 1.5
+    jogadorNivel.proximoNivel = Math.round(jogadorNivel.proximoNivel)
 
     barraExperiencia()
     jogadorNivel.experienciaPorcentagem = 0;
@@ -108,11 +109,11 @@ function upVida() {
 }
 
 function upEnergia() {
-    jogador.energiaBase = jogador.energiaBase + 5;
-    jogador.pesoMax += 5
-    jogadorNivel.nivel = jogadorNivel.nivel + 1;
-    jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel;
-    jogadorNivel.proximoNivel = parseInt(jogadorNivel.proximoNivel) + parseInt(jogadorNivel.proximoNivel);
+    jogador.energiaBase += 5
+    jogadorNivel.nivel += 1
+    jogadorNivel.experiencia -= jogadorNivel.proximoNivel;
+    jogadorNivel.proximoNivel *= 1.5
+    jogadorNivel.proximoNivel = Math.round(jogadorNivel.proximoNivel)
 
     barraExperiencia();
     jogadorNivel.experienciaPorcentagem = 0;
@@ -125,10 +126,11 @@ function upEnergia() {
 }
 
 function upMana() {
-    jogador.manaBase = jogador.manaBase + 5;
-    jogadorNivel.nivel = jogadorNivel.nivel + 1;
-    jogadorNivel.experiencia = jogadorNivel.experiencia - jogadorNivel.proximoNivel;
-    jogadorNivel.proximoNivel = parseInt(jogadorNivel.proximoNivel) + parseInt(jogadorNivel.proximoNivel);
+    jogador.manaBase += 5
+    jogadorNivel.nivel += 1
+    jogadorNivel.experiencia -= jogadorNivel.proximoNivel;
+    jogadorNivel.proximoNivel *= 1.5
+    jogadorNivel.proximoNivel = Math.round(jogadorNivel.proximoNivel)
 
     barraExperiencia();
     jogadorNivel.experienciaPorcentagem = 0;

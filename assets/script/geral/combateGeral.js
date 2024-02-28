@@ -17,7 +17,7 @@ function fimRodada() {
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-BUFF E DEBUFF INIMIGO/JOGADOR-*/
-var danoGanho = 0, buffDanoTrueFalse = false;
+var danoGanho = 0, buffDanoTrueFalse = false; buffOrcTrueFalse = false;
 
 var debuffSangramentoVal = 0, debuffChamasVal = 0, debuffCongelamentoVal = 0, debuffEletricidadeVal = 0,
     debuffSangramentoTrueFalse = {
@@ -33,7 +33,7 @@ var debuffSangramentoVal = 0, debuffChamasVal = 0, debuffCongelamentoVal = 0, de
         jogador: false, inimigo: false,
     };
 
-function inicioBuffDebuffJogador() {
+function inicioBuffDebuff() {
     /*-JOGADOR-*//*-JOGADOR-*//*-JOGADOR-*/
     /*-BUFF DANO-*/
     if (rodada == rodadaBuffDanoMax.jogador) {
@@ -43,6 +43,7 @@ function inicioBuffDebuffJogador() {
         danoGanho = armaGeral.danoCombate * magiaBuffGeral.danoBuff;
         danoGanho = Math.round(danoGanho);
         armaGeral.danoCombate += danoGanho;
+        buffDanoTrueFalse = true
     }
     /*-----*/
     /*-BUFF VIDA REGEN-*/
@@ -110,6 +111,18 @@ function inicioBuffDebuffJogador() {
 
         debuffEletricidadeTrueFalse.jogador = true;
     }
+    /*-----*/
+    /*-PODER ORC-*/
+    if (rodada == rodadaPoderOrcMax) {
+        buffOrc = false;
+    }
+    if (buffOrc == true) {
+        danoPoderOrc = armaGeral.danoBase * 2;
+        danoPoderOrc = Math.round(danoPoderOrc);
+        armaGeral.danoCombate += danoPoderOrc;
+        buffOrcTrueFalse = true
+    }
+    /*-----*/
     /*-----*//*-----*//*-----*//*-----*/
 
     /*-INIMIGO-*//*-INIMIGO-*//*-INIMIGO-*/
@@ -164,195 +177,207 @@ function inicioBuffDebuffJogador() {
     /*-----*/
 }
 /*-----*/
-function fimBuffDebuffJogador() {
+function fimBuffDebuff() {
     /*-JOGADOR-*//*-JOGADOR-*//*-JOGADOR-*/
-    /*-BUFF DANO-*/
-    if (buffDano.jogador == true) {
-        if (buffDanoTrueFalse.jogador == true) {
-            armaGeral.danoCombate -= danoGanho;
-            buffDanoTrueFalse.jogador = false
+    if (jogadorGeralDerrotado == false) {
+        /*-BUFF DANO-*/
+        if (buffDano.jogador == true) {
+            if (buffDanoTrueFalse.jogador == true) {
+                armaGeral.danoCombate -= danoGanho;
+                buffDanoTrueFalse.jogador = false
+            }
         }
-    }
-    /*-----*/
-    /*-BUFF VIDA REGEN-*/
-    if (buffVidaRegen.jogador == true) {
-        if (vidaGanha > 0) {
-            jogador.vidaCombate += vidaGanha;
+        /*-----*/
+        /*-BUFF VIDA REGEN-*/
+        if (buffVidaRegen.jogador == true) {
+            if (vidaGanha > 0) {
+                jogador.vidaCombate += vidaGanha;
 
-            jogador.porcentagem = 100 - ((vidaGanha / jogador.vidaBase) * 100)
-            jogador.porcentagem = 100 - jogador.porcentagem
-            jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+                jogador.porcentagem = 100 - ((vidaGanha / jogador.vidaBase) * 100)
+                jogador.porcentagem = 100 - jogador.porcentagem
+                jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
-            jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) + parseInt(jogador.porcentagem)
+                jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) + parseInt(jogador.porcentagem)
 
-            legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${vidaGanha} de vida`);
+                legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${vidaGanha} de vida`);
+            }
+
+            jogadorCombateHud();
+            inimigoCombateHud();
         }
+        /*-----*/
+        /*-DEBUFF SANGRAMENTO-*/
+        if (debuffSangramento.jogador == true) {
+            sangramentoDano = jogador.vidaBase * 0.10;
+            sangramentoDano = Math.round(sangramentoDano);
+            jogadorAtingidoDano(sangramentoDano);
 
-        jogadorCombateHud();
-        inimigoCombateHud();
-    }
-    /*-----*/
-    /*-DEBUFF SANGRAMENTO-*/
-    if (debuffSangramento.jogador == true) {
-        sangramentoDano = jogador.vidaBase * 0.10;
-        sangramentoDano = Math.round(sangramentoDano);
-        jogadorAtingidoDano(sangramentoDano);
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${sangramentoDano} de vida por causa do sangramento`);
 
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${sangramentoDano} de vida por causa do sangramento`);
+            jogadorCombateHud();
+            inimigoCombateHud();
 
-        jogadorCombateHud();
-        inimigoCombateHud();
-
-        if (debuffSangramentoTrueFalse.jogador == true) {
-            inimigoArmaGeral.danoCombate -= debuffSangramentoVal;
-            debuffSangramentoTrueFalse.jogador = false;
+            if (debuffSangramentoTrueFalse.jogador == true) {
+                inimigoArmaGeral.danoCombate -= debuffSangramentoVal;
+                debuffSangramentoTrueFalse.jogador = false;
+            }
         }
-    }
-    /*-----*/
-    /*-DEBUFF VENENO-*/
-    if (debuffVeneno.jogador == true) {
-        venenoDano = jogador.vidaBase * 0.20;
-        venenoDano = Math.round(venenoDano);
-        jogadorAtingidoDano(venenoDano);
+        /*-----*/
+        /*-DEBUFF VENENO-*/
+        if (debuffVeneno.jogador == true) {
+            venenoDano = jogador.vidaBase * 0.20;
+            venenoDano = Math.round(venenoDano);
+            jogadorAtingidoDano(venenoDano);
 
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${venenoDano} de vida por causa do veneno`);
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${venenoDano} de vida por causa do veneno`);
 
-        jogadorCombateHud();
-        inimigoCombateHud();
-    }
-    /*-----*/
-    /*-DEBUFF CHAMAS-*/
-    if (debuffChamas.jogador == true) {
-        chamasDano = jogador.vidaBase * 0.10;
-        chamasDano = Math.round(chamasDano);
-        jogadorAtingidoDano(chamasDano);
-
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${chamasDano} de vida por causa das chamas`);
-
-        jogadorCombateHud();
-        inimigoCombateHud();
-
-        if (debuffChamasTrueFalse.jogador == true) {
-            armaGeral.danoCombate += debuffChamasVal;
-            debuffChamasTrueFalse.jogador = false
+            jogadorCombateHud();
+            inimigoCombateHud();
         }
-    }
-    /*-----*/
-    /*-DEBUFF CONGELADO-*/
-    if (debuffCongelamento.jogador == true) {
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} se sente mais pesado devido ao congelamento`);
-        if (debuffCongelamentoTrueFalse.jogador == true) {
-            armaGeral.energiaCustoCombate -= debuffCongelamentoVal;
-            debuffCongelamentoTrueFalse.jogador = false;
-        }
-    }
-    /*-----*/
-    /*-DEBUFF ELETRICIDADE-*/
-    if (debuffEletricidade.jogador == true) {
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} não consegue se concentrar direito devido a eletricidade`);
+        /*-----*/
+        /*-DEBUFF CHAMAS-*/
+        if (debuffChamas.jogador == true) {
+            chamasDano = jogador.vidaBase * 0.10;
+            chamasDano = Math.round(chamasDano);
+            jogadorAtingidoDano(chamasDano);
 
-        if (debuffEletricidadeTrueFalse.jogador == true) {
-            let w = armaGeral.manaCusto * 0.25;
-            let x = magiaDanoGeral.manaCusto * 0.25;
-            let y = magiaRecuperacaoGeral.manaCusto * 0.25;
-            let z = magiaBuffGeral.manaCusto * 0.25;
-            w = Math.round(w);
-            x = Math.round(x);
-            y = Math.round(y);
-            z = Math.round(z);
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${chamasDano} de vida por causa das chamas`);
 
-            armaGeral.manaCusto -= w;
-            magiaDanoGeral.manaCusto -= x;
-            magiaRecuperacaoGeral.manaCusto -= y;
-            magiaBuffGeral.manaCusto -= z;
-            debuffEletricidadeTrueFalse.jogador = false;
+            jogadorCombateHud();
+            inimigoCombateHud();
+
+            if (debuffChamasTrueFalse.jogador == true) {
+                armaGeral.danoCombate += debuffChamasVal;
+                debuffChamasTrueFalse.jogador = false
+            }
         }
+        /*-----*/
+        /*-DEBUFF CONGELADO-*/
+        if (debuffCongelamento.jogador == true) {
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} se sente mais pesado devido ao congelamento`);
+            if (debuffCongelamentoTrueFalse.jogador == true) {
+                armaGeral.energiaCustoCombate -= debuffCongelamentoVal;
+                debuffCongelamentoTrueFalse.jogador = false;
+            }
+        }
+        /*-----*/
+        /*-DEBUFF ELETRICIDADE-*/
+        if (debuffEletricidade.jogador == true) {
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} não consegue se concentrar direito devido a eletricidade`);
+
+            if (debuffEletricidadeTrueFalse.jogador == true) {
+                let w = armaGeral.manaCusto * 0.25;
+                let x = magiaDanoGeral.manaCusto * 0.25;
+                let y = magiaRecuperacaoGeral.manaCusto * 0.25;
+                let z = magiaBuffGeral.manaCusto * 0.25;
+                w = Math.round(w);
+                x = Math.round(x);
+                y = Math.round(y);
+                z = Math.round(z);
+
+                armaGeral.manaCusto -= w;
+                magiaDanoGeral.manaCusto -= x;
+                magiaRecuperacaoGeral.manaCusto -= y;
+                magiaBuffGeral.manaCusto -= z;
+                debuffEletricidadeTrueFalse.jogador = false;
+            }
+        }
+        /*-----*/
+        /*-PODER ORC-*/
+        if (buffOrc == true) {
+            if (buffOrcTrueFalse == true) {
+                armaGeral.danoCombate -= danoPoderOrc;
+                buffOrcTrueFalse.jogador = false;
+            }
+        }
+        /*-----*/
+        /*-CASO O JOGADOR PERCA-*/
+        if (jogador.vidaCombate <= 0) {
+            jogador.vidaCombate = 0;
+            jogadorCombateHud();
+            jogadorDerrotado();
+        }
+        /*-----*/
     }
-    /*-----*/
-    /*-CASO O JOGADOR PERCA-*/
-    if (jogador.vidaCombate <= 0) {
-        jogador.vidaCombate = 0;
-        jogadorCombateHud();
-        setTimeout(jogadorDerrotado, 1000);
-    }
-    /*-----*/
 
     /*-INIMIGO-*//*-INIMIGO-*//*-INIMIGO-*/
-    /*-DEBUFF SANGRAMENTO-*/
-    if (debuffSangramento.inimigo == true) {
-        sangramentoDano = inimigoGeral.vidaBase * 0.10;
-        sangramentoDano = Math.round(sangramentoDano);
-        inimigoAtingidoDano(sangramentoDano);
+    if (inimigoGeralDerrotado == false) {
+        /*-DEBUFF SANGRAMENTO-*/
+        if (debuffSangramento.inimigo == true) {
+            sangramentoDano = inimigoGeral.vidaBase * 0.10;
+            sangramentoDano = Math.round(sangramentoDano);
+            inimigoAtingidoDano(sangramentoDano);
 
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${sangramentoDano} de vida por causa do sangramento`);
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${sangramentoDano} de vida por causa do sangramento`);
 
-        jogadorCombateHud();
-        inimigoCombateHud();
+            jogadorCombateHud();
+            inimigoCombateHud();
 
-        if (debuffSangramentoTrueFalse.inimigo == true) {
-            armaGeral.danoCombate -= debuffSangramentoVal;
-            debuffSangramentoTrueFalse.inimigo = false;
+            if (debuffSangramentoTrueFalse.inimigo == true) {
+                armaGeral.danoCombate -= debuffSangramentoVal;
+                debuffSangramentoTrueFalse.inimigo = false;
+            }
         }
-    }
-    /*-----*/
-    /*-DEBUFF VENENO-*/
-    if (debuffVeneno.inimigo == true) {
-        venenoDano = inimigoGeral.vidaBase * 0.20;
-        venenoDano = Math.round(venenoDano);
-        inimigoAtingidoDano(venenoDano);
+        /*-----*/
+        /*-DEBUFF VENENO-*/
+        if (debuffVeneno.inimigo == true) {
+            venenoDano = inimigoGeral.vidaBase * 0.20;
+            venenoDano = Math.round(venenoDano);
+            inimigoAtingidoDano(venenoDano);
 
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${venenoDano} de vida por causa do veneno`);
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${venenoDano} de vida por causa do veneno`);
 
-        jogadorCombateHud();
-        inimigoCombateHud();
-    }
-    /*-----*/
-    /*-DEBUFF CHAMAS-*/
-    if (debuffChamas.inimigo == true) {
-        chamasDano = inimigoGeral.vidaBase * 0.10;
-        chamasDano = Math.round(chamasDano);
-        inimigoAtingidoDano(chamasDano);
-
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${chamasDano} de vida por causa das chamas`);
-
-        jogadorCombateHud();
-        inimigoCombateHud();
-
-        if (debuffChamasTrueFalse.inimigo == true) {
-            inimigoArmaGeral.danoCombate += debuffChamasVal;
-            debuffChamasTrueFalse.inimigo = false
+            jogadorCombateHud();
+            inimigoCombateHud();
         }
-    }
-    /*-----*/
-    /*-DEBUFF CONGELADO-*/
-    if (debuffCongelamento.inimigo == true) {
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} se sente mais pesado devido ao congelamento`);
-        if (debuffCongelamentoTrueFalse.inimigo == true) {
-            inimigoArmaGeral.energiaCustoCombate -= debuffCongelamentoVal;
-            debuffCongelamentoTrueFalse.inimigo = false;
-        }
-    }
-    /*-----*/
-    /*-DEBUFF ELETRICIDADE-*/
-    if (debuffEletricidade.inimigo == true) {
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} não consegue se concentrar direito devido a eletricidade`);
+        /*-----*/
+        /*-DEBUFF CHAMAS-*/
+        if (debuffChamas.inimigo == true) {
+            chamasDano = inimigoGeral.vidaBase * 0.10;
+            chamasDano = Math.round(chamasDano);
+            inimigoAtingidoDano(chamasDano);
 
-        if (debuffEletricidadeTrueFalse.inimigo == true) {
-            let w = inimigoArmaGeral.manaCusto * 0.25;
-            w = Math.round(w);
-            inimigoArmaGeral.manaCustoCombate -= w;
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${chamasDano} de vida por causa das chamas`);
 
-            debuffEletricidadeTrueFalse.inimigo = false;
+            jogadorCombateHud();
+            inimigoCombateHud();
+
+            if (debuffChamasTrueFalse.inimigo == true) {
+                inimigoArmaGeral.danoCombate += debuffChamasVal;
+                debuffChamasTrueFalse.inimigo = false
+            }
         }
+        /*-----*/
+        /*-DEBUFF CONGELADO-*/
+        if (debuffCongelamento.inimigo == true) {
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} se sente mais pesado devido ao congelamento`);
+            if (debuffCongelamentoTrueFalse.inimigo == true) {
+                inimigoArmaGeral.energiaCustoCombate -= debuffCongelamentoVal;
+                debuffCongelamentoTrueFalse.inimigo = false;
+            }
+        }
+        /*-----*/
+        /*-DEBUFF ELETRICIDADE-*/
+        if (debuffEletricidade.inimigo == true) {
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} não consegue se concentrar direito devido a eletricidade`);
+
+            if (debuffEletricidadeTrueFalse.inimigo == true) {
+                let w = inimigoArmaGeral.manaCusto * 0.25;
+                w = Math.round(w);
+                inimigoArmaGeral.manaCustoCombate -= w;
+
+                debuffEletricidadeTrueFalse.inimigo = false;
+            }
+        }
+        /*-----*/
+        /*-CASO O INIMIGO PERCA-*/
+        if (inimigoGeral.vidaCombate <= 0) {
+            inimigoGeral.vidaCombate = 0;
+            inimigoCombateHud();
+            inimigoDerrotado();
+        }
+        /*-----*/
     }
-    /*-----*/
-    /*-CASO O INIMIGO PERCA-*/
-    if (inimigoGeral.vidaCombate <= 0) {
-        inimigoGeral.vidaCombate = 0;
-        inimigoCombateHud();
-        setTimeout(inimigoDerrotado, 1000);
-    }
-    /*-----*/
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
@@ -469,6 +494,7 @@ function definirEstatisticaGeral() {
     legendaView.innerHTML = ``;
     voltarMovesetInicio()
     rodada = 0;
+    jogadorGeralDerrotado = false ,inimigoGeralDerrotado = false
 
     rodadaBuffDanoMax.jogador = 0, rodadaBuffDanoMax.inimigo = 0
     rodadaBuffVidaRegenMax.jogador = 0, rodadaBuffVidaRegenMax.inimigo = 0
@@ -494,9 +520,11 @@ function definirEstatisticaGeral() {
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-EXPERIÊNCIA GANHO-*/
-function experienciaGanha() {
+function adicionarExperiencia() {
     mainInimigoDerrotado.style.display = 'contents';
     rpgGeral.style.backgroundColor = 'black';
+
+    jogadorNivel.experiencia += inimigoGeral.experiencia;
 
     jogador.porcentagem = ((jogadorNivel.experiencia / jogadorNivel.proximoNivel) * 100);
     jogador.porcentagem = jogador.porcentagem.toPrecision(3);
@@ -507,16 +535,16 @@ function experienciaGanha() {
         jogadorNivel.experienciaPorcentagem = 100;
     }
 
-    mensagemInimigoDerrotadoVal.innerHTML = `${inimigoCombatendo} derrotado`;
-    experienciaGanhaVal.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
-    experienciaGanhaVal.style.backgroundSize = `${jogadorNivel.experienciaPorcentagem}% 100%`;
+    mensagemInimigoDerrotado.innerHTML = `${inimigoCombatendo} derrotado`;
+    experienciaGanha.innerHTML = `Experiência: ${jogadorNivel.experiencia}`;
+    experienciaGanha.style.backgroundSize = `${jogadorNivel.experienciaPorcentagem}% 100%`;
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-MISSÃO CONCLUÍDA-*/
 function missaoProgresso() {
-    if (missao.ativo == true) {
+    if (missao.ativo == true && missao.inimigoDerrotar == inimigoCombatendo) {
         missao.inimigosDerrotados++;
 
         if (missao.inimigosDerrotados >= missao.inimigosDerrotadosMax) {

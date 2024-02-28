@@ -8,15 +8,15 @@ var musica = window.document.querySelector('audio#musica');
 musica.src = 'assets/content/audio/MúsicaPacífica/taverna.mp4';
 
 function definirMusica() {
-    if (inimigoCombatendo == 'goblin') {
+    if (inimigoCombatendo == 'Goblin' || inimigoCombatendo == 'Besouro gigante') {
         musica.src = 'assets/content/audio/MúsicaCombate/Combate1.mp3';
     }
 
-    if (inimigoCombatendo == 'golem') {
+    if (inimigoCombatendo == 'Golem de pedra' || inimigoCombatendo == 'Golem de gelo' || inimigoCombatendo == 'Golem de fogo') {
         musica.src = 'assets/content/audio/MúsicaCombate/Combate2.mp3';
     }
 
-    if (inimigoCombatendo == 'dragao') {
+    if (inimigoCombatendo == 'Dragão') {
         musica.src = 'assets/content/audio/MúsicaCombate/CombateBoss1.mp3';
     }
     

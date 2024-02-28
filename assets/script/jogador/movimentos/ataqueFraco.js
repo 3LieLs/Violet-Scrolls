@@ -67,33 +67,17 @@ function ataqueFracoDano() {
 
     desaplicarFraquezaResistenciaInimigo();
     desaplicarCriticoJogador();
-    desaplicarMissJogador()
+    desaplicarMissJogador();
 
     jogadorCombateHud();
     inimigoCombateHud();
+
+    inimigoDerrotado();
 }
 /*-----*/
 
 /*-----*/
 function botaoAtaqueFracoClick() {
-    if (jogador.energiaCombate - armaGeral.energiaCustoCombate >= 0 && jogador.manaCombate - armaGeral.manaCustoCombate >= 0) {
-        inicioRodada();
-        inicioBuffDebuffJogador();
-
-        setTimeout(ataqueFracoDano, 0);
-        setTimeout(inimigoDerrotado, 2000);
-
-        setTimeout(inimigoAtaque, 2000);
-        setTimeout(jogadorCombateHud, 2000);
-        setTimeout(inimigoCombateHud, 2000);
-        setTimeout(jogadorDerrotado, 3000);
-
-        setTimeout(fimBuffDebuffJogador, 3000);
-        
-
-        setTimeout(fimRodada, 4000);
-    }
-
     if (jogador.energiaCombate - armaGeral.energiaCustoCombate < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
@@ -106,6 +90,17 @@ function botaoAtaqueFracoClick() {
         semEnergiaMana.style.color = 'blue';
 
         semEnergiaManaVisibilidade();
+    }
+
+    if (jogador.energiaCombate - armaGeral.energiaCustoCombate >= 0 && jogador.manaCombate - armaGeral.manaCustoCombate >= 0) {
+        inicioRodada();
+        inicioBuffDebuff();
+
+        ataqueFracoDano();
+        setTimeout(inimigoAtaque, 2000);
+
+        setTimeout(fimBuffDebuff, 3000);
+        setTimeout(fimRodada, 4000);
     }
 }
 /*-----*/

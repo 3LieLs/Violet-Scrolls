@@ -23,17 +23,12 @@ function descansoUso() {
 
 function botaoDescansoClick() {
     inicioRodada();
-    inicioBuffDebuffJogador();
+    inicioBuffDebuff();
 
-    setTimeout(descansoUso, 0);
-
+    descansoUso();
     setTimeout(inimigoAtaque, 2000);
-    setTimeout(jogadorCombateHud, 2000);
-    setTimeout(inimigoCombateHud, 2000);
-    setTimeout(jogadorDerrotado, 3000);
 
-    setTimeout(fimBuffDebuffJogador, 3000);
-
+    setTimeout(fimBuffDebuff, 3000);
     setTimeout(fimRodada, 4000);
 }
 /*-----*/

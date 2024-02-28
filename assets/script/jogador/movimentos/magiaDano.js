@@ -66,28 +66,12 @@ function MagiaDanoUso() {
 
     jogadorCombateHud()
     inimigoCombateHud()
+    inimigoDerrotado()
 }
 /*-----*/
 
 /*-----*/
 function botaoMagiaDanoClick() {
-    if (jogador.energiaCombate - magiaDanoGeral.energiaCustoCombate >= 0 && jogador.manaCombate - magiaDanoGeral.manaCustoCombate >= 0) {
-        inicioRodada();
-        inicioBuffDebuffJogador();
-
-        setTimeout(MagiaDanoUso, 0);
-        setTimeout(inimigoDerrotado, 2000);
-
-        setTimeout(inimigoAtaque, 2000);
-        setTimeout(jogadorCombateHud, 2000);
-        setTimeout(inimigoCombateHud, 2000);
-        setTimeout(jogadorDerrotado, 3000);
-
-        setTimeout(fimBuffDebuffJogador, 3000);
-
-        setTimeout(fimRodada, 4000);
-    }
-
     if (jogador.energiaCombate - magiaDanoGeral.energiaCustoCombate < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
@@ -100,6 +84,17 @@ function botaoMagiaDanoClick() {
         semEnergiaMana.style.color = 'blue';
 
         semEnergiaManaVisibilidade();
+    }
+
+    if (jogador.energiaCombate - magiaDanoGeral.energiaCustoCombate >= 0 && jogador.manaCombate - magiaDanoGeral.manaCustoCombate >= 0) {
+        inicioRodada();
+        inicioBuffDebuff();
+
+        setTimeout(MagiaDanoUso, 0);
+        setTimeout(inimigoAtaque, 2000);
+
+        setTimeout(fimBuffDebuff, 3000);
+        setTimeout(fimRodada, 4000);
     }
 }
 /*-----*/

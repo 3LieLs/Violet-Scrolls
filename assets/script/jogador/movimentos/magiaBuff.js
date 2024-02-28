@@ -11,52 +11,35 @@ function magiaBuffUso() {
 
 
     if (magiaBuffGeral.buff == 'vidaRegen') {
-        buffVidaRegen.jogador = true
-        rodadaBuffVidaRegenMax.jogador = parseInt(rodada) + parseInt(magiaBuffGeral.duracao)
+        buffVidaRegen.jogador = true;
+        rodadaBuffVidaRegenMax.jogador = parseInt(rodada) + parseInt(magiaBuffGeral.duracao);
 
-        vidaGanha = jogador.vidaBase * magiaBuffGeral.vidaRegenBuff
-        vidaGanha = Math.round(vidaGanha)
+        vidaGanha = jogador.vidaBase * magiaBuffGeral.vidaRegenBuff;
+        vidaGanha = Math.round(vidaGanha);
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${magiaBuffGeral.nome} criou uma regeneração de vida em ${jogador.nome} de ${vidaGanha} de vida`)
     }
 
 
 
-    jogador.manaCombate = jogador.manaCombate - magiaBuffGeral.manaCustoCombate
+    jogador.manaCombate = jogador.manaCombate - magiaBuffGeral.manaCustoCombate;
 
-    jogador.porcentagem = 100 - ((magiaBuffGeral.manaCustoCombate / jogador.manaBase) * 100)
-    jogador.porcentagem = 100 - jogador.porcentagem
-    jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+    jogador.porcentagem = 100 - ((magiaBuffGeral.manaCustoCombate / jogador.manaBase) * 100);
+    jogador.porcentagem = 100 - jogador.porcentagem;
+    jogador.porcentagem = jogador.porcentagem.toPrecision(2);
 
-    jogador.manaPorcentagem = jogador.manaPorcentagem - jogador.porcentagem
+    jogador.manaPorcentagem = jogador.manaPorcentagem - jogador.porcentagem;
 
     if (jogador.manaCombate < 0) {
         jogador.manaCombate = 0
     }
 
-    jogadorCombateHud()
-    inimigoCombateHud()
+    jogadorCombateHud();
+    inimigoCombateHud();
 }
 
 
 function botaoMagiaBuffClick() {
-    if (jogador.energiaCombate - magiaBuffGeral.energiaCustoCombate >= 0 && jogador.manaCombate - magiaBuffGeral.manaCustoCombate >= 0) {
-        inicioRodada();
-        inicioBuffDebuffJogador();
-
-        setTimeout(magiaBuffUso, 0);
-        setTimeout(inimigoDerrotado, 2000);
-
-        setTimeout(inimigoAtaque, 2000);
-        setTimeout(jogadorCombateHud, 2000);
-        setTimeout(inimigoCombateHud, 2000);
-        setTimeout(jogadorDerrotado, 3000);
-
-        setTimeout(fimBuffDebuffJogador, 3000);
-
-        setTimeout(fimRodada, 4000);
-    }
-
     if (jogador.energiaCombate - magiaBuffGeral.energiaCustoCombate < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
@@ -69,6 +52,17 @@ function botaoMagiaBuffClick() {
         semEnergiaMana.style.color = 'blue';
 
         semEnergiaManaVisibilidade();
+    }
+
+    if (jogador.energiaCombate - magiaBuffGeral.energiaCustoCombate >= 0 && jogador.manaCombate - magiaBuffGeral.manaCustoCombate >= 0) {
+        inicioRodada();
+        inicioBuffDebuff();
+
+        magiaBuffUso();
+        setTimeout(inimigoAtaque, 2000);
+
+        setTimeout(fimBuffDebuff, 3000);
+        setTimeout(fimRodada, 4000);
     }
 }
 /*-----*/

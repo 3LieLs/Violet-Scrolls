@@ -26,40 +26,45 @@ var inimigoGeral =
 
     danoBase: 0, danoCombate: 0,
 }
+var inimigoGeralDerrotado = false
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-INIMIGO DERROTADO-*/
 function inimigoDerrotado() {
     if (inimigoGeral.vidaCombate <= 0) {
-        mainHud.style.display = 'none';
-        mainInimigoHud.style.display = 'none';
+        inimigoGeralDerrotado = true
 
-        if (inimigoCombatendo == 'Goblin') {
-            localMapa = 'floresta';
-        }
-        if (inimigoCombatendo == 'Besouro gigante') {
-            localMapa = 'floresta';
-        }
+        setTimeout(() => {
+            mainHud.style.display = 'none';
+            mainInimigoHud.style.display = 'none';
 
-        if (inimigoCombatendo == 'Golem de pedra') {
-            localMapa = 'caverna';
-        }
-        if (inimigoCombatendo == 'Golem de gelo') {
-            localMapa = 'caverna';
-        }
-        if (inimigoCombatendo == 'Golem de fogo') {
-            localMapa = 'caverna';
-        }
+            if (inimigoCombatendo == 'Goblin') {
+                localMapa = 'floresta';
+            }
+            if (inimigoCombatendo == 'Besouro gigante') {
+                localMapa = 'floresta';
+            }
 
-        if (inimigoCombatendo == 'Dragão') {
-            localMapa = 'montanha';
-        }
+            if (inimigoCombatendo == 'Golem de pedra') {
+                localMapa = 'caverna';
+            }
+            if (inimigoCombatendo == 'Golem de gelo') {
+                localMapa = 'caverna';
+            }
+            if (inimigoCombatendo == 'Golem de fogo') {
+                localMapa = 'caverna';
+            }
 
-        missaoProgresso();
-        experienciaGanha();
-        setTimeout(definirEstatisticaGeral, 2000);
-        setTimeout(definirMusica, 2000);
+            if (inimigoCombatendo == 'Dragão') {
+                localMapa = 'montanha';
+            }
+
+            missaoProgresso();
+            adicionarExperiencia();
+            setTimeout(definirMusica, 2000);
+            setTimeout(definirEstatisticaGeral, 2000);
+        }, 2000)
     }
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/

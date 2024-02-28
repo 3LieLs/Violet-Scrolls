@@ -74,11 +74,11 @@ var inimigoArmaGeral =
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-INIMIGO ATAQUE-*/
-var funcaoInimigoAtaque
+var funcaoInimigoAtaque;
 
 function inimigoAtaque() {
-    if (inimigoGeral.vidaCombate > 0) {
-        funcaoInimigoAtaque()
+    if (inimigoGeralDerrotado == false) {
+        funcaoInimigoAtaque();
     }
 }
 
@@ -181,6 +181,9 @@ function inimigoAtaqueAto() {
         }
     }
     /*-----*/
+    jogadorCombateHud();
+    inimigoCombateHud();
+    jogadorDerrotado();
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 

@@ -8,7 +8,6 @@ mudar a cor dos botões caso sem mana ou energia
 
 Colocar poções para comprar e suas funcionalidades
 Colocar poderes para cada raça
-Organizar o sistema de experiência
 Fazer efeito de jogador atingido
 
 Fazer a recuperacao de vida energia e mana universal igual o dano

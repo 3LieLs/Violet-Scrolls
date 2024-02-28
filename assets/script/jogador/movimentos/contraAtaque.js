@@ -69,36 +69,18 @@ function contraAtaqueDano() {
     }
     /*-----*/
 
-    desaplicarFraquezaResistenciaInimigo()
-    desaplicarCriticoJogador()
-    desaplicarMissJogador()
+    desaplicarFraquezaResistenciaInimigo();
+    desaplicarCriticoJogador();
+    desaplicarMissJogador();
 
-    jogadorCombateHud()
-    inimigoCombateHud()
+    jogadorCombateHud();
+    inimigoCombateHud();
+    inimigoDerrotado();
 }
 /*-----*/
 
 /*-----*/
 function botaoContraAtaqueClick() {
-    if (jogador.energiaCombate - armaGeral.energiaCustoCombate >= 0 && jogador.manaCombate - armaGeral.manaCustoCombate >= 0) {
-        inicioRodada();
-        inicioBuffDebuffJogador();
-
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} se preparou para um contra-ataque`);
-
-        setTimeout(contraAtaqueDano, 4000);
-        setTimeout(inimigoDerrotado, 5000);
-
-        setTimeout(inimigoAtaque, 2000);
-        setTimeout(jogadorCombateHud, 2000);
-        setTimeout(inimigoCombateHud, 2000);
-        setTimeout(jogadorDerrotado, 3000);
-
-        setTimeout(fimBuffDebuffJogador, 5000)
-
-        setTimeout(fimRodada, 6000);
-    }
-
     if (jogador.energiaCombate - armaGeral.energiaCustoCombate < 0) {
         semEnergiaMana.innerHTML = 'Você está sem energia suficiente para esta ação';
         semEnergiaMana.style.color = 'green';
@@ -111,6 +93,18 @@ function botaoContraAtaqueClick() {
         semEnergiaMana.style.color = 'blue';
 
         semEnergiaManaVisibilidade();
+    }
+
+    if (jogador.energiaCombate - armaGeral.energiaCustoCombate >= 0 && jogador.manaCombate - armaGeral.manaCustoCombate >= 0) {
+        inicioRodada();
+        inicioBuffDebuff();
+
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} se preparou para um contra-ataque`);
+        setTimeout(contraAtaqueDano, 4000);
+        setTimeout(inimigoAtaque, 2000);
+
+        setTimeout(fimBuffDebuff, 5000)
+        setTimeout(fimRodada, 6000);
     }
 }
 /*-----*/
