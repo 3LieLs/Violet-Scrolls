@@ -17,7 +17,7 @@ function fimRodada() {
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-BUFF E DEBUFF INIMIGO/JOGADOR-*/
-var danoGanho = 0, buffDanoTrueFalse = false; buffOrcTrueFalse = false;
+var danoGanho = 0, buffDanoTrueFalse = false; buffElfoTrueFalse = false, buffOrcTrueFalse = false, buffVampiroTrueFalse = false;
 
 var debuffSangramentoVal = 0, debuffChamasVal = 0, debuffCongelamentoVal = 0, debuffEletricidadeVal = 0,
     debuffSangramentoTrueFalse = {
@@ -47,7 +47,7 @@ function inicioBuffDebuff() {
     }
     /*-----*/
     /*-BUFF VIDA REGEN-*/
-    if (rodada == rodadaBuffVidaRegenMax.jogador && buffVidaRegen.jogador == true) {
+    if (rodada == rodadaBuffVidaRegenMax.jogador) {
         buffVidaRegen.jogador = false;
     }
     /*-----*/
@@ -88,7 +88,6 @@ function inicioBuffDebuff() {
         armaGeral.energiaCustoCombate += debuffCongelamentoVal;
         debuffCongelamentoTrueFalse.jogador = true;
     }
-
     /*-----*/
     /*-DEBUFF ELETRICIDADE-*/
     if (rodada == rodadaDebuffEletricidadeMax.jogador) {
@@ -112,15 +111,31 @@ function inicioBuffDebuff() {
         debuffEletricidadeTrueFalse.jogador = true;
     }
     /*-----*/
+    /*-PODER ELFO-*/
+    if (rodada == rodadaPoderElfoMax) {
+        buffElfo = false;
+    }
+    if (buffElfo == true) {
+        danoPoderElfo = magiaDanoGeral.danoBase * 1;
+        danoPoderElfo = Math.round(danoPoderElfo);
+        magiaDanoGeral.danoCombate += danoPoderElfo;
+        buffElfoTrueFalse = true;
+    }
+    /*-----*/
     /*-PODER ORC-*/
     if (rodada == rodadaPoderOrcMax) {
         buffOrc = false;
     }
     if (buffOrc == true) {
-        danoPoderOrc = armaGeral.danoBase * 2;
+        danoPoderOrc = armaGeral.danoBase;
         danoPoderOrc = Math.round(danoPoderOrc);
         armaGeral.danoCombate += danoPoderOrc;
-        buffOrcTrueFalse = true
+        buffOrcTrueFalse = true;
+    }
+    /*-----*/
+    /*-PODER VAMPIRO-*/
+    if (rodada == rodadaPoderVampiroMax) {
+        buffVampiro = false;
     }
     /*-----*/
     /*-----*//*-----*//*-----*//*-----*/
@@ -190,7 +205,11 @@ function fimBuffDebuff() {
         /*-----*/
         /*-BUFF VIDA REGEN-*/
         if (buffVidaRegen.jogador == true) {
-            if (vidaGanha > 0) {
+            if (jogador.vidaCombate + vidaGanha > jogador.vidaBase) {
+                jogador.vidaCombate = jogador.vidaBase;
+                jogador.vidaPorcentagem = 100;
+
+            } else {
                 jogador.vidaCombate += vidaGanha;
 
                 jogador.porcentagem = 100 - ((vidaGanha / jogador.vidaBase) * 100)
@@ -198,12 +217,10 @@ function fimBuffDebuff() {
                 jogador.porcentagem = jogador.porcentagem.toPrecision(2)
 
                 jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) + parseInt(jogador.porcentagem)
-
-                legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${vidaGanha} de vida`);
             }
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${vidaGanha} de vida`);
 
             jogadorCombateHud();
-            inimigoCombateHud();
         }
         /*-----*/
         /*-DEBUFF SANGRAMENTO-*/
@@ -211,11 +228,9 @@ function fimBuffDebuff() {
             sangramentoDano = jogador.vidaBase * 0.10;
             sangramentoDano = Math.round(sangramentoDano);
             jogadorAtingidoDano(sangramentoDano);
+            jogadorCombateHud();
 
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${sangramentoDano} de vida por causa do sangramento`);
-
-            jogadorCombateHud();
-            inimigoCombateHud();
 
             if (debuffSangramentoTrueFalse.jogador == true) {
                 inimigoArmaGeral.danoCombate -= debuffSangramentoVal;
@@ -228,11 +243,9 @@ function fimBuffDebuff() {
             venenoDano = jogador.vidaBase * 0.20;
             venenoDano = Math.round(venenoDano);
             jogadorAtingidoDano(venenoDano);
+            jogadorCombateHud();
 
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${venenoDano} de vida por causa do veneno`);
-
-            jogadorCombateHud();
-            inimigoCombateHud();
         }
         /*-----*/
         /*-DEBUFF CHAMAS-*/
@@ -240,15 +253,13 @@ function fimBuffDebuff() {
             chamasDano = jogador.vidaBase * 0.10;
             chamasDano = Math.round(chamasDano);
             jogadorAtingidoDano(chamasDano);
+            jogadorCombateHud();
 
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${chamasDano} de vida por causa das chamas`);
 
-            jogadorCombateHud();
-            inimigoCombateHud();
-
             if (debuffChamasTrueFalse.jogador == true) {
                 armaGeral.danoCombate += debuffChamasVal;
-                debuffChamasTrueFalse.jogador = false
+                debuffChamasTrueFalse.jogador = false;
             }
         }
         /*-----*/
@@ -283,12 +294,78 @@ function fimBuffDebuff() {
             }
         }
         /*-----*/
+        /*-PODER ELFO-*/
+        if (buffElfo == true) {
+            if (jogador.manaCombate + Math.round(jogador.manaBase * 0.25) > jogador.manaBase) {
+                jogador.manaCombate = jogador.manaBase;
+                jogador.manaPorcentagem = 100;
+
+            } else {
+                jogador.manaCombate += Math.round(jogador.manaBase * 0.25);
+
+                jogador.porcentagem = 100 - ((Math.round(jogador.manaBase * 0.25) / jogador.manaBase) * 100);
+                jogador.porcentagem = 100 - jogador.porcentagem;
+                jogador.porcentagem = jogador.porcentagem.toPrecision(2);
+
+                jogador.manaPorcentagem = parseInt(jogador.manaPorcentagem) + parseInt(jogador.porcentagem);
+            }
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${Math.round(jogador.manaBase * 0.25)} de mana`);
+
+            jogadorCombateHud();
+
+            if (buffElfoTrueFalse == true) {
+                magiaDanoGeral.danoCombate -= danoPoderElfo;
+                buffElfoTrueFalse.jogador = false;
+            }
+        }
+        /*-----*/
         /*-PODER ORC-*/
         if (buffOrc == true) {
+            if (jogador.energiaCombate + Math.round(jogador.energiaBase * 0.25) > jogador.energiaBase) {
+                jogador.energiaCombate = jogador.energiaBase;
+                jogador.energiaPorcentagem = 100;
+
+            } else {
+                jogador.energiaCombate += Math.round(jogador.energiaBase * 0.25);
+
+                jogador.porcentagem = 100 - ((Math.round(jogador.energiaBase * 0.25) / jogador.energiaBase) * 100);
+                jogador.porcentagem = 100 - jogador.porcentagem;
+                jogador.porcentagem = jogador.porcentagem.toPrecision(2);
+
+                jogador.energiaPorcentagem = parseInt(jogador.energiaPorcentagem) + parseInt(jogador.porcentagem);
+            }
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${Math.round(jogador.energiaBase * 0.25)} de energia`);
+
+            jogadorCombateHud();
+
             if (buffOrcTrueFalse == true) {
                 armaGeral.danoCombate -= danoPoderOrc;
                 buffOrcTrueFalse.jogador = false;
             }
+        }
+        /*-----*/
+        /*-PODER VAMPIRO-*/
+        if (buffVampiro == true) {
+            if (jogador.vidaCombate + Math.round(jogador.vidaBase * 0.20) > jogador.vidaBase) {
+                jogador.vidaCombate = jogador.vidaBase;
+                jogador.vidaPorcentagem = 100;
+
+            } else {
+                jogador.vidaCombate += Math.round(jogador.vidaBase * 0.20);
+
+                jogador.porcentagem = 100 - ((Math.round(jogador.vidaBase * 0.20) / jogador.vidaBase) * 100)
+                jogador.porcentagem = 100 - jogador.porcentagem
+                jogador.porcentagem = jogador.porcentagem.toPrecision(2)
+
+                jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) + parseInt(jogador.porcentagem)
+            }
+            inimigoAtingidoDano(Math.round(inimigoGeral.vidaBase * 0.20));
+            inimigoCombateHud();
+
+            legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${Math.round(jogador.vidaBase * 0.20)} de vida`);
+            legendaView.insertAdjacentHTML('beforeend', `<br>${inimigoGeral.nome} perdeu ${Math.round(inimigoGeral.vidaBase * 0.20)} de vida`);
+
+            jogadorCombateHud();
         }
         /*-----*/
         /*-CASO O JOGADOR PERCA-*/
@@ -307,11 +384,9 @@ function fimBuffDebuff() {
             sangramentoDano = inimigoGeral.vidaBase * 0.10;
             sangramentoDano = Math.round(sangramentoDano);
             inimigoAtingidoDano(sangramentoDano);
+            inimigoCombateHud();
 
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${sangramentoDano} de vida por causa do sangramento`);
-
-            jogadorCombateHud();
-            inimigoCombateHud();
 
             if (debuffSangramentoTrueFalse.inimigo == true) {
                 armaGeral.danoCombate -= debuffSangramentoVal;
@@ -324,11 +399,9 @@ function fimBuffDebuff() {
             venenoDano = inimigoGeral.vidaBase * 0.20;
             venenoDano = Math.round(venenoDano);
             inimigoAtingidoDano(venenoDano);
+            inimigoCombateHud();
 
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${venenoDano} de vida por causa do veneno`);
-
-            jogadorCombateHud();
-            inimigoCombateHud();
         }
         /*-----*/
         /*-DEBUFF CHAMAS-*/
@@ -336,11 +409,9 @@ function fimBuffDebuff() {
             chamasDano = inimigoGeral.vidaBase * 0.10;
             chamasDano = Math.round(chamasDano);
             inimigoAtingidoDano(chamasDano);
+            inimigoCombateHud();
 
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${chamasDano} de vida por causa das chamas`);
-
-            jogadorCombateHud();
-            inimigoCombateHud();
 
             if (debuffChamasTrueFalse.inimigo == true) {
                 inimigoArmaGeral.danoCombate += debuffChamasVal;
@@ -489,12 +560,15 @@ function definirEstatisticaGeral() {
     inimigoGeral.porcentagem = 0, inimigoGeral.vidaPorcentagem = 100, inimigoGeral.energiaPorcentagem = 100, inimigoGeral.manaPorcentagem = 100;
     inimigoArmaGeral.danoCombate = inimigoArmaGeral.danoBase
 
-
+    poderUtilizado = false;
+    buffElfo = false;
+    buffOrc = false;
+    buffVampiro = false;
 
     legendaView.innerHTML = ``;
     voltarMovesetInicio()
     rodada = 0;
-    jogadorGeralDerrotado = false ,inimigoGeralDerrotado = false
+    jogadorGeralDerrotado = false, inimigoGeralDerrotado = false
 
     rodadaBuffDanoMax.jogador = 0, rodadaBuffDanoMax.inimigo = 0
     rodadaBuffVidaRegenMax.jogador = 0, rodadaBuffVidaRegenMax.inimigo = 0

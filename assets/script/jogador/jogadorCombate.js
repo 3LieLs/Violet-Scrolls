@@ -267,8 +267,8 @@ function movesetOutrosEscolhaClick() {
 
 function poderClick() {
     if (vezUsuario == false) {
-        movesetOutrosEscolhaClick();
-        console.log(`Calma ${jogador.nome}, espere a sua vez`);
+        movesetOutrosEscolhaClick()
+        console.log(`Calma ${jogador.nome}, espere a sua vez`)
     }
 
     if (vezUsuario == true) {
@@ -279,8 +279,8 @@ function poderClick() {
 
 function pocoesClick() {
     if (vezUsuario == false) {
-        movesetOutrosEscolhaClick();
-        console.log(`Calma ${jogador.nome}, espere a sua vez`);
+        movesetOutrosEscolhaClick()
+        console.log(`Calma ${jogador.nome}, espere a sua vez`)
     }
 
     if (vezUsuario == true) {
@@ -291,8 +291,8 @@ function pocoesClick() {
 
 function fugirClick() {
     if (vezUsuario == false) {
-        movesetOutrosEscolhaClick();
-        console.log(`Calma ${jogador.nome}, espere a sua vez`);
+        movesetOutrosEscolhaClick()
+        console.log(`Calma ${jogador.nome}, espere a sua vez`)
     }
 
     if (vezUsuario == true) {

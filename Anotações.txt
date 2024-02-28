@@ -7,7 +7,6 @@ tentar colocar imagem nos  botões de ação
 mudar a cor dos botões caso sem mana ou energia
 
 Colocar poções para comprar e suas funcionalidades
-Colocar poderes para cada raça
 Fazer efeito de jogador atingido
 
 Fazer a recuperacao de vida energia e mana universal igual o dano
