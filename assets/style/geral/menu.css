@@ -468,8 +468,13 @@
     background-color: black;
     color: red;
     border-radius: 1px;
+    transition: 0.3s;
 }
 
+#menuItensEquipamentosDisplay>section>input:hover {
+    background-color: gray;
+    cursor: pointer;
+}
 
 /*-----*/
 #menuItensMagiasDisplay>section>p {
@@ -481,6 +486,12 @@
     background-color: black;
     color: blue;
     border-radius: 1px;
+    transition: 0.3s;
+}
+
+#menuItensMagiasDisplay>section>input:hover {
+    background-color: gray;
+    cursor: pointer;
 }
 
 /*-----*/
@@ -493,6 +504,12 @@
     background-color: black;
     color: darkgray;
     border-radius: 1px;
+    transition: 0.3s;
+}
+
+#menuItensPocoesDisplay>section>input:hover {
+    background-color: gray;
+    cursor: pointer;
 }
 
 /*-----*/

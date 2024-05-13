@@ -12,8 +12,8 @@ var poderUtilizado = false;
 var racaHumano =
 {
     nome: 'Humano', buff: '', poder: 'Nenhum', fraqueza: 'Nenhuma', resistencia: 'Nenhuma',
-    vidaBase: 20, manaBase: 20, energiaBase: 20,
-    vidaCombate: 20, manaCombate: 20, energiaCombate: 20,
+    vidaBase: 200, manaBase: 20, energiaBase: 20,
+    vidaCombate: 200, manaCombate: 20, energiaCombate: 20,
 }
 /*-PODER HUMANO-*/
 var rodadaPoderHumanoMax = 0, buffHumano = false;

@@ -19,20 +19,20 @@
 /*-SCROLL BAR-*/
 /* width */
 ::-webkit-scrollbar {
-    width: 0px;
+    width: 5px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    visibility: hidden;
+    background: rgb(20, 20, 20);
+    visibility: visible;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: black;
-    width: 0px;
-    visibility: hidden;
+    width: 5px;
+    visibility: visible;
 }
 
 /* Handle on hover */
