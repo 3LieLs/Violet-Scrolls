@@ -17,7 +17,7 @@ var mordidaCortante =
     nome: 'Mordida cortante',
 
     danoBase: 25, danoCombate: 25, tipoDano: 'Físico',
-    debuff: 'sangramento', chance: 30, duracao: 2,
+    debuff: 'sangramento', chance: 20, duracao: 2,
 
     energiaCusto: 20, energiaCustoCombate: 20, manaCusto: 0, manaCustoCombate: 0,
 }
@@ -27,7 +27,7 @@ var soproFlamejante =
     nome: 'Sopro flamejante', val: 'soproFlamejante',
 
     danoBase: 40, danoCombate: 40, tipoDano: 'Fogo',
-    debuff: 'chamas', chance: 25, duracao: 3,
+    debuff: 'chamas', chance: 0, duracao: 3,
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15,
 }
@@ -61,10 +61,10 @@ function iniciarDragaoCombate() {
 function DragaoAtaque() {
     let random = Math.floor(Math.random() * 100) + 0
 
-    if (random <= 25) {
+    if (random <= 20) {
         inimigoArmaGeral = soproFlamejante;
     }
-    if (random > 25) {
+    if (random > 20) {
         inimigoArmaGeral = mordidaCortante;
     }
 

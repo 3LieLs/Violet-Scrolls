@@ -4,7 +4,7 @@ var adaga =
     nome: 'Adaga', val: 'adaga', obtido: false, peso: 0, preco: 3,
 
     danoBase: 4, danoCombate: 4, tipoDano: 'Físico',
-    debuff: 'sangramento', chance: 100, duracao: 3,
+    debuff: 'sangramento', chance: 50, duracao: 3,
 
     energiaCusto: 2, energiaCustoCombate: 2, manaCusto: 0, manaCustoCombate: 0,
 }

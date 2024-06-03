@@ -9,4 +9,5 @@ mudar a cor dos botões caso sem mana ou energia
 Colocar poções para comprar e suas funcionalidades
 Fazer efeito de jogador atingido
 
-Fazer a recuperacao de vida energia e mana universal igual o dano
+Colocar sistema de defesa da armadura e colocar o sistema de recuperação como porcentagem
+Fazer buff de defesa

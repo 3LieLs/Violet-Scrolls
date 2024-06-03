@@ -20,36 +20,39 @@ function fimRodada() {
 /*-BUFF E DEBUFF INIMIGO/JOGADOR-*/
 function inicioBuffDebuff() {
     /*-JOGADOR-*//*-JOGADOR-*//*-JOGADOR-*/
-    /*-BUFF DANO-*/
-    aplicarBuffDano(rodadaBuffDanoMax.jogador, buffDano.jogador, buffDanoTrueFalse.jogador, armaGeral)
-    /*-----*/
     /*-BUFF VIDA REGEN-*/
-    if (rodada == rodadaBuffVidaRegenMax.jogador) {
-        buffVidaRegen.jogador = false;
-    }
+    aplicarBuffVidaRegenJogador()
+    aplicarBuffVidaRegenInimigo()
     /*-----*/
 
-     /*-DEBUFF VENENO-*/
-     if (rodada == rodadaDebuffVenenoMax.jogador) {
-        debuffVeneno.jogador = false;
-    }
+    /*-BUFF DANO-*/
+    aplicarBuffDanoJogador()
+    aplicarBuffDanoInimigo()
+    /*-----*/
+
+    /*-DEBUFF VENENO-*/
+    aplicarDebuffVenenoJogador()
+    aplicarDebuffVenenoInimigo()
     /*-----*/
 
     /*-DEBUFF SANGRAMENTO-*/
-    aplicarDebuffSangramento(rodadaDebuffSangramentoMax.jogador, debuffSangramento.jogador, debuffSangramentoTrueFalse.jogador, armaGeral)
-    aplicarDebuffSangramento(rodadaDebuffSangramentoMax.inimigo, debuffSangramento.inimigo, debuffSangramentoTrueFalse.inimigo, inimigoArmaGeral)
+    aplicarDebuffSangramentoJogador()
+    aplicarDebuffSangramentoInimigo()
     /*-----*/
+
     /*-DEBUFF CHAMAS-*/
-    aplicarDebuffChamas(rodadaDebuffChamasMax.jogador, debuffChamas.jogador, debuffChamasTrueFalse.jogador, armaGeral)
-    aplicarDebuffChamas(rodadaDebuffChamasMax.inimigo, debuffChamas.inimigo, debuffChamasTrueFalse.inimigo, inimigoArmaGeral)
+    aplicarDebuffChamasJogador()
+    aplicarDebuffChamasInimigo()
     /*-----*/
-    /*-DEBUFF CONGELADO-*/
-    aplicarDebuffCongelamento(rodadaDebuffCongelamentoMax.jogador, debuffCongelamento.jogador, debuffCongelamentoTrueFalse.jogador, armaGeral)
-    aplicarDebuffCongelamento(rodadaDebuffCongelamentoMax.inimigo, debuffCongelamento.inimigo, debuffCongelamentoTrueFalse.inimigo, inimigoArmaGeral)
+
+    /*-DEBUFF CONGELAMNETO-*/
+    aplicarDebuffCongelamentoJogador()
+    aplicarDebuffCongelamentoInimigo()
     /*-----*/
+
     /*-DEBUFF ELETRICIDADE-*/
-    aplicarDebuffEletricidade(rodadaDebuffEletricidadeMax.jogador, debuffEletricidade.jogador, debuffEletricidadeTrueFalse.jogador, armaGeral, magiaDanoGeral, magiaRecuperacaoGeral, magiaBuffGeral)
-    aplicarDebuffEletricidade(rodadaDebuffEletricidadeMax.inimigo, debuffEletricidade.inimigo, debuffEletricidadeTrueFalse.inimigo, inimigoArmaGeral, 'x', 'x', 'x')
+    aplicarDebuffEletricidadeJogador()
+    aplicarDebuffEletricidadeInimigo()
     /*-----*/
 
     /*-PODER ELFO-*/
@@ -62,52 +65,44 @@ function inicioBuffDebuff() {
     aplicarPoderVampiro()
     /*-----*/
     /*-----*//*-----*//*-----*//*-----*/
-
-    /*-DEBUFF VENENO-*/
-    if (rodada == rodadaDebuffVenenoMax.inimigo) {
-        debuffVeneno.inimigo = false;
-    }
-    /*-----*/
-
 }
 /*-----*/
 function fimBuffDebuff() {
     /*-JOGADOR-*//*-JOGADOR-*//*-JOGADOR-*/
     if (jogadorGeralDerrotado == false) {
         /*-BUFF VIDA REGEN-*/
-        if (buffVidaRegen.jogador == true) {
-            if (jogador.vidaCombate + vidaGanha > jogador.vidaBase) {
-                jogador.vidaCombate = jogador.vidaBase;
-                jogador.vidaPorcentagem = 100;
-
-            } else {
-                jogador.vidaCombate += vidaGanha;
-
-                jogador.porcentagem = 100 - ((vidaGanha / jogador.vidaBase) * 100)
-                jogador.porcentagem = 100 - jogador.porcentagem
-                jogador.porcentagem = jogador.porcentagem.toPrecision(2)
-
-                jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) + parseInt(jogador.porcentagem)
-            }
-            legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${vidaGanha} de vida`);
-
-            jogadorCombateHud();
-        }
+       desaplicarBuffVidaRegenJogador()
+       desaplicarBuffVidaRegenInimigo()
         /*-----*/
+
         /*-BUFF DANO-*/
-        desaplicarBuffDano(buffDano.jogador, buffDanoTrueFalse.jogador, armaGeral)
+        desaplicarBuffDanoJogador()
+        desaplicarBuffDanoInimigo()
         /*-----*/
+
         /*-DEBUFF SANGRAMENTO-*/
-        desaplicarDebuffSangramento(debuffSangramento.jogador, debuffSangramentoTrueFalse.jogador, jogador.nome, jogador.vidaBase, armaGeral, jogadorAtingidoDano)
+        desaplicarDebuffSangramentoJogador()
+        desaplicarDebuffSangramentoInimigo()
         /*-----*/
+
+        /*-DEBUFF VENENO-*/
+        desaplicarDebuffVenenoJogador()
+        desaplicarDebuffVenenoInimigo()
+        /*-----*/
+
         /*-DEBUFF CHAMAS-*/
-        desaplicarDebuffChamas(debuffChamas.jogador, debuffChamasTrueFalse.jogador, jogador.nome, jogador.vidaBase, armaGeral, jogadorAtingidoDano)
+        desaplicarDebuffChamasJogador()
+        desaplicarDebuffChamasInimigo()
         /*-----*/
-        /*-DEBUFF CONGELADO-*/
-        desaplicarDebuffCongelamento(debuffCongelamento.jogador, debuffCongelamentoTrueFalse.jogador, jogador.nome, armaGeral)
+
+        /*-DEBUFF CONGELAMENTO-*/
+        desaplicarDebuffCongelamentoJogador()
+        desaplicarDebuffCongelamentoInimigo()
         /*-----*/
+
         /*-DEBUFF ELETRICIDADE-*/
-        desaplicarDebuffEletricidade(debuffEletricidade.jogador, debuffEletricidadeTrueFalse.jogador, jogador.nome, armaGeral, magiaDanoGeral, magiaRecuperacaoGeral, magiaBuffGeral)
+        desaplicarDebuffEletricidadeJogador()
+        desaplicarDebuffEletricidadeInimigo()
         /*-----*/
 
         /*-PODER ELFO-*/
@@ -131,20 +126,7 @@ function fimBuffDebuff() {
 
     /*-INIMIGO-*//*-INIMIGO-*//*-INIMIGO-*/
     if (inimigoGeralDerrotado == false) {
-        /*-DEBUFF SANGRAMENTO-*/
-        desaplicarDebuffSangramento(debuffSangramento.inimigo, debuffSangramentoTrueFalse.inimigo, inimigoGeral.nome, inimigoGeral.vidaBase, inimigoGeral.armaGeral, inimigoAtingidoDano)
-        /*-----*/
-        /*-DEBUFF CHAMAS-*/
-        desaplicarDebuffChamas(debuffChamas.inimigo, debuffChamasTrueFalse.inimigo, inimigoGeral.nome, inimigoGeral.vidaBase, inimigoGeral.armaGeral, inimigoAtingidoDano)
-        /*-----*/
-        /*-DEBUFF CONGELADO-*/
-        desaplicarDebuffCongelamento(debuffCongelamento.inimigo, debuffCongelamentoTrueFalse.inimigo, inimigoGeral.nome, inimigoGeral.armaGeral)
-        /*-----*/
-        /*-DEBUFF ELETRICIDADE-*/
-        desaplicarDebuffEletricidade(debuffEletricidade.inimigo, debuffEletricidadeTrueFalse.inimigo, inimigoGeral.nome, inimigoGeral.armaGeral, 'x', 'x', 'x')
-        /*-----*/
 
-        /*-----*/
         /*-CASO O INIMIGO PERCA-*/
         if (inimigoGeral.vidaCombate <= 0) {
             inimigoGeral.vidaCombate = 0;
