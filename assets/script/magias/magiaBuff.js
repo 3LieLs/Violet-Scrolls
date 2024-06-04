@@ -13,6 +13,7 @@ var
 var
     buffVidaRegen = { jogador: false, inimigo: false, },
     buffDano = { jogador: false, inimigo: false, },
+    buffDefesa = { jogador: false, inimigo: false, },
     debuffSangramento = { jogador: false, inimigo: false, },
     debuffVeneno = { jogador: false, inimigo: false, },
     debuffChamas = { jogador: false, inimigo: false, },
@@ -118,5 +119,49 @@ function adicionarEsferasDaVida() {
     addItemVal = esferasDaVida.val;
     addItemNome = esferasDaVida.nome;
     funcaoEquip = equipEsferasDaVida;
+}
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+var armaduraMagica =
+{
+    nome: 'Armadura mágica', obtido: false, val: 'armaduraMagica', preco: 7,
+
+    buff: 'defesa', duracao: 3,
+    defesaBuff: 0.15,
+
+    energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15,
+}
+/*-----*/
+function equipArmaduraMagica() {
+    if (magiaBuffGeral == 'Nenhuma') {
+        magiaBuffGeral = armaduraMagica;
+        equiparItemSlotarmaduraMagica.value = 'Desequip'
+        equiparItemSlotarmaduraMagica.removeEventListener('click', equipArmaduraMagica)
+        equiparItemSlotarmaduraMagica.addEventListener('click', desequipArmaduraMagica)
+    }
+
+    if (mudarMagiasBuff == true) {
+        atualizarItensMagiasBuff();
+    }
+}
+function desequipArmaduraMagica() {
+    magiaBuffGeral = 'Nenhuma';
+
+    if (mudarMagiasBuff == true) {
+        atualizarItensMagiasBuff();
+    }
+
+    equiparItemSlotarmaduraMagica.value = 'Equip'
+    equiparItemSlotarmaduraMagica.removeEventListener('click', desequipArmaduraMagica)
+    equiparItemSlotarmaduraMagica.addEventListener('click', equipArmaduraMagica)
+}
+/*-----*/
+function adicionarArmaduraMagica() {
+    armaduraMagica.obtido = true;
+    addItemTipo = 'magia';
+    addItemVal = armaduraMagica.val;
+    addItemNome = armaduraMagica.nome;
+    funcaoEquip = equipArmaduraMagica;
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/

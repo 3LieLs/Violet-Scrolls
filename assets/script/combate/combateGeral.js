@@ -21,38 +21,43 @@ function fimRodada() {
 function inicioBuffDebuff() {
     /*-JOGADOR-*//*-JOGADOR-*//*-JOGADOR-*/
     /*-BUFF VIDA REGEN-*/
-    aplicarBuffVidaRegenJogador()
-    aplicarBuffVidaRegenInimigo()
+    aplicarBuffVidaRegen('jogador')
+    aplicarBuffVidaRegen('inimigo')
     /*-----*/
 
     /*-BUFF DANO-*/
-    aplicarBuffDanoJogador()
-    aplicarBuffDanoInimigo()
+    aplicarBuffDano('jogador')
+    aplicarBuffDano('inimigo')
     /*-----*/
 
+     /*-BUFF DEFESA-*/
+     //aplicarBuffDefesa('jogador')
+     //aplicarBuffDefesa('inimigo')
+     /*-----*/
+
     /*-DEBUFF VENENO-*/
-    aplicarDebuffVenenoJogador()
-    aplicarDebuffVenenoInimigo()
+    aplicarDebuffVeneno('jogador')
+    aplicarDebuffVeneno('inimigo')
     /*-----*/
 
     /*-DEBUFF SANGRAMENTO-*/
-    aplicarDebuffSangramentoJogador()
-    aplicarDebuffSangramentoInimigo()
+    aplicarDebuffSangramento('jogador')
+    aplicarDebuffSangramento('inimigo')
     /*-----*/
 
     /*-DEBUFF CHAMAS-*/
-    aplicarDebuffChamasJogador()
-    aplicarDebuffChamasInimigo()
+    aplicarDebuffChamas('jogador')
+    aplicarDebuffChamas('inimigo')
     /*-----*/
 
     /*-DEBUFF CONGELAMNETO-*/
-    aplicarDebuffCongelamentoJogador()
-    aplicarDebuffCongelamentoInimigo()
+    aplicarDebuffCongelamento('jogador')
+    aplicarDebuffCongelamento('inimigo')
     /*-----*/
 
     /*-DEBUFF ELETRICIDADE-*/
-    aplicarDebuffEletricidadeJogador()
-    aplicarDebuffEletricidadeInimigo()
+    aplicarDebuffEletricidade('jogador')
+    aplicarDebuffEletricidade('inimigo')
     /*-----*/
 
     /*-PODER ELFO-*/
@@ -71,38 +76,43 @@ function fimBuffDebuff() {
     /*-JOGADOR-*//*-JOGADOR-*//*-JOGADOR-*/
     if (jogadorGeralDerrotado == false) {
         /*-BUFF VIDA REGEN-*/
-        desaplicarBuffVidaRegenJogador()
-        desaplicarBuffVidaRegenInimigo()
+        desaplicarBuffVidaRegen('jogador')
+        desaplicarBuffVidaRegen('inimigo')
         /*-----*/
 
         /*-BUFF DANO-*/
-        desaplicarBuffDanoJogador()
-        desaplicarBuffDanoInimigo()
+        desaplicarBuffDano('jogador')
+        desaplicarBuffDano('inimigo')
+        /*-----*/
+
+        /*-BUFF DEFESA-*/
+        //desaplicarBuffDefesa('jogador')
+        //desaplicarBuffDefesa('inimigo')
         /*-----*/
 
         /*-DEBUFF SANGRAMENTO-*/
-        desaplicarDebuffSangramentoJogador()
-        desaplicarDebuffSangramentoInimigo()
+        desaplicarDebuffSangramento('jogador')
+        desaplicarDebuffSangramento('inimigo')
         /*-----*/
 
         /*-DEBUFF VENENO-*/
-        desaplicarDebuffVenenoJogador()
-        desaplicarDebuffVenenoInimigo()
+        desaplicarDebuffVeneno('jogador')
+        desaplicarDebuffVeneno('inimigo')
         /*-----*/
 
         /*-DEBUFF CHAMAS-*/
-        desaplicarDebuffChamasJogador()
-        desaplicarDebuffChamasInimigo()
+        desaplicarDebuffChamas('jogador')
+        desaplicarDebuffChamas('inimigo')
         /*-----*/
 
         /*-DEBUFF CONGELAMENTO-*/
-        desaplicarDebuffCongelamentoJogador()
-        desaplicarDebuffCongelamentoInimigo()
+        desaplicarDebuffCongelamento('jogador')
+        desaplicarDebuffCongelamento('inimigo')
         /*-----*/
 
         /*-DEBUFF ELETRICIDADE-*/
-        desaplicarDebuffEletricidadeJogador()
-        desaplicarDebuffEletricidadeInimigo()
+        desaplicarDebuffEletricidade('jogador')
+        desaplicarDebuffEletricidade('inimigo')
         /*-----*/
 
         /*-PODER ELFO-*/

@@ -8,7 +8,7 @@ Combate:
     --> Adicionar minigames nos golpes
     --> Tentar colocar imagem nos  botões de ação
     --> Mudar a cor dos botões caso sem mana ou energia
-    --> Fazer buff de defesa
+    --> Arrumar o buff de defesa
 
 Funcionalidades:
     --> Colocar poções para comprar e suas funcionalidades

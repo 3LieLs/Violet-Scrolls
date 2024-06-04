@@ -6,9 +6,15 @@ function magiaBuffUso() {
         buffDano.jogador = true
         rodadaBuffDanoMax.jogador = parseInt(rodada) + parseInt(magiaBuffGeral.duracao)
 
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${magiaBuffGeral.nome} aumentou o dano de ${jogador.nome} em ${danoGanho}`)
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${magiaBuffGeral.nome} aumentou o dano de ${jogador.nome} em ${Math.ceil(armaGeral.danobase * magiaBuffGeral.danoBuff)}`)
     }
 
+    if (magiaBuffGeral.buff == 'defesa') {
+        buffDefesa.jogador = true
+        rodadaBuffDefesaMax.jogador = parseInt(rodada) + parseInt(magiaBuffGeral.duracao)
+
+        legendaView.insertAdjacentHTML('beforeend', `<br><br>${magiaBuffGeral.nome} aumentou a defesa de ${jogador.nome} em ${Math.ceil(armaduraGeral.defesaBase + magiaBuffGeral.defesaBuff)}`)
+    }
 
     if (magiaBuffGeral.buff == 'vidaRegen') {
         buffVidaRegen.jogador = true;
