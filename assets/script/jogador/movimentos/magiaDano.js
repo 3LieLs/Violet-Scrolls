@@ -1,7 +1,7 @@
 /*-ATAQUE FRACO-*/
 function MagiaDanoUso() {
-    aplicarFraquezaResistenciaInimigo()
-    aplicarMissJogador()
+    aplicarFraquezaResistencia('inimigo')
+    aplicarMiss('jogador')
 
     /*-APLICAR DANO CASO ACERTO-*/
     if (missJogador == true) {
@@ -61,8 +61,8 @@ function MagiaDanoUso() {
     }
     /*-----*/
 
-    desaplicarFraquezaResistenciaInimigo()
-    desaplicarMissJogador()
+    desaplicarFraquezaResistencia('inimigo')
+    desaplicarMiss('jogador')
 
     jogadorCombateHud()
     inimigoCombateHud()

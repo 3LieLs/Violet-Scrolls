@@ -85,8 +85,9 @@ function inimigoAtaque() {
 function inimigoAtaqueAto() {
     if (inimigoGeral.energiaCombate - inimigoArmaGeral.energiaCustoCombate >= 0 && inimigoGeral.manaCombate - inimigoArmaGeral.manaCustoCombate >= 0) {
         aplicarFraquezaResistenciaJogador();
-        aplicarCriticoInimigo();
-        aplicarMissInimigo();
+        aplicarCriticoInimigo('inimigo');
+        aplicarMiss('inimigo');
+        aplicarDefesa('jogador')
 
         /*-APLICAR DANO CASO ACERTO-*/
         if (missInimigo == true) {
@@ -118,8 +119,9 @@ function inimigoAtaqueAto() {
         /*-----*/
 
         desaplicarFraquezaResistenciaJogador();
-        desaplicarCriticoInimigo();
-        desaplicarMissInimigo();
+        desaplicarCritico('inimigo');
+        desaplicarMiss('inimigo');
+        desaplicarDefesa('jogador')
 
 
         /*-DESCONTAR ENERGIA/MANA-*/
@@ -187,59 +189,7 @@ function inimigoAtaqueAto() {
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
-/*-----*//*-----*//*-----*//*-----*//*-----*/
-/*-VERIFICAR FRAQUEZA/RESISTENCIA DO JOGADOR-*/
-function aplicarFraquezaResistenciaJogador() {
-    if (racaGeral.fraqueza == inimigoArmaGeral.tipoDano) {
-        let aumentarDano = inimigoArmaGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        inimigoArmaGeral.danoCombate += aumentarDano
-    }
-    if (racaGeral.fraqueza == magiaDanoGeral.tipoDano) {
-        let aumentarDano = magiaDanoGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        magiaDanoGeral.danoCombate += aumentarDano
-    }
-    if (racaGeral.resistencia == inimigoArmaGeral.tipoDano) {
-        let aumentarDano = inimigoArmaGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        inimigoArmaGeral.danoCombate -= aumentarDano
-    }
-    if (racaGeral.resistencia == magiaDanoGeral.tipoDano) {
-        let aumentarDano = magiaDanoGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        magiaDanoGeral.danoCombate -= aumentarDano
-    }
-}
-/*-----*/
-function desaplicarFraquezaResistenciaJogador() {
-    /*-----*/
-    if (racaGeral.fraqueza == inimigoArmaGeral.tipoDano) {
-        let aumentarDano = inimigoArmaGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        inimigoArmaGeral.danoCombate -= aumentarDano
-    }
-    /*-----*/
-    if (racaGeral.fraqueza == magiaDanoGeral.tipoDano) {
-        let aumentarDano = magiaDanoGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        magiaDanoGeral.danoCombate -= aumentarDano
-    }
-    /*-----*/
-    if (racaGeral.resistencia == inimigoArmaGeral.tipoDano) {
-        let aumentarDano = inimigoArmaGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        inimigoArmaGeral.danoCombate += aumentarDano
-    }
-    /*-----*/
-    if (racaGeral.resistencia == magiaDanoGeral.tipoDano) {
-        let aumentarDano = magiaDanoGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        magiaDanoGeral.danoCombate += aumentarDano
-    }
-    /*-----*/
-}
-/*-----*//*-----*//*-----*//*-----*//*-----*/
+
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-VERIFICAR DEBUFF DA ARMA DO INIMIGO-*/

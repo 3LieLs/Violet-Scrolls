@@ -1,20 +1,22 @@
 /*-DESCANSAR-*/
 function descansoUso() {
-    if (jogador.energiaCombate + armaduraGeral.energiaRecuperacao > jogador.energiaBase) {
+    let recuperacaoEnergiaGeral = Math.ceil(jogador.energiaBase * armaduraGeral.energiaRecuperacao)
+
+    if (jogador.energiaCombate + recuperacaoEnergiaGeral > jogador.energiaBase) {
         jogador.energiaCombate = jogador.energiaBase;
         jogador.energiaPorcentagem = 100;
 
     } else {
-        jogador.energiaCombate = jogador.energiaCombate + armaduraGeral.energiaRecuperacao;
+        jogador.energiaCombate += recuperacaoEnergiaGeral;
 
-        jogador.porcentagem = 100 - ((armaduraGeral.energiaRecuperacao / jogador.energiaBase) * 100);
+        jogador.porcentagem = 100 - ((recuperacaoEnergiaGeral / jogador.energiaBase) * 100);
         jogador.porcentagem = 100 - jogador.porcentagem;
         jogador.porcentagem = jogador.porcentagem.toPrecision(2);
 
         jogador.energiaPorcentagem = parseInt(jogador.energiaPorcentagem) + parseInt(jogador.porcentagem);
     }
 
-    legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou Descanso<br>Energia recuperado: ${armaduraGeral.energiaRecuperacao}`);
+    legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou Descanso<br>Energia recuperado: ${recuperacaoEnergiaGeral}`);
 
     jogadorCombateHud();
     inimigoCombateHud();

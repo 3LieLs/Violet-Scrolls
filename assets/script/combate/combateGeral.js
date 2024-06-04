@@ -71,8 +71,8 @@ function fimBuffDebuff() {
     /*-JOGADOR-*//*-JOGADOR-*//*-JOGADOR-*/
     if (jogadorGeralDerrotado == false) {
         /*-BUFF VIDA REGEN-*/
-       desaplicarBuffVidaRegenJogador()
-       desaplicarBuffVidaRegenInimigo()
+        desaplicarBuffVidaRegenJogador()
+        desaplicarBuffVidaRegenInimigo()
         /*-----*/
 
         /*-BUFF DANO-*/
@@ -141,40 +141,151 @@ function fimBuffDebuff() {
 
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
+/*-APLICAR/DESAPLICAR FRAQUEZA/RESISTÊNCIA-*/
+function aplicarFraquezaResistencia(user) {
+    if (user == 'jogador') {
+        if (racaGeral.fraqueza == inimigoArmaGeral.tipoDano) {
+            let aumentarDano = inimigoArmaGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            inimigoArmaGeral.danoCombate += aumentarDano
+        }
+        if (racaGeral.fraqueza == magiaDanoGeral.tipoDano) {
+            let aumentarDano = magiaDanoGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            magiaDanoGeral.danoCombate += aumentarDano
+        }
+        if (racaGeral.resistencia == inimigoArmaGeral.tipoDano) {
+            let aumentarDano = inimigoArmaGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            inimigoArmaGeral.danoCombate -= aumentarDano
+        }
+        if (racaGeral.resistencia == magiaDanoGeral.tipoDano) {
+            let aumentarDano = magiaDanoGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            magiaDanoGeral.danoCombate -= aumentarDano
+        }
+    }
+
+
+    if (user == 'inimigo') {
+        if (inimigoGeral.fraqueza == armaGeral.tipoDano) {
+            let aumentarDano = armaGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            armaGeral.danoCombate += aumentarDano
+        }
+        if (inimigoGeral.fraqueza == magiaDanoGeral.tipoDano) {
+            let aumentarDano = magiaDanoGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            magiaDanoGeral.danoCombate += aumentarDano
+        }
+
+
+        if (inimigoGeral.resistencia == armaGeral.tipoDano) {
+            let aumentarDano = armaGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            armaGeral.danoCombate -= aumentarDano
+        }
+        if (inimigoGeral.resistencia == magiaDanoGeral.tipoDano) {
+            let aumentarDano = magiaDanoGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            magiaDanoGeral.danoCombate -= aumentarDano
+        }
+    }
+}
+/*-----*/
+function desaplicarFraquezaResistencia(user) {
+    if (user == 'jogador') {
+        if (racaGeral.fraqueza == inimigoArmaGeral.tipoDano) {
+            let aumentarDano = inimigoArmaGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            inimigoArmaGeral.danoCombate -= aumentarDano
+        }
+        /*-----*/
+        if (racaGeral.fraqueza == magiaDanoGeral.tipoDano) {
+            let aumentarDano = magiaDanoGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            magiaDanoGeral.danoCombate -= aumentarDano
+        }
+        /*-----*/
+        if (racaGeral.resistencia == inimigoArmaGeral.tipoDano) {
+            let aumentarDano = inimigoArmaGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            inimigoArmaGeral.danoCombate += aumentarDano
+        }
+        /*-----*/
+        if (racaGeral.resistencia == magiaDanoGeral.tipoDano) {
+            let aumentarDano = magiaDanoGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            magiaDanoGeral.danoCombate += aumentarDano
+        }
+        /*-----*/
+    }
+
+    if (user == 'inimigo') {
+        if (inimigoGeral.fraqueza == armaGeral.tipoDano) {
+            let aumentarDano = armaGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            armaGeral.danoCombate -= aumentarDano
+        }
+        if (inimigoGeral.fraqueza == magiaDanoGeral.tipoDano) {
+            let aumentarDano = magiaDanoGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            magiaDanoGeral.danoCombate -= aumentarDano
+        }
+
+
+        if (inimigoGeral.resistencia == armaGeral.tipoDano) {
+            let aumentarDano = armaGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            armaGeral.danoCombate += aumentarDano
+        }
+        if (inimigoGeral.resistencia == magiaDanoGeral.tipoDano) {
+            let aumentarDano = magiaDanoGeral.danoBase * 0.15
+            aumentarDano = Math.round(aumentarDano)
+            magiaDanoGeral.danoCombate += aumentarDano
+        }
+    }
+}
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+
+
+
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-CALCULO CRÍTICO-*/
 var danoCritico = 0, chanceCriticoJogador = 5, chanceCriticoInimigo = 5, criticoJogador = false, criticoInimigo = false;
-/*-JOGADOR-*/
-function aplicarCriticoJogador() {
-    let x = Math.floor(Math.random() * 100) + 0;
+function aplicarCritico(user) {
+    if (user == 'jogador') {
+        let x = Math.floor(Math.random() * 100) + 0;
+        if (x <= chanceCriticoJogador) {
+            criticoJogador = true;
+            danoCritico = armaGeral.danoBase * 0.5;
+            danoCritico = Math.round(danoCritico);
+            armaGeral.danoCombate += danoCritico;
+        }
+    }
+    if (user == 'inimigo') {
+        let x = Math.floor(Math.random() * 100) + 0;
+        if (x <= chanceCriticoInimigo) {
+            criticoInimigo = true
+            danoCritico = inimigoArmaGeral.danoBase * 0.5;
+            danoCritico = Math.round(danoCritico);
+            inimigoArmaGeral.danoCombate += danoCritico;
+        }
+    }
+}
 
-    if (x <= chanceCriticoJogador) {
-        criticoJogador = true;
-        danoCritico = armaGeral.danoBase * 0.5;
-        danoCritico = Math.round(danoCritico);
-        armaGeral.danoCombate += danoCritico;
+function desaplicarCritico(user) {
+    if (user == 'jogador') {
+        if (criticoJogador == true) {
+            criticoJogador = false;
+            armaGeral.danoCombate -= danoCritico;
+        }
     }
-}
-function desaplicarCriticoJogador() {
-    if (criticoJogador == true) {
-        criticoJogador = false;
-        armaGeral.danoCombate -= danoCritico;
-    }
-}
-/*-INIMIGO-*/
-function aplicarCriticoInimigo() {
-    let x = Math.floor(Math.random() * 100) + 0;
-
-    if (x <= chanceCriticoInimigo) {
-        criticoInimigo = true
-        danoCritico = inimigoArmaGeral.danoBase * 0.5;
-        danoCritico = Math.round(danoCritico);
-        inimigoArmaGeral.danoCombate += danoCritico;
-    }
-}
-function desaplicarCriticoInimigo() {
-    if (criticoInimigo == true) {
-        criticoInimigo = false
-        inimigoArmaGeral.danoCombate -= danoCritico;
+    if (user == 'inimigo') {
+        if (criticoInimigo == true) {
+            criticoInimigo = false
+            inimigoArmaGeral.danoCombate -= danoCritico;
+        }
     }
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
@@ -184,38 +295,40 @@ function desaplicarCriticoInimigo() {
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-CALCULO ERRO GOLPE-*/
 var danoMiss = 0, danoMagiaMiss = 0, chanceMissJogador = 5, chanceMissInimigo = 5, missJogador = false, missInimigo = false;
-/*-JOGADOR-*/
-function aplicarMissJogador() {
-    let x = Math.floor(Math.random() * 100) + 0;
-    if (x <= chanceMissJogador) {
-        missJogador = true;
-        danoMiss = armaGeral.danoCombate;
-        armaGeral.danoCombate -= danoMiss;
-        danoMagiaMiss = magiaDanoGeral.danoCombate;
-        magiaDanoGeral.danoCombate -= danoMagiaMiss;
+function aplicarMiss(user) {
+    if (user == 'jogador') {
+        let x = Math.floor(Math.random() * 100) + 0;
+        if (x <= chanceMissJogador) {
+            missJogador = true;
+            danoMiss = armaGeral.danoCombate;
+            armaGeral.danoCombate -= danoMiss;
+            danoMagiaMiss = magiaDanoGeral.danoCombate;
+            magiaDanoGeral.danoCombate -= danoMagiaMiss;
+        }
+    }
+    if (user == 'inimigo') {
+        let x = Math.floor(Math.random() * 100) + 0;
+        if (x <= chanceMissInimigo) {
+            missInimigo = true
+            danoMiss = inimigoArmaGeral.danoCombate;
+            inimigoArmaGeral.danoCombate -= danoMiss;
+        }
     }
 }
-function desaplicarMissJogador() {
-    if (missJogador == true) {
-        missJogador = false;
-        armaGeral.danoCombate += danoMiss;
-        magiaDanoGeral.danoCombate += danoMagiaMiss;
-    }
-}
-/*-INIMIGO-*/
-function aplicarMissInimigo() {
-    let x = Math.floor(Math.random() * 100) + 0;
 
-    if (x <= chanceMissInimigo) {
-        missInimigo = true
-        danoMiss = inimigoArmaGeral.danoCombate;
-        inimigoArmaGeral.danoCombate -= danoMiss;
+function desaplicarMiss(user) {
+    if (user == 'jogador') {
+        if (missJogador == true) {
+            missJogador = false;
+            armaGeral.danoCombate += danoMiss;
+            magiaDanoGeral.danoCombate += danoMagiaMiss;
+        }
     }
-}
-function desaplicarMissInimigo() {
-    if (missInimigo == true) {
-        missInimigo = false
-        inimigoArmaGeral.danoCombate += danoMiss;
+    if (user == 'inimigo') {
+        if (missInimigo == true) {
+            missInimigo = false
+            inimigoArmaGeral.danoCombate += danoMiss;
+        }
     }
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
@@ -224,14 +337,24 @@ function desaplicarMissInimigo() {
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-CALCULO DEFESA-*/
-function calculoDefesa() {
-    armaduraGeral.defesaCombate = (armaduraGeral.defesaCombate / (100 + parseInt(armaduraGeral.defesaCombate))) * 150;
-    armaduraGeral.defesaCombate = armaduraGeral.defesaCombate.toPrecision(3);
+function aplicarDefesa(user) {
+    if (user == 'jogador') {
+        inimigoArmaGeral.danoCombate -= Math.ceil(inimigoArmaGeral.danoBase * armaduraGeral.defesaCombate)
+    }
 
-    armaduraGeral.defesaCombate = (armaduraGeral.defesaCombate / 100) * inimigoGeral.danoCombate;
-    inimigoGeral.danoCombate = inimigoGeral.danoCombate - armaduraGeral.defesaCombate;
+    if (user == 'inimigo') {
 
-    inimigoGeral.danoCombate = Math.trunc(inimigoGeral.danoCombate);
+    }
+}
+
+function desaplicarDefesa(user) {
+    if (user == 'jogador') {
+        inimigoArmaGeral.danoCombate += Math.ceil(inimigoArmaGeral.danoBase * armaduraGeral.defesaCombate)
+    }
+
+    if (user == 'inimigo') {
+
+    }
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 

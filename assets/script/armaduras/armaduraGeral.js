@@ -14,6 +14,6 @@ var trajeSimples =
     nome: 'Traje simples', val: 'trajeSimples', obtido: false, peso: 0, preco: 0,
     defesaBase: 0, defesaCombate: 0, tipoDefesa: 'Nenhuma',
     buff: '',
-    manaRecuperacao: 20, energiaRecuperacao: 20,
+    manaRecuperacao: 1, energiaRecuperacao: 1,
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/

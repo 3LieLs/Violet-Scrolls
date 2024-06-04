@@ -1,8 +1,8 @@
 /*-ATAQUE FRACO-*/
 function contraAtaqueDano() {
-    aplicarFraquezaResistenciaInimigo()
-    aplicarCriticoJogador()
-    aplicarMissJogador()
+    aplicarFraquezaResistencia('inimigo')
+    aplicarCriticoJogador('jogador')
+    aplicarMiss('jogador')
 
     /*-APLICAR DANO CASO ACERTO-*/
     if (missJogador == true) {
@@ -69,9 +69,9 @@ function contraAtaqueDano() {
     }
     /*-----*/
 
-    desaplicarFraquezaResistenciaInimigo();
-    desaplicarCriticoJogador();
-    desaplicarMissJogador();
+    desaplicarFraquezaResistencia('inimigo');
+    desaplicarCritico('jogador');
+    desaplicarMiss('jogador');
 
     jogadorCombateHud();
     inimigoCombateHud();

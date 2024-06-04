@@ -2,8 +2,8 @@
 var tunicaBasica =
 {
     nome: 'Tunica básica', val: 'tunicaBasica', obtido: false, peso: 0, preco: 5,
-    defesaBase: 1, defesaCombate: 1, tipoDefesa: 'Mágico', buff: '',
-    energiaRecuperacao: 15, manaRecuperacao: 20,
+    defesaBase: 0, defesaCombate: 0, tipoDefesa: 'Mágico', buff: '',
+    energiaRecuperacao: 0.35, manaRecuperacao: 0.50,
 }
 /*-----*/
 function equipTunicaBasica() {
@@ -64,8 +64,8 @@ function tunicaBasicaVender() {
 var tunicaEspecialista =
 {
     nome: 'Tunica especialista', val: 'tunicaEspecialista', obtido: false, peso: 0, preco: 7,
-    defesaBase: 3, defesaCombate: 3, tipoDefesa: 'Mágico', buff: '',
-    energiaRecuperacao: 20, manaRecuperacao: 25,
+    defesaBase: 0, defesaCombate: 0, tipoDefesa: 'Mágico', buff: '',
+    energiaRecuperacao: 0.35, manaRecuperacao: 0.70,
 }
 /*-----*/
 function equipTunicaEspecialista() {

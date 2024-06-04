@@ -1,8 +1,8 @@
 /*-ATAQUE FORTE-*/
 function ataqueForteDano() {
-    aplicarFraquezaResistenciaInimigo()
-    aplicarCriticoJogador()
-    aplicarMissJogador()
+    aplicarFraquezaResistencia('inimigo')
+    aplicarCritico('jogador')
+    aplicarMiss('jogador')
 
     /*-APLICAR DANO CASO ACERTO-*/
     if (missJogador == true) {
@@ -65,9 +65,9 @@ function ataqueForteDano() {
     }
     /*-----*/
 
-    desaplicarFraquezaResistenciaInimigo();
-    desaplicarCriticoJogador();
-    desaplicarMissJogador();
+    desaplicarFraquezaResistencia('inimigo');
+    desaplicarCritico('jogador');
+    desaplicarMiss('jogador');
 
     jogadorCombateHud();
     inimigoCombateHud();

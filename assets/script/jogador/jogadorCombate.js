@@ -503,58 +503,7 @@ function verificarDebuffMagiaJogador() {
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
-/*-----*//*-----*//*-----*//*-----*//*-----*/
-/*-APLICAR/DESAPLICAR FRAQUEZA/RESISTÊNCIA NO INIMIGO-*/
-function aplicarFraquezaResistenciaInimigo() {
-    if (inimigoGeral.fraqueza == armaGeral.tipoDano) {
-        let aumentarDano = armaGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        armaGeral.danoCombate += aumentarDano
-    }
-    if (inimigoGeral.fraqueza == magiaDanoGeral.tipoDano) {
-        let aumentarDano = magiaDanoGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        magiaDanoGeral.danoCombate += aumentarDano
-    }
 
-
-    if (inimigoGeral.resistencia == armaGeral.tipoDano) {
-        let aumentarDano = armaGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        armaGeral.danoCombate -= aumentarDano
-    }
-    if (inimigoGeral.resistencia == magiaDanoGeral.tipoDano) {
-        let aumentarDano = magiaDanoGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        magiaDanoGeral.danoCombate -= aumentarDano
-    }
-}
-/*-----*/
-function desaplicarFraquezaResistenciaInimigo() {
-    if (inimigoGeral.fraqueza == armaGeral.tipoDano) {
-        let aumentarDano = armaGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        armaGeral.danoCombate -= aumentarDano
-    }
-    if (inimigoGeral.fraqueza == magiaDanoGeral.tipoDano) {
-        let aumentarDano = magiaDanoGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        magiaDanoGeral.danoCombate -= aumentarDano
-    }
-
-
-    if (inimigoGeral.resistencia == armaGeral.tipoDano) {
-        let aumentarDano = armaGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        armaGeral.danoCombate += aumentarDano
-    }
-    if (inimigoGeral.resistencia == magiaDanoGeral.tipoDano) {
-        let aumentarDano = magiaDanoGeral.danoBase * 0.15
-        aumentarDano = Math.round(aumentarDano)
-        magiaDanoGeral.danoCombate += aumentarDano
-    }
-}
-/*-----*//*-----*//*-----*//*-----*//*-----*/
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 function semEnergiaManaVisibilidade() {
