@@ -14,7 +14,6 @@ var quartaEscolha = window.document.querySelector('input#movesetOutrosEscolha');
 quartaEscolha.addEventListener('click', movesetOutrosEscolhaClick);
 /*-----*/
 
-
 /*-MOVESET ARMA-*/
 function movesetArmaEscolhaClick() {
 
@@ -53,7 +52,6 @@ function ataqueFracoClick() {
     if (vezUsuario == false) {
         console.log(`Calma ${jogador.nome}, espere a sua vez ${vezUsuario}`)
     }
-
     if (vezUsuario == true) {
         botaoAtaqueFracoClick();
         voltarMovesetInicio();
@@ -64,7 +62,6 @@ function ataqueForteClick() {
     if (vezUsuario == false) {
         console.log(`Calma ${jogador.nome}, espere a sua vez ${vezUsuario}`)
     }
-
     if (vezUsuario == true) {
         botaoAtaqueForteClick();
         voltarMovesetInicio();
@@ -75,7 +72,6 @@ function contraAtaqueClick() {
     if (vezUsuario == false) {
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
     }
-
     if (vezUsuario == true) {
         botaoContraAtaqueClick();
         voltarMovesetInicio();
@@ -124,7 +120,6 @@ function magiaDanoClick() {
         movesetMagiaEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
     }
-
     if (vezUsuario == true) {
         botaoMagiaDanoClick();
         voltarMovesetInicio();
@@ -136,7 +131,6 @@ function magiaRecuperarClick() {
         movesetMagiaEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
     }
-
     if (vezUsuario == true) {
         botaoMagiaRecuperacaoClick();
         voltarMovesetInicio();
@@ -148,7 +142,6 @@ function magiaBuffClick() {
         movesetMagiaEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
     }
-
     if (vezUsuario == true) {
         botaoMagiaBuffClick();
         voltarMovesetInicio();
@@ -197,7 +190,6 @@ function bloquearClick() {
         movesetArmaduraEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
     }
-
     if (vezUsuario == true) {
         botaoBloquearClick();
         voltarMovesetInicio();
@@ -209,7 +201,6 @@ function descansoClick() {
         movesetArmaduraEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
     }
-
     if (vezUsuario == true) {
         botaoDescansoClick();
         voltarMovesetInicio();
@@ -221,7 +212,6 @@ function focoClick() {
         movesetArmaduraEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
     }
-
     if (vezUsuario == true) {
         botaoFocoClick();
         voltarMovesetInicio();
@@ -270,7 +260,6 @@ function poderClick() {
         movesetOutrosEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
     }
-
     if (vezUsuario == true) {
         botaoPoderClick();
         voltarMovesetInicio();
@@ -282,7 +271,6 @@ function pocoesClick() {
         movesetOutrosEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
     }
-
     if (vezUsuario == true) {
         botaoPocoesClick();
         voltarMovesetInicio();
@@ -294,7 +282,6 @@ function fugirClick() {
         movesetOutrosEscolhaClick()
         console.log(`Calma ${jogador.nome}, espere a sua vez`)
     }
-
     if (vezUsuario == true) {
         botaoFugirClick();
         voltarMovesetInicio();
@@ -313,18 +300,15 @@ function voltarMovesetInicio() {
     primeiraEscolha.removeEventListener('click', bloquearClick);
     primeiraEscolha.removeEventListener('click', poderClick);
 
-
     segundaEscolha.removeEventListener('click', ataqueForteClick);
     segundaEscolha.removeEventListener('click', magiaRecuperarClick);
     segundaEscolha.removeEventListener('click', descansoClick);
     segundaEscolha.removeEventListener('click', pocoesClick);
 
-
     terceiraEscolha.removeEventListener('click', contraAtaqueClick);
     terceiraEscolha.removeEventListener('click', magiaBuffClick);
     terceiraEscolha.removeEventListener('click', focoClick);
     terceiraEscolha.removeEventListener('click', fugirClick);
-
 
     quartaEscolha.removeEventListener('click', voltarArmaAcaoClick);
     quartaEscolha.removeEventListener('click', voltarMagiaAcaoClick);
@@ -359,9 +343,28 @@ function voltarMovesetInicio() {
 /*-----*/
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
+
+
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+/*-JOGADOR HUD-*/
+function jogadorCombateHud() {
+    estatisticaVida.innerHTML = `Vida: ${jogador.vidaCombate}`;
+    estatisticaVida.style.backgroundSize = `${jogador.vidaPorcentagem}% 100%`;
+
+    estatisticaEnergia.innerHTML = `Energia: ${jogador.energiaCombate}`;
+    estatisticaEnergia.style.backgroundSize = `${jogador.energiaPorcentagem}% 100%`;
+
+    estatisticaMana.innerHTML = `Mana: ${jogador.manaCombate}`;
+    estatisticaMana.style.backgroundSize = `${jogador.manaPorcentagem}% 100%`;
+}
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+
+
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-JOGADOR ATINGIDO DANO-*/
 function jogadorAtingidoDano(danoJogadorGeral) {
+    jogadorAtingidoEfeito()
+
     if (jogador.vidaCombate - danoJogadorGeral < 0) {
         jogador.vidaCombate = 0;
         jogador.vidaPorcentagem = 0.1;
@@ -377,6 +380,15 @@ function jogadorAtingidoDano(danoJogadorGeral) {
     }
 
     danoJogadorGeral = 0;
+}
+
+function jogadorAtingidoEfeito() {
+    setTimeout(function () {
+        window.document.body.style.opacity = '0.5'
+    }, 0);
+    setTimeout(function () {
+        window.document.body.style.opacity = '1'
+    }, 250);
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 

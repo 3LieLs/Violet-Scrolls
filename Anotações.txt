@@ -1,13 +1,14 @@
-SONS
-Colocar sons nos botões, golpes, e sons dos inimigos atacando e levando golpes
-som de conquista do minecraft ao subir de nivel kk
+Próximos objetivos:
 
-adicionar minigames nos golpes
-tentar colocar imagem nos  botões de ação
-mudar a cor dos botões caso sem mana ou energia
+Sons:
+    --> Colocar sons nos botões, golpes, e sons dos inimigos atacando e levando golpes
+    --> Som de conquista do minecraft ao subir de nivel kk
 
-Colocar poções para comprar e suas funcionalidades
-Fazer efeito de jogador atingido
+Combate:
+    --> Adicionar minigames nos golpes
+    --> Tentar colocar imagem nos  botões de ação
+    --> Mudar a cor dos botões caso sem mana ou energia
+    --> Fazer buff de defesa
 
-
-Fazer buff de defesa
+Funcionalidades:
+    --> Colocar poções para comprar e suas funcionalidades
