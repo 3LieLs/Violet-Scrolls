@@ -19,37 +19,6 @@ var estatisticaMana = window.document.querySelector('p#estatisticaMana');
 var mensagemInimigoJogadorVal = window.document.querySelector('div#mensagemJogadorDerrotado');
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
-/*-----*//*-----*//*-----*//*-----*//*-----*/
-/*-JOGADOR DERROTADO-*/
-function jogadorDerrotado() {
-    if (jogador.vidaCombate <= 0) {
-        jogadorGeralDerrotado = true
-        setTimeout(() => {
-            definirEstatisticaGeral();
-
-            mainHud.style.display = 'none';
-            mainInimigoHud.style.display = 'none';
-            florestaDisplay.style.display = 'none';
-            cavernaDisplay.style.display = 'none';
-            montanhaDisplay.style.display = 'none';
-
-            mainJogadorDerrotado.style.display = 'contents';
-            rpgGeral.style.backgroundColor = 'black';
-            mensagemJogadorDerrotado.innerHTML = 'Você foi derrotado'
-
-            setTimeout(() => {
-                mensagemJogadorDerrotado.insertAdjacentHTML('beforeend', `<br>Um camponês te encontrou desacordado e te levou para a taverna`);
-            }, 2000)
-
-            setTimeout(() => {
-                mainJogadorDerrotado.style.display = 'none';
-                localMapa = 'taverna';
-                definirMusica();
-            }, 5000)
-        }, 2000)
-    }
-}
-/*-----*//*-----*//*-----*//*-----*//*-----*/
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-NÍVEL DE JOGADOR VARIÁVEIS-*/

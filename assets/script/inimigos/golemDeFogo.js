@@ -50,8 +50,8 @@ function iniciarGolemDeFogoCombate() {
 
     definirEstatisticaGeral();
 
-    jogadorCombateHud();
-    inimigoCombateHud();
+    atualizarCombateHud('jogador');
+    atualizarCombateHud('inimigo');
 
     definirMusica();
 }

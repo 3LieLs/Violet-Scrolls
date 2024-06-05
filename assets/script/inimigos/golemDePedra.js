@@ -50,8 +50,8 @@ function iniciarGolemDePedraCombate() {
 
     definirEstatisticaGeral();
 
-    jogadorCombateHud();
-    inimigoCombateHud();
+    atualizarCombateHud('jogador');
+    atualizarCombateHud('inimigo');
 
     definirMusica();
 }

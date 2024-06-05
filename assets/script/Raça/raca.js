@@ -105,8 +105,8 @@ function poderDraconatoUso() {
     legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou ${racaGeral.poder}`);
 
     inimigoAtingidoDano(Math.round(inimigoGeral.vidaBase * 0.50));
-
     legendaView.insertAdjacentHTML('beforeend', `<br><br>Dano causado: ${Math.round(inimigoGeral.vidaBase * 0.50)}`);
+    atualizarCombateHud('inimigo')
 
     if (debuffChamas.inimigo == false) {
         rodadaDebuffChamasMax.inimigo = parseInt(rodada) + 3;

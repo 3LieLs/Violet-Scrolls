@@ -12,3 +12,4 @@ Combate:
 
 Funcionalidades:
     --> Colocar poções para comprar e suas funcionalidades
+    --> Balancear os status dos itens 

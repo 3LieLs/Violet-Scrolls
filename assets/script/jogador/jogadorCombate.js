@@ -344,22 +344,6 @@ function voltarMovesetInicio() {
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 
-
-/*-----*//*-----*//*-----*//*-----*//*-----*/
-/*-JOGADOR HUD-*/
-function jogadorCombateHud() {
-    estatisticaVida.innerHTML = `Vida: ${jogador.vidaCombate}`;
-    estatisticaVida.style.backgroundSize = `${jogador.vidaPorcentagem}% 100%`;
-
-    estatisticaEnergia.innerHTML = `Energia: ${jogador.energiaCombate}`;
-    estatisticaEnergia.style.backgroundSize = `${jogador.energiaPorcentagem}% 100%`;
-
-    estatisticaMana.innerHTML = `Mana: ${jogador.manaCombate}`;
-    estatisticaMana.style.backgroundSize = `${jogador.manaPorcentagem}% 100%`;
-}
-/*-----*//*-----*//*-----*//*-----*//*-----*/
-
-
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-JOGADOR ATINGIDO DANO-*/
 function jogadorAtingidoDano(danoJogadorGeral) {

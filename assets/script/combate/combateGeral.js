@@ -128,8 +128,8 @@ function fimBuffDebuff() {
         /*-CASO O JOGADOR PERCA-*/
         if (jogador.vidaCombate <= 0) {
             jogador.vidaCombate = 0;
-            jogadorCombateHud();
-            jogadorDerrotado();
+            atualizarCombateHud('jogador');
+            userDerrotado('jogador');
         }
         /*-----*/
     }
@@ -140,8 +140,8 @@ function fimBuffDebuff() {
         /*-CASO O INIMIGO PERCA-*/
         if (inimigoGeral.vidaCombate <= 0) {
             inimigoGeral.vidaCombate = 0;
-            inimigoCombateHud();
-            inimigoDerrotado();
+            atualizarCombateHud('inimigo');
+            userDerrotado('inimigo');
         }
         /*-----*/
     }
@@ -369,6 +369,42 @@ function desaplicarDefesa(user) {
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+/*-ATUALIZAR HUD-*/
+function atualizarCombateHud(user) {
+    if (user == 'jogador') {
+        estatisticaVida.innerHTML = `Vida: ${jogador.vidaCombate}`;
+        estatisticaVida.style.backgroundSize = `${jogador.vidaPorcentagem}% 100%`;
+
+        estatisticaEnergia.innerHTML = `Energia: ${jogador.energiaCombate}`;
+        estatisticaEnergia.style.backgroundSize = `${jogador.energiaPorcentagem}% 100%`;
+
+        estatisticaMana.innerHTML = `Mana: ${jogador.manaCombate}`;
+        estatisticaMana.style.backgroundSize = `${jogador.manaPorcentagem}% 100%`;
+    }
+
+    if (user == 'inimigo') {
+        inimigoHudNome.innerHTML = `${inimigoGeral.nome}`;
+        inimigoHudVida.innerHTML = `Vida: ${inimigoGeral.vidaCombate}`;
+        inimigoHudVida.style.backgroundSize = `${inimigoGeral.vidaPorcentagem}% 100%`;
+
+        if (inimigoGeral.energiaBase > 0) {
+            inimigoHudEnergia.style.visibility = 'visible'
+            inimigoHudEnergia.innerHTML = `Energia: ${inimigoGeral.energiaCombate}`;
+            inimigoHudEnergia.style.background = `url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSEhIVFRUXFRUVFxcXFxUVFRcXFRUXFxUVFxUYHSggGB0lHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFw8PFy0dHR0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAAAAQIDBv/EACMQAQEBAAECBQUAAAAAAAAAAAABEQIS8DFhcYGRIUFRsdH/xAAZAQEBAQADAAAAAAAAAAAAAAAAAQIDBAb/xAAYEQEBAQEBAAAAAAAAAAAAAAAAARFBMf/aAAwDAQACEQMRAD8A8SGjoPMgi6gEgJARRRJQKCykVKgqBqi6srKiCiAqKlURqIVAqLCKqYaLARYiwD2VekEYICKAmINRKYYQAKBQqKLpaYYAixLAXiqRoExYiiETkQoEpQAotQURYgEWBGhRARA0SqCogCwQTUVAWwsTFihhCpgNUqRbAFQEUKkALRQTQBRUWCJASKosDQNBVGdEolFIYVkVIshATCmlAxcSrKBSEIolWiaClARbUwXASVUAAAVAADEFFkZjUUNE2KDIWgotRrGUQWBRAsQFUkAIShFApQBU1URBUxdDVEwAJTQFQFKlq1MAIGqCmgMKCVSKmqgRcRYlQotIIlAFCBGgqVpmgRSKlRFKgKkUUTEWqKlFoIiFQUxqJF4qGC7ATWCANCosZDFSLoi6gVMQKSLFogRQSlIgqxUlVUSCiCRRKouJVAQwKAi0FRYUii6AiMUBa0LIggGLoiBQBdEUARYoAASrExcSoAmEFEUEIYAVSiiJWmcFUiasUXfL9/0OkTUc7Rai1pQRBoIIgABVSrihiYsQFxUERSGqghIKozVAEC1cBC0wsUE1cZosVeLMaildOn0+RnPUGXOxNWoNqIqCgVEC0IClRQIYChhgVPAiooiiKCCognJC0iqupVgoVmNJYBixFijWhnlPiCYy5VUsWK2CWKgLqKIAsBFMAE1qIAUKiEWJF0AgAtZ5U0BIYIqtVAgLE0QF1ZEWKN75QXO/oJtYcSlFciKQQNVAF1bELRCUIkBVglBUxSAAmApBAVBAWAgNQTQAXQE1UqyqNB39hGWNRaitixFQSrEoBFRaBoi0QgkAUoAasSgAIC4FXQEXUAgGgAUCLGVUdfYZ6kNZxiqtRWiFSLWVQUESrogq2iUEDjU1YtVYCIBKSEAABVQEXWVioIaUUEAUb4sNRUrYnuDLHLxKC8aRYDKgoIyvJQGaAKy1ACkAQW+DILQnj3+GooJUq0ASLQSjMAVUoANNcQVKAA//2Q==);`;
+            inimigoHudEnergia.style.backgroundSize = `${inimigoGeral.energiaPorcentagem}% 100%`;
+        }
+
+        if (inimigoGeral.manaBase > 0) {
+            inimigoHudMana.style.visibility = 'visible'
+            inimigoHudMana.innerHTML = `Mana: ${inimigoGeral.manaCombate}`;
+            inimigoHudMana.style.background = `url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAA1BMVEUAAP+KeNJXAAAASElEQVR4nO3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIC3AcUIAAFkqh/QAAAAAElFTkSuQmCC);`;
+            inimigoHudMana.style.backgroundSize = `${inimigoGeral.manaPorcentagem}% 100%`;
+        }
+    }
+}
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-RESETAR ESTATÍSTICAS-*/
@@ -417,6 +453,77 @@ function definirEstatisticaGeral() {
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
+
+/*-----*//*-----*//*-----*//*-----*//*-----*/
+/*-JOGADOR/INIMIGO DERROTADO-*/
+function userDerrotado(user) {
+    if (user == 'jogador') {
+        if (jogador.vidaCombate <= 0) {
+            jogadorGeralDerrotado = true
+            setTimeout(() => {
+                definirEstatisticaGeral();
+
+                mainHud.style.display = 'none';
+                mainInimigoHud.style.display = 'none';
+                florestaDisplay.style.display = 'none';
+                cavernaDisplay.style.display = 'none';
+                montanhaDisplay.style.display = 'none';
+
+                mainJogadorDerrotado.style.display = 'contents';
+                rpgGeral.style.backgroundColor = 'black';
+                mensagemJogadorDerrotado.innerHTML = 'Você foi derrotado'
+
+                setTimeout(() => {
+                    mensagemJogadorDerrotado.insertAdjacentHTML('beforeend', `<br>Um camponês te encontrou desacordado e te levou para a taverna`);
+                }, 2000)
+
+                setTimeout(() => {
+                    mainJogadorDerrotado.style.display = 'none';
+                    localMapa = 'taverna';
+                    definirMusica();
+                }, 5000)
+            }, 2000)
+        }
+    }
+
+    if (user == 'inimigo') {
+        if (inimigoGeral.vidaCombate <= 0) {
+            inimigoGeralDerrotado = true
+
+            setTimeout(() => {
+                mainHud.style.display = 'none';
+                mainInimigoHud.style.display = 'none';
+
+                if (inimigoCombatendo == 'Goblin') {
+                    localMapa = 'floresta';
+                }
+                if (inimigoCombatendo == 'Besouro gigante') {
+                    localMapa = 'floresta';
+                }
+
+                if (inimigoCombatendo == 'Golem de pedra') {
+                    localMapa = 'caverna';
+                }
+                if (inimigoCombatendo == 'Golem de gelo') {
+                    localMapa = 'caverna';
+                }
+                if (inimigoCombatendo == 'Golem de fogo') {
+                    localMapa = 'caverna';
+                }
+
+                if (inimigoCombatendo == 'Dragão') {
+                    localMapa = 'montanha';
+                }
+
+                missaoProgresso();
+                adicionarExperiencia();
+                setTimeout(definirMusica, 2000);
+                setTimeout(definirEstatisticaGeral, 2000);
+            }, 2000)
+        }
+    }
+}
+/*-----*//*-----*//*-----*//*-----*//*-----*/
 
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/

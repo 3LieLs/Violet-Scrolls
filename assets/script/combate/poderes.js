@@ -27,7 +27,7 @@ function desaplicarPoderElfo() {
         }
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${Math.round(jogador.manaBase * 0.25)} de mana`);
 
-        jogadorCombateHud();
+        atualizarCombateHud('jogador');
 
         if (buffElfoTrueFalse == true) {
             magiaDanoGeral.danoCombate -= danoPoderElfo;
@@ -68,7 +68,7 @@ function desaplicarPoderOrc() {
         }
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${Math.round(jogador.energiaBase * 0.25)} de energia`);
 
-        jogadorCombateHud();
+        atualizarCombateHud('jogador');
 
         if (buffOrcTrueFalse == true) {
             armaGeral.danoCombate -= danoPoderOrc;
@@ -102,12 +102,12 @@ function desaplicarPoderVampiro() {
             jogador.vidaPorcentagem = parseInt(jogador.vidaPorcentagem) + parseInt(jogador.porcentagem)
         }
         inimigoAtingidoDano(Math.round(inimigoGeral.vidaBase * 0.20));
-        inimigoCombateHud();
+        atualizarCombateHud('inimigo');
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${Math.round(jogador.vidaBase * 0.20)} de vida`);
         legendaView.insertAdjacentHTML('beforeend', `<br>${inimigoGeral.nome} perdeu ${Math.round(inimigoGeral.vidaBase * 0.20)} de vida`);
 
-        jogadorCombateHud();
+        atualizarCombateHud('jogador');
     }
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/

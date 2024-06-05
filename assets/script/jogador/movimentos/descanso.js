@@ -18,8 +18,8 @@ function descansoUso() {
 
     legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou Descanso<br>Energia recuperado: ${recuperacaoEnergiaGeral}`);
 
-    jogadorCombateHud();
-    inimigoCombateHud();
+    atualizarCombateHud('jogador');
+    atualizarCombateHud('inimigo');
 }
 
 

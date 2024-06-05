@@ -10,7 +10,6 @@ var buffDanoTrueFalse = { jogador: false, inimigo: false, },
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 
-
 /*-BUFF VIDA REGEN-*//*-BUFF VIDA REGEN-*//*-BUFF VIDA REGEN-*/
 function aplicarBuffVidaRegen(user) {
     if (user == 'jogador') {
@@ -44,7 +43,7 @@ function desaplicarBuffVidaRegen(user) {
             }
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${vidaGanha} de vida`);
 
-            jogadorCombateHud();
+            atualizarCombateHud('jogador');
         }
     }
 
@@ -65,7 +64,7 @@ function desaplicarBuffVidaRegen(user) {
             }
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} recuperou ${vidaGanha} de vida`);
 
-            inimigoCombateHud();
+            atualizarCombateHud('inimigo');
         }
     }
 }
@@ -117,7 +116,6 @@ function desaplicarBuffDano(user) {
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 
-
 /*-BUFF DEFESA-*//*-BUFF DEFESA-*//*-BUFF DEFESA-*/
 function aplicarBuffDefesa(user) {
     if (user == 'jogador') {
@@ -152,7 +150,6 @@ function desaplicarBuffDefesa(user) {
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 
-
 /*-DEBUFF VENENO-*//*-DEBUFF VENENO-*//*-DEBUFF VENENO-*/
 function aplicarDebuffVeneno(user) {
     if (user == 'jogador') {
@@ -172,8 +169,7 @@ function desaplicarDebuffVeneno(user) {
     if (user == 'jogador') {
         if (debuffVeneno.jogador == true) {
             jogadorAtingidoDano(Math.ceil(jogador.vidaBase * 0.25));
-            jogadorCombateHud();
-            inimigoCombateHud()
+            atualizarCombateHud('jogador');
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${Math.ceil(jogador.vidaBase * 0.25)} de vida por causa do veneno`);
         }
     }
@@ -181,14 +177,12 @@ function desaplicarDebuffVeneno(user) {
     if (user == 'inimigo') {
         if (debuffVeneno.inimigo == true) {
             inimigoAtingidoDano(Math.ceil(inimigoGeral.vidaBase * 0.25));
-            inimigoCombateHud();
-            inimigoCombateHud()
+            atualizarCombateHud('inimigo');
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${Math.ceil(inimigoGeral.vidaBase * 0.25)} de vida por causa do veneno`);
         }
     }
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
-
 
 
 /*-DEBUFF SANGRAMENTO-*//*-DEBUFF SANGRAMENTO-*//*-DEBUFF SANGRAMENTO-*/
@@ -220,8 +214,7 @@ function desaplicarDebuffSangramento(user) {
     if (user == 'jogador') {
         if (debuffSangramento.jogador == true) {
             jogadorAtingidoDano(Math.ceil(jogador.vidaBase * 0.15));
-            jogadorCombateHud();
-            inimigoCombateHud()
+            atualizarCombateHud('jogador');
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${Math.ceil(jogador.vidaBase * 0.15)} de vida por causa do sangramento`);
 
             if (debuffSangramentoTrueFalse.jogador == true) {
@@ -234,8 +227,7 @@ function desaplicarDebuffSangramento(user) {
     if (user == 'inimigo') {
         if (debuffSangramento.inimigo == true) {
             inimigoAtingidoDano(Math.ceil(inimigoGeral.vidaBase * 0.15));
-            jogadorCombateHud();
-            inimigoCombateHud()
+            atualizarCombateHud('inimigo')
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${Math.ceil(inimigoGeral.vidaBase * 0.15)} de vida por causa do sangramento`);
 
             if (debuffSangramentoTrueFalse.inimigo == true) {
@@ -246,7 +238,6 @@ function desaplicarDebuffSangramento(user) {
     }
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
-
 
 
 /*-DEBUFF CHAMAS-*//*-DEBUFF CHAMAS-*//*-DEBUFF CHAMAS-*/
@@ -276,9 +267,7 @@ function desaplicarDebuffChamas(user) {
     if (user == 'jogador') {
         if (debuffChamas.jogador == true) {
             jogadorAtingidoDano(Math.ceil(jogador.vidaBase * 0.10));
-            jogadorCombateHud();
-            inimigoCombateHud()
-
+            atualizarCombateHud('jogador');
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} perdeu ${Math.ceil(jogador.vidaBase * 0.10)} de vida por causa das chamas`);
 
             if (debuffChamasTrueFalse.jogador == true) {
@@ -291,9 +280,7 @@ function desaplicarDebuffChamas(user) {
     if (user == 'inimigo') {
         if (debuffChamas.inimigo == true) {
             inimigoAtingidoDano(Math.ceil(inimigoGeral.vidaBase * 0.10));
-            jogadorCombateHud();
-            inimigoCombateHud()
-
+            atualizarCombateHud('inimigo');
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} perdeu ${Math.ceil(inimigoGeral.vidaBase * 0.10)} de vida por causa das chamas`);
 
             if (debuffChamasTrueFalse.inimigo == true) {
@@ -304,7 +291,6 @@ function desaplicarDebuffChamas(user) {
     }
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
-
 
 
 /*-DEBUFF CONGELAMNETO-*//*-DEBUFF CONGELAMNETO-*//*-DEBUFF CONGELAMNETO-*/
@@ -353,7 +339,6 @@ function desaplicarDebuffCongelamento(user) {
     }
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
-
 
 
 /*-DEBUFF ELETRICIDADE-*//*-DEBUFF ELETRICIDADE-*//*-DEBUFF ELETRICIDADE-*/
@@ -410,48 +395,6 @@ function desaplicarDebuffEletricidade(user) {
 
                 debuffEletricidadeTrueFalse.inimigo = false;
             }
-        }
-    }
-}
-/*-----*//*-----*//*-----*//*-----*//*-----*/
-
-
-
-
-/*-PODER ORC-*//*-PODER ORC-*//*-PODER ORC-*/
-function aplicarPoderOrc() {
-    if (rodada == rodadaPoderOrcMax) {
-        buffOrc = false;
-    }
-    if (buffOrc == true) {
-        danoPoderOrc = armaGeral.danoBase * 1;
-        danoPoderOrc = Math.ceil(danoPoderOrc);
-        armaGeral.danoCombate += danoPoderOrc;
-        buffOrcTrueFalse = true;
-    }
-}
-function desaplicarPoderOrc() {
-    if (buffOrc == true) {
-        if (jogador.energiaCombate + Math.ceil(jogador.energiaBase * 0.25) > jogador.energiaBase) {
-            jogador.energiaCombate = jogador.energiaBase;
-            jogador.energiaPorcentagem = 100;
-
-        } else {
-            jogador.energiaCombate += Math.ceil(jogador.energiaBase * 0.25);
-
-            jogador.porcentagem = 100 - ((Math.ceil(jogador.energiaBase * 0.25) / jogador.energiaBase) * 100);
-            jogador.porcentagem = 100 - jogador.porcentagem;
-            jogador.porcentagem = jogador.porcentagem.toPrecision(2);
-
-            jogador.energiaPorcentagem = parseInt(jogador.energiaPorcentagem) + parseInt(jogador.porcentagem);
-        }
-        legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} recuperou ${Math.ceil(jogador.energiaBase * 0.25)} de energia`);
-
-        jogadorCombateHud();
-
-        if (buffOrcTrueFalse == true) {
-            armaGeral.danoCombate -= danoPoderOrc;
-            buffOrcTrueFalse.jogador = false;
         }
     }
 }

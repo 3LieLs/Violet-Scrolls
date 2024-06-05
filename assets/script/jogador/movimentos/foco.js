@@ -18,8 +18,8 @@ function focoUso() {
 
     legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} utilizou Focar<br>Mana recuperado: ${recuperacaoManaGeral}`);
 
-    jogadorCombateHud();
-    inimigoCombateHud();
+    atualizarCombateHud('jogador');
+    atualizarCombateHud('inimigo');
 }
 
 function botaoFocoClick() {

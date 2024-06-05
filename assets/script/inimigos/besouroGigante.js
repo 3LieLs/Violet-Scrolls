@@ -50,8 +50,8 @@ function iniciarBesouroGiganteCombate() {
 
     definirEstatisticaGeral();
 
-    jogadorCombateHud();
-    inimigoCombateHud();
+    atualizarCombateHud('jogador');
+    atualizarCombateHud('inimigo');
 
     definirMusica();
 }

@@ -64,9 +64,9 @@ function MagiaDanoUso() {
     desaplicarFraquezaResistencia('inimigo')
     desaplicarMiss('jogador')
 
-    jogadorCombateHud()
-    inimigoCombateHud()
-    inimigoDerrotado()
+    atualizarCombateHud('jogador');
+    atualizarCombateHud('inimigo');
+    userDerrotado('inimigo');
 }
 /*-----*/
 

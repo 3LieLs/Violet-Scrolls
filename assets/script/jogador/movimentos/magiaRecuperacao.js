@@ -55,8 +55,8 @@ function magiaRecuperacaoUso() {
         jogador.manaCombate = 0
     }
 
-    jogadorCombateHud()
-    inimigoCombateHud()
+    atualizarCombateHud('jogador');
+    atualizarCombateHud('inimigo');
 }
 
 

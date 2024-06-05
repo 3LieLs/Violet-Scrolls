@@ -50,8 +50,8 @@ function iniciarDragaoCombate() {
 
     definirEstatisticaGeral();
 
-    jogadorCombateHud();
-    inimigoCombateHud();
+    atualizarCombateHud('jogador');
+    atualizarCombateHud('inimigo');
 
     definirMusica();
 }

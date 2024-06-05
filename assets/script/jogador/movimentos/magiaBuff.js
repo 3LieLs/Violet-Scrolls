@@ -40,8 +40,8 @@ function magiaBuffUso() {
         jogador.manaCombate = 0
     }
 
-    jogadorCombateHud();
-    inimigoCombateHud();
+    atualizarCombateHud('jogador');
+    atualizarCombateHud('inimigo');
 }
 
 

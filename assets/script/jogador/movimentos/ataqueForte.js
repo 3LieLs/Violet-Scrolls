@@ -69,9 +69,9 @@ function ataqueForteDano() {
     desaplicarCritico('jogador');
     desaplicarMiss('jogador');
 
-    jogadorCombateHud();
-    inimigoCombateHud();
-    inimigoDerrotado();
+    atualizarCombateHud('jogador');
+    atualizarCombateHud('inimigo');
+    userDerrotado('inimigo');
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 

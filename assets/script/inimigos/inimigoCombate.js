@@ -109,37 +109,13 @@ function inimigoAtaqueAto() {
         }
     }
     /*-----*/
-    jogadorCombateHud();
-    inimigoCombateHud();
-    jogadorDerrotado();
+    atualizarCombateHud('jogador');
+    atualizarCombateHud('inimigo');
+    userDerrotado('jogador');
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 
-
-/*-----*//*-----*//*-----*//*-----*//*-----*/
-/*-INIMIGO HUD-*/
-function inimigoCombateHud() {
-    inimigoHudNome.innerHTML = `${inimigoGeral.nome}`;
-
-    inimigoHudVida.innerHTML = `Vida: ${inimigoGeral.vidaCombate}`;
-    inimigoHudVida.style.backgroundSize = `${inimigoGeral.vidaPorcentagem}% 100%`;
-
-    if (inimigoGeral.energiaBase > 0) {
-        inimigoHudEnergia.style.visibility = 'visible'
-        inimigoHudEnergia.innerHTML = `Energia: ${inimigoGeral.energiaCombate}`;
-        inimigoHudEnergia.style.background = `url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSEhIVFRUXFRUVFxcXFxUVFRcXFRUXFxUVFxUYHSggGB0lHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFw8PFy0dHR0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAAAAQIDBv/EACMQAQEBAAECBQUAAAAAAAAAAAABEQIS8DFhcYGRIUFRsdH/xAAZAQEBAQADAAAAAAAAAAAAAAAAAQIDBAb/xAAYEQEBAQEBAAAAAAAAAAAAAAAAARFBMf/aAAwDAQACEQMRAD8A8SGjoPMgi6gEgJARRRJQKCykVKgqBqi6srKiCiAqKlURqIVAqLCKqYaLARYiwD2VekEYICKAmINRKYYQAKBQqKLpaYYAixLAXiqRoExYiiETkQoEpQAotQURYgEWBGhRARA0SqCogCwQTUVAWwsTFihhCpgNUqRbAFQEUKkALRQTQBRUWCJASKosDQNBVGdEolFIYVkVIshATCmlAxcSrKBSEIolWiaClARbUwXASVUAAAVAADEFFkZjUUNE2KDIWgotRrGUQWBRAsQFUkAIShFApQBU1URBUxdDVEwAJTQFQFKlq1MAIGqCmgMKCVSKmqgRcRYlQotIIlAFCBGgqVpmgRSKlRFKgKkUUTEWqKlFoIiFQUxqJF4qGC7ATWCANCosZDFSLoi6gVMQKSLFogRQSlIgqxUlVUSCiCRRKouJVAQwKAi0FRYUii6AiMUBa0LIggGLoiBQBdEUARYoAASrExcSoAmEFEUEIYAVSiiJWmcFUiasUXfL9/0OkTUc7Rai1pQRBoIIgABVSrihiYsQFxUERSGqghIKozVAEC1cBC0wsUE1cZosVeLMaildOn0+RnPUGXOxNWoNqIqCgVEC0IClRQIYChhgVPAiooiiKCCognJC0iqupVgoVmNJYBixFijWhnlPiCYy5VUsWK2CWKgLqKIAsBFMAE1qIAUKiEWJF0AgAtZ5U0BIYIqtVAgLE0QF1ZEWKN75QXO/oJtYcSlFciKQQNVAF1bELRCUIkBVglBUxSAAmApBAVBAWAgNQTQAXQE1UqyqNB39hGWNRaitixFQSrEoBFRaBoi0QgkAUoAasSgAIC4FXQEXUAgGgAUCLGVUdfYZ6kNZxiqtRWiFSLWVQUESrogq2iUEDjU1YtVYCIBKSEAABVQEXWVioIaUUEAUb4sNRUrYnuDLHLxKC8aRYDKgoIyvJQGaAKy1ACkAQW+DILQnj3+GooJUq0ASLQSjMAVUoANNcQVKAA//2Q==);`;
-        inimigoHudEnergia.style.backgroundSize = `${inimigoGeral.energiaPorcentagem}% 100%`;
-    }
-
-    if (inimigoGeral.manaBase > 0) {
-        inimigoHudMana.style.visibility = 'visible'
-        inimigoHudMana.innerHTML = `Mana: ${inimigoGeral.manaCombate}`;
-        inimigoHudMana.style.background = `url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAA1BMVEUAAP+KeNJXAAAASElEQVR4nO3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIC3AcUIAAFkqh/QAAAAAElFTkSuQmCC);`;
-        inimigoHudMana.style.backgroundSize = `${inimigoGeral.manaPorcentagem}% 100%`;
-    }
-}
-/*-----*//*-----*//*-----*//*-----*//*-----*/
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-INIMIGOS ATINGIDO DANO/EFEITO-*/
