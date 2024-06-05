@@ -2,7 +2,7 @@
 var armaduraDeFerro =
 {
     nome: 'Armadura de ferro', val: 'armaduraDeFerro', obtido: false, peso: 0, preco: 0,
-    defesaBase: 0.08, defesaCombate: 0.08, tipoDefesa: 'Físico', buff: '',
+    defesaBase: 0.15, defesaCombate: 0.015, tipoDefesa: 'Físico', buff: '',
     energiaRecuperacao: 0.40, manaRecuperacao: 0.25,
 }
 /*-----*/
@@ -64,7 +64,7 @@ function armaduraDeFerroVender() {
 var armaduraDeAco =
 {
     nome: 'Armadura de aço', val: 'armaduraDeAco', obtido: false, peso: 0, preco: 0,
-    defesaBase: 0.1, defesaCombate: 0.1, tipoDefesa: 'Físico', buff: '',
+    defesaBase: 0.20, defesaCombate: 0.20, tipoDefesa: 'Físico', buff: '',
     energiaRecuperacao: 0.25, manaRecuperacao: 0.25,
 }
 /*-----*/

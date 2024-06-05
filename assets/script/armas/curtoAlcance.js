@@ -4,9 +4,9 @@ var adaga =
     nome: 'Adaga', val: 'adaga', obtido: false, peso: 0, preco: 3,
 
     danoBase: 4, danoCombate: 4, tipoDano: 'Físico',
-    debuff: 'sangramento', chance: 50, duracao: 3,
+    debuff: 'sangramento', chance: 40, duracao: 3,
 
-    energiaCusto: 2, energiaCustoCombate: 2, manaCusto: 0, manaCustoCombate: 0,
+    energiaCusto: 3, energiaCustoCombate: 3, manaCusto: 0, manaCustoCombate: 0,
 }
 /*-----*/
 function equipAdaga() {
@@ -69,10 +69,10 @@ var chicoteDeAco =
 {
     nome: 'Chicote de aço', val: 'chicoteDeAco', obtido: false, peso: 0, preco: 3,
 
-    danoBase: 6, danoCombate: 6, tipoDano: 'Físico',
+    danoBase: 7, danoCombate: 7, tipoDano: 'Físico',
     debuff: 'Nenhum', chance: 0, duracao: 0,
 
-    energiaCusto: 3, energiaCustoCombate: 3, manaCusto: 0, manaCustoCombate: 0,
+    energiaCusto: 4, energiaCustoCombate: 4, manaCusto: 0, manaCustoCombate: 0,
 }
 /*-----*/
 function equipChicoteDeAco() {
@@ -134,10 +134,10 @@ var espadaDeAco =
 {
     nome: 'Espada de aço', val: 'espadaDeAco', obtido: false, peso: 0, preco: 5,
 
-    danoBase: 8, danoCombate: 8, tipoDano: 'Físico',
+    danoBase: 9, danoCombate: 9, tipoDano: 'Físico',
     debuff: 'sangramento', chance: 15, duracao: 2,
 
-    energiaCusto: 5, energiaCustoCombate: 5, manaCusto: 0, manaCustoCombate: 0,
+    energiaCusto: 7, energiaCustoCombate: 7, manaCusto: 0, manaCustoCombate: 0,
 }
 /*-----*/
 function equipEspadaDeAco() {

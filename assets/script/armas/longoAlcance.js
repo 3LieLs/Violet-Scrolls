@@ -68,10 +68,10 @@ var arcoLongo =
 {
     nome: 'Arco longo', val: 'arcoLongo', obtido: false, peso: 0, preco: 3,
 
-    danoBase: 4, danoCombate: 4, tipoDano: 'Físico',
+    danoBase: 8, danoCombate: 8, tipoDano: 'Físico',
     debuff: 'Nenhum', chance: 0, duracao: 0,
 
-    energiaCusto: 1, energiaCustoCombate: 1, manaCusto: 0, manaCustoCombate: 0,
+    energiaCusto: 4, energiaCustoCombate: 4, manaCusto: 0, manaCustoCombate: 0,
 }
 /*-----*/
 function equipArcoLongo() {

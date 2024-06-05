@@ -297,17 +297,17 @@ function mudarTipoEquipamentos() {
 function atualizarItensEquipamentosArma() {
     menuEquipamentosNome.innerHTML = `Item equipado:<br>${armaGeral.nome}`;
     menuEquipamentosDanoDefesa.innerHTML = `Dano:<br>${armaGeral.danoBase}`;
-    menuEquipamentosEnergia.innerHTML = `Energia-:<br>${armaGeral.energiaCusto}`;
-    menuEquipamentosMana.innerHTML = `Mana-:<br>${armaGeral.manaCusto}`;
+    menuEquipamentosEnergia.innerHTML = `Energia:<br>-${armaGeral.energiaCusto}`;
+    menuEquipamentosMana.innerHTML = `Mana:<br>-${armaGeral.manaCusto}`;
     menuEquipamentosTipo.innerHTML = `Tipo de dano:<br>${armaGeral.tipoDano}`;
     menuEquipamentosPeso.innerHTML = `Peso:<br>${armaGeral.peso}`;
 }
 
 function atualizarItensEquipamentosArmadura() {
     menuEquipamentosNome.innerHTML = `Item equipado:<br>${armaduraGeral.nome}`;
-    menuEquipamentosDanoDefesa.innerHTML = `Defesa:<br>${armaduraGeral.defesaBase}`;
-    menuEquipamentosEnergia.innerHTML = `Energia+:<br>${armaduraGeral.energiaRecuperacao}`;
-    menuEquipamentosMana.innerHTML = `Mana+:<br>${armaduraGeral.manaRecuperacao}`;
+    menuEquipamentosDanoDefesa.innerHTML = `Defesa:<br>${armaduraGeral.defesaBase.toFixed(2)}%`;
+    menuEquipamentosEnergia.innerHTML = `Energia:<br>+${armaduraGeral.energiaRecuperacao.toFixed(2)}%`;
+    menuEquipamentosMana.innerHTML = `Mana:<br>+${armaduraGeral.manaRecuperacao.toFixed(2)}%`;
     menuEquipamentosTipo.innerHTML = `Tipo de defesa:<br>${armaduraGeral.tipoDefesa}`;
     menuEquipamentosPeso.innerHTML = `Peso:<br>${armaduraGeral.peso}`;
 }
@@ -366,24 +366,24 @@ function mudarTipoMagias() {
 function atualizarItensMagiasDano() {
     menuMagiasNome.innerHTML = `Magia equipado:<br>${magiaDanoGeral.nome}`;
     menuMagiasDanoRecuperacaoBuff.innerHTML = `Dano:<br>${magiaDanoGeral.danoBase}`;
-    menuMagiasEnergia.innerHTML = `Energia-:<br>${magiaDanoGeral.energiaCusto}`;
-    menuMagiasMana.innerHTML = `Mana-:<br>${magiaDanoGeral.manaCusto}`;
+    menuMagiasEnergia.innerHTML = `Energia:<br>-${magiaDanoGeral.energiaCusto}`;
+    menuMagiasMana.innerHTML = `Mana:<br>-${magiaDanoGeral.manaCusto}`;
     menuMagiasTipo.innerHTML = `Tipo de dano:<br>${magiaDanoGeral.tipoDano}`;
 }
 
 function atualizarItensMagiasRecuperacao() {
     menuMagiasNome.innerHTML = `Magia equipado:<br>${magiaRecuperacaoGeral.nome}`;
-    menuMagiasDanoRecuperacaoBuff.innerHTML = `Vida+:<br>${magiaRecuperacaoGeral.vidaRecuperacao}`;
-    menuMagiasEnergia.innerHTML = `Energia-:<br>${magiaRecuperacaoGeral.energiaCusto}`;
-    menuMagiasMana.innerHTML = `Mana-:<br>${magiaRecuperacaoGeral.manaCusto}`;
+    menuMagiasDanoRecuperacaoBuff.innerHTML = `Vida:<br>+${magiaRecuperacaoGeral.vidaRecuperacao}`;
+    menuMagiasEnergia.innerHTML = `Energia:<br>-${magiaRecuperacaoGeral.energiaCusto}`;
+    menuMagiasMana.innerHTML = `Mana:<br>-${magiaRecuperacaoGeral.manaCusto}`;
     menuMagiasTipo.innerHTML = `Tipo de regen:<br>${magiaRecuperacaoGeral.tipo}`;
 }
 
 function atualizarItensMagiasBuff() {
     menuMagiasNome.innerHTML = `Magia equipado:<br>${magiaBuffGeral.nome}`;
     menuMagiasDanoRecuperacaoBuff.innerHTML = `Duração:<br>${magiaBuffGeral.duracao}`;
-    menuMagiasEnergia.innerHTML = `Energia-:<br>${magiaBuffGeral.energiaCusto}`;
-    menuMagiasMana.innerHTML = `Mana-:<br>${magiaBuffGeral.manaCusto}`;
+    menuMagiasEnergia.innerHTML = `Energia:<br>-${magiaBuffGeral.energiaCusto}`;
+    menuMagiasMana.innerHTML = `Mana:<br>-${magiaBuffGeral.manaCusto}`;
     menuMagiasTipo.innerHTML = `Tipo de buff:<br>${magiaBuffGeral.buff}`;
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/

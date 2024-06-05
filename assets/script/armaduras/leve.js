@@ -2,7 +2,7 @@
 var armaduraDePele =
 {
     nome: 'Armadura de pele', val: 'armaduraDePele', obtido: false, peso: 0, preco: 3,
-    defesaBase: 0.02, defesaCombate: 0.02, tipoDefesa: 'Físico', buff: '',
+    defesaBase: 0.05, defesaCombate: 0.05, tipoDefesa: 'Físico', buff: '',
     energiaRecuperacao: 0.75, manaRecuperacao: 0.25,
 }
 /*-----*/
@@ -64,7 +64,7 @@ function armaduraDePeleVender() {
 var armaduraDeCouro =
 {
     nome: 'Armadura de couro', val: 'armaduraDeCouro', obtido: false, peso: 0, preco: 5,
-    defesaBase: 0.04, defesaCombate: 0.04, tipoDefesa: 'Físico', buff: '',
+    defesaBase: 0.07, defesaCombate: 0.07, tipoDefesa: 'Físico', buff: '',
     energiaRecuperacao: 0.65, manaRecuperacao: 0.25,
 }
 /*-----*/
@@ -126,8 +126,8 @@ function armaduraDeCouroVender() {
 var armaduraDeEscamas =
 {
     nome: 'Armadura de escamas', val: 'armaduraDeEscamas', obtido: false, peso: 0, preco: 7,
-    defesaBase: 0.05, defesaCombate: 0.05, tipoDefesa: 'Físico', buff: '',
-    energiaRecuperacao: 0.50, manaRecuperacao: 0.25,
+    defesaBase: 0.10, defesaCombate: 0.10, tipoDefesa: 'Físico', buff: '',
+    energiaRecuperacao: 0.55, manaRecuperacao: 0.25,
 }
 /*-----*/
 function equipArmaduraDeEscamas() {
