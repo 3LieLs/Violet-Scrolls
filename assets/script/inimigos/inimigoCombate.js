@@ -28,6 +28,7 @@ function inimigoAtaqueAto() {
 
         if (missInimigo == false) {
             jogadorAtingidoDano(inimigoArmaGeral.danoCombate);
+            somAtaque.src = inimigoArmaGeral.somAtaque;
 
             legendaView.insertAdjacentHTML('beforeend', `<br><br>${inimigoGeral.nome} Atacou com ${inimigoArmaGeral.nome}<br>Dano causado: ${inimigoArmaGeral.danoCombate}`);
             if (inimigoArmaGeral.energiaCustoCombate > 0) {
@@ -160,7 +161,7 @@ var inimigoArmaGeral =
 {
     nome: '', val: '', obtido: false, peso: 0, preco: 0,
 
-    danoBase: 0, danoCombate: 0, tipoDano: '',
+    danoBase: 0, danoCombate: 0, tipoDano: '', somAtaque: '',
     debuff: '', chance: 0, duracao: 0,
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 0, manaCustoCombate: 0,

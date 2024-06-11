@@ -3,7 +3,7 @@ var cajadoDeFogo =
 {
     nome: 'Cajado de fogo', val: 'cajadoDeFogo', obtido: false, peso: 0, preco: 8,
 
-    danoBase: 6, danoCombate: 6, tipoDano: 'Fogo',
+    danoBase: 6, danoCombate: 6, tipoDano: 'Fogo', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/MissileBlast.mp3',
     debuff: 'chamas', chance: 25, duracao: 3,
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 3, manaCustoCombate: 3,
@@ -68,7 +68,7 @@ var cajadoDeGelo =
 {
     nome: 'Cajado de gelo', val: 'cajadoDeGelo', obtido: false, peso: 0, preco: 8,
 
-    danoBase: 8, danoCombate: 8, tipoDano: 'Gelo',
+    danoBase: 8, danoCombate: 8, tipoDano: 'Gelo', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/MissileBlast.mp3',
     debuff: 'congelamento', chance: 25, duracao: 3,
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 4, manaCustoCombate: 4,
@@ -133,7 +133,7 @@ var cajadoEletrico =
 {
     nome: 'Cajado elétrico', val: 'cajadoEletrico', obtido: false, peso: 0, preco: 10,
 
-    danoBase: 10, danoCombate: 10, tipoDano: 'Elétrico',
+    danoBase: 10, danoCombate: 10, tipoDano: 'Elétrico', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/MissileBlast.mp3',
     debuff: 'eletricidade', chance: 25, duracao: 3,
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 6, manaCustoCombate: 6,

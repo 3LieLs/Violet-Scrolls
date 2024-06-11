@@ -3,7 +3,7 @@ var armaGeral =
 {
     nome: '', val: '', obtido: false, peso: 0, preco: 0,
 
-    danoBase: 0, danoCombate: 0, tipoDano: '',
+    danoBase: 0, danoCombate: 0, tipoDano: '', somAtaque: '',
     debuff: '', chance: 0, duracao: 0,
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 0, manaCustoCombate: 0,
@@ -15,7 +15,7 @@ var soco =
 {
     nome: 'Soco', val: 'soco', obtido: false, peso: 0, preco: 0,
 
-    danoBase: 1, danoCombate: 1, tipoDano: 'Físico',
+    danoBase: 1, danoCombate: 1, tipoDano: 'Físico', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/Punch.mp3',
     debuff: 'Nenhum', chance: 0, duracao: 0,
 
     energiaCusto: 1, energiaCustoCombate: 1, manaCusto: 0, manaCustoCombate: 0,

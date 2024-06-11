@@ -3,7 +3,7 @@ var adaga =
 {
     nome: 'Adaga', val: 'adaga', obtido: false, peso: 0, preco: 3,
 
-    danoBase: 4, danoCombate: 4, tipoDano: 'Físico',
+    danoBase: 4, danoCombate: 4, tipoDano: 'Físico', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/Knife.mp3',
     debuff: 'sangramento', chance: 40, duracao: 3,
 
     energiaCusto: 3, energiaCustoCombate: 3, manaCusto: 0, manaCustoCombate: 0,
@@ -69,7 +69,7 @@ var chicoteDeAco =
 {
     nome: 'Chicote de aço', val: 'chicoteDeAco', obtido: false, peso: 0, preco: 3,
 
-    danoBase: 7, danoCombate: 7, tipoDano: 'Físico',
+    danoBase: 7, danoCombate: 7, tipoDano: 'Físico', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/Slash.mp3',
     debuff: 'Nenhum', chance: 0, duracao: 0,
 
     energiaCusto: 4, energiaCustoCombate: 4, manaCusto: 0, manaCustoCombate: 0,
@@ -134,7 +134,7 @@ var espadaDeAco =
 {
     nome: 'Espada de aço', val: 'espadaDeAco', obtido: false, peso: 0, preco: 5,
 
-    danoBase: 9, danoCombate: 9, tipoDano: 'Físico',
+    danoBase: 9, danoCombate: 9, tipoDano: 'Físico', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/SwordSwing.mp3',
     debuff: 'sangramento', chance: 15, duracao: 2,
 
     energiaCusto: 7, energiaCustoCombate: 7, manaCusto: 0, manaCustoCombate: 0,
@@ -199,7 +199,7 @@ var lancaEnvenenada =
 {
     nome: 'Lança envenenada', val: 'lancaEnvenenada', obtido: false, peso: 0, preco: 5,
 
-    danoBase: 5, danoCombate: 5, tipoDano: 'Físico',
+    danoBase: 5, danoCombate: 5, tipoDano: 'Físico', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/SwordHit.mp3',
     debuff: 'veneno', chance: 30, duracao: 3,
 
     energiaCusto: 4, energiaCustoCombate: 4, manaCusto: 0, manaCustoCombate: 0,

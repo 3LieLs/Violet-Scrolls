@@ -17,6 +17,7 @@ function ataqueFracoDano() {
 
     if (missJogador == false) {
         inimigoAtingidoDano(armaGeral.danoCombate)
+        somAtaque.src = armaGeral.somAtaque;
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}`)
         if (armaGeral.energiaCustoCombate > 0) {

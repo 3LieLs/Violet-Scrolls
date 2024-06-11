@@ -16,7 +16,7 @@ var mordidaVenenosa =
 {
     nome: 'Mordida venenosa',
 
-    danoBase: 3, danoCombate: 3, tipoDano: 'Físico',
+    danoBase: 3, danoCombate: 3, tipoDano: 'Físico', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/SmallMonsterAttack.mp3',
     debuff: 'veneno', chance: 25, duracao: 2,
 
     energiaCusto: 5, energiaCustoCombate: 5, manaCusto: 0, manaCustoCombate: 0,
@@ -26,7 +26,7 @@ var cuspeToxico =
 {
     nome: 'Cuspe tóxico',
 
-    danoBase: 10, danoCombate: 10, tipoDano: 'Físico',
+    danoBase: 10, danoCombate: 10, tipoDano: 'Físico', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/MissileBlast.mp3',
     debuff: 'veneno', chance: 50, duracao: 4,
 
     energiaCusto: 10, energiaCustoCombate: 10, manaCusto: 0, manaCustoCombate: 0,

@@ -3,7 +3,7 @@ var arcoSimples =
 {
     nome: 'Arco simples', val: 'arcoSimples', obtido: false, peso: 0, preco: 4,
 
-    danoBase: 6, danoCombate: 6, tipoDano: 'Físico',
+    danoBase: 6, danoCombate: 6, tipoDano: 'Físico', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/SwingingStaff.mp3',
     debuff: 'Nenhum', chance: 0, duracao: 0,
 
     energiaCusto: 3, energiaCustoCombate: 3, manaCusto: 0, manaCustoCombate: 0,
@@ -68,7 +68,7 @@ var arcoLongo =
 {
     nome: 'Arco longo', val: 'arcoLongo', obtido: false, peso: 0, preco: 3,
 
-    danoBase: 8, danoCombate: 8, tipoDano: 'Físico',
+    danoBase: 8, danoCombate: 8, tipoDano: 'Físico', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/SwingingStaff.mp3',
     debuff: 'Nenhum', chance: 0, duracao: 0,
 
     energiaCusto: 4, energiaCustoCombate: 4, manaCusto: 0, manaCustoCombate: 0,

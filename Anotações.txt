@@ -1,8 +1,9 @@
 Próximos objetivos:
 
 Sons:
-    --> Colocar sons nos botões, golpes, e sons dos inimigos atacando e levando golpes
-    --> Som de conquista do minecraft ao subir de nivel kk
+    --> Colocar sons nos botões, nas magias e nas regenerações
+    --> Corrigir o erro da música ficar reiniciando (Só colocar um if para caso a próxima música for igual a anterior)
+    --> Fazer um menu para ajustar o volume da música
 
 Combate:
     --> Adicionar minigames nos golpes

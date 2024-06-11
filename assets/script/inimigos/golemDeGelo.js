@@ -16,7 +16,7 @@ var golpeGelido =
 {
     nome: 'Golpe gélido',
 
-    danoBase: 12, danoCombate: 12, tipoDano: 'Gelo',
+    danoBase: 12, danoCombate: 12, tipoDano: 'Gelo', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/SwordMetallic.mp3',
     debuff: 'congelamento', chance: 25, duracao: 3,
 
     energiaCusto: 10, energiaCustoCombate: 10, manaCusto: 0, manaCustoCombate: 0,
@@ -26,7 +26,7 @@ var espinhoGlacial =
 {
     nome: 'Espinho glacial',
 
-    danoBase: 18, danoCombate: 18, tipoDano: 'Gelo',
+    danoBase: 18, danoCombate: 18, tipoDano: 'Gelo', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/MissileBlast.mp3',
     debuff: 'congelado', chance: 40, duracao: 4,
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 12, manaCustoCombate: 12,

@@ -19,6 +19,7 @@ function contraAtaqueDano() {
         armaGeral.danoCombate = armaGeral.danoCombate * 2
 
         inimigoAtingidoDano(armaGeral.danoCombate)
+        somAtaque.src = armaGeral.somAtaque;
 
         legendaView.insertAdjacentHTML('beforeend', `<br><br>${jogador.nome} contra-atacou com ${armaGeral.nome}<br>Dano causado: ${armaGeral.danoCombate}`)
         if (armaGeral.energiaCustoCombate > 0) {

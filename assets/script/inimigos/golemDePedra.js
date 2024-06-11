@@ -16,7 +16,7 @@ var golpeMacico =
 {
     nome: 'Golpe maciço',
 
-    danoBase: 20, danoCombate: 20, tipoDano: 'Físico',
+    danoBase: 20, danoCombate: 20, tipoDano: 'Físico', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/StrongHit.mp3',
     debuff: 'Nenhum', chance: 0, duracao: 0,
 
     energiaCusto: 20, energiaCustoCombate: 20, manaCusto: 0, manaCustoCombate: 0,
@@ -26,7 +26,7 @@ var abaloSismico =
 {
     nome: 'Abalo sísmico',
 
-    danoBase: 35, danoCombate: 35, tipoDano: 'Físico',
+    danoBase: 35, danoCombate: 35, tipoDano: 'Físico', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/LargeMonsterAttack.mp3',
     debuff: '', chance: 0, duracao: 0,
 
     energiaCusto: 25, energiaCustoCombate: 25, manaCusto: 0, manaCustoCombate: 0,

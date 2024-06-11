@@ -93,3 +93,7 @@ function definirMusica() {
     }
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/
+
+var somBotao = window.document.querySelector('audio#somBotao');
+var somAtaque = window.document.querySelector('audio#somAtaque');
+var somGeral = window.document.querySelector('audio#somGeral');

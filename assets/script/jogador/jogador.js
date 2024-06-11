@@ -44,6 +44,7 @@ botaoSubirMana.addEventListener('click', upMana);
 function mostrarStats() {
     subirNivelDisplay.style.display = 'none';
     upStatus.style.display = 'contents';
+    somGeral.src = "assets/content/audio/EfeitoGeral/LevelUp.mp3";
 }
 
 function upVida() {

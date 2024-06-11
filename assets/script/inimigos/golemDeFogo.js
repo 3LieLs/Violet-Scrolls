@@ -16,7 +16,7 @@ var esferaFlamejante =
 {
     nome: 'Esfera flamejante',
 
-    danoBase: 25, danoCombate: 25, tipoDano: 'Fogo',
+    danoBase: 25, danoCombate: 25, tipoDano: 'Fogo', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/MissileBlast.mp3',
     debuff: 'chamas', chance: 40, duracao: 2,
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 12, manaCustoCombate: 12,
@@ -26,7 +26,7 @@ var erupcao =
 {
     nome: 'Erupção',
 
-    danoBase: 40, danoCombate: 40, tipoDano: 'Fogo',
+    danoBase: 40, danoCombate: 40, tipoDano: 'Fogo', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/MissileBlast.mp3',
     debuff: 'chamas', chance: 15, duracao: 4,
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 40, manaCustoCombate: 40,

@@ -16,7 +16,7 @@ var mordidaCortante =
 {
     nome: 'Mordida cortante',
 
-    danoBase: 25, danoCombate: 25, tipoDano: 'Físico',
+    danoBase: 25, danoCombate: 25, tipoDano: 'Físico', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/LargeMonsterAttack.mp3',
     debuff: 'sangramento', chance: 20, duracao: 2,
 
     energiaCusto: 20, energiaCustoCombate: 20, manaCusto: 0, manaCustoCombate: 0,
@@ -26,7 +26,7 @@ var soproFlamejante =
 {
     nome: 'Sopro flamejante', val: 'soproFlamejante',
 
-    danoBase: 40, danoCombate: 40, tipoDano: 'Fogo',
+    danoBase: 40, danoCombate: 40, tipoDano: 'Fogo', somAtaque: '/assets/content/audio/EfeitoSonoroAtaque/MissileBlast.mp3',
     debuff: 'chamas', chance: 0, duracao: 3,
 
     energiaCusto: 0, energiaCustoCombate: 0, manaCusto: 15, manaCustoCombate: 15,
