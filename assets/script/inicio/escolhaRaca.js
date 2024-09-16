@@ -139,7 +139,7 @@ function racaEscolhida() {
 
     escolhaRaca.style.display = 'none';
 
-    localMapa = 'taverna';
-    definirMusica()
+    definirLocal('taverna')
+    definirMusica('taverna')
 }
 /*-----*//*-----*//*-----*//*-----*//*-----*/

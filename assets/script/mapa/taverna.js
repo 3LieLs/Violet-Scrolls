@@ -1,69 +1,51 @@
 /*-TAVERNA VARIÁVEIS-*/
-var missao =
-{
+var missao ={
     ativo: false, recompensa: 0, inimigoDerrotar: '', inimigosDerrotados: 0, inimigosDerrotadosMax: 0
 }
 
-var botaoAbrirMissoes = window.document.querySelector('input#botaoAbrirMissoes');
-botaoAbrirMissoes.addEventListener('click', botaoAbrirMissoesClick);
-
-var botaoFecharMissoes = window.document.querySelector('input#botaoFecharMissoes');
-botaoFecharMissoes.addEventListener('click', botaoFecharMissoesClick);
-
-var aceitarMissao1 = window.document.querySelector('input#aceitarMissao1');
-aceitarMissao1.addEventListener('click', aceitarMissao1Click);
-
-var aceitarMissao2 = window.document.querySelector('input#aceitarMissao2');
-aceitarMissao2.addEventListener('click', aceitarMissao2Click);
-
-var aceitarMissao3 = window.document.querySelector('input#aceitarMissao3');
-aceitarMissao3.addEventListener('click', aceitarMissao3Click);
-/*-----*/
-
 /*-ABRIR/FECHAR MISSÕES-*/
-function botaoAbrirMissoesClick() {
+botaoAbrirMissoes.addEventListener('click', ()=>{
     missoesTaverna.style.right = '1%';
     missoesTaverna.style.opacity = '1';
     missoesTaverna.style.zIndex = '9999';
 
     botaoAbrirMissoes.style.opacity = '0';
     botaoAbrirMissoes.style.zIndex = '-9999';
-}
-
-function botaoFecharMissoesClick() {
+});
+botaoFecharMissoes.addEventListener('click', ()=>{
     missoesTaverna.style.right = '-5%';
     missoesTaverna.style.opacity = '0';
     missoesTaverna.style.zIndex = '-9999';
 
     botaoAbrirMissoes.style.opacity = '1';
     botaoAbrirMissoes.style.zIndex = '9999';
-}
+});
 /*-----*/
 
 /*-MISSÃO ESCOLHA-*/
-function aceitarMissao1Click() {
+aceitarMissao1.addEventListener('click', ()=>{
     missao.ativo = true
     missao.recompensa = inimigoDerrotados[0] * inimigoRecompensa[0];
     missao.inimigoDerrotar = inimigoDerrotar[0];
     missao.inimigosDerrotados = 0;
     missao.inimigosDerrotadosMax = inimigoDerrotados[0];
-}
+});
 
-function aceitarMissao2Click() {
+aceitarMissao2.addEventListener('click', ()=>{
     missao.ativo = true
     missao.recompensa = inimigoDerrotados[1] * inimigoRecompensa[1];
     missao.inimigoDerrotar = inimigoDerrotar[1];
     missao.inimigosDerrotados = 0;
     missao.inimigosDerrotadosMax = inimigoDerrotados[1];
-}
+});
 
-function aceitarMissao3Click() {
+aceitarMissao3.addEventListener('click', ()=>{
     missao.ativo = true
     missao.recompensa = inimigoDerrotados[2] * inimigoRecompensa[2];
     missao.inimigoDerrotar = inimigoDerrotar[2];
     missao.inimigosDerrotados = 0;
     missao.inimigosDerrotadosMax = inimigoDerrotados[2];
-}
+});
 /*-----*/
 
 /*-MISSÕES INFORMAÇÃO-*/

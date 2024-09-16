@@ -1,83 +1,128 @@
-var localMapa = '';
-
-/*-MAPA VARIÁVEIS-*/
-var botaoMapa = window.document.querySelector('input#botaoMapa');
-botaoMapa.addEventListener('click', botaoMapaClick);
-
-var mapaTaverna = window.document.querySelector('input#mapaTaverna');
-mapaTaverna.addEventListener('click', mapaTavernaClick);
-
-var mapaVendedor = window.document.querySelector('input#mapaVendedor');
-mapaVendedor.addEventListener('click', mapaVendedorClick);
-
-var mapaFerreiro = window.document.querySelector('input#mapaFerreiro');
-mapaFerreiro.addEventListener('click', mapaFerreiroClick);
-
-var mapaFeiticeiro = window.document.querySelector('input#mapaFeiticeiro');
-mapaFeiticeiro.addEventListener('click', mapaFeiticeiroClick);
-
-var mapaFloresta = window.document.querySelector('input#mapaFloresta');
-mapaFloresta.addEventListener('click', mapaFlorestaClick);
-
-var mapaCaverna = window.document.querySelector('input#mapaCaverna');
-mapaCaverna.addEventListener('click', mapaCavernaClick);
-
-var mapaMontanha = window.document.querySelector('input#mapaMontanha');
-mapaMontanha.addEventListener('click', mapaMontanhaClick);
-/*-----*/
-
+var localMapa = ''
 
 /*-MAPA BOTÕES-*/
+botaoMapa.addEventListener('click', () => {
+    definirLocal('mapa')
+    definirMusica('mapa');
+});
+
+mapaTaverna.addEventListener('click', () => {
+    mapaEscolhido();
+    localMapa = 'taverna'
+    definirLocal('taverna')
+    definirMusica('taverna');
+});
+
+mapaVendedor.addEventListener('click', () => {
+    mapaEscolhido();
+    localMapa = 'vendedor'
+    definirLocal('vendedor')
+    definirMusica('vendedor');
+});
+
+mapaFerreiro.addEventListener('click', () => {
+    mapaEscolhido();
+    localMapa = 'ferreiro'
+    definirLocal('ferreiro')
+    definirMusica('ferreiro');
+});
+
+mapaFeiticeiro.addEventListener('click', () => {
+    mapaEscolhido();
+    localMapa = 'feiticeiro'
+    definirLocal('feiticeiro')
+    definirMusica('feiticeiro');
+});
+
+mapaFloresta.addEventListener('click', () => {
+    mapaEscolhido();
+    localMapa = 'floresta'
+    definirLocal('floresta')
+    definirMusica('floresta');
+});
+
+mapaCaverna.addEventListener('click', () => {
+    mapaEscolhido();
+    localMapa = 'caverna'
+    definirLocal('caverna')
+    definirMusica('caverna');
+});
+
+mapaMontanha.addEventListener('click', () => {
+    mapaEscolhido();
+    localMapa = 'montanha'
+    definirLocal('montanha')
+    definirMusica('montanha');
+});
+
+/*-----*/
 function mapaEscolhido() {
     mapaDisplay.style.display = 'none';
 }
-
-function botaoMapaClick() {
-    localMapa = 'mapa';
-    definirMusica();
-}
-
-
-function mapaTavernaClick() {
-    mapaEscolhido();
-    localMapa = 'taverna';
-    definirMusica();
-}
-
-function mapaVendedorClick() {
-    mapaEscolhido();
-    localMapa = 'vendedor';
-    definirMusica();
-}
-
-function mapaFerreiroClick() {
-    mapaEscolhido();
-    localMapa = 'ferreiro';
-    definirMusica();
-}
-
-function mapaFeiticeiroClick() {
-    mapaEscolhido();
-    localMapa = 'feiticeiro';
-    definirMusica();
-}
-
-function mapaFlorestaClick() {
-    mapaEscolhido();
-    localMapa = 'floresta';
-    definirMusica();
-
-}
-
-function mapaCavernaClick() {
-    mapaEscolhido();
-    localMapa = 'caverna';
-    definirMusica();
-}
-
-function mapaMontanhaClick() {
-    mapaEscolhido();
-    localMapa = 'montanha';
-    definirMusica();
-}
 /*-----*/
+
+function definirLocal(local) {
+    if (local == 'mapa') {
+        rpgGeral.style.backgroundColor = 'black';
+        mapaDisplay.style.display = 'contents';
+        mainBotaoMenu.style.display = 'none';
+        botaoMapaDisplay.style.display = 'none';
+
+        taverna.style.display = 'none';
+        vendedorDisplay.style.display = 'none';
+        ferreiroDisplay.style.display = 'none';
+        feiticeiroDisplay.style.display = 'none';
+        florestaDisplay.style.display = 'none';
+        cavernaDisplay.style.display = 'none';
+        montanhaDisplay.style.display = 'none';
+    }
+
+    if (local == 'taverna') {
+        rpgGeral.style.backgroundColor = 'brown';
+        taverna.style.display = 'contents';
+        mainBotaoMenu.style.display = 'contents';
+        botaoMapaDisplay.style.display = 'contents';
+    }
+
+    if (local == 'vendedor') {
+        rpgGeral.style.backgroundColor = 'brown';
+        vendedorDisplay.style.display = 'contents';
+        mainBotaoMenu.style.display = 'contents';
+        botaoMapaDisplay.style.display = 'contents';
+    }
+
+    if (local == 'ferreiro') {
+        rpgGeral.style.backgroundColor = 'brown';
+        ferreiroDisplay.style.display = 'contents';
+        mainBotaoMenu.style.display = 'contents';
+        botaoMapaDisplay.style.display = 'contents';
+    }
+
+    if (local == 'feiticeiro') {
+        rpgGeral.style.backgroundColor = 'brown';
+        feiticeiroDisplay.style.display = 'contents';
+        mainBotaoMenu.style.display = 'contents';
+        botaoMapaDisplay.style.display = 'contents';
+    }
+
+    if (local == 'floresta') {
+        rpgGeral.style.backgroundColor = 'gray';
+        florestaDisplay.style.display = 'contents';
+        mainBotaoMenu.style.display = 'contents';
+        botaoMapaDisplay.style.display = 'contents';
+    }
+
+    if (local == 'caverna') {
+        rpgGeral.style.backgroundColor = 'gray';
+        cavernaDisplay.style.display = 'contents'
+        mainBotaoMenu.style.display = 'contents'
+        botaoMapaDisplay.style.display = 'contents'
+    }
+
+    if (local == 'montanha') {
+        rpgGeral.style.backgroundColor = 'gray';
+        montanhaDisplay.style.display = 'contents';
+        mainBotaoMenu.style.display = 'contents';
+        botaoMapaDisplay.style.display = 'contents';
+    }
+}

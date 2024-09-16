@@ -3,33 +3,6 @@
 var mudarItens = 1, mudarEquipamentos = 1, mudarMagias = 1, menuAbertoFechado = false;
 var mudarEquipamentosArmaVal = true, mudarEquipamentosArmaduraVal = false, mudarMagiasDano = true, mudarMagiasRecuperacao = false, mudarMagiasBuff = false;
 
-
-var menuBotaoVal = window.document.querySelector(`input#botaoMenu`);
-menuBotaoVal.addEventListener('click', menuDisplay);
-
-
-var voltarItens = window.document.querySelector('input#voltarItens');
-voltarItens.addEventListener('click', voltarItensClick);
-
-var proximoItens = window.document.querySelector('input#proximoItens');
-proximoItens.addEventListener('click', proximoItensClick);
-
-
-var voltarEquipamentos = window.document.querySelector('input#voltarEquipamentos');
-voltarEquipamentos.addEventListener('click', voltarEquipamentosClick);
-
-var proximoEquipamentos = window.document.querySelector('input#proximoEquipamentos');
-proximoEquipamentos.addEventListener('click', proximoEquipamentosClick);
-
-
-var voltarMagias = window.document.querySelector('input#voltarMagias');
-voltarMagias.addEventListener('click', voltarMagiasClick);
-
-var proximoMagias = window.document.querySelector('input#proximoMagias');
-proximoMagias.addEventListener('click', proximoMagiasClick);
-
-
-
 var experienciaAtualVal = window.document.querySelector('p#experienciaAtual');
 var nivelAtualVal = window.document.querySelector('p#nivelAtual');
 
@@ -41,10 +14,48 @@ var horarioHora = 12, horarioMinuto = 0
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-ABRIR/FECHAR MENU-*/
-function menuDisplay() {
+botaoMenu.addEventListener('click', () => {
     if (menuAbertoFechado == false) {
-        setTimeout(menuAnimacaoAbrir, 100);
-        setTimeout(menuDisplayAbrir, 0);
+        setTimeout(() => {
+            nivel.style.opacity = '1';
+            nivel.style.top = '5%';
+
+            menuNomeGeneroRaca.style.opacity = '1';
+            menuNomeGeneroRaca.style.left = '1%';
+
+            menuStats.style.opacity = '1';
+            menuStats.style.left = '1%';
+
+            menuEquipamentos.style.opacity = '1';
+            menuEquipamentos.style.right = '1%';
+
+            menuMagias.style.opacity = '1';
+            menuMagias.style.right = '1%';
+
+            menuItens.style.opacity = '1';
+
+            menuMissao.style.opacity = '1';
+            menuMissao.style.bottom = '3%';
+
+            horario.style.opacity = '1';
+            horario.style.bottom = '3%';
+        }, 100);
+
+        setTimeout(() => {
+            menu.style.display = 'contents';
+            rpgGeral.style.backgroundColor = 'darkgray';
+            botaoMapaDisplay.style.display = 'none';
+
+            taverna.style.display = 'none';
+            vendedorDisplay.style.display = 'none';
+            ferreiroDisplay.style.display = 'none';
+            feiticeiroDisplay.style.display = 'none';
+            florestaDisplay.style.display = 'none';
+            cavernaDisplay.style.display = 'none';
+            montanhaDisplay.style.display = 'none';
+
+            menuAbertoFechado = true;
+        }, 0);
 
         menuNome.innerHTML = `Nome: ${jogador.nome}`;
         menuGenero.innerHTML = `Gênero: ${jogador.genero}`;
@@ -77,82 +88,39 @@ function menuDisplay() {
         }
     }
     else {
-        setTimeout(menuAnimacaoFechar, 100);
-        setTimeout(menuDisplayFechar, 500);
+        setTimeout(() => {
+            nivel.style.opacity = '0';
+            nivel.style.top = '-15%';
+
+            menuNomeGeneroRaca.style.opacity = '0';
+            menuNomeGeneroRaca.style.left = '-5%';
+
+            menuStats.style.opacity = '0';
+            menuStats.style.left = '-5%';
+
+            menuEquipamentos.style.opacity = '0';
+            menuEquipamentos.style.right = '-5%';
+
+            menuMagias.style.opacity = '0';
+            menuMagias.style.right = '-5%';
+
+            menuItens.style.opacity = '0';
+
+            menuMissao.style.opacity = '0';
+            menuMissao.style.bottom = '-5%';
+
+            horario.style.opacity = '0';
+            horario.style.bottom = '-5%';
+        }, 100);
+
+        setTimeout(() => {
+            menu.style.display = 'none';
+            definirLocal(localMapa)
+            definirMusica(localMapa)
+            menuAbertoFechado = false;
+        }, 500);
     }
-}
-/*-----*/
-function menuDisplayAbrir() {
-    menu.style.display = 'contents';
-    rpgGeral.style.backgroundColor = 'darkgray';
-    botaoMapaDisplay.style.display = 'none';
-
-    taverna.style.display = 'none';
-    vendedorDisplay.style.display = 'none';
-    ferreiroDisplay.style.display = 'none';
-    feiticeiroDisplay.style.display = 'none';
-    florestaDisplay.style.display = 'none';
-    cavernaDisplay.style.display = 'none';
-    montanhaDisplay.style.display = 'none';
-
-    menuAbertoFechado = true;
-}
-/*-----*/
-function menuDisplayFechar() {
-    menu.style.display = 'none';
-    definirMusica()
-    menuAbertoFechado = false;
-}
-/*-----*/
-function menuAnimacaoAbrir() {
-    nivel.style.opacity = '1';
-    nivel.style.top = '5%';
-
-    menuNomeGeneroRaca.style.opacity = '1';
-    menuNomeGeneroRaca.style.left = '1%';
-
-    menuStats.style.opacity = '1';
-    menuStats.style.left = '1%';
-
-    menuEquipamentos.style.opacity = '1';
-    menuEquipamentos.style.right = '1%';
-
-    menuMagias.style.opacity = '1';
-    menuMagias.style.right = '1%';
-
-    menuItens.style.opacity = '1';
-
-    menuMissao.style.opacity = '1';
-    menuMissao.style.bottom = '3%';
-
-    horario.style.opacity = '1';
-    horario.style.bottom = '3%';
-}
-/*-----*/
-function menuAnimacaoFechar() {
-    nivel.style.opacity = '0';
-    nivel.style.top = '-15%';
-
-    menuNomeGeneroRaca.style.opacity = '0';
-    menuNomeGeneroRaca.style.left = '-5%';
-
-    menuStats.style.opacity = '0';
-    menuStats.style.left = '-5%';
-
-    menuEquipamentos.style.opacity = '0';
-    menuEquipamentos.style.right = '-5%';
-
-    menuMagias.style.opacity = '0';
-    menuMagias.style.right = '-5%';
-
-    menuItens.style.opacity = '0';
-
-    menuMissao.style.opacity = '0';
-    menuMissao.style.bottom = '-5%';
-
-    horario.style.opacity = '0';
-    horario.style.bottom = '-5%';
-}
+});
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
@@ -211,21 +179,21 @@ function removerItem() {
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-BOTAO VOLTAR / PRÓXIMO ITENS-*/
-function voltarItensClick() {
+voltarItens.addEventListener('click', () => {
     mudarItens--;
     if (mudarItens < 1) {
         mudarItens = 1;
     }
     mudarTipoItens();
-}
+});
 
-function proximoItensClick() {
+proximoItens.addEventListener('click', () => {
     mudarItens++;
     if (mudarItens > 3) {
         mudarItens = 3;
     }
     mudarTipoItens();
-}
+});
 
 function mudarTipoItens() {
     if (mudarItens == 1) {
@@ -256,22 +224,21 @@ function mudarTipoItens() {
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-BOTÃO VOLTAR / PRÓXIMO EQUIPAMENTOS-*/
-function voltarEquipamentosClick() {
+voltarEquipamentos.addEventListener('click', () => {
     mudarEquipamentos--;
     if (mudarEquipamentos < 1) {
         mudarEquipamentos = 1;
     }
     mudarTipoEquipamentos();
-}
+});
 
-function proximoEquipamentosClick() {
+proximoEquipamentos.addEventListener('click', () => {
     mudarEquipamentos++;
     if (mudarEquipamentos > 2) {
         mudarEquipamentos = 2;
     }
     mudarTipoEquipamentos();
-}
-
+});
 
 function mudarTipoEquipamentos() {
     if (mudarEquipamentos == 1) {
@@ -315,21 +282,21 @@ function atualizarItensEquipamentosArmadura() {
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-BOTÃO VOLTAR / PRÓXIMO MAGIAS-*/
-function voltarMagiasClick() {
+voltarMagias.addEventListener('click', () => {
     mudarMagias--;
     if (mudarMagias < 1) {
         mudarMagias = 1;
     }
     mudarTipoMagias();
-}
+});
 
-function proximoMagiasClick() {
+proximoMagias.addEventListener('click', () => {
     mudarMagias++;
     if (mudarMagias > 3) {
         mudarMagias = 3;
     }
     mudarTipoMagias();
-}
+});
 
 function mudarTipoMagias() {
     if (mudarMagias == 1) {
@@ -390,9 +357,7 @@ function atualizarItensMagiasBuff() {
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-HORÁRIO-*/
-setInterval(atualizarHorario, 500)
-
-function atualizarHorario() {
+setInterval(() => {
     horario.innerHTML = `Horário<br>${horarioHora}:${horarioMinuto}`;
     horarioMinuto++;
 
@@ -403,5 +368,5 @@ function atualizarHorario() {
     if (horarioHora >= 23) {
         horarioHora = 0;
     }
-}
+}, 500)
 /*-----*//*-----*//*-----*//*-----*//*-----*/
