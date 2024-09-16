@@ -1,65 +1,37 @@
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-VOLTAR RAÇA-*/
-var botaoVoltarRaca = window.document.querySelector('input#voltarRaca');
-botaoVoltarRaca.addEventListener('click', voltarRacaClick);
-
-function voltarRacaClick() {
+botaoVoltarRaca.addEventListener('click', () => {
     escolhaNome.style.display = 'contents';
     escolhaRaca.style.display = 'none';
-}
+});
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 /*-ESCOLHA RAÇA VARIÁVEIS-*/
-var botaoHumano = window.document.querySelector('input#humano');
-botaoHumano.addEventListener('click', botaoHumanoClick);
-
-var botaoElfo = window.document.querySelector('input#elfo');
-botaoElfo.addEventListener('click', botaoElfoClick);
-
-var botaoOrc = window.document.querySelector('input#orc');
-botaoOrc.addEventListener('click', botaoOrcClick);
-
-var botaoDraconato = window.document.querySelector('input#draconato');
-botaoDraconato.addEventListener('click', botaoDraconatoClick);
-
-var botaoVampiro = window.document.querySelector('input#vampiro');
-botaoVampiro.addEventListener('click', botaoVampiroClick);
 /*-HUMANO-*/
-function botaoHumanoClick() {
+botaoHumano.addEventListener('click', () => {
     racaGeral = racaHumano;
+    poderUso = poderHumanoClick;
 
     adicionarChicoteDeAco();
     adicionarItem();
-
     adicionarArmaduraDeCouro();
     adicionarItem();
 
-
     adicionarEspinhoDeGelo();
     adicionarItem();
-
     adicionarLuzDaVida();
     adicionarItem();
-
     adicionarFuriaDeTouro();
     adicionarItem();
 
-    poderUso = poderHumanoClick;
-
-    jogador.vidaBase = racaGeral.vidaBase;
-    jogador.energiaBase = racaGeral.energiaBase;
-    jogador.manaBase = racaGeral.manaBase;
-
-    jogador.vidaCombate = racaGeral.vidaCombate;
-    jogador.energiaCombate = racaGeral.energiaCombate;
-    jogador.manaCombate = racaGeral.manaCombate;
-
     racaEscolhida();
-}
-/*-Elfo-*/
-function botaoElfoClick() {
+});
+
+/*-ELFO-*/
+botaoElfo.addEventListener('click', () => {
     racaGeral = racaElfo;
+    poderUso = poderElfoClick;
 
     adicionarAdaga();
     adicionarItem();
@@ -76,21 +48,13 @@ function botaoElfoClick() {
     adicionarEsferasDaVida();
     adicionarItem();
 
-    poderUso = poderElfoClick;
-
-    jogador.vidaBase = racaGeral.vidaBase;
-    jogador.energiaBase = racaGeral.energiaBase;
-    jogador.manaBase = racaGeral.manaBase;
-
-    jogador.vidaCombate = racaGeral.vidaCombate;
-    jogador.energiaCombate = racaGeral.energiaCombate;
-    jogador.manaCombate = racaGeral.manaCombate;
-
     racaEscolhida();
-}
+});
+
 /*-ORC-*/
-function botaoOrcClick() {
+botaoOrc.addEventListener('click', () => {
     racaGeral = racaOrc;
+    poderUso = poderOrcClick;
 
     adicionarEspadaDeAco();
     adicionarItem();
@@ -107,21 +71,13 @@ function botaoOrcClick() {
     adicionarFuriaDeTouro();
     adicionarItem();
 
-    poderUso = poderOrcClick;
-
-    jogador.vidaBase = racaGeral.vidaBase;
-    jogador.energiaBase = racaGeral.energiaBase;
-    jogador.manaBase = racaGeral.manaBase;
-
-    jogador.vidaCombate = racaGeral.vidaCombate;
-    jogador.energiaCombate = racaGeral.energiaCombate;
-    jogador.manaCombate = racaGeral.manaCombate;
-
     racaEscolhida();
-}
+});
+
 /*-DRACONATO-*/
-function botaoDraconatoClick() {
+botaoDraconato.addEventListener('click', () => {
     racaGeral = racaDraconato;
+    poderUso = poderDraconatoClick;
 
     adicionarEspadaDeAco();
     adicionarItem();
@@ -138,21 +94,13 @@ function botaoDraconatoClick() {
     adicionarFuriaDeTouro();
     adicionarItem();
 
-    poderUso = poderDraconatoClick;
-
-    jogador.vidaBase = racaGeral.vidaBase;
-    jogador.energiaBase = racaGeral.energiaBase;
-    jogador.manaBase = racaGeral.manaBase;
-
-    jogador.vidaCombate = racaGeral.vidaCombate;
-    jogador.energiaCombate = racaGeral.energiaCombate;
-    jogador.manaCombate = racaGeral.manaCombate;
-
     racaEscolhida();
-}
+});
+
 /*-VAMPIRO-*/
-function botaoVampiroClick() {
+botaoVampiro.addEventListener('click', () => {
     racaGeral = racaVampiro;
+    poderUso = poderVampiroClick;
 
     adicionarArcoSimples();
     adicionarItem();
@@ -169,18 +117,8 @@ function botaoVampiroClick() {
     adicionarEsferasDaVida();
     adicionarItem();
 
-    poderUso = poderVampiroClick;
-
-    jogador.vidaBase = racaGeral.vidaBase;
-    jogador.energiaBase = racaGeral.energiaBase;
-    jogador.manaBase = racaGeral.manaBase;
-
-    jogador.vidaCombate = racaGeral.vidaCombate;
-    jogador.energiaCombate = racaGeral.energiaCombate;
-    jogador.manaCombate = racaGeral.manaCombate;
-
     racaEscolhida();
-}
+});
 /*-----*//*-----*//*-----*//*-----*//*-----*/
 
 /*-----*//*-----*//*-----*//*-----*//*-----*/
@@ -190,6 +128,14 @@ function racaEscolhida() {
     magiaDanoGeral = 'Nenhuma'
     magiaRecuperacaoGeral = 'Nenhuma'
     magiaBuffGeral = 'Nenhuma'
+
+    jogador.vidaBase = racaGeral.vidaBase;
+    jogador.energiaBase = racaGeral.energiaBase;
+    jogador.manaBase = racaGeral.manaBase;
+
+    jogador.vidaCombate = racaGeral.vidaCombate;
+    jogador.energiaCombate = racaGeral.energiaCombate;
+    jogador.manaCombate = racaGeral.manaCombate;
 
     escolhaRaca.style.display = 'none';
 

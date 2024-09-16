@@ -2,14 +2,12 @@
 /*-SELEÇÃO DE GÊNERO ESCOLHA-*/
 botaoMasculino.addEventListener('click', () => {
     jogador.genero = 'Homem';
-    armaGeral = soco;
     escolhaGenero.style.display = 'none';
     escolhaNome.style.display = 'contents';
 });
 
 botaoFeminino.addEventListener('click', () => {
     jogador.genero = 'Mulher';
-    armaGeral = soco;
     escolhaGenero.style.display = 'none';
     escolhaNome.style.display = 'contents';
 });

@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Eliel-Fernandes">
     <title>Violet Scrolls</title>
 
     <link rel="icon" type="image/x-icon" href="assets/content/img/RPG_Favicon.jpg">
@@ -44,10 +45,16 @@
     * {
         font-family: 'BreatheFire';
         box-sizing: border-box;
+        margin: 0;
+        padding: 0;
     }
 
     body {
         background-color: black;
+    }
+
+    body input:hover {
+        cursor: pointer;
     }
 </style>
 <!----------><!----------><!----------><!----------><!---------->
@@ -97,60 +104,57 @@
 
         <!--ESCOLHA DA RAÇA-->
         <div id="escolhaRaca">
-            <input id="voltarRaca" type="button" value="Voltar">
-
+            <input id="botaoVoltarRaca" type="button" value="Voltar">
             <p id="mensagemRaca">Escolha a sua raça</p>
-
             <div id="mainRaca">
-
                 <div id="humanoBarra">
-                    <input id="humano" type="button" value="Humano">
+                    <input id="botaoHumano" type="button" value="Humano">
                     <p id="humanoCaracteristica">Os humanos, versáteis e ambiciosos, dominam os reinos com sua
                         adaptabilidade e ambição. Sem habilidades naturais extraordinárias, sua força está na
                         diversidade de talentos e na capacidade de aprender rapidamente. Na grande tapeçaria do mundo,
                         são os humanos que tecem os fios mais intrincados.</p>
-                    <p id="humanoStats">Status: Vida = 20 / Mana = 20 / Energia = 20</p>
+                    <p id="humanoStats">Vida = 20 / Mana = 20 / Energia = 20</p>
                 </div>
 
                 <div id="elfoBarra">
-                    <input id="elfo" type="button" value="Elfo">
+                    <input id="botaoElfo" type="button" value="Elfo">
                     <p id="elfoCaracteristica">Os elfos, graciosos e sábios, são filhos da natureza, harmonizando-se com
                         suas florestas ancestrais. Dotados de beleza etérea e destreza inigualável, possuem uma conexão
                         íntima com a magia e os segredos antigos. Guardiões das florestas e da sabedoria ancestral, os
                         elfos deslumbram com sua elegância e mistério.</p>
-                    <p id="elfoStats">Status: Vida = 20 / Mana = 30 / Energia = 10</p>
+                    <p id="elfoStats">Vida = 20 / Mana = 30 / Energia = 10</p>
                 </div>
 
                 <div id="orcBarra">
-                    <input id="orc" type="button" value="Orc">
+                    <input id="botaoOrc" type="button" value="Orc">
                     <p id="orcCaracteristica">Os orcs, ferozes e indomáveis, são filhos da guerra, moldados pela forja
                         do conflito e da adversidade. Possuidores de uma força brutal e uma determinação inabalável, os
                         orcs são guerreiros natos, temidos em batalha por sua ferocidade inigualável. Apesar de sua
                         reputação como brutamontes, os orcs valorizam a lealdade e a honra, honrando suas tradições
                         ancestrais enquanto lutam por seu lugar no mundo.</p>
-                    <p id="orcStats">Status: Vida = 30 / Mana = 10 / Energia = 20</p>
+                    <p id="orcStats">Vida = 30 / Mana = 10 / Energia = 20</p>
                 </div>
 
                 <div id="draconatoBarra">
-                    <input id="draconato" type="button" value="Draconato">
+                    <input id="botaoDraconato" type="button" value="Draconato">
                     <p id="draconatoCaracteristica">Os draconatos, descendentes dos grandes dragões, são seres
                         majestosos e imponentes. Com escamas resplandecentes e fôlego de fogo, eles trazem consigo a
                         herança dos antigos senhores alados. Dotados de sabedoria milenar e uma determinação feroz, os
                         draconatos protegem seus lares com fervor, mantendo vivo o legado de suas lendárias linhagens.
                         Em um mundo onde o poder e a magia se entrelaçam, os draconatos são os guardiões dos segredos
                         mais profundos e dos mistérios mais antigos.</p>
-                    <p id="draconatoStats">Status: Vida = 25 / Mana = 15 / Energia = 20</p>
+                    <p id="draconatoStats">Vida = 25 / Mana = 15 / Energia = 20</p>
                 </div>
 
                 <div id="vampiroBarra">
-                    <input id="vampiro" type="button" value="Vampiro">
+                    <input id="botaoVampiro" type="button" value="Vampiro">
                     <p id="vampiroCaracteristica">Os vampiros, criaturas da noite e do desejo, são seres imortais que se
                         alimentam da essência vital dos vivos. Envolvidos em mistério e sedução, eles possuem uma beleza
                         hipnotizante e uma força sobrenatural. Movendo-se nas sombras e dominando a arte da manipulação,
                         os vampiros percorrem o mundo eterno em busca de poder e prazer. Contudo, sua imortalidade vem
                         com um preço, pois estão condenados a uma existência solitária e à eterna luta contra a sede
                         insaciável por sangue.</p>
-                    <p id="vampiroStats">Status: Vida = 15 / Mana = 25 / Energia = 20</p>
+                    <p id="vampiroStats">Vida = 15 / Mana = 25 / Energia = 20</p>
                 </div>
             </div>
         </div>
@@ -499,7 +503,7 @@
     <script src="assets/script/geral/variaveis.js"></script>
     <script src="assets/script/geral/musica.js"></script>
     <script src="assets/script/geral/menu.js"></script>
-    
+
     <script src="assets/script/combate/combateGeral.js"></script>
     <script src="assets/script/combate/buff_debuff.js"></script>
     <script src="assets/script/combate/poderes.js"></script>

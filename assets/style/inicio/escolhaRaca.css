@@ -3,10 +3,12 @@
     display: none;
 }
 
-#voltarRaca {
+#botaoVoltarRaca {
     position: absolute;
     top: 3%;
     left: 1%;
+    width: 7%;
+    height: 7%;
     background-color: black;
     color: orangered;
     border: solid 3px black;
@@ -15,19 +17,14 @@
     transition: 0.5s;
 }
 
-#voltarRaca:hover {
+#botaoVoltarRaca:hover {
     background-color: gray;
     color: black;
     border: solid 3px gray;
-    cursor: pointer;
 }
 
 #mensagemRaca {
-    position: absolute;
-    top: -10%;
-    left: 50%;
-    transform: translate(-50%);
-    padding-top: 2%;
+    margin-top: 2%;
     text-align: center;
     font-size: 35pt;
     font-weight: bold;
@@ -46,8 +43,8 @@
     align-items: center;
     position: absolute;
     top: 15%;
-    margin: 0%;
     width: 30%;
+    height: 60%;
 }
 
 #humanoBarra {
@@ -74,44 +71,40 @@
 }
 
 /*-----*/
-#humano,
-#elfo,
-#orc,
-#draconato,
-#vampiro {
-    margin: 0%;
-    width: 50%;
+#botaoHumano,
+#botaoElfo,
+#botaoOrc,
+#botaoDraconato,
+#botaoVampiro {
+    width: 75%;
+    height: 10%;
     background-color: black;
     color: orangered;
+    border: none;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     font-size: 20pt;
     transition: 0.5s;
 }
 
-#humano:hover {
+#botaoHumano:hover {
     background-color: wheat;
-    cursor: pointer;
 }
 
-#elfo:hover {
+#botaoElfo:hover {
     background-color: green;
-    cursor: pointer;
 }
 
-#orc:hover {
+#botaoOrc:hover {
     background-color: red;
-    cursor: pointer;
 }
 
-#draconato:hover {
+#botaoDraconato:hover {
     background-color: blue;
-    cursor: pointer;
 }
 
-#vampiro:hover {
+#botaoVampiro:hover {
     background-color: purple;
-    cursor: pointer;
 }
 
 /*-----*/
@@ -120,43 +113,41 @@
 #orcCaracteristica,
 #draconatoCaracteristica,
 #vampiroCaracteristica {
-    margin: 0% 0% 0% 0%;
     padding: 3%;
     width: 75%;
-    height: 24vh;
+    height: 45%;
     background-color: black;
     color: orangered;
-    border-left: solid 7px gray;
-    border-right: solid 7px gray;
-    border-radius: 5px;
-    text-align: justify;
+    text-align: left;
     font-size: 15pt;
     overflow: auto;
 }
 
-#humanoCaracteristica {
-    border-left: solid 7px wheat;
-    border-right: solid 7px wheat;
+#humanoCaracteristica,
+#humanoStats {
+    border-left: solid 3px wheat;
+    border-right: solid 3px wheat;
 }
 
-#elfoCaracteristica {
-    border-left: solid 7px green;
-    border-right: solid 7px green;
+#elfoCaracteristica,
+#elfoStats {
+    border-left: solid 3px green;
+    border-right: solid 3px green;
 }
 
-#orcCaracteristica {
-    border-left: solid 7px red;
-    border-right: solid 7px red;
+#orcCaracteristica, #orcStats{
+    border-left: solid 3px red;
+    border-right: solid 3px red;
 }
 
-#draconatoCaracteristica {
-    border-left: solid 7px blue;
-    border-right: solid 7px blue;
+#draconatoCaracteristica, #draconatoStats{
+    border-left: solid 3px blue;
+    border-right: solid 3px blue;
 }
 
-#vampiroCaracteristica {
-    border-left: solid 7px purple;
-    border-right: solid 7px purple;
+#vampiroCaracteristica, #vampiroStats{
+    border-left: solid 3px purple;
+    border-right: solid 3px purple;
 }
 
 /*-----*/
@@ -165,40 +156,13 @@
 #orcStats,
 #draconatoStats,
 #vampiroStats {
-    margin: 1% 0% 0% 0%;
-    padding: 2% 0% 0% 0%;
+    margin-top: 1%;
+    padding-top: 2%;
     width: 75%;
-    height: 4vh;
+    height: 10%;
     background-color: black;
     color: orangered;
-    border-radius: 5px;
     text-align: center;
-    font-size: 11pt;
+    font-size: 12pt;
 }
-
-#humanoStats {
-    border-left: solid 7px wheat;
-    border-right: solid 7px wheat;
-}
-
-#elfoStats {
-    border-left: solid 7px green;
-    border-right: solid 7px green;
-}
-
-#orcStats {
-    border-left: solid 7px red;
-    border-right: solid 7px red;
-}
-
-#draconatoStats {
-    border-left: solid 7px blue;
-    border-right: solid 7px blue;
-}
-
-#vampiroStats {
-    border-left: solid 7px purple;
-    border-right: solid 7px purple;
-}
-
 /*-----*/

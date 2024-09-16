@@ -6,7 +6,6 @@ botaoInicio.addEventListener('click', () => {
 });
 
 botaoInicio.addEventListener('mouseover', () => {
-    botaoInicio.style.cursor = 'pointer';
     botaoInicio.style.animation = 'botaoAnimacao 2s 0ms infinite running';
     botaoInicio.style.background = 'gray';
 });
