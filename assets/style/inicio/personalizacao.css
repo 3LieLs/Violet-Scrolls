@@ -1,5 +1,4 @@
 /*-SELEÇÃO GÊNERO-*/
-/*-----*/
 #escolhaGenero {
     display: none;
 }
@@ -7,12 +6,13 @@
 #mensagemEscolhaGenero {
     padding-top: 10%;
     text-align: center;
-    font-size: 25pt;
-    font-weight: bold;
+    font-size: 40pt;
+    font-weight: bolder;
 }
 
 /*-----*/
-#botaoMasculino {
+#botaoMasculino,
+#botaoFeminino {
     display: block;
     margin: auto;
     margin-top: 5%;
@@ -31,21 +31,6 @@
     cursor: pointer;
 }
 
-/*-----*/
-#botaoFeminino {
-    display: block;
-    margin: auto;
-    margin-top: 5%;
-    width: 20%;
-    height: 50px;
-    background-color: black;
-    color: orangered;
-    border: solid;
-    border-radius: 20%;
-    font-size: 25pt;
-    transition: 0.5s all 0s;
-}
-
 #botaoFeminino:hover {
     background-color: #F005D0;
     cursor: pointer;
@@ -53,12 +38,11 @@
 
 /*-----*/
 
-/*-SELEÇÃO NOME-*/
 /*-----*/
+/*-SELEÇÃO NOME-*/
 #escolhaNome {
     display: none;
 }
-
 
 #mensagemEscolhaNome {
     padding-top: 10%;
@@ -66,6 +50,7 @@
     font-size: 25pt;
     font-weight: bold;
 }
+
 /*-----*/
 #nomeJogador {
     display: block;
@@ -102,4 +87,5 @@
     border: solid 3px gray;
     cursor: pointer;
 }
+
 /*-----*/
